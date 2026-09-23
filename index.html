@@ -739,47 +739,6 @@
       color: #34d399;
     }
 
-    /* Customer Growth Card (Bottom Right) */
-    .widget-growth-card {
-      background: var(--bg-card);
-      border-radius: 26px;
-      padding: 24px;
-      border: 1px solid var(--border-card);
-      box-shadow: var(--card-shadow);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .channel-progress-item {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 10px;
-    }
-
-    .channel-progress-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--text-dark);
-    }
-
-    .channel-progress-bar {
-      width: 100%;
-      height: 8px;
-      background: var(--bg-canvas);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .channel-progress-fill {
-      height: 100%;
-      border-radius: 10px;
-      background: var(--bg-forest);
-    }
-
     /* Detailed Sections Container */
     .detailed-sections-container {
       display: flex;
@@ -1800,7 +1759,7 @@
 
   
     /* ========================================================================== */
-    /* 4.4 AUDIENCE & DEMOGRAPHICS CARD (Placed directly under Customer Growth)   */
+    /* 4.4 AUDIENCE & DEMOGRAPHICS CARD (Placed directly under Product Statistic) */
     /* ========================================================================== */
     .widget-audience-card {
       background: var(--bg-card);
@@ -3533,62 +3492,7 @@
         </div>
 
 
-        <!-- Widget 2: Customer Growth Card (Bottom Right) -->
-        <div class="widget-growth-card">
-          <div class="widget-card-header">
-            <div class="widget-title-group">
-              <h4 style="font-size: 17px; font-weight: 800; color: var(--text-dark);">Customer Growth</h4>
-              <p style="font-size: 12.5px; color: var(--text-muted);">Track your audience by channel</p>
-            </div>
-            <div class="widget-time-pill" style="background: var(--bg-canvas);">Today ⌄</div>
-          </div>
-
-          <!-- Bubbles Graphic -->
-          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 10px 0;">
-            <div style="width: 72px; height: 72px; border-radius: 50%; background: #064e3b; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; box-shadow: 0 4px 10px rgba(6,78,59,0.3);">87%</div>
-            <div style="display: flex; flex-direction: column; gap: 6px;">
-              <div style="width: 44px; height: 44px; border-radius: 50%; background: #0b3b24; color: #a7f3d0; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800;">17%</div>
-              <div style="width: 54px; height: 54px; border-radius: 50%; background: #10b981; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800;">57%</div>
-            </div>
-            <div style="width: 48px; height: 48px; border-radius: 50%; background: #059669; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800;">37%</div>
-          </div>
-
-          <!-- Channel Progress List -->
-          <div>
-            <div class="channel-progress-item">
-              <div class="channel-progress-label">
-                <span>🏢 เพจ Mayfair (Food Park)</span>
-                <span id="growthMayfairLabel">36,400 (+7.29%)</span>
-              </div>
-              <div class="channel-progress-bar">
-                <div class="channel-progress-fill" id="growthMayfairBar" style="width: 65%;"></div>
-              </div>
-            </div>
-
-            <div class="channel-progress-item">
-              <div class="channel-progress-label">
-                <span>🏙️ เพจ City Link Condo</span>
-                <span id="growthClcLabel">19,392 คน</span>
-              </div>
-              <div class="channel-progress-bar">
-                <div class="channel-progress-fill" id="growthClcBar" style="width: 35%; background: #10b981;"></div>
-              </div>
-            </div>
-
-            <div class="channel-progress-item">
-              <div class="channel-progress-label">
-                <span>🎵 TikTok @citylink</span>
-                <span id="growthTiktokLabel">83 คน</span>
-              </div>
-              <div class="channel-progress-bar">
-                <div class="channel-progress-fill" id="growthTiktokBar" style="width: 15%; background: #042f24;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <!-- Widget 3: 4.4 Audience & Demographics Card (ตรงพื้นที่ว่างด้านล่าง Customer Growth) -->
+        <!-- Widget 2: 4.4 Audience & Demographics Card -->
         <div class="widget-audience-card" id="sec-audience">
           
           <!-- Card Header -->
@@ -4639,18 +4543,6 @@
       if (elPopClcRow) elPopClcRow.textContent = `${formatNumber(curClc)} คน (${momClc >= 0 ? '+' : ''}${momClc} ในเดือนนี้)`;
       if (elPopTiktokRow) elPopTiktokRow.textContent = `${curTiktok} คน`;
       if (elPopNote) elPopNote.textContent = `💡 ข้อมูลประจำงวด: ${getPeriodLabel(currentPeriod)} • ฐานแฟนคลับ 80.9% อยู่ใน จ.นครราชสีมา`;
-
-      // Update Customer Growth Widget
-      const elGMayLabel = document.getElementById('growthMayfairLabel');
-      const elGMayBar = document.getElementById('growthMayfairBar');
-      const elGClcLabel = document.getElementById('growthClcLabel');
-      const elGClcBar = document.getElementById('growthClcBar');
-      const elGTiktokLabel = document.getElementById('growthTiktokLabel');
-      if (elGMayLabel) elGMayLabel.textContent = `${formatNumber(curMayfair)} (+${mayfairYtdPct}%)`;
-      if (elGMayBar) elGMayBar.style.width = mayfairShare + '%';
-      if (elGClcLabel) elGClcLabel.textContent = `${formatNumber(curClc)} คน`;
-      if (elGClcBar) elGClcBar.style.width = clcShare + '%';
-      if (elGTiktokLabel) elGTiktokLabel.textContent = `${curTiktok} คน`;
 
       // Update Section 4.1 - 4.3 Leading Tag & Intent Analytics
       const elLeadBadge = document.getElementById('leadTierPeriodBadge');
