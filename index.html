@@ -1159,13 +1159,13 @@
     /* ========================================================================== */
     .lead-tag-card-wrapper {
       background: var(--bg-card);
-      border-radius: 26px;
-      padding: 26px 28px;
+      border-radius: 22px;
+      padding: 18px 22px;
       border: 1px solid var(--border-card);
       box-shadow: var(--card-shadow);
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 13px;
     }
 
     .lead-tag-header-row {
@@ -1173,11 +1173,11 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
     }
 
     .lead-tag-title-group h3 {
-      font-size: 18.5px;
+      font-size: 16.5px;
       font-weight: 800;
       color: var(--text-dark);
       margin: 0;
@@ -1188,18 +1188,18 @@
     }
 
     .lead-tag-title-group p {
-      font-size: 12.8px;
+      font-size: 12px;
       color: var(--text-muted);
-      margin: 4px 0 0 0;
+      margin: 2px 0 0 0;
     }
 
     .lead-engine-badge {
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 700;
       color: #047857;
       background: rgba(16, 185, 129, 0.12);
       border: 1px solid rgba(16, 185, 129, 0.3);
-      padding: 5px 14px;
+      padding: 4px 11px;
       border-radius: 20px;
       display: inline-flex;
       align-items: center;
@@ -1232,7 +1232,7 @@
     .lead-overview-5cards {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
+      gap: 10px;
     }
 
     @media (max-width: 960px) {
@@ -1244,38 +1244,38 @@
     .lead-kpi-box {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 13px 15px;
+      border-radius: 12px;
+      padding: 10px 12px;
       display: flex;
       flex-direction: column;
-      gap: 5px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      gap: 3px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
       transition: all 0.2s ease;
       position: relative;
     }
 
     .lead-kpi-box:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.06);
     }
 
     .lead-kpi-box.box-hot {
-      border-left: 4px solid #ef4444;
+      border-left: 3.5px solid #ef4444;
       background: linear-gradient(180deg, rgba(239, 68, 68, 0.05) 0%, var(--bg-card) 100%);
     }
 
     .lead-kpi-box.box-warm {
-      border-left: 4px solid #f59e0b;
+      border-left: 3.5px solid #f59e0b;
       background: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, var(--bg-card) 100%);
     }
 
     .lead-kpi-box.box-cool {
-      border-left: 4px solid #0ea5e9;
+      border-left: 3.5px solid #0ea5e9;
       background: linear-gradient(180deg, rgba(14, 165, 233, 0.05) 0%, var(--bg-card) 100%);
     }
 
     .lead-kpi-box.box-conv {
-      border-left: 4px solid #10b981;
+      border-left: 3.5px solid #10b981;
       background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, var(--bg-card) 100%);
     }
 
@@ -1299,31 +1299,34 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 11.8px;
+      font-size: 11.2px;
       font-weight: 700;
       color: var(--text-muted);
     }
 
     .lead-kpi-value {
-      font-size: 26px;
+      font-size: 23px;
       font-weight: 800;
       color: var(--text-dark);
       line-height: 1.1;
     }
 
     .lead-kpi-sub {
-      font-size: 11px;
+      font-size: 10.5px;
       color: var(--text-muted);
-      line-height: 1.3;
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .lead-pill-badge {
       display: inline-flex;
       align-items: center;
       gap: 3px;
-      padding: 1px 7px;
+      padding: 1px 6px;
       border-radius: 999px;
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 700;
       white-space: nowrap;
     }
@@ -1350,11 +1353,11 @@
     .lead-hot-feed-banner {
       background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
       border: 1px solid #fecdd3;
-      border-radius: 14px;
-      padding: 13px 16px;
+      border-radius: 12px;
+      padding: 10px 14px;
       display: flex;
       flex-direction: column;
-      gap: 9px;
+      gap: 8px;
       transition: all 0.25s ease;
     }
 
@@ -1377,9 +1380,9 @@
     .lead-feed-tier-switcher {
       display: inline-flex;
       background: rgba(0, 0, 0, 0.05);
-      padding: 3px;
+      padding: 2px;
       border-radius: 999px;
-      gap: 3px;
+      gap: 2px;
     }
 
     [data-theme="dark"] .lead-feed-tier-switcher {
@@ -1389,15 +1392,15 @@
     .lead-feed-tier-btn {
       border: none;
       background: transparent;
-      padding: 4px 12px;
+      padding: 3px 10px;
       border-radius: 999px;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 700;
       color: var(--text-muted);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
       transition: all 0.2s ease;
     }
 
@@ -1424,20 +1427,49 @@
     .lead-hot-pulse-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       background: #e11d48;
       color: #ffffff;
-      padding: 3px 10px;
+      padding: 3px 9px;
       border-radius: 999px;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 800;
       letter-spacing: -0.2px;
       transition: background 0.25s ease;
     }
 
-    .lead-hot-desc {
-      font-size: 12.8px;
+    .lead-sla-badge {
+      font-size: 11px;
       font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(225, 29, 72, 0.1);
+      color: #be123c;
+      border: 1px solid rgba(225, 29, 72, 0.2);
+      white-space: nowrap;
+    }
+
+    [data-theme="dark"] .lead-sla-badge {
+      background: rgba(225, 29, 72, 0.2);
+      color: #fda4af;
+      border-color: rgba(225, 29, 72, 0.4);
+    }
+
+    .lead-hot-feed-banner.theme-warm .lead-sla-badge {
+      background: rgba(217, 119, 6, 0.1);
+      color: #b45309;
+      border-color: rgba(217, 119, 6, 0.2);
+    }
+
+    [data-theme="dark"] .lead-hot-feed-banner.theme-warm .lead-sla-badge {
+      background: rgba(217, 119, 6, 0.2);
+      color: #fcd34d;
+      border-color: rgba(217, 119, 6, 0.4);
+    }
+
+    .lead-hot-desc {
+      font-size: 12px;
+      font-weight: 600;
       color: #881337;
     }
 
@@ -1448,12 +1480,12 @@
     .lead-hot-card {
       background: #ffffff;
       border: 1px solid #fecdd3;
-      border-radius: 10px;
-      padding: 11px 14px;
+      border-radius: 9px;
+      padding: 9px 12px;
       display: flex;
       flex-direction: column;
-      gap: 7px;
-      box-shadow: 0 2px 6px rgba(225, 29, 72, 0.05);
+      gap: 6px;
+      box-shadow: 0 2px 6px rgba(225, 29, 72, 0.04);
     }
 
     [data-theme="dark"] .lead-hot-card {
@@ -1464,12 +1496,12 @@
     .lead-warm-card {
       background: #ffffff;
       border: 1px solid #fde68a;
-      border-radius: 10px;
-      padding: 11px 14px;
+      border-radius: 9px;
+      padding: 9px 12px;
       display: flex;
       flex-direction: column;
-      gap: 7px;
-      box-shadow: 0 2px 6px rgba(217, 119, 6, 0.05);
+      gap: 6px;
+      box-shadow: 0 2px 6px rgba(217, 119, 6, 0.04);
     }
 
     [data-theme="dark"] .lead-warm-card {
@@ -1700,7 +1732,7 @@
     .lead-2charts-grid {
       display: grid;
       grid-template-columns: 1fr 1.25fr;
-      gap: 16px;
+      gap: 12px;
     }
 
     @media (max-width: 860px) {
@@ -1712,11 +1744,11 @@
     .lead-inner-chart-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 16px 18px;
+      border-radius: 14px;
+      padding: 12px 14px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 6px;
       box-shadow: var(--shadow-sm);
     }
 
@@ -1725,11 +1757,11 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid var(--border-subtle);
-      padding-bottom: 7px;
+      padding-bottom: 5px;
     }
 
     .lead-chart-title {
-      font-size: 13.5px;
+      font-size: 12.5px;
       font-weight: 800;
       color: var(--text-dark);
       display: flex;
@@ -1738,7 +1770,7 @@
     }
 
     .lead-chart-badge {
-      font-size: 11.5px;
+      font-size: 10.5px;
       font-weight: 700;
       color: var(--text-muted);
     }
@@ -1746,12 +1778,12 @@
     .lead-donut-legend {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px 14px;
+      gap: 6px 12px;
       justify-content: center;
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 600;
       color: var(--text-muted);
-      margin-top: 4px;
+      margin-top: 2px;
     }
 
     .lead-legend-item {
@@ -3205,17 +3237,17 @@
           </div>
         </div>
 
-                <!-- 🎯 SECTION 4.1 - 4.3: Leading Tag & Intent Analytics (แทนที่ Customer Habits) -->
+                <!-- 🎯 SECTION 4.1 - 4.3: Leading Tag & Intent Analytics -->
         <div class="lead-tag-card-wrapper" id="sec-habits">
           
           <!-- 4.1 Header Row -->
           <div class="lead-tag-header-row">
             <div class="lead-tag-title-group">
-              <h3><span>🎯</span> 4.1 Leading Tag & Intent Analytics: ระบบคัดกรองระดับความพร้อมลูกค้า (Hot / Warm / Cool)</h3>
-              <p>วิเคราะห์ Keywords และ Intent ของข้อความอัตโนมัติ เพื่อจัดลำดับความเร่งด่วนและเพิ่มอัตราการปิดการขาย (Conversion Rate)</p>
+              <h3><span>🎯</span> 4.1 คัดกรองระดับความพร้อมลูกค้า (Lead Scoring & Intent)</h3>
+              <p>วิเคราะห์ระดับความสนใจและ Intent อัตโนมัติ เพื่อจัดลำดับการดูแลและเร่งปิดการขาย</p>
             </div>
             <div class="lead-engine-badge">
-              <span class="lead-live-dot"></span> Smart Lead Scoring Engine Active
+              <span class="lead-live-dot"></span> AI Scoring Active
             </div>
           </div>
 
@@ -3224,17 +3256,17 @@
             <!-- Card 1: Total Analyzed -->
             <div class="lead-kpi-box has-popup" tabindex="0">
               <div class="lead-kpi-header">
-                <span>👥 แชทที่วิเคราะห์ทั้งหมด</span>
-                <span style="font-size: 13.5px;">📊</span>
+                <span>💬 แชทที่วิเคราะห์</span>
+                <span style="font-size: 12px;">📊</span>
               </div>
-              <div class="lead-kpi-value" id="mainLeadTotal">13</div>
-              <div class="lead-kpi-sub" id="mainLeadTotalSub">จาก Facebook & Line OA & Web</div>
+              <div class="lead-kpi-value" id="mainLeadTotal">7</div>
+              <div class="lead-kpi-sub" id="mainLeadTotalSub">FB Messenger 100%</div>
               <div class="donut-popup" style="width: 250px;">
                 <div class="popup-header">
-                  <span class="popup-title"><span>👥</span> แชทที่วิเคราะห์ทั้งหมด</span>
+                  <span class="popup-title"><span>👥</span> แชทที่วิเคราะห์</span>
                   <span class="popup-badge" id="popLeadTotalBadge" style="background: rgba(16, 185, 129, 0.25); color: #34d399;">100% Leads</span>
                 </div>
-                <div class="popup-row"><span>จำนวนข้อความทั้งหมด:</span><strong id="popLeadTotalVal">13 บทสนทนา</strong></div>
+                <div class="popup-row"><span>จำนวนข้อความทั้งหมด:</span><strong id="popLeadTotalVal">7 บทสนทนา</strong></div>
                 <div class="popup-row"><span>ช่องทางหลัก:</span><strong id="popLeadTotalChan" style="color: #38bdf8;">Facebook Messenger</strong></div>
                 <div class="popup-footer-note">💡 ระบบ AI คัดกรองและให้คะแนนความพร้อมลูกค้าอัตโนมัติ</div>
               </div>
@@ -3243,17 +3275,17 @@
             <!-- Card 2: Hot Leads -->
             <div class="lead-kpi-box box-hot has-popup" tabindex="0" onclick="switchLeadFeedTier('hot', true)" style="cursor: pointer;" title="คลิกเพื่อสลับและดู Real-Time Feed ลูกค้ากลุ่ม Hot Leads">
               <div class="lead-kpi-header">
-                <span style="color: #dc2626;">🔥 Hot Leads (พร้อมซื้อ/นัดชม)</span>
-                <span class="lead-pill-badge lead-pill-hot" id="mainLeadHotPill">Score 80-100</span>
+                <span style="color: #dc2626;">🔥 Hot Leads</span>
+                <span class="lead-pill-badge lead-pill-hot" id="mainLeadHotPill">80-100</span>
               </div>
-              <div class="lead-kpi-value" style="color: #dc2626;" id="mainLeadHot">6</div>
-              <div class="lead-kpi-sub" id="mainLeadHotSub">สัดส่วน 46.2% • ต้องตอบใน 15 นาที</div>
+              <div class="lead-kpi-value" style="color: #dc2626;" id="mainLeadHot">3</div>
+              <div class="lead-kpi-sub" id="mainLeadHotSub">42.9% • ตอบด่วน 15 นาที</div>
               <div class="donut-popup" style="width: 270px;">
                 <div class="popup-header">
                   <span class="popup-title"><span>🔥</span> Hot Leads (ความพร้อมสูง)</span>
                   <span class="popup-badge" id="popLeadHotBadge" style="background: rgba(239, 68, 68, 0.25); color: #f87171;">Score 80-100</span>
                 </div>
-                <div class="popup-row"><span>จำนวน Hot Leads:</span><strong style="color: #ef4444;" id="popLeadHotVal">6 ราย (46.2%)</strong></div>
+                <div class="popup-row"><span>จำนวน Hot Leads:</span><strong style="color: #ef4444;" id="popLeadHotVal">3 ราย (42.9%)</strong></div>
                 <div class="popup-row"><span>เกณฑ์ Intent:</span><span>จองห้อง / ผ่อนตรง / นัดชม</span></div>
                 <div class="popup-row"><span>Action SLA:</span><strong style="color: #34d399;" id="popLeadHotSla">โทรหรือแชทตอบกลับใน 15 นาที</strong></div>
                 <div class="popup-footer-note">🚨 ตรวจพบสัญญาณพร้อมโอนและจองห้องชัดเจน มีโอกาสปิดการขายสูงสุด</div>
@@ -3263,17 +3295,17 @@
             <!-- Card 3: Warm Leads -->
             <div class="lead-kpi-box box-warm has-popup" tabindex="0" onclick="switchLeadFeedTier('warm', true)" style="cursor: pointer;" title="คลิกเพื่อสลับและดู Real-Time Feed ลูกค้ากลุ่ม Warm Leads">
               <div class="lead-kpi-header">
-                <span style="color: #d97706;">🌤️ Warm Leads (สนใจ/เปรียบเทียบ)</span>
-                <span class="lead-pill-badge lead-pill-warm" id="mainLeadWarmPill">Score 40-79</span>
+                <span style="color: #d97706;">🌤️ Warm Leads</span>
+                <span class="lead-pill-badge lead-pill-warm" id="mainLeadWarmPill">40-79</span>
               </div>
-              <div class="lead-kpi-value" style="color: #d97706;" id="mainLeadWarm">6</div>
-              <div class="lead-kpi-sub" id="mainLeadWarmSub">สัดส่วน 46.2% • Follow-up 24-48 ชม.</div>
+              <div class="lead-kpi-value" style="color: #d97706;" id="mainLeadWarm">4</div>
+              <div class="lead-kpi-sub" id="mainLeadWarmSub">57.1% • ตามใน 24-48 ชม.</div>
               <div class="donut-popup" style="width: 270px;">
                 <div class="popup-header">
                   <span class="popup-title"><span>🌤️</span> Warm Leads (กำลังตัดสินใจ)</span>
                   <span class="popup-badge" id="popLeadWarmBadge" style="background: rgba(245, 158, 11, 0.25); color: #fbbf24;">Score 40-79</span>
                 </div>
-                <div class="popup-row"><span>จำนวน Warm Leads:</span><strong style="color: #f59e0b;" id="popLeadWarmVal">6 ราย (46.2%)</strong></div>
+                <div class="popup-row"><span>จำนวน Warm Leads:</span><strong style="color: #f59e0b;" id="popLeadWarmVal">4 ราย (57.1%)</strong></div>
                 <div class="popup-row"><span>เกณฑ์ Intent:</span><span>ขอแปลน / ดอกเบี้ย / รายละเอียด</span></div>
                 <div class="popup-row"><span>Action SLA:</span><strong style="color: #38bdf8;" id="popLeadWarmSla">Follow-up ภายใน 24-48 ชม.</strong></div>
                 <div class="popup-footer-note">💡 ส่งข้อมูลโปรโมชั่นและข้อเสนอพิเศษเพื่อกระตุ้นให้ตัดสินใจ</div>
@@ -3283,11 +3315,11 @@
             <!-- Card 4: Cool Leads -->
             <div class="lead-kpi-box box-cool has-popup" tabindex="0">
               <div class="lead-kpi-header">
-                <span style="color: #0284c7;">❄️ Cool Leads (สนใจเบื้องต้น)</span>
-                <span class="lead-pill-badge lead-pill-cool" id="mainLeadCoolPill">Score 1-39</span>
+                <span style="color: #0284c7;">❄️ Cool Leads</span>
+                <span class="lead-pill-badge lead-pill-cool" id="mainLeadCoolPill">1-39</span>
               </div>
               <div class="lead-kpi-value" style="color: #0284c7;" id="mainLeadCool">0</div>
-              <div class="lead-kpi-sub" id="mainLeadCoolSub">สัดส่วน 0.0% • ใช้ระบบ Chatbot Nurture</div>
+              <div class="lead-kpi-sub" id="mainLeadCoolSub">0.0% • บอทดูแลอัตโนมัติ</div>
               <div class="donut-popup" style="width: 260px;">
                 <div class="popup-header">
                   <span class="popup-title"><span>❄️</span> Cool Leads (ขั้นสำรวจ)</span>
@@ -3302,17 +3334,17 @@
             <!-- Card 5: Hot Conversion Rate -->
             <div class="lead-kpi-box box-conv has-popup" tabindex="0">
               <div class="lead-kpi-header">
-                <span style="color: #059669;">🏆 Hot Conversion Rate</span>
+                <span style="color: #059669;">🏆 Hot Win-Rate</span>
                 <span style="color: #10b981;">⚡</span>
               </div>
-              <div class="lead-kpi-value" style="color: #059669;" id="mainLeadConvRate">46.2%</div>
-              <div class="lead-kpi-sub" id="mainLeadConvSub">ความเร็วตอบกลับเฉลี่ย 4.2 นาที</div>
+              <div class="lead-kpi-value" style="color: #059669;" id="mainLeadConvRate">42.9%</div>
+              <div class="lead-kpi-sub" id="mainLeadConvSub">ตอบเฉลี่ย 4.2 นาที</div>
               <div class="donut-popup" style="width: 260px;">
                 <div class="popup-header">
                   <span class="popup-title"><span>🏆</span> Hot Conversion Rate</span>
                   <span class="popup-badge" style="background: rgba(16, 185, 129, 0.25); color: #34d399;">ยอดเยี่ยม</span>
                 </div>
-                <div class="popup-row"><span>สัดส่วน Hot Leads:</span><strong style="color: #10b981;" id="popLeadConvRatio">46.2% (6/13)</strong></div>
+                <div class="popup-row"><span>สัดส่วน Hot Leads:</span><strong style="color: #10b981;" id="popLeadConvRatio">42.9% (3/7)</strong></div>
                 <div class="popup-row"><span>ความเร็วเฉลี่ย:</span><strong style="color: #38bdf8;" id="popLeadConvSpeed">4.2 นาที</strong></div>
                 <div class="popup-footer-note">⚡ การตอบกลับเร็วช่วยดัน Win-Rate ปิดการขายได้สูงสุด</div>
               </div>
@@ -3322,42 +3354,26 @@
           <!-- 4.2 Real-time High-Priority Feed (Hot & Warm Leads Alert) -->
           <div class="lead-hot-feed-banner" id="sec-4-2">
             <div class="lead-hot-title-row">
-              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                <span class="lead-hot-pulse-badge" id="leadHotPulseBadge">🚨 4.2 REAL-TIME HOT FEED</span>
+              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                <span class="lead-hot-pulse-badge" id="leadHotPulseBadge">🚨 4.2 Lead Feed</span>
                 
                 <!-- Feed Tier Switcher Tabs -->
                 <div class="lead-feed-tier-switcher">
                   <button class="lead-feed-tier-btn active hot" id="btnTierHot" onclick="switchLeadFeedTier('hot')">
-                    🔥 Hot Leads (<span id="feedHotBadgeCount">3</span>)
+                    🔥 Hot (<span id="feedHotBadgeCount">3</span>)
                   </button>
                   <button class="lead-feed-tier-btn" id="btnTierWarm" onclick="switchLeadFeedTier('warm')">
-                    🌤️ Warm Leads (<span id="feedWarmBadgeCount">4</span>)
+                    🌤️ Warm (<span id="feedWarmBadgeCount">4</span>)
                   </button>
                 </div>
 
-                <span class="lead-hot-desc" id="leadHotDesc">ข้อความที่มีโอกาสปิดการขายสูงสุด (ตรวจจับ Intent: จองห้อง / พร้อมโอน / นัดดูโครงการ)</span>
+                <span class="lead-hot-desc" id="leadHotDesc" style="font-size: 12px; font-weight: 600;">พร้อมจอง / นัดชมโครงการ</span>
               </div>
-              <span style="font-size: 11.5px; color: #9f1239; font-weight: 700;" id="leadHotNotice">⏰ แจ้งเตือนฝ่ายขายทันที (SLA 15 นาที)</span>
+              <span id="leadHotNotice" class="lead-sla-badge">⚡ SLA ตอบกลับ: 15 นาที</span>
             </div>
 
             <!-- Dynamic Hot / Warm Leads Container -->
-            <div id="leadHotFeedContainer">
-              <div class="lead-hot-card">
-                <div class="lead-hot-card-top">
-                  <span class="lead-hot-name">💬 Kingkaew Zankl</span>
-                  <span class="lead-hot-score">Score: 94/100</span>
-                </div>
-                <div class="lead-hot-msg">
-                  "มีผ่อนตรงกับโครงการไหมคะ ขอดูห้องค่ะ"
-                </div>
-                <div class="lead-hot-footer">
-                  <span>⏰ 2026-09-03 09:36 • แอดมินแนน (City Link)</span>
-                  <button class="btn-lead-action" onclick="alert('⚡ กำลังเชื่อมต่อฝ่ายขายเพื่อติดต่อกลับ: Kingkaew Zankl (ผู้ดูแล: แอดมินแนน)')">
-                    ⚡ ติดต่อด่วน
-                  </button>
-                </div>
-              </div>
-            </div>
+            <div id="leadHotFeedContainer"></div>
           </div>
 
           <!-- 4.3 Two Columns: Donut Distribution & Top Keywords Bar Chart -->
@@ -3366,31 +3382,30 @@
             <!-- 4.3 Left: Lead Tier Breakdown Donut Chart -->
             <div class="lead-inner-chart-card">
               <div class="lead-chart-header">
-                <span class="lead-chart-title"><span>🎯</span> 4.3 กราฟสัดส่วนกลุ่มลูกค้า (Lead Tier Breakdown)</span>
-                <span class="lead-chart-badge" id="leadTierPeriodBadge">สิงหาคม 2569</span>
+                <span class="lead-chart-title"><span>🎯</span> 4.3 สัดส่วนกลุ่มลูกค้า (Lead Breakdown)</span>
+                <span class="lead-chart-badge" id="leadTierPeriodBadge">กันยายน 2569</span>
               </div>
 
               <!-- Donut SVG Container -->
-              <div id="leadTierDonutContainer" style="width: 100%; height: 230px; display: flex; align-items: center; justify-content: center;"></div>
+              <div id="leadTierDonutContainer" style="width: 100%; height: 190px; display: flex; align-items: center; justify-content: center;"></div>
 
               <!-- Legend -->
               <div class="lead-donut-legend">
-                <div class="lead-legend-item"><span class="lead-legend-box" style="background: #ef4444;"></span> Hot Leads (Score 80-100)</div>
-                <div class="lead-legend-item"><span class="lead-legend-box" style="background: #f59e0b;"></span> Warm Leads (Score 40-79)</div>
-                <div class="lead-legend-item"><span class="lead-legend-box" style="background: #0ea5e9;"></span> Cool Leads (Score 1-39)</div>
-                <div class="lead-legend-item"><span class="lead-legend-box" style="background: #94a3b8;"></span> Non-Lead</div>
+                <div class="lead-legend-item"><span class="lead-legend-box" style="background: #ef4444;"></span> Hot (80-100)</div>
+                <div class="lead-legend-item"><span class="lead-legend-box" style="background: #f59e0b;"></span> Warm (40-79)</div>
+                <div class="lead-legend-item"><span class="lead-legend-box" style="background: #0ea5e9;"></span> Cool (1-39)</div>
               </div>
             </div>
 
             <!-- 4.3 Right: Top Keywords Bar Chart -->
             <div class="lead-inner-chart-card">
               <div class="lead-chart-header">
-                <span class="lead-chart-title"><span>📈</span> Top Keywords ที่สร้างยอดขายสูงสุด (High Conversion)</span>
+                <span class="lead-chart-title"><span>📈</span> Top Keywords ปิดการขายสูงสุด</span>
                 <span class="lead-chart-badge">Win-Rate %</span>
               </div>
 
               <!-- Horizontal Bar SVG Container -->
-              <div id="keywordConvBarContainer" style="width: 100%; height: 260px;"></div>
+              <div id="keywordConvBarContainer" style="width: 100%; height: 205px;"></div>
             </div>
 
           </div>
@@ -3911,11 +3926,11 @@
         nonLead: 0,
         convRate: '42.9%',
         subText: {
-          total: '7 แชท (Facebook Messenger 100%)',
-          hot: 'สัดส่วน 42.9% • ต้องตอบใน 15 นาที',
-          warm: 'สัดส่วน 57.1% • Follow-up 24-48 ชม.',
-          cool: 'สัดส่วน 0.0% • ไม่มี Cool Leads',
-          conv: 'ความเร็วตอบกลับเฉลี่ย 4.2 นาที'
+          total: 'FB Messenger 100%',
+          hot: '42.9% • ตอบด่วน 15 นาที',
+          warm: '57.1% • ตามใน 24-48 ชม.',
+          cool: '0.0% • บอทดูแลอัตโนมัติ',
+          conv: 'ตอบเฉลี่ย 4.2 นาที'
         },
         popups: {
           totalBadge: '100% Leads',
@@ -3982,11 +3997,11 @@
         nonLead: 0,
         convRate: '50.0%',
         subText: {
-          total: '10 แชท (Facebook Messenger 100%)',
-          hot: 'สัดส่วน 50.0% • ต้องตอบใน 15 นาที',
-          warm: 'สัดส่วน 40.0% • Follow-up 24-48 ชม.',
-          cool: 'สัดส่วน 10.0% • เสนอขายที่ดิน/ทั่วไป',
-          conv: 'ความเร็วตอบกลับเฉลี่ย 3.8 นาที'
+          total: 'FB Messenger 100%',
+          hot: '50.0% • ตอบด่วน 15 นาที',
+          warm: '40.0% • ตามใน 24-48 ชม.',
+          cool: '10.0% • บอทดูแลอัตโนมัติ',
+          conv: 'ตอบเฉลี่ย 3.8 นาที'
         },
         popups: {
           totalBadge: '100% Leads',
@@ -4065,11 +4080,11 @@
         nonLead: 0,
         convRate: '46.2%',
         subText: {
-          total: '13 แชท (สะสม Q3: ส.ค. - ก.ย.)',
-          hot: 'สัดส่วน 46.2% • ต้องตอบใน 15 นาที',
-          warm: 'สัดส่วน 46.2% • Follow-up 24-48 ชม.',
-          cool: 'สัดส่วน 7.7% • เสนอขายที่ดิน/ทั่วไป',
-          conv: 'ความเร็วตอบกลับเฉลี่ย 4.0 นาที'
+          total: 'FB Messenger 100%',
+          hot: '46.2% • ตอบด่วน 15 นาที',
+          warm: '46.2% • ตามใน 24-48 ชม.',
+          cool: '7.7% • บอทดูแลอัตโนมัติ',
+          conv: 'ตอบเฉลี่ย 4.0 นาที'
         },
         popups: {
           totalBadge: '100% Leads',
@@ -4142,11 +4157,11 @@
         nonLead: 0,
         convRate: '46.2%',
         subText: {
-          total: '13 แชท (สะสมทั้งปี ส.ค. - ก.ย.)',
-          hot: 'สัดส่วน 46.2% • ต้องตอบใน 15 นาที',
-          warm: 'สัดส่วน 46.2% • Follow-up 24-48 ชม.',
-          cool: 'สัดส่วน 7.7% • เสนอขายที่ดิน/ทั่วไป',
-          conv: 'ความเร็วตอบกลับเฉลี่ย 4.0 นาที'
+          total: 'FB Messenger 100%',
+          hot: '46.2% • ตอบด่วน 15 นาที',
+          warm: '46.2% • ตามใน 24-48 ชม.',
+          cool: '7.7% • บอทดูแลอัตโนมัติ',
+          conv: 'ตอบเฉลี่ย 4.0 นาที'
         },
         popups: {
           totalBadge: '100% Leads',
@@ -4248,11 +4263,11 @@
         nonLead: 0,
         convRate: rate,
         subText: {
-          total: `${tot} แชท (ตามสถิติข้อความ Inquiries)`,
-          hot: `สัดส่วน ${((hot/tot)*100).toFixed(1)}% • ต้องตอบใน 15 นาที`,
-          warm: `สัดส่วน ${((warm/tot)*100).toFixed(1)}% • Follow-up 24-48 ชม.`,
-          cool: `สัดส่วน ${((cool/tot)*100).toFixed(1)}% • แชทบอท Nurturing`,
-          conv: `ความเร็วตอบกลับเฉลี่ย 4.5 นาที`
+          total: 'FB Messenger 100%',
+          hot: `${((hot/tot)*100).toFixed(1)}% • ตอบด่วน 15 นาที`,
+          warm: `${((warm/tot)*100).toFixed(1)}% • ตามใน 24-48 ชม.`,
+          cool: `${((cool/tot)*100).toFixed(1)}% • บอทดูแลอัตโนมัติ`,
+          conv: 'ตอบเฉลี่ย 4.5 นาที'
         },
         popups: {
           totalBadge: 'Estimated Leads',
@@ -4324,28 +4339,28 @@
       if (isWarm) {
         if (badge) {
           badge.style.background = '#d97706';
-          badge.innerHTML = `🌤️ 4.2 REAL-TIME WARM FEED (${leadData.periodLabel} - พบ ${warmLeads.length} Warm Leads)`;
+          badge.innerHTML = `🌤️ 4.2 Lead Feed`;
         }
         if (desc) {
           desc.style.color = 'var(--text-dark)';
-          desc.textContent = 'ข้อความกลุ่มที่กำลังเปรียบเทียบและหาข้อมูล (ตรวจจับ Intent: ขอแปลน / ดอกเบี้ย / รายละเอียด)';
+          desc.textContent = 'เปรียบเทียบ / ขอแปลน / ดอกเบี้ย';
         }
         if (notice) {
           notice.style.color = '#b45309';
-          notice.textContent = '⏰ ฝ่ายขายติดตามผลภายใน 24-48 ชม. (SLA Follow-up)';
+          notice.textContent = '📅 SLA Follow-up: 24-48 ชม.';
         }
       } else {
         if (badge) {
           badge.style.background = '#e11d48';
-          badge.innerHTML = `🚨 4.2 REAL-TIME HOT FEED (${leadData.periodLabel} - พบ ${hotLeads.length} Hot Leads)`;
+          badge.innerHTML = `🚨 4.2 Lead Feed`;
         }
         if (desc) {
           desc.style.color = '';
-          desc.textContent = 'ข้อความที่มีโอกาสปิดการขายสูงสุด (ตรวจจับ Intent: จองห้อง / พร้อมโอน / นัดดูโครงการ)';
+          desc.textContent = 'พร้อมจอง / นัดชมโครงการ';
         }
         if (notice) {
           notice.style.color = '#9f1239';
-          notice.textContent = '⏰ แจ้งเตือนฝ่ายขายทันที (SLA 15 นาที)';
+          notice.textContent = '⚡ SLA ตอบกลับ: 15 นาที';
         }
       }
 
@@ -4369,12 +4384,16 @@
       let tabsHtml = '';
       if (activeLeads.length > 1) {
         tabsHtml = `
-          <div class="lead-hot-tabs" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 9px;">
-            ${activeLeads.map((l, i) => `
-              <button class="lead-tab-btn ${isWarm ? 'tab-warm' : ''} ${i === activeIdx ? 'active' : ''}" onclick="selectHotLead(${i})">
-                ${l.name.replace('💬 ', '')} (${l.score.replace('Score: ', '')})
+          <div class="lead-hot-tabs" style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px;">
+            ${activeLeads.map((l, i) => {
+              const rawName = l.name.replace('💬 ', '');
+              const cleanName = rawName.includes('(') ? rawName.split('(')[0].trim() : rawName;
+              const shortScore = l.score.replace('Score: ', '');
+              return `
+              <button class="lead-tab-btn ${isWarm ? 'tab-warm' : ''} ${i === activeIdx ? 'active' : ''}" onclick="selectHotLead(${i})" title="${rawName} (${l.score})">
+                ${cleanName} (${shortScore})
               </button>
-            `).join('')}
+            `}).join('')}
           </div>
         `;
       }
@@ -4386,7 +4405,7 @@
       const msgClass = isWarm ? 'lead-warm-msg' : 'lead-hot-msg';
       const footerClass = isWarm ? 'lead-warm-footer' : 'lead-hot-footer';
       const btnClass = isWarm ? 'btn-lead-action btn-warm' : 'btn-lead-action';
-      const btnText = isWarm ? '📋 วางแผน Follow-up' : '⚡ ติดต่อด่วน';
+      const btnText = isWarm ? '📋 Follow-up' : '⚡ ติดต่อด่วน';
       const actionMsg = isWarm
         ? `📋 ส่งข้อมูลและโปรโมชั่นเพิ่มเติมให้: ${l.name.replace('💬 ', '')} (ตามเกณฑ์ Follow-up ภายใน 24-48 ชม.)`
         : `⚡ กำลังเชื่อมต่อฝ่ายขายเพื่อติดต่อกลับ: ${l.name.replace('💬 ', '')} (Action SLA 15 นาที)`;
@@ -5137,7 +5156,7 @@
         return `M ${p1.x} ${p1.y} A ${rOut} ${rOut} 0 ${largeArc} 1 ${p2.x} ${p2.y} L ${p3.x} ${p3.y} A ${rIn} ${rIn} 0 ${largeArc} 0 ${p4.x} ${p4.y} Z`;
       }
 
-      const cx = 150, cy = 115, rOut = 85, rIn = 53;
+      const cx = 150, cy = 105, rOut = 85, rIn = 53;
       let curAngle = 0;
       let slicesSvg = '';
 
@@ -5163,7 +5182,7 @@
       });
 
       container.innerHTML = `
-        <svg viewBox="0 0 300 240" style="width: 100%; height: 100%; overflow: visible;">
+        <svg viewBox="0 0 300 215" style="width: 100%; height: 100%; overflow: visible;">
           <defs>
             <filter id="leadSliceShadow" x="-20%" y="-20%" width="140%" height="140%">
               <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.25"/>
