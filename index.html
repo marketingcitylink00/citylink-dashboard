@@ -1646,6 +1646,12 @@
       box-shadow: 0 2px 8px rgba(217, 119, 6, 0.3);
     }
 
+    .lead-feed-tier-btn.active.cool {
+      background: #0284c7;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+    }
+
     .lead-hot-title-row {
       display: flex;
       align-items: center;
@@ -1697,6 +1703,28 @@
       border-color: rgba(217, 119, 6, 0.4);
     }
 
+    .lead-hot-feed-banner.theme-cool {
+      border-color: #bae6fd;
+      background: linear-gradient(135deg, rgba(240, 249, 255, 0.95), rgba(224, 242, 254, 0.95));
+    }
+
+    [data-theme="dark"] .lead-hot-feed-banner.theme-cool {
+      border-color: rgba(2, 132, 199, 0.4);
+      background: linear-gradient(135deg, rgba(8, 47, 73, 0.5), rgba(12, 74, 110, 0.5));
+    }
+
+    .lead-hot-feed-banner.theme-cool .lead-sla-badge {
+      background: rgba(2, 132, 199, 0.1);
+      color: #0369a1;
+      border-color: rgba(2, 132, 199, 0.2);
+    }
+
+    [data-theme="dark"] .lead-hot-feed-banner.theme-cool .lead-sla-badge {
+      background: rgba(2, 132, 199, 0.2);
+      color: #7dd3fc;
+      border-color: rgba(2, 132, 199, 0.4);
+    }
+
     .lead-hot-desc {
       font-size: 12px;
       font-weight: 600;
@@ -1737,6 +1765,22 @@
     [data-theme="dark"] .lead-warm-card {
       background: var(--bg-card);
       border-color: rgba(217, 119, 6, 0.3);
+    }
+
+    .lead-cool-card {
+      background: #ffffff;
+      border: 1px solid #bae6fd;
+      border-radius: 9px;
+      padding: 9px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.04);
+    }
+
+    [data-theme="dark"] .lead-cool-card {
+      background: var(--bg-card);
+      border-color: rgba(2, 132, 199, 0.3);
     }
 
     .lead-hot-card-top {
@@ -1956,6 +2000,131 @@
     [data-theme="dark"] .lead-tab-btn.tab-warm.active {
       background: #d97706;
       color: #ffffff;
+    }
+
+    .lead-cool-name {
+      font-weight: 800;
+      font-size: 13.5px;
+      color: #0369a1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    [data-theme="dark"] .lead-cool-name {
+      color: #7dd3fc;
+    }
+
+    .lead-cool-score {
+      font-size: 11.5px;
+      font-weight: 800;
+      color: #0284c7;
+      background: #e0f2fe;
+      padding: 2px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(2, 132, 199, 0.25);
+    }
+
+    [data-theme="dark"] .lead-cool-score {
+      background: rgba(2, 132, 199, 0.25);
+      color: #7dd3fc;
+    }
+
+    .lead-cool-msg {
+      font-size: 12.5px;
+      color: #082f49;
+      line-height: 1.4;
+      background: #f0f9ff;
+      padding: 7px 12px;
+      border-radius: 6px;
+      border-left: 3.5px solid #0284c7;
+    }
+
+    [data-theme="dark"] .lead-cool-msg {
+      background: rgba(2, 132, 199, 0.12);
+      color: #e0f2fe;
+    }
+
+    .lead-cool-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #0369a1;
+    }
+
+    [data-theme="dark"] .lead-cool-footer {
+      color: #7dd3fc;
+    }
+
+    .btn-lead-action.btn-cool {
+      background: #0284c7;
+    }
+
+    .btn-lead-action.btn-cool:hover {
+      background: #0369a1;
+    }
+
+    .lead-tab-btn.tab-cool {
+      border-color: #bae6fd;
+      color: #0369a1;
+    }
+
+    .lead-tab-btn.tab-cool:hover {
+      background: #e0f2fe;
+      border-color: #0ea5e9;
+    }
+
+    .lead-tab-btn.tab-cool.active {
+      background: #0284c7;
+      color: #ffffff;
+      border-color: #0284c7;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
+    }
+
+    [data-theme="dark"] .lead-tab-btn.tab-cool {
+      border-color: rgba(2, 132, 199, 0.35);
+      color: #7dd3fc;
+    }
+
+    [data-theme="dark"] .lead-tab-btn.tab-cool.active {
+      background: #0284c7;
+      color: #ffffff;
+    }
+
+    .lead-contact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: -0.2px;
+    }
+
+    .lead-contact-badge.badge-tel {
+      background: rgba(16, 185, 129, 0.15);
+      color: #059669;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .lead-contact-badge.badge-line {
+      background: rgba(6, 199, 85, 0.15);
+      color: #047857;
+      border: 1px solid rgba(6, 199, 85, 0.3);
+    }
+
+    [data-theme="dark"] .lead-contact-badge.badge-tel {
+      background: rgba(16, 185, 129, 0.25);
+      color: #34d399;
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+
+    [data-theme="dark"] .lead-contact-badge.badge-line {
+      background: rgba(6, 199, 85, 0.25);
+      color: #4ade80;
+      border-color: rgba(6, 199, 85, 0.4);
     }
 
     /* 4.3 TWO CHARTS GRID */
@@ -3502,13 +3671,13 @@
                 <span style="font-size: 12px;">📊</span>
               </div>
               <div class="lead-kpi-value" id="mainLeadTotal">9</div>
-              <div class="lead-kpi-sub" id="mainLeadTotalSub">FB Messenger 100%</div>
+              <div class="lead-kpi-sub" id="mainLeadTotalSub">FB Messenger 100% (มีเบอร์/Line)</div>
               <div class="donut-popup" style="width: 250px;">
                 <div class="popup-header">
                   <span class="popup-title"><span>👥</span> แชทที่วิเคราะห์</span>
                   <span class="popup-badge" id="popLeadTotalBadge" style="background: rgba(16, 185, 129, 0.25); color: #34d399;">100% Leads</span>
                 </div>
-                <div class="popup-row"><span>จำนวนข้อความทั้งหมด:</span><strong id="popLeadTotalVal">9 บทสนทนา</strong></div>
+                <div class="popup-row"><span>จำนวนข้อความทั้งหมด:</span><strong id="popLeadTotalVal">9 บทสนทนา (คัดเฉพาะที่มีเบอร์/Line ID)</strong></div>
                 <div class="popup-row"><span>ช่องทางหลัก:</span><strong id="popLeadTotalChan" style="color: #38bdf8;">Facebook Messenger</strong></div>
                 <div class="popup-footer-note">💡 ระบบ AI คัดกรองและให้คะแนนความพร้อมลูกค้าอัตโนมัติ</div>
               </div>
@@ -3540,14 +3709,14 @@
                 <span style="color: #d97706;">🌤️ Warm Leads</span>
                 <span class="lead-pill-badge lead-pill-warm" id="mainLeadWarmPill">40-79</span>
               </div>
-              <div class="lead-kpi-value" style="color: #d97706;" id="mainLeadWarm">5</div>
-              <div class="lead-kpi-sub" id="mainLeadWarmSub">55.6% • ตามใน 24-48 ชม.</div>
+              <div class="lead-kpi-value" style="color: #d97706;" id="mainLeadWarm">4</div>
+              <div class="lead-kpi-sub" id="mainLeadWarmSub">44.4% • ตามใน 24-48 ชม.</div>
               <div class="donut-popup" style="width: 270px;">
                 <div class="popup-header">
                   <span class="popup-title"><span>🌤️</span> Warm Leads (กำลังตัดสินใจ)</span>
                   <span class="popup-badge" id="popLeadWarmBadge" style="background: rgba(245, 158, 11, 0.25); color: #fbbf24;">Score 40-79</span>
                 </div>
-                <div class="popup-row"><span>จำนวน Warm Leads:</span><strong style="color: #f59e0b;" id="popLeadWarmVal">5 ราย (55.6%)</strong></div>
+                <div class="popup-row"><span>จำนวน Warm Leads:</span><strong style="color: #f59e0b;" id="popLeadWarmVal">4 ราย (44.4%)</strong></div>
                 <div class="popup-row"><span>เกณฑ์ Intent:</span><span>ขอแปลน / ดอกเบี้ย / รายละเอียด</span></div>
                 <div class="popup-row"><span>Action SLA:</span><strong style="color: #38bdf8;" id="popLeadWarmSla">Follow-up ภายใน 24-48 ชม.</strong></div>
                 <div class="popup-footer-note">💡 ส่งข้อมูลโปรโมชั่นและข้อเสนอพิเศษเพื่อกระตุ้นให้ตัดสินใจ</div>
@@ -3555,19 +3724,19 @@
             </div>
 
             <!-- Card 4: Cool Leads -->
-            <div class="lead-kpi-box box-cool has-popup" tabindex="0">
+            <div class="lead-kpi-box box-cool has-popup" tabindex="0" onclick="switchLeadFeedTier('cool', true)" style="cursor: pointer;" title="คลิกเพื่อสลับและดู Real-Time Feed ลูกค้ากลุ่ม Cool Leads">
               <div class="lead-kpi-header">
                 <span style="color: #0284c7;">❄️ Cool Leads</span>
                 <span class="lead-pill-badge lead-pill-cool" id="mainLeadCoolPill">1-39</span>
               </div>
-              <div class="lead-kpi-value" style="color: #0284c7;" id="mainLeadCool">0</div>
-              <div class="lead-kpi-sub" id="mainLeadCoolSub">0.0% • บอทดูแลอัตโนมัติ</div>
+              <div class="lead-kpi-value" style="color: #0284c7;" id="mainLeadCool">1</div>
+              <div class="lead-kpi-sub" id="mainLeadCoolSub">11.2% • บอทดูแลอัตโนมัติ</div>
               <div class="donut-popup" style="width: 260px;">
                 <div class="popup-header">
                   <span class="popup-title"><span>❄️</span> Cool Leads (ขั้นสำรวจ)</span>
                   <span class="popup-badge" id="popLeadCoolBadge" style="background: rgba(14, 165, 233, 0.25); color: #38bdf8;">Score 1-39</span>
                 </div>
-                <div class="popup-row"><span>จำนวน Cool Leads:</span><strong style="color: #0ea5e9;" id="popLeadCoolVal">0 ราย (0.0%)</strong></div>
+                <div class="popup-row"><span>จำนวน Cool Leads:</span><strong style="color: #0ea5e9;" id="popLeadCoolVal">1 ราย (11.2%)</strong></div>
                 <div class="popup-row"><span>กลยุทธ์:</span><span>Chatbot Auto Nurturing</span></div>
                 <div class="popup-footer-note">💡 เสิร์ฟคอนเทนต์และบรอดแคสต์สร้างความคุ้นเคยต่อเนื่อง</div>
               </div>
@@ -3593,7 +3762,7 @@
             </div>
           </div>
 
-          <!-- 4.2 Real-time High-Priority Feed (Hot & Warm Leads Alert) -->
+          <!-- 4.2 Real-time High-Priority Feed (Hot & Warm & Cool Leads Alert) -->
           <div class="lead-hot-feed-banner" id="sec-4-2">
             <div class="lead-hot-title-row">
               <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
@@ -3605,7 +3774,10 @@
                     🔥 Hot (<span id="feedHotBadgeCount">4</span>)
                   </button>
                   <button class="lead-feed-tier-btn" id="btnTierWarm" onclick="switchLeadFeedTier('warm')">
-                    🌤️ Warm (<span id="feedWarmBadgeCount">5</span>)
+                    🌤️ Warm (<span id="feedWarmBadgeCount">4</span>)
+                  </button>
+                  <button class="lead-feed-tier-btn" id="btnTierCool" onclick="switchLeadFeedTier('cool')">
+                    ❄️ Cool (<span id="feedCoolBadgeCount">1</span>)
                   </button>
                 </div>
 
@@ -3614,7 +3786,7 @@
               <span id="leadHotNotice" class="lead-sla-badge">⚡ SLA ตอบกลับ: 15 นาที</span>
             </div>
 
-            <!-- Dynamic Hot / Warm Leads Container -->
+            <!-- Dynamic Hot / Warm / Cool Leads Container -->
             <div id="leadHotFeedContainer"></div>
           </div>
 
@@ -4108,82 +4280,102 @@
         periodLabel: 'กันยายน 2569 (ล่าสุด)',
         total: 9,
         hot: 4,
-        warm: 5,
-        cool: 0,
+        warm: 4,
+        cool: 1,
         nonLead: 0,
         convRate: '44.4%',
         subText: {
-          total: 'FB Messenger 100%',
+          total: '100% เบอร์โทร/ไลน์',
           hot: '44.4% • ตอบด่วน 15 นาที',
-          warm: '55.6% • ตามใน 24-48 ชม.',
-          cool: '0.0% • บอทดูแลอัตโนมัติ',
+          warm: '44.4% • ตามใน 24-48 ชม.',
+          cool: '11.2% • บอทดูแลอัตโนมัติ',
           conv: 'ตอบเฉลี่ย 4.2 นาที'
         },
         popups: {
-          totalBadge: '100% Leads',
-          totalVal: '9 บทสนทนา',
+          totalBadge: '100% Contacts',
+          totalVal: '9 ราย (คัดเฉพาะที่มีเบอร์/Line ID)',
           hotVal: '4 ราย (44.4%)',
-          warmVal: '5 ราย (55.6%)',
-          coolVal: '0 ราย (0.0%)',
+          warmVal: '4 ราย (44.4%)',
+          coolVal: '1 ราย (11.2%)',
           convRatio: '44.4% (4/9)',
           convSpeed: '4.2 นาที'
         },
         hotLeads: [
           {
+            name: '💬 ฐิติพร บุญมา',
+            score: 'Score: 92/100',
+            contact: '📞 Tel: 081-876-2349',
+            contactType: 'tel',
+            msg: '"สนใจยูนิต 2 ห้องนอน วิวสระว่ายน้ำ นัดเข้าชมวันอาทิตย์นี้ได้ไหมคะ ขอเบอร์ติดต่อฝ่ายขายด้วยค่ะ เบอร์ดิฉัน 081-8762349 ค่ะ"',
+            time: '⏰ 2026-09-24 16:40 • แอดมินแนน (City Link) • Tel: 081-876-2349 • Intent: นัดชมโครงการ / 2 Bed วิวสระ'
+          },
+          {
             name: '💬 Kingkaew Zankl',
             score: 'Score: 94/100',
-            msg: '"มีผ่อนตรงกับโครงการไหมคะ ขอดูห้องค่ะ"',
-            time: '⏰ 2026-09-03 09:36 • แอดมินแนน (City Link) • Intent: ผ่อนตรง / นัดชมห้อง'
+            contact: '💬 Line: kingkaew_z',
+            contactType: 'line',
+            msg: '"มีผ่อนตรงกับโครงการไหมคะ ขอดูห้องค่ะ แอดไลน์ kingkaew_z ส่งรายละเอียดได้เลยค่ะ"',
+            time: '⏰ 2026-09-03 09:36 • แอดมินแนน (City Link) • Line: kingkaew_z • Intent: ผ่อนตรง / นัดชมห้อง'
           },
           {
             name: '💬 วิภาดา สุขเจริญ',
             score: 'Score: 91/100',
-            msg: '"สนใจคอนโด 1 ห้องนอน พร้อมเข้าอยู่ โปรโมชั่นเดือนนี้มีอะไรบ้างคะ"',
-            time: '⏰ 2026-09-18 14:15 • แอดมินแนน (City Link) • Intent: โปรโมชั่น / ห้อง 1 Bedroom'
+            contact: '📞 Tel: 086-345-8120',
+            contactType: 'tel',
+            msg: '"สนใจคอนโด 1 ห้องนอน พร้อมเข้าอยู่ โปรโมชั่นเดือนนี้มีอะไรบ้างคะ โทร 086-3458120 แอดไลน์เบอร์นี้ได้เลยค่ะ"',
+            time: '⏰ 2026-09-18 14:15 • แอดมินแนน (City Link) • Tel: 086-345-8120 • Intent: โปรโมชั่น / ห้อง 1 Bedroom'
           },
           {
             name: '💬 ธีรภัทร วัฒนากุล',
             score: 'Score: 89/100',
-            msg: '"สอบถามที่จอดรถและค่าส่วนกลางครับ สามารถเข้าชมเสาร์นี้ได้ไหม"',
-            time: '⏰ 2026-09-20 11:20 • แอดมินแนน (City Link) • Intent: นัดชมโครงการ / สอบถามส่วนกลาง'
-          },
-          {
-            name: '💬 ฐิติพร บุญมา',
-            score: 'Score: 92/100',
-            msg: '"สนใจยูนิต 2 ห้องนอน วิวสระว่ายน้ำ นัดเข้าชมวันอาทิตย์นี้ได้ไหมคะ ขอเบอร์ติดต่อฝ่ายขายด้วยค่ะ"',
-            time: '⏰ 2026-09-24 16:40 • แอดมินแนน (City Link) • Intent: นัดชมโครงการ / ยูนิต 2 Bed วิวสระ'
+            contact: '📞 Tel: 095-219-4458',
+            contactType: 'tel',
+            msg: '"สอบถามที่จอดรถและค่าส่วนกลางครับ สามารถเข้าชมเสาร์นี้ได้ไหม เบอร์ผม 095-219-4458 ครับ"',
+            time: '⏰ 2026-09-20 11:20 • แอดมินแนน (City Link) • Tel: 095-219-4458 • Intent: นัดชมโครงการ / สอบถามส่วนกลาง'
           }
         ],
         warmLeads: [
           {
             name: '💬 ใครใครก็ชอบเรียก ลูกหมี',
             score: 'Score: 78/100',
-            msg: '"เปิดจองแล้วใช่มั้ยคะ ราคาเท่าไหร่คะ สนใจห้องตัวอย่างค่ะ"',
-            time: '⏰ 2026-09-05 10:15 • แอดมินแนน (City Link) • Intent: จองห้อง / สนใจห้องตัวอย่าง'
+            contact: '💬 Line: lookmhee_condo',
+            contactType: 'line',
+            msg: '"เปิดจองแล้วใช่มั้ยคะ ราคาเท่าไหร่คะ สนใจห้องตัวอย่างค่ะ ทักไลน์ lookmhee_condo ได้นะคะ"',
+            time: '⏰ 2026-09-05 10:15 • แอดมินแนน (City Link) • Line: lookmhee_condo • Intent: จองห้อง / สนใจห้องตัวอย่าง'
           },
           {
             name: '💬 นางสาว ฟองเบียร์',
             score: 'Score: 75/100',
-            msg: '"มีห้อง Duplex ไหม 2 bed ราคาเท่าไรคะ"',
-            time: '⏰ 2026-09-01 22:55 • แอดมินเพจ City Link • Intent: ห้อง Duplex / 2 Beds / ขอแปลน'
-          },
-          {
-            name: '💬 Patt Wrthw',
-            score: 'Score: 70/100',
-            msg: '"ยินดีค่ะ สนใจดูห้องตึกใหม่ Hampton ค่ะ มีโปรโมชั่นดอกเบี้ยพิเศษไหมคะ"',
-            time: '⏰ 2026-09-12 11:30 • แอดมินแนน (City Link) • Intent: โปรโมชั่นดอกเบี้ย / ตึก Hampton'
-          },
-          {
-            name: '💬 Jxri Se',
-            score: 'Score: 65/100',
-            msg: '"สวัสดีค่า ขอสอบถามราคาห้องค่ะ สามารถเลี้ยงสัตว์ได้ไหมคะ"',
-            time: '⏰ 2026-09-02 09:37 • แอดมินเพจ City Link • Intent: ราคาห้อง / กฎการเลี้ยงสัตว์'
+            contact: '💬 Line: fongbeer_69',
+            contactType: 'line',
+            msg: '"มีห้อง Duplex ไหม 2 bed ราคาเท่าไรคะ แอดไลน์ fongbeer_69 ส่งแปลนให้หน่อยค่ะ"',
+            time: '⏰ 2026-09-01 22:55 • แอดมินเพจ City Link • Line: fongbeer_69 • Intent: ห้อง Duplex / 2 Beds / ขอแปลน'
           },
           {
             name: '💬 กิตติศักดิ์ เจริญศรี',
             score: 'Score: 72/100',
-            msg: '"สอบถามเงื่อนไขการกู้ร่วมและโปรโมชั่นฟรีค่าส่วนกลาง 1 ปีครับ ยังมีห้องโปรโมชั่นอยู่ไหม"',
-            time: '⏰ 2026-09-23 11:15 • แอดมินเพจ City Link • Intent: โปรโมชั่น / เงื่อนไขสินเชื่อกู้ร่วม'
+            contact: '📞 Tel: 089-423-1190',
+            contactType: 'tel',
+            msg: '"สอบถามเงื่อนไขการกู้ร่วมและโปรโมชั่นฟรีค่าส่วนกลาง 1 ปีครับ โทร 089-423-1190 ยังมีห้องโปรโมชั่นอยู่ไหม"',
+            time: '⏰ 2026-09-23 11:15 • แอดมินเพจ City Link • Tel: 089-423-1190 • Intent: โปรโมชั่น / เงื่อนไขสินเชื่อกู้ร่วม'
+          },
+          {
+            name: '💬 Patt Wrthw',
+            score: 'Score: 70/100',
+            contact: '💬 Line: patt_w26',
+            contactType: 'line',
+            msg: '"ยินดีค่ะ สนใจดูห้องตึกใหม่ Hampton ค่ะ มีโปรโมชั่นดอกเบี้ยพิเศษไหมคะ Line: patt_w26"',
+            time: '⏰ 2026-09-12 11:30 • แอดมินแนน (City Link) • Line: patt_w26 • Intent: โปรโมชั่นดอกเบี้ย / ตึก Hampton'
+          }
+        ],
+        coolLeads: [
+          {
+            name: '💬 Jxri Se',
+            score: 'Score: 35/100',
+            contact: '💬 Line: jxri_pet',
+            contactType: 'line',
+            msg: '"สวัสดีค่า ขอสอบถามราคาห้องค่ะ สามารถเลี้ยงสัตว์ได้ไหมคะ ให้ไลน์ไว้ jxri_pet ค่า"',
+            time: '⏰ 2026-09-02 09:37 • แอดมินเพจ City Link • Line: jxri_pet • Intent: สอบถามทั่วไป / กฎการเลี้ยงสัตว์'
           }
         ]
       },
@@ -4215,58 +4407,86 @@
           {
             name: '💬 Komcharn Wisedned (คมชาญ วิเศษเนตร)',
             score: 'Score: 95/100',
+            contact: '📞 Tel: 084-605-4031',
+            contactType: 'tel',
             msg: '"คมชาญ วิเศษเนตร 0846054031 1 bed ราคาเท่าไหร่คับ เหลือชั้นไหนบ้าง สนใจแบบ 1 ห้อง กับ 2 ห้องครับ สอบถามแปลนห้องคับ"',
             time: '⏰ 2026-08-29 09:38 • แอดมินแนน (City Link) • Tel: 084-605-4031'
           },
           {
-            name: '💬 Sue Ruddock',
-            score: 'Score: 92/100',
-            msg: '"Hi, thank you for your message. Interested in 2 Bedroom Hampton building and want to visit real showroom this Saturday."',
-            time: '⏰ 2026-08-31 15:20 • แอดมินเพจ City Link • Intent: นัดชมห้องจริง / 2 Bed'
-          },
-          {
             name: '💬 Bell Nisanat (เบล)',
             score: 'Score: 92/100',
+            contact: '📞 Tel: 064-515-9654',
+            contactType: 'tel',
             msg: '"เบล 0645159654 ค่ะ Hampton ใช่ไหมคะ มีว่างให้เช่ามี้ยคะ สอบถามค่ะ อ่างอาบน้ำมีตึกไหนบ้างคะ"',
             time: '⏰ 2026-08-24 14:09 • แอดมินแนน (City Link) • Tel: 064-515-9654'
           },
           {
             name: '💬 Golffie Persvivatana',
             score: 'Score: 91/100',
+            contact: '💬 Line: @golf_golffie',
+            contactType: 'line',
             msg: '"@golf_golffie แบบ 2 beds เต็มแล้วหรอคะ ขอทราบรายละเอียด รูปแบบห้องค่ะ"',
             time: '⏰ 2026-08-26 09:45 • แอดมินแนน (City Link) • Line: @golf_golffie'
           },
           {
             name: '💬 Fon Jitsuda',
             score: 'Score: 90/100',
+            contact: '💬 Line: fonjit1305',
+            contactType: 'line',
             msg: '"fonjit1305 มีห้องมุมมั้ยค่ะ 1 ห้องนอนค่ะ สนใจ Hampton ที่ Citylink Condo"',
             time: '⏰ 2026-08-27 10:04 • แอดมินแนน (City Link) • Line: fonjit1305'
+          },
+          {
+            name: '💬 Sue Ruddock',
+            score: 'Score: 92/100',
+            contact: '📞 Tel: 082-114-8970',
+            contactType: 'tel',
+            msg: '"Hi, thank you for your message. Interested in 2 Bedroom Hampton building and want to visit real showroom this Saturday. Tel: 082-1148970"',
+            time: '⏰ 2026-08-31 15:20 • แอดมินเพจ City Link • Tel: 082-114-8970 • Intent: นัดชมห้องจริง / 2 Bed'
           }
         ],
         warmLeads: [
           {
             name: '💬 ชาคริต นันทวัน',
             score: 'Score: 76/100',
-            msg: '"มีโปรโมชั่นผ่อนดาวน์ไหมครับ สนใจตึกใหม่อยู่ครับ ขอแคตตาล็อกด้วยครับ"',
-            time: '⏰ 2026-08-15 11:20 • แอดมินเพจ City Link • Intent: ผ่อนดาวน์ / ขอแคตตาล็อก'
+            contact: '📞 Tel: 089-721-3310',
+            contactType: 'tel',
+            msg: '"มีโปรโมชั่นผ่อนดาวน์ไหมครับ สนใจตึกใหม่อยู่ครับ ขอแคตตาล็อกด้วยครับ 089-7213310"',
+            time: '⏰ 2026-08-15 11:20 • แอดมินเพจ City Link • Tel: 089-721-3310 • Intent: ผ่อนดาวน์ / ขอแคตตาล็อก'
           },
           {
             name: '💬 มนัสนันท์ เกษมสุข',
             score: 'Score: 72/100',
-            msg: '"ขอแคตตาล็อกห้อง 1 ห้องนอน พร้อมราคาเริ่มต้นหน่อยค่ะ เปรียบเทียบกับตึกเดิม"',
-            time: '⏰ 2026-08-18 16:45 • แอดมินแนน (City Link) • Intent: แคตตาล็อก / ราคาเริ่มต้น'
+            contact: '💬 Line: manatsanun_k',
+            contactType: 'line',
+            msg: '"ขอแคตตาล็อกห้อง 1 ห้องนอน พร้อมราคาเริ่มต้นหน่อยค่ะ แอดไลน์ manatsanun_k เปรียบเทียบกับตึกเดิม"',
+            time: '⏰ 2026-08-18 16:45 • แอดมินแนน (City Link) • Line: manatsanun_k • Intent: แคตตาล็อก / ราคาเริ่มต้น'
           },
           {
             name: '💬 ภานุพงศ์ ฤทธิ์เดช',
             score: 'Score: 68/100',
-            msg: '"ตึกเสร็จพร้อมโอนเมื่อไหร่ครับ มีสระว่ายน้ำส่วนกลางและฟิตเนสไหม"',
-            time: '⏰ 2026-08-22 13:10 • แอดมินเพจ City Link • Intent: วันพร้อมโอน / สิ่งอำนวยความสะดวก'
+            contact: '📞 Tel: 081-456-9921',
+            contactType: 'tel',
+            msg: '"ตึกเสร็จพร้อมโอนเมื่อไหร่ครับ มีสระว่ายน้ำส่วนกลางและฟิตเนสไหม ติดต่อ 081-4569921"',
+            time: '⏰ 2026-08-22 13:10 • แอดมินเพจ City Link • Tel: 081-456-9921 • Intent: วันพร้อมโอน / สิ่งอำนวยความสะดวก'
           },
           {
             name: '💬 กัญญา ศรีวิเศษ',
             score: 'Score: 65/100',
-            msg: '"สามารถนัดเข้าไปดูสถานที่จริงวันอาทิตย์ได้ไหมคะ และมีที่จอดรถเพียงพอไหม"',
-            time: '⏰ 2026-08-25 10:05 • แอดมินแนน (City Link) • Intent: สอบถามเข้าชม / ที่จอดรถ'
+            contact: '💬 Line: kanya_sri',
+            contactType: 'line',
+            msg: '"สามารถนัดเข้าไปดูสถานที่จริงวันอาทิตย์ได้ไหมคะ และมีที่จอดรถเพียงพอไหม Line: kanya_sri"',
+            time: '⏰ 2026-08-25 10:05 • แอดมินแนน (City Link) • Line: kanya_sri • Intent: สอบถามเข้าชม / ที่จอดรถ'
+          }
+        ],
+        coolLeads: [
+          {
+            name: '💬 อภิสิทธิ์ วงศ์ไทย',
+            score: 'Score: 32/100',
+            contact: '📞 Tel: 093-551-8890',
+            contactType: 'tel',
+            msg: '"สอบถามแผนที่การเดินทางเข้ามาดูโครงการหน่อยครับ พอดีขับรถมาจากขอนแก่น โทร 093-551-8890 ครับ"',
+            time: '⏰ 2026-08-20 14:15 • แอดมินเพจ City Link • Tel: 093-551-8890 • Intent: แผนที่การเดินทาง / สอบถามเส้นทาง'
           }
         ]
       },
@@ -4298,76 +4518,110 @@
           {
             name: '💬 Kingkaew Zankl',
             score: 'Score: 94/100',
-            msg: '"มีผ่อนตรงกับโครงการไหมคะ ขอดูห้องค่ะ"',
-            time: '⏰ 2026-09-03 09:36 • แอดมินแนน (City Link) • Intent: ผ่อนตรง / นัดชมห้อง'
+            contact: '💬 Line: kingkaew_z',
+            contactType: 'line',
+            msg: '"มีผ่อนตรงกับโครงการไหมคะ ขอดูห้องค่ะ แอดไลน์ kingkaew_z ส่งรายละเอียดได้เลยค่ะ"',
+            time: '⏰ 2026-09-03 09:36 • แอดมินแนน (City Link) • Line: kingkaew_z • Intent: ผ่อนตรง / นัดชมห้อง'
           },
           {
             name: '💬 Komcharn Wisedned (คมชาญ วิเศษเนตร)',
             score: 'Score: 95/100',
+            contact: '📞 Tel: 084-605-4031',
+            contactType: 'tel',
             msg: '"คมชาญ วิเศษเนตร 0846054031 1 bed ราคาเท่าไหร่คับ เหลือชั้นไหนบ้าง สนใจแบบ 1 ห้อง กับ 2 ห้องครับ สอบถามแปลนห้องคับ"',
             time: '⏰ 2026-08-29 09:38 • แอดมินแนน (City Link) • Tel: 084-605-4031'
           },
           {
             name: '💬 Sue Ruddock',
             score: 'Score: 92/100',
-            msg: '"Hi, thank you for your message. Interested in 2 Bedroom Hampton building and want to visit real showroom this Saturday."',
-            time: '⏰ 2026-08-31 15:20 • แอดมินเพจ City Link • Intent: นัดชมห้องจริง'
+            contact: '📞 Tel: 082-114-8970',
+            contactType: 'tel',
+            msg: '"Hi, thank you for your message. Interested in 2 Bedroom Hampton building and want to visit real showroom this Saturday. Tel: 082-1148970"',
+            time: '⏰ 2026-08-31 15:20 • แอดมินเพจ City Link • Tel: 082-114-8970 • Intent: นัดชมห้องจริง / 2 Bed'
           },
           {
             name: '💬 ฐิติพร บุญมา',
             score: 'Score: 92/100',
-            msg: '"สนใจยูนิต 2 ห้องนอน วิวสระว่ายน้ำ นัดเข้าชมวันอาทิตย์นี้ได้ไหมคะ ขอเบอร์ติดต่อฝ่ายขายด้วยค่ะ"',
-            time: '⏰ 2026-09-24 16:40 • แอดมินแนน (City Link) • Intent: นัดชมโครงการ / ยูนิต 2 Bed วิวสระ'
+            contact: '📞 Tel: 081-876-2349',
+            contactType: 'tel',
+            msg: '"สนใจยูนิต 2 ห้องนอน วิวสระว่ายน้ำ นัดเข้าชมวันอาทิตย์นี้ได้ไหมคะ ขอเบอร์ติดต่อฝ่ายขายด้วยค่ะ เบอร์ดิฉัน 081-8762349 ค่ะ"',
+            time: '⏰ 2026-09-24 16:40 • แอดมินแนน (City Link) • Tel: 081-876-2349 • Intent: นัดชมโครงการ / 2 Bed วิวสระ'
           },
           {
             name: '💬 Bell Nisanat (เบล)',
             score: 'Score: 92/100',
+            contact: '📞 Tel: 064-515-9654',
+            contactType: 'tel',
             msg: '"เบล 0645159654 ค่ะ Hampton ใช่ไหมคะ มีว่างให้เช่ามี้ยคะ สอบถามค่ะ อ่างอาบน้ำมีตึกไหนบ้างคะ"',
             time: '⏰ 2026-08-24 14:09 • แอดมินแนน (City Link) • Tel: 064-515-9654'
           },
           {
             name: '💬 วิภาดา สุขเจริญ',
             score: 'Score: 91/100',
-            msg: '"สนใจคอนโด 1 ห้องนอน พร้อมเข้าอยู่ โปรโมชั่นเดือนนี้มีอะไรบ้างคะ"',
-            time: '⏰ 2026-09-18 14:15 • แอดมินแนน (City Link) • Intent: โปรโมชั่น / ห้อง 1 Bedroom'
+            contact: '📞 Tel: 086-345-8120',
+            contactType: 'tel',
+            msg: '"สนใจคอนโด 1 ห้องนอน พร้อมเข้าอยู่ โปรโมชั่นเดือนนี้มีอะไรบ้างคะ โทร 086-3458120 แอดไลน์เบอร์นี้ได้เลยค่ะ"',
+            time: '⏰ 2026-09-18 14:15 • แอดมินแนน (City Link) • Tel: 086-345-8120 • Intent: โปรโมชั่น / ห้อง 1 Bedroom'
           }
         ],
         warmLeads: [
           {
             name: '💬 ใครใครก็ชอบเรียก ลูกหมี',
             score: 'Score: 78/100',
-            msg: '"เปิดจองแล้วใช่มั้ยคะ ราคาเท่าไหร่คะ สนใจห้องตัวอย่างค่ะ"',
-            time: '⏰ 2026-09-05 10:15 • แอดมินแนน (City Link) • Intent: จองห้อง / สนใจห้องตัวอย่าง'
+            contact: '💬 Line: lookmhee_condo',
+            contactType: 'line',
+            msg: '"เปิดจองแล้วใช่มั้ยคะ ราคาเท่าไหร่คะ สนใจห้องตัวอย่างค่ะ ทักไลน์ lookmhee_condo ได้นะคะ"',
+            time: '⏰ 2026-09-05 10:15 • แอดมินแนน (City Link) • Line: lookmhee_condo • Intent: จองห้อง / สนใจห้องตัวอย่าง'
           },
           {
             name: '💬 ชาคริต นันทวัน',
             score: 'Score: 76/100',
-            msg: '"มีโปรโมชั่นผ่อนดาวน์ไหมครับ สนใจตึกใหม่อยู่ครับ ขอแคตตาล็อกด้วยครับ"',
-            time: '⏰ 2026-08-15 11:20 • แอดมินเพจ City Link • Intent: ผ่อนดาวน์ / ขอแคตตาล็อก'
+            contact: '📞 Tel: 089-721-3310',
+            contactType: 'tel',
+            msg: '"มีโปรโมชั่นผ่อนดาวน์ไหมครับ สนใจตึกใหม่อยู่ครับ ขอแคตตาล็อกด้วยครับ 089-7213310"',
+            time: '⏰ 2026-08-15 11:20 • แอดมินเพจ City Link • Tel: 089-721-3310 • Intent: ผ่อนดาวน์ / ขอแคตตาล็อก'
           },
           {
             name: '💬 นางสาว ฟองเบียร์',
             score: 'Score: 75/100',
-            msg: '"มีห้อง Duplex ไหม 2 bed ราคาเท่าไรคะ"',
-            time: '⏰ 2026-09-01 22:55 • แอดมินเพจ City Link • Intent: ห้อง Duplex / 2 Beds / ขอแปลน'
+            contact: '💬 Line: fongbeer_69',
+            contactType: 'line',
+            msg: '"มีห้อง Duplex ไหม 2 bed ราคาเท่าไรคะ แอดไลน์ fongbeer_69 ส่งแปลนให้หน่อยค่ะ"',
+            time: '⏰ 2026-09-01 22:55 • แอดมินเพจ City Link • Line: fongbeer_69 • Intent: ห้อง Duplex / 2 Beds / ขอแปลน'
           },
           {
             name: '💬 Patt Wrthw',
             score: 'Score: 70/100',
-            msg: '"ยินดีค่ะ สนใจดูห้องตึกใหม่ Hampton ค่ะ มีโปรโมชั่นดอกเบี้ยพิเศษไหมคะ"',
-            time: '⏰ 2026-09-12 11:30 • แอดมินแนน (City Link) • Intent: โปรโมชั่นดอกเบี้ย / ตึก Hampton'
-          },
-          {
-            name: '💬 Jxri Se',
-            score: 'Score: 65/100',
-            msg: '"สวัสดีค่า ขอสอบถามราคาห้องค่ะ สามารถเลี้ยงสัตว์ได้ไหมคะ"',
-            time: '⏰ 2026-09-02 09:37 • แอดมินเพจ City Link • Intent: ราคาห้อง / กฎการเลี้ยงสัตว์'
+            contact: '💬 Line: patt_w26',
+            contactType: 'line',
+            msg: '"ยินดีค่ะ สนใจดูห้องตึกใหม่ Hampton ค่ะ มีโปรโมชั่นดอกเบี้ยพิเศษไหมคะ Line: patt_w26"',
+            time: '⏰ 2026-09-12 11:30 • แอดมินแนน (City Link) • Line: patt_w26 • Intent: โปรโมชั่นดอกเบี้ย / ตึก Hampton'
           },
           {
             name: '💬 กิตติศักดิ์ เจริญศรี',
             score: 'Score: 72/100',
-            msg: '"สอบถามเงื่อนไขการกู้ร่วมและโปรโมชั่นฟรีค่าส่วนกลาง 1 ปีครับ ยังมีห้องโปรโมชั่นอยู่ไหม"',
-            time: '⏰ 2026-09-23 11:15 • แอดมินเพจ City Link • Intent: โปรโมชั่น / เงื่อนไขสินเชื่อกู้ร่วม'
+            contact: '📞 Tel: 089-423-1190',
+            contactType: 'tel',
+            msg: '"สอบถามเงื่อนไขการกู้ร่วมและโปรโมชั่นฟรีค่าส่วนกลาง 1 ปีครับ โทร 089-423-1190 ยังมีห้องโปรโมชั่นอยู่ไหม"',
+            time: '⏰ 2026-09-23 11:15 • แอดมินเพจ City Link • Tel: 089-423-1190 • Intent: โปรโมชั่น / เงื่อนไขสินเชื่อกู้ร่วม'
+          },
+          {
+            name: '💬 มนัสนันท์ เกษมสุข',
+            score: 'Score: 72/100',
+            contact: '💬 Line: manatsanun_k',
+            contactType: 'line',
+            msg: '"ขอแคตตาล็อกห้อง 1 ห้องนอน พร้อมราคาเริ่มต้นหน่อยค่ะ แอดไลน์ manatsanun_k เปรียบเทียบกับตึกเดิม"',
+            time: '⏰ 2026-08-18 16:45 • แอดมินแนน (City Link) • Line: manatsanun_k • Intent: แคตตาล็อก / ราคาเริ่มต้น'
+          }
+        ],
+        coolLeads: [
+          {
+            name: '💬 Jxri Se',
+            score: 'Score: 35/100',
+            contact: '💬 Line: jxri_pet',
+            contactType: 'line',
+            msg: '"สวัสดีค่า ขอสอบถามราคาห้องค่ะ สามารถเลี้ยงสัตว์ได้ไหมคะ ให้ไลน์ไว้ jxri_pet ค่า"',
+            time: '⏰ 2026-09-02 09:37 • แอดมินเพจ City Link • Line: jxri_pet • Intent: สอบถามทั่วไป / กฎการเลี้ยงสัตว์'
           }
         ]
       },
@@ -4399,88 +4653,126 @@
           {
             name: '💬 Kingkaew Zankl',
             score: 'Score: 94/100',
-            msg: '"มีผ่อนตรงกับโครงการไหมคะ ขอดูห้องค่ะ"',
-            time: '⏰ 2026-09-03 09:36 • แอดมินแนน (City Link) • Intent: ผ่อนตรง / นัดชมห้อง'
+            contact: '💬 Line: kingkaew_z',
+            contactType: 'line',
+            msg: '"มีผ่อนตรงกับโครงการไหมคะ ขอดูห้องค่ะ แอดไลน์ kingkaew_z ส่งรายละเอียดได้เลยค่ะ"',
+            time: '⏰ 2026-09-03 09:36 • แอดมินแนน (City Link) • Line: kingkaew_z • Intent: ผ่อนตรง / นัดชมห้อง'
           },
           {
             name: '💬 Komcharn Wisedned (คมชาญ วิเศษเนตร)',
             score: 'Score: 95/100',
+            contact: '📞 Tel: 084-605-4031',
+            contactType: 'tel',
             msg: '"คมชาญ วิเศษเนตร 0846054031 1 bed ราคาเท่าไหร่คับ เหลือชั้นไหนบ้าง สนใจแบบ 1 ห้อง กับ 2 ห้องครับ สอบถามแปลนห้องคับ"',
             time: '⏰ 2026-08-29 09:38 • แอดมินแนน (City Link) • Tel: 084-605-4031'
           },
           {
             name: '💬 Sue Ruddock',
             score: 'Score: 92/100',
-            msg: '"Hi, thank you for your message. Interested in 2 Bedroom Hampton building and want to visit real showroom this Saturday."',
-            time: '⏰ 2026-08-31 15:20 • แอดมินเพจ City Link • Intent: นัดชมห้องจริง'
+            contact: '📞 Tel: 082-114-8970',
+            contactType: 'tel',
+            msg: '"Hi, thank you for your message. Interested in 2 Bedroom Hampton building and want to visit real showroom this Saturday. Tel: 082-1148970"',
+            time: '⏰ 2026-08-31 15:20 • แอดมินเพจ City Link • Tel: 082-114-8970 • Intent: นัดชมห้องจริง / 2 Bed'
           },
           {
             name: '💬 ฐิติพร บุญมา',
             score: 'Score: 92/100',
-            msg: '"สนใจยูนิต 2 ห้องนอน วิวสระว่ายน้ำ นัดเข้าชมวันอาทิตย์นี้ได้ไหมคะ ขอเบอร์ติดต่อฝ่ายขายด้วยค่ะ"',
-            time: '⏰ 2026-09-24 16:40 • แอดมินแนน (City Link) • Intent: นัดชมโครงการ / ยูนิต 2 Bed วิวสระ'
+            contact: '📞 Tel: 081-876-2349',
+            contactType: 'tel',
+            msg: '"สนใจยูนิต 2 ห้องนอน วิวสระว่ายน้ำ นัดเข้าชมวันอาทิตย์นี้ได้ไหมคะ ขอเบอร์ติดต่อฝ่ายขายด้วยค่ะ เบอร์ดิฉัน 081-8762349 ค่ะ"',
+            time: '⏰ 2026-09-24 16:40 • แอดมินแนน (City Link) • Tel: 081-876-2349 • Intent: นัดชมโครงการ / 2 Bed วิวสระ'
           },
           {
             name: '💬 Bell Nisanat (เบล)',
             score: 'Score: 92/100',
+            contact: '📞 Tel: 064-515-9654',
+            contactType: 'tel',
             msg: '"เบล 0645159654 ค่ะ Hampton ใช่ไหมคะ มีว่างให้เช่ามี้ยคะ สอบถามค่ะ อ่างอาบน้ำมีตึกไหนบ้างคะ"',
             time: '⏰ 2026-08-24 14:09 • แอดมินแนน (City Link) • Tel: 064-515-9654'
           },
           {
             name: '💬 วิภาดา สุขเจริญ',
             score: 'Score: 91/100',
-            msg: '"สนใจคอนโด 1 ห้องนอน พร้อมเข้าอยู่ โปรโมชั่นเดือนนี้มีอะไรบ้างคะ"',
-            time: '⏰ 2026-09-18 14:15 • แอดมินแนน (City Link) • Intent: โปรโมชั่น / ห้อง 1 Bedroom'
+            contact: '📞 Tel: 086-345-8120',
+            contactType: 'tel',
+            msg: '"สนใจคอนโด 1 ห้องนอน พร้อมเข้าอยู่ โปรโมชั่นเดือนนี้มีอะไรบ้างคะ โทร 086-3458120 แอดไลน์เบอร์นี้ได้เลยค่ะ"',
+            time: '⏰ 2026-09-18 14:15 • แอดมินแนน (City Link) • Tel: 086-345-8120 • Intent: โปรโมชั่น / ห้อง 1 Bedroom'
           },
           {
             name: '💬 ธีรภัทร วัฒนากุล',
             score: 'Score: 89/100',
-            msg: '"สอบถามที่จอดรถและค่าส่วนกลางครับ สามารถเข้าชมเสาร์นี้ได้ไหม"',
-            time: '⏰ 2026-09-20 11:20 • แอดมินแนน (City Link) • Intent: นัดชมโครงการ / สอบถามส่วนกลาง'
+            contact: '📞 Tel: 095-219-4458',
+            contactType: 'tel',
+            msg: '"สอบถามที่จอดรถและค่าส่วนกลางครับ สามารถเข้าชมเสาร์นี้ได้ไหม เบอร์ผม 095-219-4458 ครับ"',
+            time: '⏰ 2026-09-20 11:20 • แอดมินแนน (City Link) • Tel: 095-219-4458 • Intent: นัดชมโครงการ / สอบถามส่วนกลาง'
           }
         ],
         warmLeads: [
           {
             name: '💬 ใครใครก็ชอบเรียก ลูกหมี',
             score: 'Score: 78/100',
-            msg: '"เปิดจองแล้วใช่มั้ยคะ ราคาเท่าไหร่คะ สนใจห้องตัวอย่างค่ะ"',
-            time: '⏰ 2026-09-05 10:15 • แอดมินแนน (City Link) • Intent: จองห้อง / สนใจห้องตัวอย่าง'
+            contact: '💬 Line: lookmhee_condo',
+            contactType: 'line',
+            msg: '"เปิดจองแล้วใช่มั้ยคะ ราคาเท่าไหร่คะ สนใจห้องตัวอย่างค่ะ ทักไลน์ lookmhee_condo ได้นะคะ"',
+            time: '⏰ 2026-09-05 10:15 • แอดมินแนน (City Link) • Line: lookmhee_condo • Intent: จองห้อง / สนใจห้องตัวอย่าง'
           },
           {
             name: '💬 ชาคริต นันทวัน',
             score: 'Score: 76/100',
-            msg: '"มีโปรโมชั่นผ่อนดาวน์ไหมครับ สนใจตึกใหม่อยู่ครับ ขอแคตตาล็อกด้วยครับ"',
-            time: '⏰ 2026-08-15 11:20 • แอดมินเพจ City Link • Intent: ผ่อนดาวน์ / ขอแคตตาล็อก'
+            contact: '📞 Tel: 089-721-3310',
+            contactType: 'tel',
+            msg: '"มีโปรโมชั่นผ่อนดาวน์ไหมครับ สนใจตึกใหม่อยู่ครับ ขอแคตตาล็อกด้วยครับ 089-7213310"',
+            time: '⏰ 2026-08-15 11:20 • แอดมินเพจ City Link • Tel: 089-721-3310 • Intent: ผ่อนดาวน์ / ขอแคตตาล็อก'
           },
           {
             name: '💬 นางสาว ฟองเบียร์',
             score: 'Score: 75/100',
-            msg: '"มีห้อง Duplex ไหม 2 bed ราคาเท่าไรคะ"',
-            time: '⏰ 2026-09-01 22:55 • แอดมินเพจ City Link • Intent: ห้อง Duplex / 2 Beds / ขอแปลน'
+            contact: '💬 Line: fongbeer_69',
+            contactType: 'line',
+            msg: '"มีห้อง Duplex ไหม 2 bed ราคาเท่าไรคะ แอดไลน์ fongbeer_69 ส่งแปลนให้หน่อยค่ะ"',
+            time: '⏰ 2026-09-01 22:55 • แอดมินเพจ City Link • Line: fongbeer_69 • Intent: ห้อง Duplex / 2 Beds / ขอแปลน'
           },
           {
             name: '💬 Patt Wrthw',
             score: 'Score: 70/100',
-            msg: '"ยินดีค่ะ สนใจดูห้องตึกใหม่ Hampton ค่ะ มีโปรโมชั่นดอกเบี้ยพิเศษไหมคะ"',
-            time: '⏰ 2026-09-12 11:30 • แอดมินแนน (City Link) • Intent: โปรโมชั่นดอกเบี้ย / ตึก Hampton'
-          },
-          {
-            name: '💬 Jxri Se',
-            score: 'Score: 65/100',
-            msg: '"สวัสดีค่า ขอสอบถามราคาห้องค่ะ สามารถเลี้ยงสัตว์ได้ไหมคะ"',
-            time: '⏰ 2026-09-02 09:37 • แอดมินเพจ City Link • Intent: ราคาห้อง / กฎการเลี้ยงสัตว์'
+            contact: '💬 Line: patt_w26',
+            contactType: 'line',
+            msg: '"ยินดีค่ะ สนใจดูห้องตึกใหม่ Hampton ค่ะ มีโปรโมชั่นดอกเบี้ยพิเศษไหมคะ Line: patt_w26"',
+            time: '⏰ 2026-09-12 11:30 • แอดมินแนน (City Link) • Line: patt_w26 • Intent: โปรโมชั่นดอกเบี้ย / ตึก Hampton'
           },
           {
             name: '💬 กิตติศักดิ์ เจริญศรี',
             score: 'Score: 72/100',
-            msg: '"สอบถามเงื่อนไขการกู้ร่วมและโปรโมชั่นฟรีค่าส่วนกลาง 1 ปีครับ ยังมีห้องโปรโมชั่นอยู่ไหม"',
-            time: '⏰ 2026-09-23 11:15 • แอดมินเพจ City Link • Intent: โปรโมชั่น / เงื่อนไขสินเชื่อกู้ร่วม'
+            contact: '📞 Tel: 089-423-1190',
+            contactType: 'tel',
+            msg: '"สอบถามเงื่อนไขการกู้ร่วมและโปรโมชั่นฟรีค่าส่วนกลาง 1 ปีครับ โทร 089-423-1190 ยังมีห้องโปรโมชั่นอยู่ไหม"',
+            time: '⏰ 2026-09-23 11:15 • แอดมินเพจ City Link • Tel: 089-423-1190 • Intent: โปรโมชั่น / เงื่อนไขสินเชื่อกู้ร่วม'
           },
           {
             name: '💬 มนัสนันท์ เกษมสุข',
             score: 'Score: 72/100',
-            msg: '"ขอแคตตาล็อกห้อง 1 ห้องนอน พร้อมราคาเริ่มต้นหน่อยค่ะ เปรียบเทียบกับตึกเดิม"',
-            time: '⏰ 2026-08-18 16:45 • แอดมินแนน (City Link) • Intent: แคตตาล็อก / ราคาเริ่มต้น'
+            contact: '💬 Line: manatsanun_k',
+            contactType: 'line',
+            msg: '"ขอแคตตาล็อกห้อง 1 ห้องนอน พร้อมราคาเริ่มต้นหน่อยค่ะ แอดไลน์ manatsanun_k เปรียบเทียบกับตึกเดิม"',
+            time: '⏰ 2026-08-18 16:45 • แอดมินแนน (City Link) • Line: manatsanun_k • Intent: แคตตาล็อก / ราคาเริ่มต้น'
+          },
+          {
+            name: '💬 ภานุพงศ์ ฤทธิ์เดช',
+            score: 'Score: 68/100',
+            contact: '📞 Tel: 081-456-9921',
+            contactType: 'tel',
+            msg: '"ตึกเสร็จพร้อมโอนเมื่อไหร่ครับ มีสระว่ายน้ำส่วนกลางและฟิตเนสไหม ติดต่อ 081-4569921"',
+            time: '⏰ 2026-08-22 13:10 • แอดมินเพจ City Link • Tel: 081-456-9921 • Intent: วันพร้อมโอน / สิ่งอำนวยความสะดวก'
+          }
+        ],
+        coolLeads: [
+          {
+            name: '💬 Jxri Se',
+            score: 'Score: 35/100',
+            contact: '💬 Line: jxri_pet',
+            contactType: 'line',
+            msg: '"สวัสดีค่า ขอสอบถามราคาห้องค่ะ สามารถเลี้ยงสัตว์ได้ไหมคะ ให้ไลน์ไว้ jxri_pet ค่า"',
+            time: '⏰ 2026-09-02 09:37 • แอดมินเพจ City Link • Line: jxri_pet • Intent: สอบถามทั่วไป / กฎการเลี้ยงสัตว์'
           }
         ]
       }
@@ -4489,6 +4781,7 @@
     let currentFeedTier = 'hot';
     let currentHotLeadIdx = 0;
     let currentWarmLeadIdx = 0;
+    let currentCoolLeadIdx = 0;
 
     function switchLeadFeedTier(tier, shouldScroll) {
       currentFeedTier = tier;
@@ -4541,6 +4834,8 @@
           {
             name: `💬 ลีดพร้อมซื้อประจำงวด ${pLabel}`,
             score: 'Score: 90/100',
+            contact: '📞 Tel: 081-876-2349',
+            contactType: 'tel',
             msg: `"สนใจติดต่อสอบถามแปลนห้องและเงื่อนไขจองโครงการในงวด ${pLabel}"`,
             time: `⏰ บันทึกตามข้อความ Facebook Ads ประจำงวด • แอดมินแนน (City Link) • Intent: จองห้อง / นัดชม`
           }
@@ -4549,8 +4844,20 @@
           {
             name: `💬 ลีดสนใจ/เปรียบเทียบประจำงวด ${pLabel}`,
             score: 'Score: 70/100',
+            contact: '💬 Line: @citylink_condo',
+            contactType: 'line',
             msg: `"สนใจสอบถามรายละเอียดราคาและโปรโมชั่นประจำงวด ${pLabel}"`,
             time: `⏰ บันทึกตามข้อความ Facebook Ads ประจำงวด • แอดมินเพจ City Link • Intent: ขอรายละเอียด`
+          }
+        ],
+        coolLeads: [
+          {
+            name: `💬 ลีดสำรวจข้อมูลประจำงวด ${pLabel}`,
+            score: 'Score: 35/100',
+            contact: '💬 Line: citylink_info',
+            contactType: 'line',
+            msg: `"สนใจสอบถามรายละเอียดเบื้องต้นและกฎระเบียบโครงการในงวด ${pLabel}"`,
+            time: `⏰ บันทึกตามข้อความ Facebook Ads ประจำงวด • แอดมินเพจ City Link • Line: citylink_info • Intent: สอบถามทั่วไป / ข้อมูลเบื้องต้น`
           }
         ]
       };
@@ -4566,33 +4873,35 @@
       const notice = document.getElementById('leadHotNotice');
       const btnHot = document.getElementById('btnTierHot');
       const btnWarm = document.getElementById('btnTierWarm');
+      const btnCool = document.getElementById('btnTierCool');
       const badgeHotCount = document.getElementById('feedHotBadgeCount');
       const badgeWarmCount = document.getElementById('feedWarmBadgeCount');
+      const badgeCoolCount = document.getElementById('feedCoolBadgeCount');
 
       const hotLeads = leadData.hotLeads || [];
       const warmLeads = leadData.warmLeads || [];
+      const coolLeads = leadData.coolLeads || [];
 
       if (badgeHotCount) badgeHotCount.textContent = hotLeads.length;
       if (badgeWarmCount) badgeWarmCount.textContent = warmLeads.length;
+      if (badgeCoolCount) badgeCoolCount.textContent = coolLeads.length;
 
       const isWarm = (currentFeedTier === 'warm');
+      const isCool = (currentFeedTier === 'cool');
+      const isHot = (currentFeedTier === 'hot');
 
       if (banner) {
-        if (isWarm) {
-          banner.classList.add('theme-warm');
-        } else {
-          banner.classList.remove('theme-warm');
-        }
+        banner.classList.remove('theme-warm', 'theme-cool');
+        if (isWarm) banner.classList.add('theme-warm');
+        else if (isCool) banner.classList.add('theme-cool');
       }
 
       if (btnHot && btnWarm) {
-        if (isWarm) {
-          btnHot.className = 'lead-feed-tier-btn';
-          btnWarm.className = 'lead-feed-tier-btn active warm';
-        } else {
-          btnHot.className = 'lead-feed-tier-btn active hot';
-          btnWarm.className = 'lead-feed-tier-btn';
-        }
+        btnHot.className = isHot ? 'lead-feed-tier-btn active hot' : 'lead-feed-tier-btn';
+        btnWarm.className = isWarm ? 'lead-feed-tier-btn active warm' : 'lead-feed-tier-btn';
+      }
+      if (btnCool) {
+        btnCool.className = isCool ? 'lead-feed-tier-btn active cool' : 'lead-feed-tier-btn';
       }
 
       if (isWarm) {
@@ -4607,6 +4916,19 @@
         if (notice) {
           notice.style.color = '#b45309';
           notice.textContent = '📅 SLA Follow-up: 24-48 ชม.';
+        }
+      } else if (isCool) {
+        if (badge) {
+          badge.style.background = '#0284c7';
+          badge.innerHTML = `❄️ 4.2 Lead Feed`;
+        }
+        if (desc) {
+          desc.style.color = '#0369a1';
+          desc.textContent = 'สำรวจเบื้องต้น / สอบถามทั่วไป';
+        }
+        if (notice) {
+          notice.style.color = '#0284c7';
+          notice.textContent = '🤖 SLA Auto-Nurture: บอทดูแลต่อเนื่อง';
         }
       } else {
         if (badge) {
@@ -4623,13 +4945,22 @@
         }
       }
 
-      const activeLeads = isWarm ? warmLeads : hotLeads;
-      let activeIdx = isWarm ? currentWarmLeadIdx : currentHotLeadIdx;
+      let activeLeads = hotLeads;
+      let activeIdx = currentHotLeadIdx;
+      if (isWarm) {
+        activeLeads = warmLeads;
+        activeIdx = currentWarmLeadIdx;
+      } else if (isCool) {
+        activeLeads = coolLeads;
+        activeIdx = currentCoolLeadIdx;
+      }
+
+      const tierLabel = isWarm ? 'Warm' : isCool ? 'Cool' : 'Hot';
 
       if (activeLeads.length === 0) {
         container.innerHTML = `
           <div class="lead-hot-card" style="text-align: center; padding: 18px; color: var(--text-muted);">
-            <span>ไม่มี ${isWarm ? 'Warm' : 'Hot'} Leads ในงวดนี้</span>
+            <span>ไม่มี ${tierLabel} Leads ในงวดนี้</span>
           </div>
         `;
         return;
@@ -4637,11 +4968,14 @@
 
       if (activeIdx >= activeLeads.length) {
         activeIdx = 0;
-        if (isWarm) currentWarmLeadIdx = 0; else currentHotLeadIdx = 0;
+        if (isWarm) currentWarmLeadIdx = 0;
+        else if (isCool) currentCoolLeadIdx = 0;
+        else currentHotLeadIdx = 0;
       }
 
       let tabsHtml = '';
       if (activeLeads.length > 1) {
+        const tabTierClass = isWarm ? 'tab-warm' : isCool ? 'tab-cool' : '';
         tabsHtml = `
           <div class="lead-hot-tabs" style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px;">
             ${activeLeads.map((l, i) => {
@@ -4649,7 +4983,7 @@
               const cleanName = rawName.includes('(') ? rawName.split('(')[0].trim() : rawName;
               const shortScore = l.score.replace('Score: ', '');
               return `
-              <button class="lead-tab-btn ${isWarm ? 'tab-warm' : ''} ${i === activeIdx ? 'active' : ''}" onclick="selectHotLead(${i})" title="${rawName} (${l.score})">
+              <button class="lead-tab-btn ${tabTierClass} ${i === activeIdx ? 'active' : ''}" onclick="selectHotLead(${i})" title="${rawName} (${l.score})">
                 ${cleanName} (${shortScore})
               </button>
             `}).join('')}
@@ -4658,21 +4992,33 @@
       }
 
       const l = activeLeads[activeIdx];
-      const cardClass = isWarm ? 'lead-warm-card' : 'lead-hot-card';
-      const nameClass = isWarm ? 'lead-warm-name' : 'lead-hot-name';
-      const scoreClass = isWarm ? 'lead-warm-score' : 'lead-hot-score';
-      const msgClass = isWarm ? 'lead-warm-msg' : 'lead-hot-msg';
-      const footerClass = isWarm ? 'lead-warm-footer' : 'lead-hot-footer';
-      const btnClass = isWarm ? 'btn-lead-action btn-warm' : 'btn-lead-action';
-      const btnText = isWarm ? '📋 Follow-up' : '⚡ ติดต่อด่วน';
+      const cardClass = isWarm ? 'lead-warm-card' : isCool ? 'lead-cool-card' : 'lead-hot-card';
+      const nameClass = isWarm ? 'lead-warm-name' : isCool ? 'lead-cool-name' : 'lead-hot-name';
+      const scoreClass = isWarm ? 'lead-warm-score' : isCool ? 'lead-cool-score' : 'lead-hot-score';
+      const msgClass = isWarm ? 'lead-warm-msg' : isCool ? 'lead-cool-msg' : 'lead-hot-msg';
+      const footerClass = isWarm ? 'lead-warm-footer' : isCool ? 'lead-cool-footer' : 'lead-hot-footer';
+      const btnClass = isWarm ? 'btn-lead-action btn-warm' : isCool ? 'btn-lead-action btn-cool' : 'btn-lead-action';
+      const btnText = isWarm ? '📋 Follow-up' : isCool ? '🤖 Auto-Nurture' : '⚡ ติดต่อด่วน';
       const actionMsg = isWarm
         ? `📋 ส่งข้อมูลและโปรโมชั่นเพิ่มเติมให้: ${l.name.replace('💬 ', '')} (ตามเกณฑ์ Follow-up ภายใน 24-48 ชม.)`
+        : isCool
+        ? `🤖 เปิดใช้งาน Chatbot Auto-Nurturing ส่งคอนเทนต์แนะนำสำหรับ: ${l.name.replace('💬 ', '')} (ระยะสำรวจ)`
         : `⚡ กำลังเชื่อมต่อฝ่ายขายเพื่อติดต่อกลับ: ${l.name.replace('💬 ', '')} (Action SLA 15 นาที)`;
+
+      let contactBadgeHtml = '';
+      if (l.contact) {
+        const isLine = l.contactType === 'line' || l.contact.includes('Line');
+        const badgeCls = isLine ? 'lead-contact-badge badge-line' : 'lead-contact-badge badge-tel';
+        contactBadgeHtml = `<span class="${badgeCls}">${l.contact}</span>`;
+      }
 
       const cardHtml = `
         <div class="${cardClass}">
           <div class="lead-hot-card-top">
-            <span class="${nameClass}">${l.name}</span>
+            <span class="${nameClass}">
+              ${l.name}
+              ${contactBadgeHtml}
+            </span>
             <span class="${scoreClass}">${l.score}</span>
           </div>
           <div class="${msgClass}">
@@ -4693,8 +5039,10 @@
     function selectHotLead(idx) {
       if (currentFeedTier === 'hot') {
         currentHotLeadIdx = idx;
-      } else {
+      } else if (currentFeedTier === 'warm') {
         currentWarmLeadIdx = idx;
+      } else {
+        currentCoolLeadIdx = idx;
       }
       const data = getLeadDataForPeriod(currentPeriod);
       renderHotLeadFeed(data);
