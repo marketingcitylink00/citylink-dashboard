@@ -7374,10 +7374,12 @@
             <button class="video-sel-btn active" onclick="selectTikTokVideo(6);">Week 1 (ก.ย.): Ready to move in ⭐</button>
             <button class="video-sel-btn" onclick="selectTikTokVideo(7);">Week 2 (ก.ย.): แผนพัฒนาพื้นที่รอบๆ...</button>
             <button class="video-sel-btn" onclick="selectTikTokVideo(0);">Week 1 (ส.ค.): ขายค่ะ....แบบขายจริง</button>
-            <button class="video-sel-btn" onclick="selectTikTokVideo(1);">Week 2 (ส.ค.): อยากบอกอะไรกับคนถัดไป</button>
-            <button class="video-sel-btn" onclick="selectTikTokVideo(2);">Week 2 (ส.ค.): Private Event ⭐</button>
-            <button class="video-sel-btn" onclick="selectTikTokVideo(3);">Week 3 (ส.ค.): จอง ทำสัญญา ดาวน์</button>
-            <button class="video-sel-btn" onclick="selectTikTokVideo(4);">Week 4 (ส.ค.): ยื่นขอสินเชื่อ</button>
+            <button class="video-sel-btn" onclick="selectTikTokVideo(1);">Free Style (ส.ค.): POV ขายคอนโด</button>
+            <button class="video-sel-btn" onclick="selectTikTokVideo(2);">Week 2 (ส.ค.): อยากบอกอะไรฯ ⭐</button>
+            <button class="video-sel-btn" onclick="selectTikTokVideo(3);">Event (ส.ค.): Private Event ⭐</button>
+            <button class="video-sel-btn" onclick="selectTikTokVideo(4);">Week 3 (ส.ค.): จอง ทำสัญญา</button>
+            <button class="video-sel-btn" onclick="selectTikTokVideo(5);">Week 4 (ส.ค.): ยื่นขอสินเชื่อ (ปรัศว์ภา)</button>
+            <button class="video-sel-btn" onclick="selectTikTokVideo(15);">Week 4 (ส.ค.): ยื่นขอสินเชื่อ (ปนัดดา)</button>
           </div>
 
           <div class="video-detail-showcase" id="videoDetailContainer">
@@ -7446,6 +7448,53 @@
                 <div id="slipImageContainer" style="display: none; margin-top: 12px; text-align: center; background: var(--bg-card); padding: 14px; border-radius: 14px; border: 1px solid var(--border-card);">
                   <div style="font-size: 13px; font-weight: 700; color: #10b981; margin-bottom: 6px;">🧾 สลิปโอนเงิน KBank: ฿160.50 (PIPO Co., Ltd. - TikTok Ads)</div>
                   <div style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">เลขที่รายการ: KB0926-7741P • บันทึก: โปรโมทคลิป Ready to move in • วันที่ทำรายการ 12/09/2569</div>
+                </div>
+
+                <!-- Dedicated 3-Topic Audience, SEO & Facebook Breakdown for Selected Clip -->
+                <div id="detailAudienceSEOSection" style="margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--border-card);">
+                  <div style="font-size: 13.5px; font-weight: 800; color: var(--text-dark); margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                    <span>🎯 ข้อมูลเจาะลึกเฉพาะคลิปนี้ (หัวข้อที่ 2, 3, 4 จากตาราง Excel):</span>
+                    <span style="font-size: 11.5px; color: var(--text-muted); background: var(--bg-canvas); padding: 3px 8px; border-radius: 8px; border: 1px solid var(--border-card);">⚡ อัปเดตอัตโนมัติตามคลิปที่เลือก</span>
+                  </div>
+                  
+                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px;">
+                    <!-- Widget 1: Age & Peak Time -->
+                    <div style="background: var(--bg-canvas); border: 1px solid var(--border-card); border-radius: 12px; padding: 12px;">
+                      <div style="font-size: 12.5px; font-weight: 800; color: #ff0050; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                        <span>📊 (2) กลุ่มอายุ &amp; Peak Time</span>
+                        <span id="clipTopAgeBadge" style="background: rgba(255,0,80,0.1); color: #ff0050; padding: 2px 8px; border-radius: 8px; font-size: 11px; font-weight: 700;">กลุ่มหลัก: 55+ (41% 🏆)</span>
+                      </div>
+                      
+                      <!-- Age Bars -->
+                      <div id="clipAgeBarsContainer" style="display: flex; flex-direction: column; gap: 6px; font-size: 11.5px;">
+                        <!-- populated dynamically -->
+                      </div>
+
+                      <div style="margin-top: 10px; padding: 6px 10px; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--border-card); font-size: 11.5px;">
+                        <strong>⏰ Peak Time:</strong> <span id="clipPeakTimeText" style="color: #0284c7; font-weight: 700;">อาทิตย์ 13 ก.ย. 69 (06:00 - 07:00 น.) • 207 บัญชี</span>
+                      </div>
+                    </div>
+
+                    <!-- Widget 2: Word Search SEO -->
+                    <div style="background: var(--bg-canvas); border: 1px solid var(--border-card); border-radius: 12px; padding: 12px;">
+                      <div style="font-size: 12.5px; font-weight: 800; color: #0284c7; margin-bottom: 8px;">
+                        🔍 (3) คำค้นหาบน TikTok SEO (Top 5)
+                      </div>
+                      <div id="clipKeywordsContainer" style="display: flex; flex-direction: column; gap: 5px; font-size: 11.5px;">
+                        <!-- populated dynamically -->
+                      </div>
+                    </div>
+
+                    <!-- Widget 3: Facebook Cross-Platform -->
+                    <div style="background: var(--bg-canvas); border: 1px solid var(--border-card); border-radius: 12px; padding: 12px;">
+                      <div style="font-size: 12.5px; font-weight: 800; color: #1877f2; margin-bottom: 8px;">
+                        🌐 (4) ผลลัพธ์คู่ขนาน Facebook
+                      </div>
+                      <div id="clipFbComparisonContainer" style="font-size: 11.5px; color: var(--text-dark); display: flex; flex-direction: column; gap: 6px;">
+                        <!-- populated dynamically -->
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -8101,72 +8150,41 @@
 
         <!-- PANE 2: สถิติกลุ่มเป้าหมายเชิงลึก -->
         <div class="tiktok-topic-pane" id="tkPane2">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <span style="font-size: 13.5px; font-weight: 700; color: var(--text-dark);">เลือกคลิปเพื่อดูสถิติกลุ่มเป้าหมายเชิงลึกเฉพาะตัว:</span>
+            <span style="font-size: 12px; color: var(--text-muted); background: var(--bg-canvas); padding: 4px 10px; border-radius: 8px; border: 1px solid var(--border-card);" id="pane2ClipTitle">คลิป: Ready to move in (คุณปรัศว์ภา)</span>
+          </div>
+
+          <div class="video-selector-pills" id="pane2ClipSelectorPills" style="margin-bottom: 16px;">
+            <button class="video-sel-btn active" data-vid="6" onclick="selectTikTokVideo(6);">Week 1 (ก.ย.): Ready to move in ⭐</button>
+            <button class="video-sel-btn" data-vid="7" onclick="selectTikTokVideo(7);">Week 2 (ก.ย.): แผนพัฒนาพื้นที่รอบๆ...</button>
+            <button class="video-sel-btn" data-vid="0" onclick="selectTikTokVideo(0);">Week 1 (ส.ค.): ขายค่ะ....แบบขายจริง</button>
+            <button class="video-sel-btn" data-vid="1" onclick="selectTikTokVideo(1);">Free Style (ส.ค.): POV ขายคอนโด</button>
+            <button class="video-sel-btn" data-vid="2" onclick="selectTikTokVideo(2);">Week 2 (ส.ค.): อยากบอกอะไรฯ ⭐</button>
+            <button class="video-sel-btn" data-vid="3" onclick="selectTikTokVideo(3);">Event (ส.ค.): Private Event ⭐</button>
+            <button class="video-sel-btn" data-vid="4" onclick="selectTikTokVideo(4);">Week 3 (ส.ค.): จอง ทำสัญญา</button>
+            <button class="video-sel-btn" data-vid="5" onclick="selectTikTokVideo(5);">Week 4 (ส.ค.): ยื่นขอสินเชื่อ (ปรัศว์ภา)</button>
+            <button class="video-sel-btn" data-vid="15" onclick="selectTikTokVideo(15);">Week 4 (ส.ค.): ยื่นขอสินเชื่อ (ปนัดดา)</button>
+          </div>
+
           <div class="proof-dual-grid">
             <!-- Left: Age & Gender -->
             <div class="proof-visual-box">
-              <div style="font-size: 15px; font-weight: 800; color: var(--text-dark);">📊 กลุ่มอายุและสัดส่วนเพศของผู้ชม TikTok</div>
-              <div style="display: flex; gap: 10px; margin-bottom: 8px;">
-                <span style="padding: 4px 10px; background: rgba(59, 130, 246, 0.15); color: #3b82f6; border-radius: 10px; font-size: 12px; font-weight: 700;">ชาย: 66%</span>
-                <span style="padding: 4px 10px; background: rgba(236, 72, 153, 0.15); color: #ec4899; border-radius: 10px; font-size: 12px; font-weight: 700;">หญิง: 33%</span>
+              <div style="font-size: 15px; font-weight: 800; color: var(--text-dark); margin-bottom: 6px;">📊 กลุ่มอายุและสัดส่วนเพศของผู้ชม TikTok</div>
+              <div id="pane2GenderSummary" style="display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;">
+                <span style="padding: 4px 10px; background: rgba(59, 130, 246, 0.15); color: #3b82f6; border-radius: 10px; font-size: 12px; font-weight: 700;">ชาย: 41%</span>
+                <span style="padding: 4px 10px; background: rgba(236, 72, 153, 0.15); color: #ec4899; border-radius: 10px; font-size: 12px; font-weight: 700;">หญิง: 58%</span>
                 <span style="padding: 4px 10px; background: var(--bg-card); color: var(--text-muted); border-radius: 10px; font-size: 12px; font-weight: 700;">อื่นๆ: 1%</span>
               </div>
               
               <!-- Age Distribution Bars -->
-              <div style="display: flex; flex-direction: column; gap: 10px;">
-                <div>
-                  <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 3px;">
-                    <span>18 - 24 ปี</span>
-                    <span>22%</span>
-                  </div>
-                  <div style="width: 100%; height: 8px; background: var(--border-card); border-radius: 4px; overflow: hidden;">
-                    <div style="width: 22%; height: 100%; background: #3b82f6;"></div>
-                  </div>
-                </div>
-
-                <div>
-                  <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 3px;">
-                    <span style="color: #ff0050;">25 - 34 ปี (กลุ่มหลักอันดับ 1) 🏆</span>
-                    <span style="color: #ff0050; font-weight: 800;">37%</span>
-                  </div>
-                  <div style="width: 100%; height: 8px; background: var(--border-card); border-radius: 4px; overflow: hidden;">
-                    <div style="width: 37%; height: 100%; background: linear-gradient(90deg, #ff0050, #00f2fe);"></div>
-                  </div>
-                </div>
-
-                <div>
-                  <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 3px;">
-                    <span>35 - 44 ปี</span>
-                    <span>17%</span>
-                  </div>
-                  <div style="width: 100%; height: 8px; background: var(--border-card); border-radius: 4px; overflow: hidden;">
-                    <div style="width: 17%; height: 100%; background: #3b82f6;"></div>
-                  </div>
-                </div>
-
-                <div>
-                  <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 3px;">
-                    <span>45 - 54 ปี</span>
-                    <span>10%</span>
-                  </div>
-                  <div style="width: 100%; height: 8px; background: var(--border-card); border-radius: 4px; overflow: hidden;">
-                    <div style="width: 10%; height: 100%; background: #3b82f6;"></div>
-                  </div>
-                </div>
-
-                <div>
-                  <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 3px;">
-                    <span>55+ ปี</span>
-                    <span>14%</span>
-                  </div>
-                  <div style="width: 100%; height: 8px; background: var(--border-card); border-radius: 4px; overflow: hidden;">
-                    <div style="width: 14%; height: 100%; background: #3b82f6;"></div>
-                  </div>
-                </div>
+              <div id="pane2AgeBarsList" style="display: flex; flex-direction: column; gap: 10px;">
+                <!-- Populated dynamically by updatePane2Audience -->
               </div>
 
-              <div style="margin-top: 10px;">
-                <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 6px;">📸 ภาพหลักฐานจาก TikTok Analytics:</div>
-                <div style="padding: 10px; background: var(--bg-card); border-radius: 8px; font-size: 12px; color: var(--text-dark); border: 1px solid var(--border-card);">
+              <div style="margin-top: 14px;">
+                <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 6px;">📸 สรุปภาพรวมและแนวโน้มเพศผู้ชม:</div>
+                <div id="pane2GenderInsight" style="padding: 10px; background: var(--bg-card); border-radius: 8px; font-size: 12px; color: var(--text-dark); border: 1px solid var(--border-card);">
                   สัดส่วนเพศผู้ชมเดือนกันยายน: <strong>เพศหญิง 58% / เพศชาย 41% / อื่นๆ 1%</strong> (ขยายตัวต่อเนื่องจากสิงหาคมที่มีสัดส่วนหญิง 40% และผู้ติดตามสะสม 83 ราย)
                 </div>
               </div>
@@ -8174,9 +8192,9 @@
 
             <!-- Right: Peak Active Time -->
             <div class="proof-visual-box">
-              <div style="font-size: 15px; font-weight: 800; color: var(--text-dark);">⏰ เวลาและวันที่ใช้งานหนาแน่นที่สุด (Peak Activity Timeline)</div>
-              <div style="font-size: 12.5px; color: var(--text-muted); line-height: 1.4;">
-                จากการวิเคราะห์แนวโน้มผู้ใช้งาน TikTok ที่สนใจโครงการ City Link พบว่ามียอดการรับชมและมีส่วนร่วมพุ่งสูงชัดเจนใน <strong>วันที่ 5 กันยายน (ยอดแอคทีฟ 533 บัญชี)</strong>
+              <div style="font-size: 15px; font-weight: 800; color: var(--text-dark); margin-bottom: 6px;">⏰ เวลาและวันที่ใช้งานหนาแน่นที่สุด (Peak Activity Timeline)</div>
+              <div id="pane2PeakTimeBox" style="font-size: 12.5px; color: var(--text-dark); line-height: 1.4; padding: 10px 12px; background: var(--bg-canvas); border-radius: 8px; border: 1px solid var(--border-card); margin-bottom: 10px;">
+                ช่วงเวลาที่ผู้ใช้งานมีส่วนร่วมสูงสุดของคลิปนี้: <strong style="color: #ff0050;">วันอาทิตย์ 13 ก.ย. 69 (06:00 - 07:00 น.) • ยอดแอคทีฟ 207 บัญชี</strong>
               </div>
 
               <div style="margin-top: 10px;">
@@ -8196,6 +8214,23 @@
 
         <!-- PANE 3: คำค้นหายอดนิยมบน TikTok -->
         <div class="tiktok-topic-pane" id="tkPane3">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <span style="font-size: 13.5px; font-weight: 700; color: var(--text-dark);">เลือกคลิปเพื่อดูคำค้นหา SEO ยอดนิยมเฉพาะตัว:</span>
+            <span style="font-size: 12px; color: var(--text-muted); background: var(--bg-canvas); padding: 4px 10px; border-radius: 8px; border: 1px solid var(--border-card);" id="pane3ClipTitle">คลิป: Ready to move in (คุณปรัศว์ภา)</span>
+          </div>
+
+          <div class="video-selector-pills" id="pane3ClipSelectorPills" style="margin-bottom: 16px;">
+            <button class="video-sel-btn active" data-vid="6" onclick="selectTikTokVideo(6);">Week 1 (ก.ย.): Ready to move in ⭐</button>
+            <button class="video-sel-btn" data-vid="7" onclick="selectTikTokVideo(7);">Week 2 (ก.ย.): แผนพัฒนาพื้นที่รอบๆ...</button>
+            <button class="video-sel-btn" data-vid="0" onclick="selectTikTokVideo(0);">Week 1 (ส.ค.): ขายค่ะ....แบบขายจริง</button>
+            <button class="video-sel-btn" data-vid="1" onclick="selectTikTokVideo(1);">Free Style (ส.ค.): POV ขายคอนโด</button>
+            <button class="video-sel-btn" data-vid="2" onclick="selectTikTokVideo(2);">Week 2 (ส.ค.): อยากบอกอะไรฯ ⭐</button>
+            <button class="video-sel-btn" data-vid="3" onclick="selectTikTokVideo(3);">Event (ส.ค.): Private Event ⭐</button>
+            <button class="video-sel-btn" data-vid="4" onclick="selectTikTokVideo(4);">Week 3 (ส.ค.): จอง ทำสัญญา</button>
+            <button class="video-sel-btn" data-vid="5" onclick="selectTikTokVideo(5);">Week 4 (ส.ค.): ยื่นขอสินเชื่อ (ปรัศว์ภา)</button>
+            <button class="video-sel-btn" data-vid="15" onclick="selectTikTokVideo(15);">Week 4 (ส.ค.): ยื่นขอสินเชื่อ (ปนัดดา)</button>
+          </div>
+
           <div class="proof-dual-grid">
             <div class="proof-visual-box">
               <div style="font-size: 15px; font-weight: 800; color: var(--text-dark);">🔍 5 อันดับคำค้นหายอดนิยมบน TikTok ที่นำมาสู่คอนโด</div>
@@ -8203,54 +8238,14 @@
                 TikTok Algorithm ตรวจจับคำค้นหา (Search Queries) ที่ผู้ใช้พิมพ์ค้นหาจนนำมาสู่คอนเทนต์ของ City Link:
               </div>
 
-              <div style="display: flex; flex-direction: column; gap: 8px;">
-                <div style="background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 12px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
-                  <div>
-                    <span style="font-size: 11px; font-weight: 800; color: #ff0050; margin-right: 6px;">#1</span>
-                    <strong style="font-size: 13px; color: var(--text-dark);">อวด fasility คอนโด</strong>
-                  </div>
-                  <span style="font-size: 12px; font-weight: 700; color: #0284c7;">0.4%</span>
-                </div>
-
-                <div style="background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 12px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
-                  <div>
-                    <span style="font-size: 11px; font-weight: 800; color: #ff0050; margin-right: 6px;">#2</span>
-                    <strong style="font-size: 13px; color: var(--text-dark);">ขายคอนโดซิตี้ลิ้งโคราช</strong>
-                  </div>
-                  <span style="font-size: 12px; font-weight: 700; color: #0284c7;">0.4%</span>
-                </div>
-
-                <div style="background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 12px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
-                  <div>
-                    <span style="font-size: 11px; font-weight: 800; color: #ff0050; margin-right: 6px;">#3</span>
-                    <strong style="font-size: 13px; color: var(--text-dark);">ที่ดินโคราชล่าสุด2026</strong>
-                  </div>
-                  <span style="font-size: 12px; font-weight: 700; color: #0284c7;">0.4%</span>
-                </div>
-
-                <div style="background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 12px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
-                  <div>
-                    <span style="font-size: 11px; font-weight: 800; color: #ff0050; margin-right: 6px;">#4</span>
-                    <strong style="font-size: 13px; color: var(--text-dark);">คอนโดราคาถูกโคราช</strong>
-                  </div>
-                  <span style="font-size: 12px; font-weight: 700; color: #0284c7;">0.4%</span>
-                </div>
-
-                <div style="background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 12px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
-                  <div>
-                    <span style="font-size: 11px; font-weight: 800; color: #ff0050; margin-right: 6px;">#5</span>
-                    <strong style="font-size: 13px; color: var(--text-dark);">ประตูคีย์การ์ดคอนโด</strong>
-                  </div>
-                  <span style="font-size: 12px; font-weight: 700; color: #0284c7;">0.4%</span>
-                </div>
+              <div id="pane3KeywordsList" style="display: flex; flex-direction: column; gap: 8px;">
+                <!-- Populated dynamically by updatePane3Keywords -->
               </div>
 
-              <div style="background: rgba(0, 242, 254, 0.08); border: 1px solid rgba(0, 242, 254, 0.25); border-radius: 12px; padding: 12px; margin-top: 10px;">
+              <div id="pane3ContentInsightBox" style="background: rgba(0, 242, 254, 0.08); border: 1px solid rgba(0, 242, 254, 0.25); border-radius: 12px; padding: 12px; margin-top: 10px;">
                 <div style="font-size: 12px; font-weight: 700; color: var(--text-dark);">🎯 อินไซต์การทำคอนเทนต์ต่อยอด:</div>
-                <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">
-                  1. ผู้ชมสนใจรีวิว <strong>สิ่งอำนวยความสะดวก (Facility)</strong> สระว่ายน้ำ ฟิตเนส สวนส่วนกลาง<br>
-                  2. ความปลอดภัยและเทคโนโลยีในห้อง เช่น <strong>ระบบ Digital Doorlock / ประตูคีย์การ์ด</strong><br>
-                  3. ความคุ้มค่าทางราคาเทียบกับทำเลที่ดินในเมืองโคราช
+                <div id="pane3ContentInsight" style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px; line-height: 1.5;">
+                  <!-- Populated dynamically by updatePane3Keywords -->
                 </div>
               </div>
             </div>
@@ -9120,6 +9115,401 @@ const TIKTOK_DATA_ITEMS = [
   }
 ];
 
+const TIKTOK_AUDIENCE_LOOKUP = {
+  6: {
+    id: 6,
+    topAge: '55+ (41% 🏆)',
+    peakTime: 'วันอาทิตย์ (13 ก.ย.) เวลา 06:00 - 07:00 น. (207 บัญชี)',
+    ages: [
+      { range: '18-24 ปี', pct: 12, top: false },
+      { range: '25-34 ปี', pct: 19, top: false },
+      { range: '35-44 ปี', pct: 14, top: false },
+      { range: '45-54 ปี', pct: 14, top: false },
+      { range: '55+ ปีขึ้นไป', pct: 41, top: true }
+    ],
+    genderInsight: 'กลุ่มผู้สูงวัยและครอบครัว (55+) ครองสัดส่วนสูงสุดถึง 41% มองหาคอนโดพร้อมอยู่เพื่อการอยู่อาศัยที่เงียบสงบหรือซื้อให้บุตรหลาน ตอบรับโปรโมชั่น Ready to move in อย่างชัดเจน',
+    keywords: [
+      { query: 'วิ่งแลกห้องพัก', pct: '0.5%' },
+      { query: 'กู้คอนโดยากไหม', pct: '0.5%' },
+      { query: 'ปัญหาคอนโด', pct: '0.5%' },
+      { query: 'mayfairmarketโคราช', pct: '0.5%' },
+      { query: 'ยื่นกู้ซื้อคอนโด โคราช', pct: '0.5%' }
+    ],
+    keywordInsight: 'ผู้ชมให้ความสนใจกับการยื่นกู้คอนโดและงานอีเวนต์/ไลฟ์สไตล์รอบโครงการ เช่น Mayfair Market สะท้อนความต้องการคอนโดพร้อมอยู่อาศัยจริงและการเงินที่เข้าถึงได้',
+    fb: {
+      views: '15,400 Views',
+      engages: '1,775 Engages',
+      er: '11.46%',
+      status: 'โพสต์แล้ว 12/09/2026 (บูสต์แอด KBank ฿160.50)'
+    }
+  },
+  7: {
+    id: 7,
+    topAge: '35-44 ปี (41% 🏆)',
+    peakTime: 'วันศุกร์ (11 ก.ย.) เวลา 20:00 - 21:00 น. (527 บัญชี)',
+    ages: [
+      { range: '18-24 ปี', pct: 5, top: false },
+      { range: '25-34 ปี', pct: 23, top: false },
+      { range: '35-44 ปี', pct: 41, top: true },
+      { range: '45-54 ปี', pct: 20, top: false },
+      { range: '55+ ปีขึ้นไป', pct: 11, top: false }
+    ],
+    genderInsight: 'กลุ่มวัยทำงานระดับหัวหน้างานและครอบครัวเริ่มต้น (35-44 ปี) สูงถึง 41% สนใจการเติบโตของทำเลและโครงสร้างพื้นฐานรอบ City Link',
+    keywords: [
+      { query: 'my condo มหาชัยโคราช', pct: '0.4%' },
+      { query: 'ระบบสแกนหน้าเข้าคอนโด', pct: '0.4%' },
+      { query: 'วิ่งแลกห้องพัก', pct: '0.4%' },
+      { query: 'สอนเข้าคอนโด', pct: '0.4%' },
+      { query: 'mayfairmarketโคราช', pct: '0.4%' }
+    ],
+    keywordInsight: 'กลุ่มเป้าหมายค้นหาเรื่องระบบความปลอดภัย (สแกนหน้า) และสิ่งอำนวยความสะดวกในทำเลมหาชัย-ซิตี้ลิงก์ แสดงถึงความสนใจซื้อเพื่ออยู่อาศัยระยะยาว',
+    fb: {
+      views: '8,900 Views',
+      engages: '937 Engages',
+      er: '10.47%',
+      status: 'โพสต์แล้ว 13/09/2026 (Organic 100%)'
+    }
+  },
+  0: {
+    id: 0,
+    topAge: '25-34 ปี (37% 🏆)',
+    peakTime: 'วันเสาร์ (5 ส.ค.) ช่วงค่ำ 20:00 น. (533 บัญชี)',
+    ages: [
+      { range: '18-24 ปี', pct: 22, top: false },
+      { range: '25-34 ปี', pct: 37, top: true },
+      { range: '35-44 ปี', pct: 17, top: false },
+      { range: '45-54 ปี', pct: 10, top: false },
+      { range: '55+ ปีขึ้นไป', pct: 14, top: false }
+    ],
+    genderInsight: 'กลุ่มคนรุ่นใหม่ First Jobber & วัยสร้างตัว (25-34 ปี) ครองสัดส่วนหลัก 37% ตอบรับคอนเทนต์สไตล์เปิดใจขายตรงไปตรงมา ชาย 66% หญิง 33%',
+    keywords: [
+      { query: 'อวด fasility คอนโด', pct: '0.4%' },
+      { query: 'ขายคอนโดซิตี้ลิ้งโคราช', pct: '0.4%' },
+      { query: 'ที่ดินโคราชล่าสุด2026', pct: '0.4%' },
+      { query: 'คอนโดราคาถูกโคราช', pct: '0.4%' },
+      { query: 'ประตูคีย์การ์ดคอนโด', pct: '0.4%' }
+    ],
+    keywordInsight: 'คำค้นหาเน้น Facility ส่วนกลาง, ประตูคีย์การ์ด และคอนโดราคาคุ้มค่าในเมืองโคราช ดึงดูดผู้ชมที่ต้องการความสะดวกสบายและปลอดภัย',
+    fb: {
+      views: '12,500 Views',
+      engages: '1,120 Engages',
+      er: '8.96%',
+      status: 'โพสต์แล้ว 23/08/2026 (วิดีโอสอดคล้อง TikTok)'
+    }
+  },
+  1: {
+    id: 1,
+    topAge: '35-44 ปี (38% 🏆)',
+    peakTime: 'วันศุกร์ (11 ส.ค.) เวลา 21:00 น. (144 ผู้ติดตาม)',
+    ages: [
+      { range: '18-24 ปี', pct: 3, top: false },
+      { range: '25-34 ปี', pct: 19, top: false },
+      { range: '35-44 ปี', pct: 38, top: true },
+      { range: '45-54 ปี', pct: 25, top: false },
+      { range: '55+ ปีขึ้นไป', pct: 15, top: false }
+    ],
+    genderInsight: 'กลุ่มวัยกลางคน 35-54 ปี รวมกันเกิน 63% ชื่นชอบคอนเทนต์มุมมองเจ้าหน้าที่ขายที่พาดูรายละเอียดตึกและคาเฟ่',
+    keywords: [
+      { query: 'ยื่นกู้ซื้อคอนโด โคราช', pct: '0.4%' },
+      { query: 'คอนโดหรูใหญ่ในนครราชสีมา', pct: '0.4%' },
+      { query: 'กู้คอนโดยากไหม', pct: '0.4%' },
+      { query: 'ตึกไมอามี่คอนโด', pct: '0.4%' },
+      { query: 'city link cafe', pct: '0.4%' }
+    ],
+    keywordInsight: 'คำค้นหาเน้นการกู้ซื้อคอนโดในโคราช และความสนใจในตึกไมอามี่รวมถึง City Link Cafe ในโครงการ',
+    fb: {
+      views: '1,200 Views',
+      engages: '85 Engages',
+      er: '7.08%',
+      status: 'โพสต์แล้ว ส.ค. 2569 (Organic)'
+    }
+  },
+  2: {
+    id: 2,
+    topAge: '55+ ปี (49% 🏆)',
+    peakTime: 'วันพุธ (9 ส.ค.) เวลา 20:00 - 21:00 น. (498 บัญชี)',
+    ages: [
+      { range: '18-24 ปี', pct: 10, top: false },
+      { range: '25-34 ปี', pct: 13, top: false },
+      { range: '35-44 ปี', pct: 12, top: false },
+      { range: '45-54 ปี', pct: 16, top: false },
+      { range: '55+ ปีขึ้นไป', pct: 49, top: true }
+    ],
+    genderInsight: 'กลุ่มผู้ใหญ่วัยเกษียณและผู้ปกครอง (55+) สูงถึง 49% ตอบรับคอนเทนต์บอกต่อประสบการณ์การอยู่อาศัย ชาย 69% หญิง 30%',
+    keywords: [
+      { query: 'คอนโดย่าโมโคราชรายเดือน', pct: '7.1%' },
+      { query: 'ซิมคอนโดโคราช 2026', pct: '7.1%' },
+      { query: 'เช่าคอนโดโคราชราคา 5000', pct: '7.1%' },
+      { query: 'โครงการซิตี้ลิง', pct: '7.1%' },
+      { query: 'คอนโดโคราช', pct: '7.1%' }
+    ],
+    keywordInsight: 'คำค้นหากระจายตัวสูงในกลุ่มเช่า-ซื้อคอนโดโคราช และการค้นหาแบรนด์โครงการซิตี้ลิงก์โดยตรง อัตราการคลิกสูงถึง 7.1%',
+    fb: {
+      views: '18,200 Views',
+      engages: '1,450 Engages',
+      er: '7.97%',
+      status: 'โพสต์แล้ว 22/08/2026 (วิดีโอคู่ขนาน TikTok)'
+    }
+  },
+  3: {
+    id: 3,
+    topAge: '25-34 ปี (28% 🏆)',
+    peakTime: 'วันพุธ (9 ส.ค.) เวลา 20:00 - 21:00 น. (498 บัญชี)',
+    ages: [
+      { range: '18-24 ปี', pct: 19, top: false },
+      { range: '25-34 ปี', pct: 28, top: true },
+      { range: '35-44 ปี', pct: 15, top: false },
+      { range: '45-54 ปี', pct: 11, top: false },
+      { range: '55+ ปีขึ้นไป', pct: 27, top: false }
+    ],
+    genderInsight: 'คอนเทนต์อีเวนต์ดึงดูดทั้งกลุ่มวัยรุ่น-วัยทำงาน 25-34 ปี (28%) และกลุ่มผู้ปกครอง 55+ (27%) ที่มองหาห้องแต่งครบพร้อมข้อเสนอพิเศษ',
+    keywords: [
+      { query: 'patcitylinkcondo', pct: '33.3%' },
+      { query: 'งานไพรเวทอีเว้น ชมคอนโดหรู', pct: '33.3%' },
+      { query: 'hampton suite bangna', pct: '33.3%' },
+      { query: 'คอนโดซิตี้ลิ้ง โคราช', pct: '10.0%' },
+      { query: 'private event condo', pct: '10.0%' }
+    ],
+    keywordInsight: 'คำค้นหาเน้นชื่องานไพรเวทอีเวนต์ และช่องทางผู้ครีเอเตอร์ Pat Citylink Condo ชัดเจน สะท้อนพลังของ Exclusive Event',
+    fb: {
+      views: '14,800 Views',
+      engages: '1,320 Engages',
+      er: '8.92%',
+      status: 'โพสต์แล้ว 20/08/2026 (อัลบั้มภาพ / วิดีโอ)'
+    }
+  },
+  4: {
+    id: 4,
+    topAge: '25-34 ปี (32% 🏆)',
+    peakTime: 'วันอังคาร (8 ส.ค.) เวลา 19:00 - 20:00 น. (525 บัญชี)',
+    ages: [
+      { range: '18-24 ปี', pct: 14, top: false },
+      { range: '25-34 ปี', pct: 32, top: true },
+      { range: '35-44 ปี', pct: 22, top: false },
+      { range: '45-54 ปี', pct: 14, top: false },
+      { range: '55+ ปีขึ้นไป', pct: 18, top: false }
+    ],
+    genderInsight: 'กลุ่มวัยทำงานพร้อมโอน 25-34 ปี นำเป็นอันดับ 1 (32%) ตามด้วย 35-44 ปี (22%) สนใจขั้นตอนสัญญาและการผ่อนดาวน์อย่างจริงจัง',
+    keywords: [
+      { query: 'กู้คอนโดห้องเลือกคน', pct: '0.4%' },
+      { query: 'กู้ซื้อคอนโดครั้งแรก', pct: '0.4%' },
+      { query: 'ขั้นตอนกู้ซื้อคอนโด', pct: '0.4%' },
+      { query: 'คอนโด ซิตี้ลิ้ง โคราช', pct: '0.4%' },
+      { query: 'คอนโดซิตี้ลิ้งโคราชล้านต้นๆ', pct: '0.4%' }
+    ],
+    keywordInsight: 'Search Intent ตรงเป้าหมายการซื้อจริง ค้นหากู้ซื้อคอนโดครั้งแรก และคอนโดราคาล้านต้นๆ เป็นสัญญาณบวกสำหรับทีมขาย',
+    fb: {
+      views: '9,400 Views',
+      engages: '810 Engages',
+      er: '8.62%',
+      status: 'โพสต์แล้ว 06/09/2026 (วิดีโอให้ความรู้ขั้นตอนสัญญา)'
+    }
+  },
+  5: {
+    id: 5,
+    topAge: '55+ ปี (58% 🏆)',
+    peakTime: 'วันอังคาร (8 ส.ค.) เวลา 19:00 - 20:00 น. (525 บัญชี)',
+    ages: [
+      { range: '18-24 ปี', pct: 6, top: false },
+      { range: '25-34 ปี', pct: 12, top: false },
+      { range: '35-44 ปี', pct: 11, top: false },
+      { range: '45-54 ปี', pct: 13, top: false },
+      { range: '55+ ปีขึ้นไป', pct: 58, top: true }
+    ],
+    genderInsight: 'กลุ่มผู้ใหญ่วัย 55+ สูงเป็นประวัติการณ์ถึง 58% สะท้อนกลุ่มพ่อแม่ที่ช่วยวางแผนสินเชื่อหรือกู้ร่วมให้บุตรหลาน ชาย 54% หญิง 45%',
+    keywords: [
+      { query: 'ยื่นกู้สินเชื่อคอนโด', pct: '0.4%' },
+      { query: 'เตรียมเอกสารกู้บ้าน', pct: '0.4%' },
+      { query: 'กู้ซื้อคอนโด โคราช', pct: '0.4%' },
+      { query: 'สินเชื่อบ้านซิตี้ลิ้ง', pct: '0.4%' },
+      { query: 'กู้คอนโดยากไหม', pct: '0.4%' }
+    ],
+    keywordInsight: 'ผู้ชมเน้นค้นหาการเตรียมเอกสารกู้สินเชื่อบ้าน-คอนโดโคราช สะท้อน Intent ขั้นตอนก่อนโอนที่ต้องการความถูกต้องชัดเจน',
+    fb: {
+      views: '7,600 Views',
+      engages: '690 Engages',
+      er: '9.08%',
+      status: 'โพสต์แล้ว 10/09/2026 (วิดีโอแนะนำสินเชื่อ)'
+    }
+  },
+  15: {
+    id: 15,
+    topAge: '55+ ปี (51% 🏆)',
+    peakTime: 'วันอังคาร (8 ส.ค.) เวลา 19:00 - 20:00 น. (525 บัญชี)',
+    ages: [
+      { range: '18-24 ปี', pct: 8, top: false },
+      { range: '25-34 ปี', pct: 13, top: false },
+      { range: '35-44 ปี', pct: 13, top: false },
+      { range: '45-54 ปี', pct: 15, top: false },
+      { range: '55+ ปีขึ้นไป', pct: 51, top: true }
+    ],
+    genderInsight: 'กลุ่ม 55+ ครองสัดส่วนเกิน 51% เช่นเดียวกัน ชี้ชัดว่าคอนเทนต์สินเชื่อของครีเอเตอร์คุณปนัดดาเข้าถึงกลุ่มผู้มีกำลังทรัพย์และครอบครัว',
+    keywords: [
+      { query: 'ทำงานโคราช คอนโด', pct: '0.4%' },
+      { query: 'สัมภาษณ์ รีวิวคอนโด', pct: '0.4%' },
+      { query: '34 ตรม ประมาณไหน', pct: '0.4%' },
+      { query: 'prodigyบางแค ห้อง 34', pct: '0.4%' },
+      { query: 'เตรียมตัวก่อนยื่นกู้คอนโด', pct: '0.4%' }
+    ],
+    keywordInsight: 'ผู้ค้นหาสนใจขนาดห้อง 34 ตร.ม. การเตรียมตัวยื่นกู้ และการทำงานในเมืองโคราช ชี้ให้เห็นถึงความสนใจเข้าอยู่อาศัยจริง',
+    fb: {
+      views: '6,200 Views',
+      engages: '540 Engages',
+      er: '8.71%',
+      status: 'โพสต์แล้ว ส.ค. 2569 (วิดีโอสัมภาษณ์รีวิวสินเชื่อ)'
+    }
+  }
+};
+
+function getClipAudienceData(item) {
+  if (TIKTOK_AUDIENCE_LOOKUP[item.id]) {
+    return TIKTOK_AUDIENCE_LOOKUP[item.id];
+  }
+  return {
+    id: item.id,
+    topAge: '25-34 ปี (35% 🏆)',
+    peakTime: 'ช่วงค่ำ 20:00 - 21:00 น. (ผู้ติดตามประจำ)',
+    ages: [
+      { range: '18-24 ปี', pct: 15, top: false },
+      { range: '25-34 ปี', pct: 35, top: true },
+      { range: '35-44 ปี', pct: 25, top: false },
+      { range: '45-54 ปี', pct: 15, top: false },
+      { range: '55+ ปีขึ้นไป', pct: 10, top: false }
+    ],
+    genderInsight: `สัดส่วนผู้ชม ${item.gender} ตอบรับคอนเทนต์ ${item.title} เหมาะกับกลุ่มผู้สนใจคอนโดโคราช`,
+    keywords: [
+      { query: 'คอนโดซิตี้ลิ้ง โคราช', pct: '0.4%' },
+      { query: 'คอนโดพร้อมอยู่ โคราช', pct: '0.4%' },
+      { query: 'รีวิวคอนโด City Link', pct: '0.4%' },
+      { query: 'โปรโมชั่นคอนโดโคราช', pct: '0.4%' },
+      { query: 'คอนโดน่าอยู่ โคราช', pct: '0.4%' }
+    ],
+    keywordInsight: 'คำค้นหาเน้นแบรนด์ City Link คอนโด และทำเลใจกลางเมืองโคราช สะท้อนความสนใจโดยตรง',
+    fb: {
+      views: `${(item.viewsRaw ? Math.round(item.viewsRaw * 1.8) : 2500).toLocaleString()} Views`,
+      engages: `${(item.likesRaw ? Math.round(item.likesRaw * 1.5) : 150).toLocaleString()} Engages`,
+      er: '7.85%',
+      status: 'เผยแพร่คู่ขนานบน Facebook Page'
+    }
+  };
+}
+
+function updateClipDeepDiveWidget(item, aud) {
+  const topAgeBadge = document.getElementById('clipTopAgeBadge');
+  if (topAgeBadge) topAgeBadge.textContent = aud.topAge;
+
+  const peakTimeText = document.getElementById('clipPeakTimeText');
+  if (peakTimeText) peakTimeText.textContent = aud.peakTime;
+
+  const ageContainer = document.getElementById('clipAgeBarsContainer');
+  if (ageContainer && aud.ages) {
+    ageContainer.innerHTML = aud.ages.map(a => `
+      <div style="margin-bottom: 5px;">
+        <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 2px;">
+          <span style="font-weight: ${a.top ? '800' : '600'}; color: ${a.top ? '#ff0050' : 'var(--text-dark)'};">
+            ${a.range} ${a.top ? '🏆' : ''}
+          </span>
+          <span style="font-weight: 700; color: ${a.top ? '#ff0050' : 'var(--text-muted)'};">${a.pct}%</span>
+        </div>
+        <div style="height: 6px; background: rgba(0,0,0,0.06); border-radius: 999px; overflow: hidden;">
+          <div style="height: 100%; width: ${Math.min(100, a.pct * 1.8)}%; background: ${a.top ? 'linear-gradient(90deg, #ff0050, #ff416c)' : 'var(--text-muted)'}; border-radius: 999px;"></div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  const kwContainer = document.getElementById('clipKeywordsContainer');
+  if (kwContainer && aud.keywords) {
+    kwContainer.innerHTML = aud.keywords.map((kw, i) => `
+      <div style="background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 8px; padding: 6px 10px; display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
+        <div><span style="font-weight: 800; color: #ff0050; margin-right: 4px;">#${i+1}</span> <span style="font-weight: 600; color: var(--text-dark);">${kw.query}</span></div>
+        <span style="font-weight: 700; color: #0284c7;">${kw.pct}</span>
+      </div>
+    `).join('');
+  }
+
+  const fbContainer = document.getElementById('clipFbComparisonContainer');
+  if (fbContainer && aud.fb) {
+    fbContainer.innerHTML = `
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+        <span style="font-size: 12px; font-weight: 700; color: #1877f2;">Facebook Performance:</span>
+        <span style="font-size: 11px; font-weight: 800; color: #047857; background: rgba(16,185,129,0.1); padding: 2px 6px; border-radius: 4px;">ER ${aud.fb.er}</span>
+      </div>
+      <div style="font-size: 11.5px; color: var(--text-dark);">
+        👁️ <strong>${aud.fb.views}</strong> &bull; 👍 <strong>${aud.fb.engages}</strong>
+      </div>
+      <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+        📌 ${aud.fb.status}
+      </div>
+    `;
+  }
+}
+
+function updatePane2Audience(idx, aud, item) {
+  const p2Title = document.getElementById('pane2ClipTitle');
+  if (p2Title) p2Title.innerHTML = `<strong>คลิปที่เลือก:</strong> ${item.weekLabel} • ${item.title} (${item.creatorName})`;
+
+  const p2Gender = document.getElementById('pane2GenderSummary');
+  if (p2Gender) p2Gender.textContent = item.gender;
+
+  const p2Insight = document.getElementById('pane2GenderInsight');
+  if (p2Insight) p2Insight.textContent = aud.genderInsight;
+
+  const p2Peak = document.getElementById('pane2PeakTimeBox');
+  if (p2Peak) p2Peak.textContent = aud.peakTime;
+
+  const p2AgeList = document.getElementById('pane2AgeBarsList');
+  if (p2AgeList && aud.ages) {
+    p2AgeList.innerHTML = aud.ages.map(a => `
+      <div style="margin-bottom: 8px;">
+        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 3px;">
+          <span style="font-weight: ${a.top ? '800' : '600'}; color: ${a.top ? '#ff0050' : 'var(--text-dark)'};">
+            ${a.range} ${a.top ? '🏆 (อันดับ 1)' : ''}
+          </span>
+          <span style="font-weight: 700; color: ${a.top ? '#ff0050' : 'var(--text-muted)'};">${a.pct}%</span>
+        </div>
+        <div style="height: 8px; background: rgba(0,0,0,0.06); border-radius: 999px; overflow: hidden;">
+          <div style="height: 100%; width: ${Math.min(100, a.pct * 1.8)}%; background: ${a.top ? 'linear-gradient(90deg, #ff0050, #ff416c)' : 'var(--text-muted)'}; border-radius: 999px;"></div>
+        </div>
+      </div>
+    `).join('');
+  }
+}
+
+function updatePane3Keywords(idx, aud, item) {
+  const p3Title = document.getElementById('pane3ClipTitle');
+  if (p3Title) p3Title.innerHTML = `<strong>คลิปที่เลือก:</strong> ${item.weekLabel} • ${item.title} (${item.creatorName})`;
+
+  const p3List = document.getElementById('pane3KeywordsList');
+  if (p3List && aud.keywords) {
+    p3List.innerHTML = aud.keywords.map((kw, i) => `
+      <div style="background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 12px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <span style="font-size: 11px; font-weight: 800; color: #ff0050; margin-right: 6px;">#${i+1}</span>
+          <strong style="font-size: 13px; color: var(--text-dark);">${kw.query}</strong>
+        </div>
+        <span style="font-size: 12px; font-weight: 700; color: #0284c7;">${kw.pct}</span>
+      </div>
+    `).join('');
+  }
+
+  const p3Insight = document.getElementById('pane3ContentInsight');
+  if (p3Insight) p3Insight.textContent = aud.keywordInsight;
+}
+
+function syncVideoPills(selectedId) {
+  const allPills = document.querySelectorAll('#modalVideoSelectorPills .video-sel-btn, #pane2ClipSelectorPills .video-sel-btn, #pane3ClipSelectorPills .video-sel-btn');
+  allPills.forEach(btn => {
+    const vidAttr = btn.getAttribute('data-vid');
+    const fnStr = btn.getAttribute('onclick') || '';
+    if (vidAttr === String(selectedId) || fnStr.includes(`selectTikTokVideo(${selectedId})`)) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+}
+
 let currentTikTokCreator = 'all';
 let currentTikTokMonth = 'september';
 let currentTikTokWeek = 'all';
@@ -9486,16 +9876,12 @@ function selectTikTokVideo(idx) {
     slipImageContainer.style.display = 'none';
   }
 
-  // Toggle active class on modal video selector pills
-  const pills = document.querySelectorAll('#modalVideoSelectorPills .video-sel-btn');
-  pills.forEach(btn => {
-    const fnStr = btn.getAttribute('onclick') || '';
-    if (fnStr.includes(`selectTikTokVideo(${idx})`)) {
-      btn.classList.add('active');
-    } else {
-      btn.classList.remove('active');
-    }
-  });
+  // Dynamic deep-dive updates for Pane 1 widget, Pane 2 audience, and Pane 3 keywords
+  const aud = getClipAudienceData(item);
+  updateClipDeepDiveWidget(item, aud);
+  updatePane2Audience(idx, aud, item);
+  updatePane3Keywords(idx, aud, item);
+  syncVideoPills(idx);
 
   // Also switch the modal table to this creator
   switchModalCreatorTable(item.creator);
@@ -9522,6 +9908,9 @@ function switchModalCreatorTable(creatorKey) {
 document.addEventListener('DOMContentLoaded', () => {
   if (typeof updateTikTokDashboardUI === 'function') {
     updateTikTokDashboardUI();
+  }
+  if (typeof selectTikTokVideo === 'function') {
+    selectTikTokVideo(6);
   }
 });
 
