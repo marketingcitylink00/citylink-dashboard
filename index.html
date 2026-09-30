@@ -1190,7 +1190,8 @@
         grid-template-columns: 1fr !important;
       }
       .followers-popup,
-      .donut-popup {
+      .donut-popup,
+      .engagement-popup {
         position: fixed !important;
         top: 50% !important;
         left: 50% !important;
@@ -1217,7 +1218,8 @@
     }
     
     .followers-popup,
-    .donut-popup {
+    .donut-popup,
+    .engagement-popup {
       position: absolute;
       bottom: calc(100% + 14px);
       left: 50%;
@@ -1238,7 +1240,8 @@
     }
 
     .followers-popup::after,
-    .donut-popup::after {
+    .donut-popup::after,
+    .engagement-popup::after {
       content: '';
       position: absolute;
       top: 100%;
@@ -1254,7 +1257,10 @@
     .has-popup.popup-force-show .followers-popup,
     .has-popup:hover .donut-popup,
     .has-popup:focus .donut-popup,
-    .has-popup.popup-force-show .donut-popup {
+    .has-popup.popup-force-show .donut-popup,
+    .has-popup:hover .engagement-popup,
+    .has-popup:focus .engagement-popup,
+    .has-popup.popup-force-show .engagement-popup {
       opacity: 1;
       visibility: visible;
       transform: translateX(-50%) translateY(0);
@@ -4169,13 +4175,78 @@
           <div class="tiktok-kpi-sub" id="tkKpiViewsSub">สะสมจาก 2 คลิปวิดีโอ (สถิติล่าสุด 8.3K ครั้ง)</div>
         </div>
 
-        <div class="tiktok-kpi-box">
+        <!-- Card 2: Total Engagements with Interactive Hover/Click Popup -->
+        <div class="tiktok-kpi-box has-popup" tabindex="0" title="คลิกหรือชี้เพื่อดูเจาะลึกยอดไลก์ / คอมเมนต์ / บันทึก / แชร์">
           <div class="tiktok-kpi-top">
             <span class="tiktok-kpi-label" id="tkKpiLabel2">ยอดการมีส่วนร่วมรวม (Total Engagements)</span>
             <span class="tiktok-kpi-icon">❤️</span>
           </div>
-          <div class="tiktok-kpi-val val-rose" id="tkKpiEngage">64</div>
+          <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 2px;">
+            <div class="tiktok-kpi-val val-rose" id="tkKpiEngage">64</div>
+            <span style="font-size: 11px; color: #a7f3d0; background: rgba(255, 255, 255, 0.12); padding: 2px 7px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.15);">ชี้ดูสรุป ℹ️</span>
+          </div>
           <div class="tiktok-kpi-sub" id="tkKpiEngageSub">ไลก์ 56 • คอมเมนต์ 6 • บันทึก 1 • แชร์ 1</div>
+
+          <!-- Popup: Engagement Breakdown (Likes / Comments / Saves / Shares) -->
+          <div class="engagement-popup" id="engagementBreakdownPopup" style="width: 320px; left: 50%;">
+            <div class="popup-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+              <span class="popup-title" style="display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 13.5px; color: #f8fafc;"><span>💖</span> สัดส่วนการมีส่วนร่วม (Engagements)</span>
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span class="popup-badge" id="popupEngageBadge" style="background: rgba(244, 63, 94, 0.25); color: #fb7185;">64 ครั้ง</span>
+                <button type="button" aria-label="ปิดสรุปการมีส่วนร่วม" onclick="document.querySelectorAll('.has-popup').forEach(p => p.classList.remove('popup-force-show')); event.stopPropagation();" style="background: none; border: none; color: #94a3b8; font-size: 13px; cursor: pointer; padding: 2px 4px; line-height: 1; border-radius: 4px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#94a3b8'">✕</button>
+              </div>
+            </div>
+            
+            <div class="popup-row">
+              <span style="display: flex; align-items: center; gap: 6px;">
+                <span>👍</span>
+                <span>ยอดไลก์ (Likes):</span>
+              </span>
+              <strong id="popupEngageLikes" style="color: #fb7185; font-size: 13.5px;">56 ไลก์ (87.5%)</strong>
+            </div>
+
+            <div class="popup-row">
+              <span style="display: flex; align-items: center; gap: 6px;">
+                <span>💬</span>
+                <span>คอมเมนต์ (Comments):</span>
+              </span>
+              <strong id="popupEngageComments" style="color: #38bdf8; font-size: 13.5px;">6 ข้อความ (9.4%)</strong>
+            </div>
+
+            <div class="popup-row">
+              <span style="display: flex; align-items: center; gap: 6px;">
+                <span>🔖</span>
+                <span>บันทึกคลิป (Saves):</span>
+              </span>
+              <strong id="popupEngageSaves" style="color: #34d399; font-size: 13.5px;">1 ครั้ง (1.6%)</strong>
+            </div>
+
+            <div class="popup-row">
+              <span style="display: flex; align-items: center; gap: 6px;">
+                <span>↗️</span>
+                <span>การแชร์ (Shares):</span>
+              </span>
+              <strong id="popupEngageShares" style="color: #c084fc; font-size: 13.5px;">1 ครั้ง (1.6%)</strong>
+            </div>
+
+            <!-- Segmented Progress Bar -->
+            <div style="font-size: 10.5px; color: #94a3b8; margin-top: 10px; display: flex; justify-content: space-between;">
+              <span style="color: #fb7185;">👍 ไลก์</span>
+              <span style="color: #38bdf8;">💬 คอมเมนต์</span>
+              <span style="color: #34d399;">🔖 บันทึก</span>
+              <span style="color: #c084fc;">↗️ แชร์</span>
+            </div>
+            <div class="popup-progress-track" style="height: 7px; background: rgba(255, 255, 255, 0.1); border-radius: 6px; overflow: hidden; display: flex; margin-top: 4px;">
+              <div id="popupBarLikes" style="width: 87.5%; background: #fb7185; height: 100%;"></div>
+              <div id="popupBarComments" style="width: 9.4%; background: #38bdf8; height: 100%;"></div>
+              <div id="popupBarSaves" style="width: 1.6%; background: #34d399; height: 100%;"></div>
+              <div id="popupBarShares" style="width: 1.6%; background: #c084fc; height: 100%;"></div>
+            </div>
+
+            <div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed rgba(255, 255, 255, 0.12); font-size: 11px; color: #a7f3d0; text-align: center;" id="popupEngageFooterNote">
+              💡 สถิติคำนวณตามตัวกรองเดือนและสัปดาห์ที่กำลังแสดงผล
+            </div>
+          </div>
         </div>
 
         <div class="tiktok-kpi-box">
@@ -7330,7 +7401,7 @@
     document.addEventListener('DOMContentLoaded', function() {
       document.addEventListener('click', function(e) {
         const popupHost = e.target.closest('.has-popup');
-        if (e.target.closest('.followers-popup') || e.target.closest('.donut-popup')) return;
+        if (e.target.closest('.followers-popup') || e.target.closest('.donut-popup') || e.target.closest('.engagement-popup')) return;
         if (popupHost) {
           const wasOpen = popupHost.classList.contains('popup-force-show');
           document.querySelectorAll('.has-popup').forEach(p => p.classList.remove('popup-force-show'));
@@ -9674,6 +9745,18 @@ function updateKPICards(items) {
   const kpiDemo = document.getElementById('tkKpiDemo');
   const kpiDemoSub = document.getElementById('tkKpiDemoSub');
 
+  // Engagement Breakdown Popup Elements
+  const popupBadge = document.getElementById('popupEngageBadge');
+  const popupLikes = document.getElementById('popupEngageLikes');
+  const popupComments = document.getElementById('popupEngageComments');
+  const popupSaves = document.getElementById('popupEngageSaves');
+  const popupShares = document.getElementById('popupEngageShares');
+  const barLikes = document.getElementById('popupBarLikes');
+  const barComments = document.getElementById('popupBarComments');
+  const barSaves = document.getElementById('popupBarSaves');
+  const barShares = document.getElementById('popupBarShares');
+  const popupFooter = document.getElementById('popupEngageFooterNote');
+
   if (!items || items.length === 0) {
     if (kpiViews) kpiViews.textContent = '0';
     if (kpiViewsSub) kpiViewsSub.textContent = 'ไม่พบข้อมูลในช่วงที่เลือก';
@@ -9683,6 +9766,17 @@ function updateKPICards(items) {
     if (kpiTopSub) kpiTopSub.textContent = '-';
     if (kpiDemo) kpiDemo.textContent = '-';
     if (kpiDemoSub) kpiDemoSub.textContent = '-';
+
+    if (popupBadge) popupBadge.textContent = '0 ครั้ง';
+    if (popupLikes) popupLikes.textContent = '0 ไลก์ (0%)';
+    if (popupComments) popupComments.textContent = '0 ข้อความ (0%)';
+    if (popupSaves) popupSaves.textContent = '0 ครั้ง (0%)';
+    if (popupShares) popupShares.textContent = '0 ครั้ง (0%)';
+    if (barLikes) barLikes.style.width = '0%';
+    if (barComments) barComments.style.width = '0%';
+    if (barSaves) barSaves.style.width = '0%';
+    if (barShares) barShares.style.width = '0%';
+    if (popupFooter) popupFooter.innerHTML = '💡 ไม่พบข้อมูลคอนเทนต์ในช่วงตัวกรองนี้';
     return;
   }
 
@@ -9719,7 +9813,28 @@ function updateKPICards(items) {
 
   if (kpiEngage) kpiEngage.textContent = totalEngage.toLocaleString();
   if (kpiEngageSub) {
-    kpiEngageSub.textContent = `ไลก์ ${totalLikes.toLocaleString()} • คอมเมนต์ ${totalComments} • บันทึก ${totalSaves} • แชร์ ${totalShares}`;
+    kpiEngageSub.textContent = `ไลก์ ${totalLikes.toLocaleString()} • คอมเมนต์ ${totalComments.toLocaleString()} • บันทึก ${totalSaves.toLocaleString()} • แชร์ ${totalShares.toLocaleString()}`;
+  }
+
+  // Update Engagement Breakdown Popup dynamically
+  const pctLikes = totalEngage > 0 ? ((totalLikes / totalEngage) * 100).toFixed(1) : 0;
+  const pctComments = totalEngage > 0 ? ((totalComments / totalEngage) * 100).toFixed(1) : 0;
+  const pctSaves = totalEngage > 0 ? ((totalSaves / totalEngage) * 100).toFixed(1) : 0;
+  const pctShares = totalEngage > 0 ? ((totalShares / totalEngage) * 100).toFixed(1) : 0;
+
+  if (popupBadge) popupBadge.textContent = `${totalEngage.toLocaleString()} ครั้ง`;
+  if (popupLikes) popupLikes.textContent = `${totalLikes.toLocaleString()} ไลก์ (${pctLikes}%)`;
+  if (popupComments) popupComments.textContent = `${totalComments.toLocaleString()} ข้อความ (${pctComments}%)`;
+  if (popupSaves) popupSaves.textContent = `${totalSaves.toLocaleString()} ครั้ง (${pctSaves}%)`;
+  if (popupShares) popupShares.textContent = `${totalShares.toLocaleString()} ครั้ง (${pctShares}%)`;
+
+  if (barLikes) barLikes.style.width = `${pctLikes}%`;
+  if (barComments) barComments.style.width = `${pctComments}%`;
+  if (barSaves) barSaves.style.width = `${pctSaves}%`;
+  if (barShares) barShares.style.width = `${pctShares}%`;
+
+  if (popupFooter) {
+    popupFooter.innerHTML = `💡 สถิติคำนวณตามตัวกรองที่เลือก (${items.length} คลิป • รวม ${totalEngage.toLocaleString()} interactions)`;
   }
 
   if (kpiTop) {
