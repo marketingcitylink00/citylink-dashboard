@@ -2644,18 +2644,21 @@
     margin-bottom: 24px;
   }
   .tiktok-kpi-box {
-    background: var(--bg-canvas);
-    border: 1px solid var(--border-card);
+    background: var(--bg-forest);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 18px;
     padding: 16px 18px;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 10px 28px -4px rgba(6, 78, 59, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
   .tiktok-kpi-box:hover {
     transform: translateY(-2px);
-    border-color: rgba(0, 242, 254, 0.5);
+    box-shadow: 0 14px 32px -4px rgba(6, 78, 59, 0.45);
+    border-color: rgba(52, 211, 153, 0.5);
   }
   .tiktok-kpi-top {
     display: flex;
@@ -2666,10 +2669,19 @@
   .tiktok-kpi-label {
     font-size: 12.5px;
     font-weight: 700;
-    color: var(--text-muted);
+    color: #a7f3d0;
   }
   .tiktok-kpi-icon {
-    font-size: 16px;
+    font-size: 15px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: var(--bg-forest);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
   }
   .tiktok-kpi-val {
     font-size: 26px;
@@ -2677,32 +2689,29 @@
     line-height: 1.1;
     margin-bottom: 6px;
     letter-spacing: -0.5px;
-    color: var(--text-dark);
+    color: #ffffff !important;
   }
-  .tiktok-kpi-val.val-cyan, #tkKpiViews {
-    color: #0369a1 !important; /* Rich High-Contrast Sky Blue (WCAG AAA) */
-  }
-  .tiktok-kpi-val.val-rose, #tkKpiEngage {
-    color: #be123c !important; /* Deep High-Contrast Rose Crimson */
-  }
-  .tiktok-kpi-val.val-emerald, #tkKpiTop {
-    color: #047857 !important; /* Deep High-Contrast Emerald */
-  }
+  .tiktok-kpi-val.val-cyan, #tkKpiViews,
+  .tiktok-kpi-val.val-rose, #tkKpiEngage,
+  .tiktok-kpi-val.val-emerald, #tkKpiTop,
   .tiktok-kpi-val.val-purple, #tkKpiDemo {
-    color: #6d28d9 !important; /* Deep High-Contrast Royal Violet */
+    color: #ffffff !important;
   }
 
-  [data-theme="dark"] .tiktok-kpi-val.val-cyan, [data-theme="dark"] #tkKpiViews {
-    color: #38bdf8 !important;
+  [data-theme="dark"] .tiktok-kpi-box {
+    background: var(--bg-forest);
+    box-shadow: 0 10px 28px -4px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(52, 211, 153, 0.18);
   }
-  [data-theme="dark"] .tiktok-kpi-val.val-rose, [data-theme="dark"] #tkKpiEngage {
-    color: #fb7185 !important;
+  [data-theme="dark"] .tiktok-kpi-box .tiktok-kpi-icon {
+    background: rgba(255, 255, 255, 0.95);
+    color: #04291f;
   }
-  [data-theme="dark"] .tiktok-kpi-val.val-emerald, [data-theme="dark"] #tkKpiTop {
-    color: #34d399 !important;
-  }
+  [data-theme="dark"] .tiktok-kpi-val.val-cyan, [data-theme="dark"] #tkKpiViews,
+  [data-theme="dark"] .tiktok-kpi-val.val-rose, [data-theme="dark"] #tkKpiEngage,
+  [data-theme="dark"] .tiktok-kpi-val.val-emerald, [data-theme="dark"] #tkKpiTop,
   [data-theme="dark"] .tiktok-kpi-val.val-purple, [data-theme="dark"] #tkKpiDemo {
-    color: #c084fc !important;
+    color: #ffffff !important;
   }
 
   .metric-mini-val.val-blue, #detailViews {
@@ -2725,8 +2734,11 @@
   }
   .tiktok-kpi-sub {
     font-size: 11.5px;
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.75);
     line-height: 1.3;
+  }
+  [data-theme="dark"] .tiktok-kpi-sub {
+    color: rgba(255, 255, 255, 0.7);
   }
 
   /* Video Cards Showcase */
@@ -4153,7 +4165,7 @@
             <span class="tiktok-kpi-label" id="tkKpiLabel1">ยอดเข้าชมวิดีโอรวม (Video Views)</span>
             <span class="tiktok-kpi-icon">👁️</span>
           </div>
-          <div class="tiktok-kpi-val val-cyan" id="tkKpiViews" style="color: #0369a1;">8,316</div>
+          <div class="tiktok-kpi-val val-cyan" id="tkKpiViews">8,316</div>
           <div class="tiktok-kpi-sub" id="tkKpiViewsSub">สะสมจาก 2 คลิปวิดีโอ (สถิติล่าสุด 8.3K ครั้ง)</div>
         </div>
 
@@ -4162,7 +4174,7 @@
             <span class="tiktok-kpi-label" id="tkKpiLabel2">ยอดการมีส่วนร่วมรวม (Total Engagements)</span>
             <span class="tiktok-kpi-icon">❤️</span>
           </div>
-          <div class="tiktok-kpi-val val-rose" id="tkKpiEngage" style="color: #be123c;">64</div>
+          <div class="tiktok-kpi-val val-rose" id="tkKpiEngage">64</div>
           <div class="tiktok-kpi-sub" id="tkKpiEngageSub">ไลก์ 56 • คอมเมนต์ 6 • บันทึก 1 • แชร์ 1</div>
         </div>
 
@@ -4171,7 +4183,7 @@
             <span class="tiktok-kpi-label" id="tkKpiLabel3">คลิปยอดนิยมสูงสุด (Top Performing)</span>
             <span class="tiktok-kpi-icon">🏆</span>
           </div>
-          <div class="tiktok-kpi-val val-emerald" id="tkKpiTop" style="color: #047857;">7.7K 🏆</div>
+          <div class="tiktok-kpi-val val-emerald" id="tkKpiTop">7.7K 🏆</div>
           <div class="tiktok-kpi-sub" id="tkKpiTopSub">คลิป: โปรโมชั่นประจำเดือน Ready to move in (7,741 วิว • 7ชม.34น.)</div>
         </div>
 
@@ -4180,7 +4192,7 @@
             <span class="tiktok-kpi-label" id="tkKpiLabel4">กลุ่มผู้ชมหลัก (Core Demographic)</span>
             <span class="tiktok-kpi-icon">👥</span>
           </div>
-          <div class="tiktok-kpi-val val-purple" id="tkKpiDemo" style="color: #6d28d9;">หญิง 58% / ชาย 41%</div>
+          <div class="tiktok-kpi-val val-purple" id="tkKpiDemo">หญิง 58% / ชาย 41%</div>
           <div class="tiktok-kpi-sub" id="tkKpiDemoSub">ผู้ชมเพศหญิงขยายตัวเด่นชัดในเดือนกันยายน (ผู้ติดตามสะสม 83 คน)</div>
         </div>
       </div>
