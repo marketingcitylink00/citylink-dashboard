@@ -1193,7 +1193,8 @@
       .donut-popup,
       .engagement-popup,
       .views-popup,
-      .demo-popup {
+      .demo-popup,
+      .topclips-popup {
         position: fixed !important;
         top: 50% !important;
         left: 50% !important;
@@ -1208,7 +1209,8 @@
         z-index: 99999 !important;
         box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45) !important;
       }
-      .demo-popup::after {
+      .demo-popup::after,
+      .topclips-popup::after {
         display: none !important;
       }
       .tiktok-modal-window {
@@ -1228,12 +1230,13 @@
     .followers-popup,
     .donut-popup,
     .engagement-popup,
-    .views-popup {
+    .views-popup,
+    .topclips-popup {
       position: absolute;
       bottom: calc(100% + 14px);
       left: 50%;
       transform: translateX(-50%) translateY(8px);
-      width: 290px;
+      width: 325px;
       box-sizing: border-box;
       background: #091310;
       color: #f8fafc;
@@ -1274,7 +1277,8 @@
     .followers-popup::after,
     .donut-popup::after,
     .engagement-popup::after,
-    .views-popup::after {
+    .views-popup::after,
+    .topclips-popup::after {
       content: '';
       position: absolute;
       top: 100%;
@@ -1307,7 +1311,10 @@
     .has-popup.popup-force-show .engagement-popup,
     .has-popup:hover .views-popup,
     .has-popup:focus .views-popup,
-    .has-popup.popup-force-show .views-popup {
+    .has-popup.popup-force-show .views-popup,
+    .has-popup:hover .topclips-popup,
+    .has-popup:focus .topclips-popup,
+    .has-popup.popup-force-show .topclips-popup {
       opacity: 1;
       visibility: visible;
       transform: translateX(-50%) translateY(0);
@@ -4364,13 +4371,92 @@
           </div>
         </div>
 
-        <div class="tiktok-kpi-box">
+        <!-- Card 3: Top Performing Clip with Interactive Hover/Click Popup for All 3 Creators -->
+        <div class="tiktok-kpi-box has-popup" tabindex="0" title="คลิกหรือชี้เพื่อดูคลิปยอดนิยมของแต่ละครีเอเตอร์ทั้ง 3 คน">
           <div class="tiktok-kpi-top">
             <span class="tiktok-kpi-label" id="tkKpiLabel3">คลิปยอดนิยมสูงสุด (Top Performing)</span>
             <span class="tiktok-kpi-icon">🏆</span>
           </div>
-          <div class="tiktok-kpi-val val-emerald" id="tkKpiTop">7.7K 🏆</div>
+          <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 2px;">
+            <div class="tiktok-kpi-val val-emerald" id="tkKpiTop">7.7K 🏆</div>
+            <span style="font-size: 11px; color: #a7f3d0; background: rgba(255, 255, 255, 0.12); padding: 2px 7px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.15);">ชี้ดูสรุป ℹ️</span>
+          </div>
           <div class="tiktok-kpi-sub" id="tkKpiTopSub">คลิป: โปรโมชั่นประจำเดือน Ready to move in (7,741 วิว • 7ชม.34น.)</div>
+
+          <!-- Popup: Top Performing Clip for each Creator (3 Creators) -->
+          <div class="topclips-popup" id="topClipsBreakdownPopup" style="width: 325px; left: 50%;">
+            <div class="popup-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+              <span class="popup-title" style="display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 13.5px; color: #f8fafc;"><span>🏆</span> คลิปยอดนิยมแยกตามครีเอเตอร์</span>
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span class="popup-badge" id="popupTopClipsBadge" style="background: rgba(52, 211, 153, 0.25); color: #34d399; font-size: 11px; padding: 2px 7px;">3 ครีเอเตอร์</span>
+                <button type="button" aria-label="ปิดสรุปคลิปยอดนิยม" onclick="document.querySelectorAll('.has-popup').forEach(p => p.classList.remove('popup-force-show')); event.stopPropagation();" style="background: none; border: none; color: #94a3b8; font-size: 13px; cursor: pointer; padding: 2px 4px; line-height: 1; border-radius: 4px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#94a3b8'">✕</button>
+              </div>
+            </div>
+
+            <!-- Creator 1: คุณปรัศว์ภา (ชุด 1) -->
+            <div style="background: rgba(255, 255, 255, 0.04); padding: 7px 9px; border-radius: 8px; margin-bottom: 7px; border: 1px solid rgba(255, 255, 255, 0.08);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                <span style="font-size: 11.5px; font-weight: 700; color: #38bdf8; display: flex; align-items: center; gap: 4px;">
+                  <span>🌟</span> คุณปรัศว์ภา (ชุด 1)
+                </span>
+                <strong id="popupTopPatsaparViews" style="color: #38bdf8; font-size: 12px;">7,741 วิว</strong>
+              </div>
+              <div id="popupTopPatsaparTitle" style="font-size: 11px; color: #e2e8f0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 285px; margin-bottom: 3px;" title="โปรโมชั่นประจำเดือน Ready to move in">
+                โปรโมชั่นประจำเดือน Ready to move in
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: #94a3b8; margin-bottom: 3px;">
+                <span id="popupTopPatsaparEngage">👍 56 • 💬 6 • ↗️ 1</span>
+                <span id="popupTopPatsaparTag" style="font-size: 9.5px; color: #38bdf8; background: rgba(56, 189, 248, 0.15); padding: 1px 5px; border-radius: 4px;">ก.ย. 2569</span>
+              </div>
+              <div style="height: 4px; background: rgba(255, 255, 255, 0.08); border-radius: 3px; overflow: hidden;">
+                <div id="popupBarTopPatsapar" style="width: 100%; background: #38bdf8; height: 100%; border-radius: 3px; transition: width 0.4s ease;"></div>
+              </div>
+            </div>
+
+            <!-- Creator 2: คุณปนัดดา (ชุด 2) -->
+            <div style="background: rgba(255, 255, 255, 0.04); padding: 7px 9px; border-radius: 8px; margin-bottom: 7px; border: 1px solid rgba(255, 255, 255, 0.08);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                <span style="font-size: 11.5px; font-weight: 700; color: #fb7185; display: flex; align-items: center; gap: 4px;">
+                  <span>✨</span> คุณปนัดดา (ชุด 2)
+                </span>
+                <strong id="popupTopPanaddaViews" style="color: #fb7185; font-size: 12px;">9,960 วิว</strong>
+              </div>
+              <div id="popupTopPanaddaTitle" style="font-size: 11px; color: #e2e8f0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 285px; margin-bottom: 3px;" title="อยากบอกอะไรกับคนถัดไป">
+                อยากบอกอะไรกับคนถัดไป
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: #94a3b8; margin-bottom: 3px;">
+                <span id="popupTopPanaddaEngage">👍 228 • 💬 2 • ↗️ 1</span>
+                <span id="popupTopPanaddaTag" style="font-size: 9.5px; color: #fb7185; background: rgba(251, 113, 133, 0.15); padding: 1px 5px; border-radius: 4px;">สถิติสูงสุด ส.ค.</span>
+              </div>
+              <div style="height: 4px; background: rgba(255, 255, 255, 0.08); border-radius: 3px; overflow: hidden;">
+                <div id="popupBarTopPanadda" style="width: 58.6%; background: #fb7185; height: 100%; border-radius: 3px; transition: width 0.4s ease;"></div>
+              </div>
+            </div>
+
+            <!-- Creator 3: คุณราตรี (ชุด 3) -->
+            <div style="background: rgba(255, 255, 255, 0.04); padding: 7px 9px; border-radius: 8px; margin-bottom: 7px; border: 1px solid rgba(255, 255, 255, 0.08);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                <span style="font-size: 11.5px; font-weight: 700; color: #34d399; display: flex; align-items: center; gap: 4px;">
+                  <span>💫</span> คุณราตรี (ชุด 3)
+                </span>
+                <strong id="popupTopRatriViews" style="color: #34d399; font-size: 12px;">8,050 วิว</strong>
+              </div>
+              <div id="popupTopRatriTitle" style="font-size: 11px; color: #e2e8f0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 285px; margin-bottom: 3px;" title="ขายค่ะ....แบบขายจริง">
+                ขายค่ะ....แบบขายจริง
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: #94a3b8; margin-bottom: 3px;">
+                <span id="popupTopRatriEngage">👍 48 • 💬 2 • ↗️ 0</span>
+                <span id="popupTopRatriTag" style="font-size: 9.5px; color: #34d399; background: rgba(52, 211, 153, 0.15); padding: 1px 5px; border-radius: 4px;">สถิติสูงสุด ส.ค.</span>
+              </div>
+              <div style="height: 4px; background: rgba(255, 255, 255, 0.08); border-radius: 3px; overflow: hidden;">
+                <div id="popupBarTopRatri" style="width: 47.4%; background: #34d399; height: 100%; border-radius: 3px; transition: width 0.4s ease;"></div>
+              </div>
+            </div>
+
+            <div style="margin-top: 6px; padding-top: 6px; border-top: 1px dashed rgba(255, 255, 255, 0.12); font-size: 10.5px; color: #a7f3d0; text-align: center;" id="popupTopClipsFooterNote">
+              💡 แสดงคลิปยอดนิยมสูงสุดของครีเอเตอร์แต่ละคน
+            </div>
+          </div>
         </div>
 
         <!-- Card 4: Demographic with Interactive Hover/Click Popup -->
@@ -7582,7 +7668,7 @@
     document.addEventListener('DOMContentLoaded', function() {
       document.addEventListener('click', function(e) {
         const popupHost = e.target.closest('.has-popup');
-        if (e.target.closest('.followers-popup') || e.target.closest('.donut-popup') || e.target.closest('.engagement-popup') || e.target.closest('.views-popup') || e.target.closest('.demo-popup')) return;
+        if (e.target.closest('.followers-popup') || e.target.closest('.donut-popup') || e.target.closest('.engagement-popup') || e.target.closest('.views-popup') || e.target.closest('.demo-popup') || e.target.closest('.topclips-popup')) return;
         if (popupHost) {
           const wasOpen = popupHost.classList.contains('popup-force-show');
           document.querySelectorAll('.has-popup').forEach(p => p.classList.remove('popup-force-show'));
@@ -9948,6 +10034,28 @@ function updateKPICards(items) {
   const barShares = document.getElementById('popupBarShares');
   const popupFooter = document.getElementById('popupEngageFooterNote');
 
+  // Card 3: Top Clips Breakdown by Creator Popup Elements
+  const popupTopClipsBadge = document.getElementById('popupTopClipsBadge');
+  const popupTopPatsaparViews = document.getElementById('popupTopPatsaparViews');
+  const popupTopPatsaparTitle = document.getElementById('popupTopPatsaparTitle');
+  const popupTopPatsaparEngage = document.getElementById('popupTopPatsaparEngage');
+  const popupTopPatsaparTag = document.getElementById('popupTopPatsaparTag');
+  const barTopPatsapar = document.getElementById('popupBarTopPatsapar');
+
+  const popupTopPanaddaViews = document.getElementById('popupTopPanaddaViews');
+  const popupTopPanaddaTitle = document.getElementById('popupTopPanaddaTitle');
+  const popupTopPanaddaEngage = document.getElementById('popupTopPanaddaEngage');
+  const popupTopPanaddaTag = document.getElementById('popupTopPanaddaTag');
+  const barTopPanadda = document.getElementById('popupBarTopPanadda');
+
+  const popupTopRatriViews = document.getElementById('popupTopRatriViews');
+  const popupTopRatriTitle = document.getElementById('popupTopRatriTitle');
+  const popupTopRatriEngage = document.getElementById('popupTopRatriEngage');
+  const popupTopRatriTag = document.getElementById('popupTopRatriTag');
+  const barTopRatri = document.getElementById('popupBarTopRatri');
+
+  const popupTopClipsFooter = document.getElementById('popupTopClipsFooterNote');
+
   // Card 4: Demographic Breakdown Popup Elements
   const popupDemoBadge = document.getElementById('popupDemoBadge');
   const popupDemoFemale = document.getElementById('popupDemoFemale');
@@ -9988,6 +10096,27 @@ function updateKPICards(items) {
     if (barSaves) barSaves.style.width = '0%';
     if (barShares) barShares.style.width = '0%';
     if (popupFooter) popupFooter.innerHTML = '💡 ไม่พบข้อมูลคอนเทนต์ในช่วงตัวกรองนี้';
+
+    if (popupTopClipsBadge) popupTopClipsBadge.textContent = '-';
+    if (popupTopPatsaparViews) popupTopPatsaparViews.textContent = '-';
+    if (popupTopPatsaparTitle) popupTopPatsaparTitle.textContent = 'ไม่พบข้อมูลคลิป';
+    if (popupTopPatsaparEngage) popupTopPatsaparEngage.textContent = '-';
+    if (popupTopPatsaparTag) popupTopPatsaparTag.textContent = '-';
+    if (barTopPatsapar) barTopPatsapar.style.width = '0%';
+
+    if (popupTopPanaddaViews) popupTopPanaddaViews.textContent = '-';
+    if (popupTopPanaddaTitle) popupTopPanaddaTitle.textContent = 'ไม่พบข้อมูลคลิป';
+    if (popupTopPanaddaEngage) popupTopPanaddaEngage.textContent = '-';
+    if (popupTopPanaddaTag) popupTopPanaddaTag.textContent = '-';
+    if (barTopPanadda) barTopPanadda.style.width = '0%';
+
+    if (popupTopRatriViews) popupTopRatriViews.textContent = '-';
+    if (popupTopRatriTitle) popupTopRatriTitle.textContent = 'ไม่พบข้อมูลคลิป';
+    if (popupTopRatriEngage) popupTopRatriEngage.textContent = '-';
+    if (popupTopRatriTag) popupTopRatriTag.textContent = '-';
+    if (barTopRatri) barTopRatri.style.width = '0%';
+
+    if (popupTopClipsFooter) popupTopClipsFooter.innerHTML = '💡 ไม่พบข้อมูลคอนเทนต์ในช่วงตัวกรองนี้';
 
     if (popupDemoBadge) popupDemoBadge.textContent = '-';
     if (popupDemoFemale) popupDemoFemale.textContent = '0%';
@@ -10099,10 +10228,113 @@ function updateKPICards(items) {
   }
 
   if (kpiTop) {
-    kpiTop.textContent = `${(topItem.viewsRaw || 0).toLocaleString()} ⭐`;
+    kpiTop.textContent = `${(topItem.viewsRaw || 0).toLocaleString()} 🏆`;
   }
   if (kpiTopSub) {
-    kpiTopSub.textContent = `คลิป '${topItem.title}' (${topItem.creatorName})`;
+    kpiTopSub.textContent = `คลิป: ${topItem.title} (${(topItem.viewsRaw || 0).toLocaleString()} วิว • ${topItem.creatorName})`;
+  }
+
+  // Update Card 3: Top Clips Breakdown by Creator Popup dynamically
+  const getCreatorTopClip = (creatorKey) => {
+    const creatorItems = items.filter(it => it.creator === creatorKey);
+    if (creatorItems.length > 0) {
+      return {
+        clip: [...creatorItems].sort((a, b) => (b.viewsRaw || 0) - (a.viewsRaw || 0))[0],
+        isFallback: false
+      };
+    }
+    // Fallback to all-time peak from TIKTOK_DATA_ITEMS if no clips in current filter
+    if (typeof TIKTOK_DATA_ITEMS !== 'undefined' && TIKTOK_DATA_ITEMS.length > 0) {
+      const allCreatorItems = TIKTOK_DATA_ITEMS.filter(it => it.creator === creatorKey);
+      if (allCreatorItems.length > 0) {
+        return {
+          clip: [...allCreatorItems].sort((a, b) => (b.viewsRaw || 0) - (a.viewsRaw || 0))[0],
+          isFallback: true
+        };
+      }
+    }
+    return null;
+  };
+
+  const topPatsaparData = getCreatorTopClip('patsapar');
+  const topPanaddaData = getCreatorTopClip('panadda');
+  const topRatriData = getCreatorTopClip('ratri');
+
+  const vPat = topPatsaparData && topPatsaparData.clip ? (topPatsaparData.clip.viewsRaw || 0) : 0;
+  const vPan = topPanaddaData && topPanaddaData.clip ? (topPanaddaData.clip.viewsRaw || 0) : 0;
+  const vRat = topRatriData && topRatriData.clip ? (topRatriData.clip.viewsRaw || 0) : 0;
+  const maxCreatorView = Math.max(vPat, vPan, vRat, 1);
+
+  const pctBarPat = ((vPat / maxCreatorView) * 100).toFixed(1);
+  const pctBarPan = ((vPan / maxCreatorView) * 100).toFixed(1);
+  const pctBarRat = ((vRat / maxCreatorView) * 100).toFixed(1);
+
+  if (topPatsaparData && topPatsaparData.clip) {
+    const c = topPatsaparData.clip;
+    if (popupTopPatsaparViews) popupTopPatsaparViews.textContent = `${(c.viewsRaw || 0).toLocaleString()} วิว`;
+    if (popupTopPatsaparTitle) {
+      popupTopPatsaparTitle.textContent = c.title;
+      popupTopPatsaparTitle.title = c.title;
+    }
+    if (popupTopPatsaparEngage) {
+      popupTopPatsaparEngage.textContent = `👍 ${(c.likesRaw || 0).toLocaleString()} • 💬 ${c.comments || 0} • ↗️ ${c.shares || 0}`;
+    }
+    if (popupTopPatsaparTag) {
+      popupTopPatsaparTag.textContent = topPatsaparData.isFallback ? 'สถิติสูงสุด ส.ค.' : (currentTikTokMonth === 'september' ? 'ก.ย. 2569' : (currentTikTokMonth === 'august' ? 'ส.ค. 2569' : 'รวมทุกเดือน'));
+    }
+    if (barTopPatsapar) barTopPatsapar.style.width = `${pctBarPat}%`;
+  }
+
+  if (topPanaddaData && topPanaddaData.clip) {
+    const c = topPanaddaData.clip;
+    if (popupTopPanaddaViews) popupTopPanaddaViews.textContent = `${(c.viewsRaw || 0).toLocaleString()} วิว`;
+    if (popupTopPanaddaTitle) {
+      popupTopPanaddaTitle.textContent = c.title;
+      popupTopPanaddaTitle.title = c.title;
+    }
+    if (popupTopPanaddaEngage) {
+      popupTopPanaddaEngage.textContent = `👍 ${(c.likesRaw || 0).toLocaleString()} • 💬 ${c.comments || 0} • ↗️ ${c.shares || 0}`;
+    }
+    if (popupTopPanaddaTag) {
+      popupTopPanaddaTag.textContent = topPanaddaData.isFallback ? 'สถิติสูงสุด ส.ค.' : (currentTikTokMonth === 'september' ? 'ก.ย. 2569' : (currentTikTokMonth === 'august' ? 'ส.ค. 2569' : 'รวมทุกเดือน'));
+    }
+    if (barTopPanadda) barTopPanadda.style.width = `${pctBarPan}%`;
+  }
+
+  if (topRatriData && topRatriData.clip) {
+    const c = topRatriData.clip;
+    if (popupTopRatriViews) popupTopRatriViews.textContent = `${(c.viewsRaw || 0).toLocaleString()} วิว`;
+    if (popupTopRatriTitle) {
+      popupTopRatriTitle.textContent = c.title;
+      popupTopRatriTitle.title = c.title;
+    }
+    if (popupTopRatriEngage) {
+      popupTopRatriEngage.textContent = `👍 ${(c.likesRaw || 0).toLocaleString()} • 💬 ${c.comments || 0} • ↗️ ${c.shares || 0}`;
+    }
+    if (popupTopRatriTag) {
+      popupTopRatriTag.textContent = topRatriData.isFallback ? 'สถิติสูงสุด ส.ค.' : (currentTikTokMonth === 'september' ? 'ก.ย. 2569' : (currentTikTokMonth === 'august' ? 'ส.ค. 2569' : 'รวมทุกเดือน'));
+    }
+    if (barTopRatri) barTopRatri.style.width = `${pctBarRat}%`;
+  }
+
+  if (popupTopClipsBadge) {
+    if (currentTikTokMonth === 'september') {
+      popupTopClipsBadge.textContent = 'ก.ย. 2569';
+    } else if (currentTikTokMonth === 'august') {
+      popupTopClipsBadge.textContent = 'ส.ค. 2569';
+    } else {
+      popupTopClipsBadge.textContent = 'รวมทุกเดือน';
+    }
+  }
+
+  if (popupTopClipsFooter) {
+    if (currentTikTokMonth === 'september') {
+      popupTopClipsFooter.innerHTML = '💡 เดือน ก.ย. ครีเอเตอร์ชุด 2 และ 3 อ้างอิงสถิติสูงสุดจากรอบ ส.ค.';
+    } else if (currentTikTokCreator !== 'all') {
+      popupTopClipsFooter.innerHTML = `💡 กำลังกรองเฉพาะ ${topItem ? topItem.creatorName : ''} (เปรียบเทียบกับครีเอเตอร์อื่น)`;
+    } else {
+      popupTopClipsFooter.innerHTML = '💡 แสดงคลิปที่ทำยอดวิวสูงสุดของแต่ละครีเอเตอร์';
+    }
   }
 
   if (kpiDemo) {
