@@ -3410,7 +3410,457 @@
     .video-detail-metrics-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
+<style id="competitor-dashboard-styles">
+  /* ========================================================================== */
+  /* META ADS COMPETITOR INTELLIGENCE & MARKET SHARE (SECTION 6)                */
+  /* ========================================================================== */
+  .competitor-hub-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 24px;
+    box-shadow: var(--card-shadow);
+    padding: 26px;
+    margin-top: 26px;
+    position: relative;
+    overflow: visible;
+    transition: all 0.3s ease;
+  }
+  .competitor-hub-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1877f2, #8b5cf6, #10b981);
+    border-radius: 24px 24px 0 0;
+  }
+  .competitor-hub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+  .competitor-header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .competitor-brand-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #1877f2 0%, #0d5cb6 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(24, 119, 242, 0.28);
+    color: #ffffff;
+    font-size: 24px;
+  }
+  .competitor-header-info h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .competitor-header-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 12px;
+    background: rgba(24, 119, 242, 0.15);
+    color: #1877f2;
+    border: 1px solid rgba(24, 119, 242, 0.3);
+  }
+  .competitor-header-info p {
+    margin: 5px 0 0;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .competitor-quick-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .btn-comp-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 12.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-canvas);
+    color: var(--text-dark);
+    text-decoration: none;
+  }
+  .btn-comp-action:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .btn-comp-primary {
+    background: linear-gradient(135deg, #1877f2 0%, #0284c7 100%);
+    color: #ffffff !important;
+    border-color: transparent;
+  }
+  .btn-comp-primary:hover {
+    box-shadow: 0 4px 14px rgba(24, 119, 242, 0.35);
+  }
 
+  /* Subheadings */
+  .comp-sub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 28px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .comp-sub-header h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .comp-sub-header span.tag {
+    font-size: 11px;
+    color: var(--text-muted);
+    background: rgba(0,0,0,0.05);
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+  [data-theme="dark"] .comp-sub-header span.tag {
+    background: rgba(255,255,255,0.06);
+  }
+
+  /* Benchmark Table */
+  .comp-table-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid var(--border-card);
+    background: var(--bg-canvas);
+    margin-bottom: 24px;
+  }
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: left;
+    min-width: 780px;
+  }
+  .comp-table th {
+    background: rgba(0, 0, 0, 0.04);
+    padding: 14px 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  [data-theme="dark"] .comp-table th {
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .comp-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-card);
+    color: var(--text-dark);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .comp-table tr:last-child td {
+    border-bottom: none;
+  }
+  .comp-table tr:hover td {
+    background: rgba(0, 0, 0, 0.015);
+  }
+  [data-theme="dark"] .comp-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .comp-table td.col-brand {
+    font-weight: 700;
+    width: 18%;
+  }
+  .comp-table th.col-highlight,
+  .comp-table td.col-highlight {
+    background: rgba(16, 185, 129, 0.05);
+    border-left: 2px solid #10b981;
+    border-right: 2px solid #10b981;
+  }
+  [data-theme="dark"] .comp-table th.col-highlight,
+  [data-theme="dark"] .comp-table td.col-highlight {
+    background: rgba(16, 185, 129, 0.1);
+  }
+
+  /* SWOT 3-Column Grid */
+  .comp-swot-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 26px;
+  }
+  .swot-card {
+    background: var(--bg-canvas);
+    border-radius: 18px;
+    border: 1px solid var(--border-card);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .swot-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -4px rgba(0,0,0,0.08);
+  }
+  .swot-card.highlight-card {
+    border: 1.5px solid #10b981;
+    box-shadow: 0 4px 20px -2px rgba(16, 185, 129, 0.15);
+  }
+  .swot-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .swot-brand-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .swot-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+  }
+  .swot-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+  .swot-meta {
+    font-size: 11.5px;
+    color: var(--text-muted);
+  }
+  .swot-section-box {
+    border-radius: 10px;
+    padding: 11px 13px;
+    font-size: 12.5px;
+    line-height: 1.55;
+  }
+  .swot-strengths {
+    background: rgba(16, 185, 129, 0.08);
+    border-left: 3px solid #10b981;
+    color: var(--text-dark);
+  }
+  .swot-weaknesses {
+    background: rgba(239, 68, 68, 0.08);
+    border-left: 3px solid #ef4444;
+    color: var(--text-dark);
+  }
+  .swot-ad-gap {
+    background: rgba(245, 158, 11, 0.08);
+    border-left: 3px solid #f59e0b;
+    color: var(--text-dark);
+  }
+  .swot-sec-title {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+
+  /* 4 Core USPs Bento Grid */
+  .comp-usp-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 26px;
+  }
+  .usp-bento-card {
+    background: var(--bg-canvas);
+    border-radius: 18px;
+    border: 1px solid var(--border-card);
+    padding: 18px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .usp-bento-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px -2px rgba(0,0,0,0.08);
+  }
+  .usp-icon-wrap {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  .usp-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+  }
+  .usp-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .usp-tag {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 6px;
+    margin-top: 10px;
+  }
+
+  /* Actionable Ad Hooks Grid */
+  .comp-hooks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 26px;
+  }
+  .hook-card {
+    background: var(--bg-canvas);
+    border: 1px solid var(--border-card);
+    border-radius: 18px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 14px;
+    position: relative;
+  }
+  .hook-card.active-hook {
+    border-top: 3px solid #1877f2;
+  }
+  .hook-badge-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .hook-target-tag {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: rgba(24, 119, 242, 0.1);
+    color: #1877f2;
+  }
+  .hook-headline {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.4;
+  }
+  .hook-copy-box {
+    background: var(--bg-card);
+    border: 1px dashed var(--border-subtle);
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--text-muted);
+    white-space: pre-line;
+  }
+  .btn-copy-hook {
+    width: 100%;
+    padding: 9px;
+    border-radius: 10px;
+    border: 1px solid rgba(24, 119, 242, 0.3);
+    background: rgba(24, 119, 242, 0.08);
+    color: #1877f2;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+  }
+  .btn-copy-hook:hover {
+    background: #1877f2;
+    color: #ffffff;
+  }
+
+  /* Media Buyer Action Plan 3 Columns */
+  .comp-playbook-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .playbook-card {
+    background: var(--bg-canvas);
+    border: 1px solid var(--border-card);
+    border-radius: 18px;
+    padding: 18px;
+    display: flex;
+    gap: 12px;
+  }
+  .playbook-num {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    font-weight: 800;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .playbook-content h5 {
+    margin: 0 0 6px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+  .playbook-content p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 1080px) {
+    .comp-swot-grid { grid-template-columns: 1fr; }
+    .comp-usp-grid { grid-template-columns: repeat(2, 1fr); }
+    .comp-hooks-grid { grid-template-columns: 1fr; }
+    .comp-playbook-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .comp-usp-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
@@ -3445,6 +3895,8 @@
         <ul class="nav-menu-list">
           <li><a href="#overview" class="nav-item"><span class="nav-icon">🏠</span> Dashboard</a></li>
           <li><a href="#sec-habits" class="nav-item active"><span class="nav-icon">🖥️</span> Report</a></li>
+          <li><a href="#sec-tiktok" class="nav-item"><span class="nav-icon">🎬</span> TikTok Content</a></li>
+          <li><a href="#sec-competitor" class="nav-item"><span class="nav-icon">⚔️</span> Ads Competitor Intel</a></li>
         </ul>
       </div>
 
@@ -4566,6 +5018,410 @@
           <span class="insight-strip-icon">🧾</span>
           <div>
             <strong>TikTok Ads Boost:</strong> มียอดบูสต์คลิป Week 1 ผ่าน TikTok Ads (PIPO) จำนวน ฿160.50 (แนบสลิป KBank ใน Popup)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 6: META ADS COMPETITOR INTELLIGENCE & MARKET SHARE STRATEGY  -->
+    <!-- ===================================================================== -->
+    <div class="competitor-hub-card" id="sec-competitor">
+      <!-- Section Header -->
+      <div class="competitor-hub-header">
+        <div class="competitor-header-left">
+          <div class="competitor-brand-icon">
+            <svg viewBox="0 0 24 24" style="width: 28px; height: 28px; fill: #ffffff;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          </div>
+          <div class="competitor-header-info">
+            <h3>6. Meta Ads Competitor Intelligence & Market Share Strategy <span class="competitor-header-badge">Meta Ad Library Live Audit</span></h3>
+            <p>วิเคราะห์เปรียบเทียบแคมเปญโฆษณา Facebook จาก Meta Ad Library (City Link Condo vs Escent Korat vs พลัส คอนโด โคราช) • จุดแข็ง-จุดอ่อน • 4 เสาหลักชิง Market Share • ชุดคำโฆษณาแก้เกมพร้อมใช้</p>
+          </div>
+        </div>
+        <div class="competitor-quick-actions">
+          <button class="btn-comp-action btn-comp-primary" onclick="copyAllCompetitorSummary(this); return false;">
+            <span>📋</span> คัดลอกสรุปกลยุทธ์ทั้งหมด
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick KPI Strip -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 24px;">
+        <div style="background: var(--bg-canvas); border: 1px solid var(--border-card); border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; gap: 12px;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(59, 130, 246, 0.15); color: #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 18px;">🎯</div>
+          <div>
+            <div style="font-size: 11px; color: var(--text-muted); font-weight: 600;">พื้นที่สำรวจคู่แข่ง</div>
+            <div style="font-size: 13.5px; font-weight: 700; color: var(--text-dark);">คอนโด อ.เมืองนครราชสีมา</div>
+          </div>
+        </div>
+        <div style="background: var(--bg-canvas); border: 1px solid var(--border-card); border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; gap: 12px;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(16, 185, 129, 0.15); color: #10b981; display: flex; align-items: center; justify-content: center; font-size: 18px;">🛡️</div>
+          <div>
+            <div style="font-size: 11px; color: var(--text-muted); font-weight: 600;">แหล่งข้อมูลอ้างอิง</div>
+            <div style="font-size: 13.5px; font-weight: 700; color: var(--text-dark);">Meta Ad Library (ต.ค. 2569)</div>
+          </div>
+        </div>
+        <div style="background: var(--bg-canvas); border: 1px solid var(--border-card); border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; gap: 12px;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(245, 158, 11, 0.15); color: #f59e0b; display: flex; align-items: center; justify-content: center; font-size: 18px;">⚔️</div>
+          <div>
+            <div style="font-size: 11px; color: var(--text-muted); font-weight: 600;">คู่เทียบสำคัญ 3 ฝ่าย</div>
+            <div style="font-size: 13.5px; font-weight: 700; color: var(--text-dark);">City Link vs Escent vs พลัส</div>
+          </div>
+        </div>
+        <div style="background: var(--bg-canvas); border: 1px solid var(--border-card); border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; gap: 12px;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(139, 92, 246, 0.15); color: #8b5cf6; display: flex; align-items: center; justify-content: center; font-size: 18px;">💡</div>
+          <div>
+            <div style="font-size: 11px; color: var(--text-muted); font-weight: 600;">จุดขายชิง Market Share</div>
+            <div style="font-size: 13.5px; font-weight: 700; color: var(--text-dark);">4 เสาหลัก Township & Space</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Topic 6.1: 3-Way Benchmark Matrix -->
+      <div class="comp-sub-header">
+        <h4><span>📊</span> 6.1 ตารางเปรียบเทียบแคมเปญโฆษณาใน Meta Ad Library (3-Way Benchmark Matrix)</h4>
+        <span class="tag">อัปเดตแคมเปญ Active ปัจจุบัน</span>
+      </div>
+
+      <div class="comp-table-container">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th style="width: 18%;">แกนการเปรียบเทียบ</th>
+              <th style="width: 27%;">🏢 Escent Korat (CPN Residence)</th>
+              <th style="width: 27%;">🏙️ พลัส คอนโด โคราช (Plus Condo)</th>
+              <th class="col-highlight" style="width: 28%;">🌟 City Link Condo (คลังคาซ่า)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-brand"><strong>เซกเมนต์ & ราคา / ตร.ม.</strong></td>
+              <td>
+                <span style="font-weight: 700; color: #3b82f6;">Luxury / Upper-End</span><br>
+                เริ่มต้น ~฿1.89M - 2.59M+<br>
+                <span style="font-size: 11px; color: var(--text-muted);">เฉลี่ย ฿75,000 - 85,000+/ตร.ม.</span>
+              </td>
+              <td>
+                <span style="font-weight: 700; color: #f59e0b;">Mass / Affordable High-Rise</span><br>
+                เริ่มต้น ~฿1.49M - 1.69M<br>
+                <span style="font-size: 11px; color: var(--text-muted);">เฉลี่ย ฿55,000 - 65,000/ตร.ม.</span>
+              </td>
+              <td class="col-highlight">
+                <span style="font-weight: 700; color: #10b981;">Township Living / Best Value</span><br>
+                เริ่มต้น ~฿1.39M - 1.89M<br>
+                <span style="font-size: 11px; color: #047857; font-weight: 600;">เฉลี่ย ฿50,000 - 60,000/ตร.ม. (คุ้มค่าสุด)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="col-brand"><strong>รูปแบบอาคาร & สเกล</strong></td>
+              <td>
+                High-Rise ติดศูนย์การค้าเซ็นทรัล โคราช วิวเมืองลอยฟ้า
+              </td>
+              <td>
+                High-Rise สูง 30 ชั้น จำนวน 839 ยูนิต ริมถนนมิตรภาพ
+              </td>
+              <td class="col-highlight">
+                <strong>Low-Rise 8 ชั้น</strong> ในอาณาจักร Mixed-Use Township 80+ ไร่ พร้อม Mayfair Market
+              </td>
+            </tr>
+            <tr>
+              <td class="col-brand"><strong>Creative Style & Mood</strong></td>
+              <td>
+                • ภาพ CG Render โทนหรูหรา<br>
+                • สัมภาษณ์ลูกบ้านระดับผู้บริหาร/แพทย์<br>
+                • ชู "ก้าวเดียวถึงเซ็นทรัล โคราช"
+              </td>
+              <td>
+                • กราฟิกเน้นข้อความโปรโมชันตัวใหญ่<br>
+                • ภาพถ่าย Facility สระลอยฟ้า 360°<br>
+                • ชู "ตึกสูงที่สุดในโคราช 30 ชั้น"
+              </td>
+              <td class="col-highlight">
+                • บรรยากาศโครงการจริง ร่มรื่น มีพื้นที่สีเขียว<br>
+                • แคมเปญ Open House ตึก ASTON<br>
+                • ห้องแต่งครบพร้อมอยู่ Ready to Move in
+              </td>
+            </tr>
+            <tr>
+              <td class="col-brand"><strong>Offer & โปรโมชันหลัก</strong></td>
+              <td>
+                • อยู่ฟรีสูงสุด 1-2 ปี*<br>
+                • ฟรีค่าใช้จ่ายวันโอนทุกรายการ<br>
+                • Central Gift Voucher ช้อปจุใจ
+              </td>
+              <td>
+                • ผ่อนเบาเริ่มต้น 4,xxx บ./ด.*<br>
+                • ส่วนลดสูงสุด 200,000 - 300,000 บ.<br>
+                • กู้ 100% ฟรีเฟอร์ฯ + เครื่องใช้ไฟฟ้า
+              </td>
+              <td class="col-highlight">
+                • แต่งครบพร้อมเข้าอยู่ทันที<br>
+                • ราคาพิเศษยูนิตคัดสรรรอบ Open House<br>
+                • ข้อเสนอสินเชื่อพิเศษ ดอกเบี้ยต่ำจากแบงก์
+              </td>
+            </tr>
+            <tr>
+              <td class="col-brand"><strong>Funnel & Call-to-Action</strong></td>
+              <td>
+                <strong>Meta Instant Lead Form:</strong> กรอกชื่อ-เบอร์โทร เพื่อให้เซลส์ติดต่อกลับนัดหมาย VIP Private Tour
+              </td>
+              <td>
+                <strong>Messenger Message / โทรตรง:</strong> ยิงแอดเข้ากล่องข้อความ ให้เซลส์ส่งใบราคาและปิดการขายทันที
+              </td>
+              <td class="col-highlight">
+                <strong>Messenger / Lead Form:</strong> ทักแชทสอบถามสิทธิพิเศษห้องว่าง / ขอนัดหมายชมห้องตัวอย่างจริง
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Topic 6.2: In-Depth SWOT & Diagnostics -->
+      <div class="comp-sub-header">
+        <h4><span>🔍</span> 6.2 เจาะลึกจุดแข็ง & จุดอ่อนของแคมเปญโฆษณาแต่ละแบรนด์ (In-Depth SWOT)</h4>
+        <span class="tag">การวินิจฉัยจุดชิงชัยและ Pain Points</span>
+      </div>
+
+      <div class="comp-swot-grid">
+        <!-- Brand 1: Escent -->
+        <div class="swot-card">
+          <div class="swot-header">
+            <div class="swot-brand-info">
+              <div class="swot-avatar" style="background: rgba(59, 130, 246, 0.15); color: #3b82f6;">🏢</div>
+              <div>
+                <div class="swot-title">Escent Korat (CPN)</div>
+                <div class="swot-meta">Central Pattana Residence</div>
+              </div>
+            </div>
+            <span style="font-size: 11px; padding: 2px 7px; border-radius: 6px; background: rgba(59, 130, 246, 0.15); color: #3b82f6; font-weight: 700;">Luxury High-Rise</span>
+          </div>
+
+          <div class="swot-section-box swot-strengths">
+            <div class="swot-sec-title"><span>🟢</span> จุดแข็งของแคมเปญ (Strengths)</div>
+            • พลังแบรนด์ CPN สูงมาก น่าเชื่อถือในระดับประเทศ<br>
+            • ทำเลติดห้างเซ็นทรัล โคราช ดึงดูดสายช้อปปิ้ง<br>
+            • Lead Form ดักจับลูกค้าระดับบนที่มีกำลังซื้อสูง
+          </div>
+
+          <div class="swot-section-box swot-weaknesses">
+            <div class="swot-sec-title"><span>🔴</span> จุดอ่อนของแคมเปญ (Weaknesses)</div>
+            • ราคาสูง & ค่าส่วนกลางแพง (ฐานลูกค้าค่อนข้างจำกัด)<br>
+            • <strong>รถติดสะสมหนักหน้าเซ็นทรัล</strong> ในช่วงชั่วโมงเร่งด่วน/วันหยุด<br>
+            • ขาดพื้นที่สีเขียวแนวราบและคอมมูนิตี้ในโครงการ
+          </div>
+
+          <div class="swot-section-box swot-ad-gap">
+            <div class="swot-sec-title"><span>💡</span> Meta Ads Diagnostic</div>
+            เน้นภาพ CG สวยงามซ้ำๆ เริ่มเกิด <em>Creative Fatigue</em> คนเริ่มชินตา ขาดมุมมองความคุ้มค่าและชีวิตประจำวันจริง
+          </div>
+        </div>
+
+        <!-- Brand 2: Plus Condo -->
+        <div class="swot-card">
+          <div class="swot-header">
+            <div class="swot-brand-info">
+              <div class="swot-avatar" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">🏙️</div>
+              <div>
+                <div class="swot-title">พลัส คอนโด โคราช</div>
+                <div class="swot-meta">Serene Property</div>
+              </div>
+            </div>
+            <span style="font-size: 11px; padding: 2px 7px; border-radius: 6px; background: rgba(245, 158, 11, 0.15); color: #f59e0b; font-weight: 700;">Mass High-Rise</span>
+          </div>
+
+          <div class="swot-section-box swot-strengths">
+            <div class="swot-sec-title"><span>🟢</span> จุดแข็งของแคมเปญ (Strengths)</div>
+            • แอดเน้นตัวเลขโปรโมชันสะดุดตา (ผ่อน 4,xxx, กู้ 100%)<br>
+            • ชูตึกสูง 30 ชั้น วิวพาโนรามา + Sky Pool จัดเต็ม<br>
+            • เซลส์แอ็กทีฟมาก ทักแชทคุยไว ส่งใบราคาทันที
+          </div>
+
+          <div class="swot-section-box swot-weaknesses">
+            <div class="swot-sec-title"><span>🔴</span> จุดอ่อนของแคมเปญ (Weaknesses)</div>
+            • <strong>ความหนาแน่นสูงมาก (839 ยูนิต)</strong> ต้องแย่งลิฟต์ แย่งที่จอดรถ<br>
+            • ห้องเริ่มต้นกะทัดรัด (27-30 ตร.ม.) แคบสำหรับครอบครัว<br>
+            • ไม่มี Ecosystem ในโครงการ ต้องพึ่งพาร้านค้านอกตึก
+          </div>
+
+          <div class="swot-section-box swot-ad-gap">
+            <div class="swot-sec-title"><span>💡</span> Meta Ads Diagnostic</div>
+            แอดเน้น Hard-sale ลดแลกแจกแถมอย่างหนัก ดึงดูดคนชอบของถูกได้ดี แต่ทำให้ภาพลักษณ์ความน่าอยู่และความพรีเมียมลดลง
+          </div>
+        </div>
+
+        <!-- Brand 3: City Link Condo -->
+        <div class="swot-card highlight-card">
+          <div class="swot-header">
+            <div class="swot-brand-info">
+              <div class="swot-avatar" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">🏡</div>
+              <div>
+                <div class="swot-title">City Link Condo</div>
+                <div class="swot-meta">Klang Casa (Township)</div>
+              </div>
+            </div>
+            <span style="font-size: 11px; padding: 2px 7px; border-radius: 6px; background: rgba(16, 185, 129, 0.2); color: #10b981; font-weight: 700;">Mixed-Use Township</span>
+          </div>
+
+          <div class="swot-section-box swot-strengths">
+            <div class="swot-sec-title"><span>🟢</span> จุดแข็งที่เหนือกว่า (Core Assets)</div>
+            • อาณาจักร Township 80+ ไร่ พร้อม <strong>Mayfair Market</strong> ในตัว<br>
+            • ติด รร.นานาชาติ Anglo Singapore และใกล้ รพ.กรุงเทพ<br>
+            • <strong>Low-Rise ยูนิตน้อย เป็นส่วนตัว</strong> ไม่ต้องแย่งลิฟต์ 30 ชั้น<br>
+            • เข้า-ออกได้ 3 ทาง เลี่ยงรถติดหน้าห้าง ใกล้มอเตอร์เวย์ M6
+          </div>
+
+          <div class="swot-section-box swot-weaknesses" style="background: rgba(59, 130, 246, 0.08); border-left-color: #3b82f6;">
+            <div class="swot-sec-title"><span style="color:#3b82f6;">💡</span> โอกาสที่ต้องยกระดับในโฆษณา (Ad Gaps)</div>
+            • แอดปัจจุบันยังเน้นแจ้งข่าวสารทั่วไป/Open House<br>
+            • <strong>ยังขาด "Battle Hook"</strong> ที่นำเอาจุดแข็ง Township ไปเปรียบเทียบแก้ Pain Point คอนโด High-Rise (รถติด, แย่งลิฟต์)
+          </div>
+
+          <div class="swot-section-box" style="background: rgba(16, 185, 129, 0.08); border-left: 3px solid #10b981; color: var(--text-dark);">
+            <div class="swot-sec-title"><span>🎯</span> กลยุทธ์การช่วงชิง Market Share</div>
+            เปลี่ยนตำแหน่งของแอดจาก <em>"ขายห้องคอนโด"</em> เป็น <strong>"ขายคุณภาพชีวิตในเมืองที่สมบูรณ์แบบและคุ้มค่าที่สุด"</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Topic 6.3: 4 Core USPs to Win Market Share -->
+      <div class="comp-sub-header">
+        <h4><span>💎</span> 6.3 จุดขายหลัก (4 Core USPs) ของ City Link Condo เพื่อแย่ง Market Share</h4>
+        <span class="tag">4 เสาหลักยุทธศาสตร์การตลาด</span>
+      </div>
+
+      <div class="comp-usp-grid">
+        <!-- USP 1 -->
+        <div class="usp-bento-card">
+          <div class="usp-icon-wrap" style="background: rgba(236, 72, 153, 0.15); color: #ec4899;">🛍️</div>
+          <div class="usp-title">Township Ecosystem</div>
+          <div class="usp-desc">ไม่ใช่แค่คอนโด 1 ตึกโดดเดี่ยว แต่คือเมืองขนาด 80 ไร่ มี Mayfair Market แหล่งกิน ดื่ม ช้อป คาเฟ่ ร้านอาหารครบ เดินลงมาใช้ชีวิตได้เลย ไม่ต้องขับรถออกไปข้างนอก</div>
+          <span class="usp-tag" style="background: rgba(236, 72, 153, 0.15); color: #ec4899;">ครบวงจรที่สุดในโคราช</span>
+        </div>
+
+        <!-- USP 2 -->
+        <div class="usp-bento-card">
+          <div class="usp-icon-wrap" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">🌿</div>
+          <div class="usp-title">Low-Rise Privacy</div>
+          <div class="usp-desc">ตึก 8 ชั้น ยูนิตต่ออาคารน้อย ได้ความสงบและเป็นส่วนตัวสูง ไม่ต้องรอลิฟต์ 30 ชั้น ไม่ต้องแย่งที่จอดรถกับคน 800 กว่าครอบครัว ปลอดภัยและร่มรื่นกว่าอย่างชัดเจน</div>
+          <span class="usp-tag" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">ความเป็นส่วนตัวสูง</span>
+        </div>
+
+        <!-- USP 3 -->
+        <div class="usp-bento-card">
+          <div class="usp-icon-wrap" style="background: rgba(59, 130, 246, 0.15); color: #3b82f6;">🚗</div>
+          <div class="usp-title">Zero Mall Traffic Jam</div>
+          <div class="usp-desc">เข้า-ออกได้ 3 ทิศทาง (มิตรภาพ ซ.11, สุรนารี 2, และทางเชื่อมมอเตอร์เวย์ M6) เลี่ยงปัญหารถติดสะสมหน้าห้างใหญ่ช่วงชั่วโมงเร่งด่วนและวันหยุดได้อย่างสมบูรณ์แบบ</div>
+          <span class="usp-tag" style="background: rgba(59, 130, 246, 0.15); color: #3b82f6;">เดินทางคล่องตัว</span>
+        </div>
+
+        <!-- USP 4 -->
+        <div class="usp-bento-card">
+          <div class="usp-icon-wrap" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">💰</div>
+          <div class="usp-title">Double Space, Best Value</div>
+          <div class="usp-desc">ได้ขนาดห้องกว้างขวาง เป็นสัดส่วน ในราคาต่อตารางเมตรที่สบายกระเป๋ากว่า Escent เกือบเท่าตัว (เริ่มต้น ~฿1.39M - 1.89M) คุ้มค่าทั้งอยู่อาศัยเองและลงทุนระยะยาว</div>
+          <span class="usp-tag" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">ความคุ้มค่าสูงสุด</span>
+        </div>
+      </div>
+
+      <!-- Topic 6.4: Actionable Ad Copy Hooks -->
+      <div class="comp-sub-header">
+        <h4><span>🎯</span> 6.4 ชุดคำโฆษณาแก้เกมคู่แข่ง (Actionable Counter-Ad Hooks)</h4>
+        <span class="tag">พร้อมปุ่มคลิกคัดลอกนำไปยิงแอดได้ทันที</span>
+      </div>
+
+      <div class="comp-hooks-grid">
+        <!-- Hook 1: Attack Escent -->
+        <div class="hook-card active-hook">
+          <div>
+            <div class="hook-badge-wrap">
+              <span class="hook-target-tag">🎯 ดักกลุ่มลูกค้า Escent / สาย Lifestyle</span>
+              <span style="font-size: 11px; color: var(--text-muted);">Hook แก้เกม #1</span>
+            </div>
+            <div class="hook-headline" style="margin-top: 10px;">
+              "สะดวกสบายระดับ Lifestyle เมือง... โดยไม่ต้องทนรถติดหน้าห้างทุกวัน"
+            </div>
+            <div class="hook-copy-box" style="margin-top: 10px;" id="adCopyHook1">จะดีแค่ไหนถ้าชีวิตประจำวันมีทั้งคาเฟ่ ร้านอาหารอร่อย และคอมมูนิตี้มอลล์ Mayfair Market อยู่หน้าบ้านคุณ?
+🌿 สัมผัสชีวิตคอนโดสไตล์ Mixed-Use Township แห่งเดียวในเมืองโคราช
+🚗 เดินทางสะดวก เข้า-ออกได้ 3 ทิศทาง ใกล้มอเตอร์เวย์ M6 เลี่ยงรถติดชั่วโมงเร่งด่วนได้จริง
+💰 ห้องแต่งครบ ฟังก์ชันกว้าง ในราคาที่คุ้มค่ากว่าเกือบเท่าตัว
+📲 ทักแชทวันนี้ รับข้อเสนอและโปรโมชันพิเศษเฉพาะคุณ!</div>
+          </div>
+          <button class="btn-copy-hook" onclick="copyAdHookText(document.getElementById('adCopyHook1').innerText, this); return false;">
+            <span>📋</span> คัดลอก Ad Copy ชุดที่ 1
+          </button>
+        </div>
+
+        <!-- Hook 2: Attack Plus Condo -->
+        <div class="hook-card active-hook" style="border-top-color: #f59e0b;">
+          <div>
+            <div class="hook-badge-wrap">
+              <span class="hook-target-tag" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">🎯 ดักกลุ่มลูกค้า พลัส คอนโด / คนทำงาน</span>
+              <span style="font-size: 11px; color: var(--text-muted);">Hook แก้เกม #2</span>
+            </div>
+            <div class="hook-headline" style="margin-top: 10px;">
+              "เบื่อไหม? อยู่คอนโดแต่ต้องแย่งลิฟต์ 30 ชั้นทุกเช้า... เปลี่ยนมาใช้ชีวิตสบายๆ ยูนิตน้อย เป็นส่วนตัวกว่า"
+            </div>
+            <div class="hook-copy-box" style="margin-top: 10px;" id="adCopyHook2">ย้ายเข้าสู่ความสงบ เป็นส่วนตัวแบบ Low-Rise ที่ City Link Condo
+✅ ไม่ต้องรอลิฟต์นาน ไม่แออัดกับยูนิตหลักหลายร้อย
+✅ ที่จอดรถสะดวกสบาย สภาพแวดล้อมร่มรื่นปลอดภัย
+✅ ห้องกว้างเป็นสัดส่วน พร้อมอยู่ ลากกระเป๋าเข้าอยู่ได้เลย
+🏷️ ผ่อนเริ่มต้นสบายๆ พร้อมดีลสินเชื่อกู้เต็ม 100%
+👉 คลิกส่งข้อความเพื่อเช็คยูนิตราคาพิเศษและนัดชมห้องจริงได้เลย!</div>
+          </div>
+          <button class="btn-copy-hook" style="border-color: rgba(245, 158, 11, 0.3); background: rgba(245, 158, 11, 0.08); color: #d97706;" onclick="copyAdHookText(document.getElementById('adCopyHook2').innerText, this); return false;">
+            <span>📋</span> คัดลอก Ad Copy ชุดที่ 2
+          </button>
+        </div>
+
+        <!-- Hook 3: Blue Ocean Family & Education -->
+        <div class="hook-card active-hook" style="border-top-color: #10b981;">
+          <div>
+            <div class="hook-badge-wrap">
+              <span class="hook-target-tag" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">🌟 Blue Ocean / ครอบครัว & รร.อินเตอร์</span>
+              <span style="font-size: 11px; color: var(--text-muted);">Hook แก้เกม #3</span>
+            </div>
+            <div class="hook-headline" style="margin-top: 10px;">
+              "ส่งลูกเดินไปโรงเรียนอินเตอร์ได้ทุกเช้า... คุณภาพชีวิตที่ดีที่สุดของครอบครัวในเมืองโคราช"
+            </div>
+            <div class="hook-copy-box" style="margin-top: 10px;" id="adCopyHook3">โครงการเดียวที่ตอบโจทย์อนาคตของลูกและครอบครัว ติด รร.นานาชาติ Anglo Singapore และใกล้ รพ.กรุงเทพ นครราชสีมา
+🌿 ปลอดภัย ร่มรื่น มีพื้นที่สีเขียว และมีของกินครบครันในโครงการ Mayfair Market
+🌟 สังคมคุณภาพที่ให้คุณมากกว่าแค่คอนโดมิเนียม เริ่มต้นเพียง 1.xx ลบ.*
+📲 สอบถามข้อมูลและลงทะเบียนรับสิทธิพิเศษรอบ VIP ได้ที่นี่</div>
+          </div>
+          <button class="btn-copy-hook" style="border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.08); color: #10b981;" onclick="copyAdHookText(document.getElementById('adCopyHook3').innerText, this); return false;">
+            <span>📋</span> คัดลอก Ad Copy ชุดที่ 3
+          </button>
+        </div>
+      </div>
+
+      <!-- Topic 6.5: Media Buyer Playbook -->
+      <div class="comp-sub-header">
+        <h4><span>🚀</span> 6.5 แผนปฏิบัติการทีมยิงแอด & แอดมิน (Media Buyer Playbook)</h4>
+        <span class="tag">กลยุทธ์การเปลี่ยนยอดคลิกเป็นยอดขาย</span>
+      </div>
+
+      <div class="comp-playbook-grid">
+        <div class="playbook-card">
+          <div class="playbook-num">1</div>
+          <div class="playbook-content">
+            <h5>Video UGC Walkthrough ("1 วันใน City Link")</h5>
+            <p>ผลิตคลิปวิดีโอสั้นแนว Reels / TikTok ถ่ายทอดไลฟ์สไตล์จริง เดินลงมาจากห้อง ซื้อกาแฟ ทานอาหารที่ Mayfair Market เดินชมบรรยากาศร่มรื่น เพื่อแสดงให้เห็นสิ่งที่คอนโดตึกเดี่ยวให้ไม่ได้</p>
+          </div>
+        </div>
+
+        <div class="playbook-card">
+          <div class="playbook-num">2</div>
+          <div class="playbook-content">
+            <h5>Meta Retargeting & Competitor Intersect</h5>
+            <p>ตั้งค่ากลุ่มเป้าหมายคนที่สนใจคอนโด/อสังหาฯ ในโคราช รัศมี 15 กม. + Exclude ลูกค้าที่เป็นแฟนเพจเดิมออก เพื่อดักจับคนที่เพิ่งคลิกดู Escent หรือ พลัส คอนโด ให้เห็นโฆษณาชูความคุ้มค่าและพื้นที่ห้องของ City Link</p>
+          </div>
+        </div>
+
+        <div class="playbook-card">
+          <div class="playbook-num">3</div>
+          <div class="playbook-content">
+            <h5>Messenger Quick-Replies Automation</h5>
+            <p>ตั้งปุ่มอัตโนมัติ 3 ทางเลือกในแชท: [1] ขอรับโปรโมชันพิเศษ ASTON / Ready to Move In, [2] ขอนัดชมห้องตัวอย่างจริง, [3] ขอประเมินวงเงินสินเชื่อฟรี เพื่อให้แอดมินปิดการนัดหมายได้ภายใน 5 นาที</p>
           </div>
         </div>
       </div>
@@ -7742,6 +8598,73 @@
         }
       });
     });
+
+    // --- Competitor Intelligence Copy Helpers ---
+    function copyAdHookText(textToCopy, btnEl) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          showToastCustom('คัดลอกชุดคำโฆษณา (Ad Copy) สำเร็จแล้ว! 📋');
+          if (btnEl) {
+            const orig = btnEl.innerHTML;
+            btnEl.innerHTML = '<span>✅</span> คัดลอกสำเร็จ!';
+            setTimeout(() => { btnEl.innerHTML = orig; }, 2000);
+          }
+        });
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = textToCopy;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToastCustom('คัดลอกชุดคำโฆษณา (Ad Copy) สำเร็จแล้ว! 📋');
+        if (btnEl) {
+          const orig = btnEl.innerHTML;
+          btnEl.innerHTML = '<span>✅</span> คัดลอกสำเร็จ!';
+          setTimeout(() => { btnEl.innerHTML = orig; }, 2000);
+        }
+      }
+    }
+
+    function showToastCustom(msg) {
+      const t = document.getElementById('toast');
+      if (t) {
+        t.textContent = msg;
+        t.style.display = 'block';
+        t.classList.add('show');
+        setTimeout(() => {
+          t.classList.remove('show');
+          setTimeout(() => { 
+            t.style.display = 'none'; 
+            t.textContent = 'คัดลอกข้อความสรุปเรียบร้อยแล้ว! 📋';
+          }, 300);
+        }, 2500);
+      }
+    }
+
+    function copyAllCompetitorSummary(btnEl) {
+      const summaryText = `📊 สรุปกลยุทธ์เปรียบเทียบโฆษณา Meta Ads & แย่ง Market Share (City Link vs Escent vs พลัส คอนโด โคราช)
+--------------------------------------------------
+1. เปรียบเทียบ 3 ค่ายหลัก:
+• Escent Korat (CPN): แบรนด์หรู ติดเซ็นทรัล แต่ราคาสูง (75k-85k/ตร.ม.) รถติดหนักหน้าห้าง
+• พลัส คอนโด โคราช: ตึกสูง 30 ชั้น ส่วนกลางจัดเต็ม แต่ 839 ยูนิต แออัด แย่งลิฟต์ ห้องเริ่มต้น 27-30 ตร.ม.
+• City Link Condo: Mixed-Use Township 80 ไร่ มี Mayfair Market, รร.นานาชาติ Anglo, Low-Rise ไม่แออัด, เข้า-ออก 3 ทาง ใกล้ M6, คุ้มค่าต่อ ตร.ม.
+
+2. จุดขายหลัก (4 Core USPs) ของ City Link:
+• Township Ecosystem: ชีวิตครบวงจร มี Mayfair Market ร้านอาหาร คาเฟ่ ไม่ต้องขับรถออกไปติดข้างนอก
+• Low-Rise Privacy: ยูนิตน้อย ไม่ต้องรอลิฟต์ 30 ชั้น ไม่แออัด ปลอดโปร่ง เงียบสงบ
+• Smart Mobility: ทางออก 3 ทิศทาง เลี่ยงรถติดหน้าห้าง ใกล้ทางขึ้นมอเตอร์เวย์ M6
+• Double the Space: พื้นที่ห้องกว้าง คุ้มค่ากว่า Escent เกือบเท่าตัว
+
+3. แผนชุดคำโฆษณา (Ad Copy Hooks):
+• Hook 1 (ดัก Escent): "สะดวกสบายระดับ Lifestyle เมือง... โดยไม่ต้องทนรถติดหน้าห้างทุกวัน"
+• Hook 2 (ดัก พลัส คอนโด): "เบื่อไหมแย่งลิฟต์ 30 ชั้นทุกเช้า? สัมผัสความสงบ เป็นส่วนตัว ยูนิตน้อยที่ City Link"
+• Hook 3 (Blue Ocean): "ส่งลูกเดินไปโรงเรียนอินเตอร์ได้ทุกเช้า... สังคมคุณภาพและอนาคตที่ดีที่สุดในโคราช"`;
+
+      copyAdHookText(summaryText, btnEl);
+    }
 
   </script>
   <!-- ===================================================================== -->
