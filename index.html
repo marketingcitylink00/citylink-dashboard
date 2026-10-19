@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
@@ -2602,6 +2602,183 @@
   /* ========================================================================== */
   /* TIKTOK CONTENT & PERFORMANCE HUB (SECTION 5)                               */
   /* ========================================================================== */
+    /* ========================================================================== */
+  /* TIKTOK & FACEBOOK CONTENT SCHEDULE & STRATEGY STYLES                       */
+  /* ========================================================================== */
+  .tiktok-schedule-card {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.96) 0%, rgba(30, 41, 59, 0.92) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 20px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+  }
+  .tiktok-schedule-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3.5px;
+    background: linear-gradient(90deg, #ff0050, #00f2fe, #1877f2);
+  }
+  .schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .schedule-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .schedule-title-wrap h4 {
+    margin: 0;
+    font-size: 16.5px;
+    font-weight: 800;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .schedule-source-tag {
+    font-size: 11.5px;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+  .schedule-grid-3col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.25fr;
+    gap: 16px;
+  }
+  @media (max-width: 1100px) {
+    .schedule-grid-3col {
+      grid-template-columns: 1fr;
+    }
+  }
+  .schedule-platform-box {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+  .schedule-platform-box:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(56, 189, 248, 0.4);
+  }
+  .schedule-platform-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .schedule-platform-title {
+    font-size: 13.5px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .schedule-platform-title.tk { color: #38bdf8; }
+  .schedule-platform-title.fb { color: #60a5fa; }
+  .schedule-item-detail {
+    font-size: 12px;
+    color: #cbd5e1;
+    line-height: 1.45;
+    margin-bottom: 6px;
+  }
+  .schedule-item-detail strong {
+    color: #f8fafc;
+  }
+  .schedule-bullets {
+    margin: 6px 0 0 0;
+    padding-left: 18px;
+    font-size: 11.5px;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+  .schedule-bullets li {
+    margin-bottom: 3px;
+  }
+  .schedule-table-wrap {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 12px 14px;
+    overflow-x: auto;
+  }
+  .schedule-mini-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .schedule-mini-table th {
+    text-align: left;
+    padding: 6px 8px;
+    color: #94a3b8;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 700;
+    font-size: 11.5px;
+  }
+  .schedule-mini-table td {
+    padding: 8px 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    color: #f1f5f9;
+    vertical-align: middle;
+  }
+  .schedule-day-badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .day-mon { background: rgba(251, 191, 36, 0.2); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.4); }
+  .day-wed { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); }
+  .day-fri { background: rgba(52, 211, 153, 0.2); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.4); }
+  .schedule-platform-tag {
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  .plat-tk { background: #000000; color: #00f2fe; border: 1px solid rgba(0, 242, 254, 0.3); }
+  .plat-fb { background: #1877f2; color: #ffffff; }
+  .plat-both { background: linear-gradient(90deg, #ff0050, #1877f2); color: #ffffff; }
+
+  /* Tab 5 Content Styles in Modal */
+  .pane5-spec-card {
+    background: var(--bg-canvas);
+    border: 1px solid var(--border-card);
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .pane5-spec-card h4 {
+    margin: 0 0 10px 0;
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
   .tiktok-hub-card {
     background: var(--bg-card);
     border: 1px solid var(--border-card);
@@ -4874,7 +5051,7 @@
         <div style="display: flex; align-items: center; gap: 10px;">
           <button class="tiktok-popup-trigger-btn" onclick="openTikTokModal(1); return false;">
             <span class="pulsing-dot"></span>
-            <span>📊 เปิด Popup รายละเอียดเชิงลึก 4 หัวข้อ</span>
+            <span>📊 เปิด Popup รายละเอียดเชิงลึก 5 หัวข้อ (รวมตาราง Content TikTok & FB)</span>
           </button>
         </div>
       </div>
@@ -4962,6 +5139,121 @@
             🟢 กำลังแสดงข้อมูล: <strong>🌟 รวมทุกคน (3 ครีเอเตอร์)</strong> • <strong>เดือนกันยายน 2569</strong> • <strong>ทุกสัปดาห์ (ทั้งเดือน)</strong>
           </div>
           <div class="filter-count-badge" id="tkFilterCountBadge">🎬 4 รายการคอนเทนต์</div>
+        </div>
+      </div>
+
+      <!-- ===================================================================== -->
+      <!-- TIKTOK & FACEBOOK CONTENT STRATEGY & WEEKLY OPERATING SCHEDULE        -->
+      <!-- อ้างอิงตามเอกสารแผนงานล่าสุด [tiktok_and_facebook_content_schedule.md]  -->
+      <!-- ===================================================================== -->
+      <div class="tiktok-schedule-card">
+        <div class="schedule-header">
+          <div class="schedule-title-wrap">
+            <span style="font-size: 20px;">📅</span>
+            <div>
+              <h4>ตาราง Content TikTok รวม Facebook (แผนการดำเนินงานและกลยุทธ์ประจำสัปดาห์)</h4>
+              <div style="font-size: 12px; color: #94a3b8; margin-top: 2px;">
+                แผนจัดทำและเผยแพร่เนื้อหาข้ามแพลตฟอร์ม เพื่อการสื่อสารที่เป็นเอกภาพ เข้าถึงกลุ่มเป้าหมาย และกระตุ้นยอดขายคอนโด City Link
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="schedule-source-tag">📄 tiktok_and_facebook_content_schedule.md</span>
+            <button type="button" onclick="openTikTokModal(5); return false;" style="background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8; font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 20px; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; transition: all 0.2s ease;">
+              <span>🔍 ดูรายละเอียดเชิงลึก (Tab 5)</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="schedule-grid-3col">
+          <!-- Box 1: TikTok Strategy -->
+          <div class="schedule-platform-box">
+            <div>
+              <div class="schedule-platform-header">
+                <span class="schedule-platform-title tk">
+                  <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: #38bdf8;"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.85.12V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.49 6.3 6.3 0 0 0 1.86-4.49v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-.86-.09z"/></svg>
+                  <span>แพลตฟอร์ม TikTok</span>
+                </span>
+                <span style="font-size: 10.5px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 2px 6px; border-radius: 4px; font-weight: 700;">Short-Form</span>
+              </div>
+              <div class="schedule-item-detail">
+                <strong>รูปแบบหลัก:</strong> วิดีโอสั้น (Short-form) 15 - 60 วินาที เน้นบันเทิง ความรู้ย่อ หรือ Trends
+              </div>
+              <div class="schedule-item-detail">
+                <strong>วัตถุประสงค์:</strong> สร้าง Visibility เพิ่มผู้ติดตาม และกระตุ้น Engagement รวดเร็ว
+              </div>
+              <ul class="schedule-bullets">
+                <li>เปิดคลิปด้วยประเด็นดึงดูดใจใน <strong>3 วินาทีแรก (Hook)</strong></li>
+                <li>ใช้เสียงเพลงหรือเอฟเฟกต์ที่กำลังฮิตติดกระแส</li>
+                <li>ความยาวเหมาะสม: <strong>15 - 60 วินาที</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Box 2: Facebook Strategy -->
+          <div class="schedule-platform-box">
+            <div>
+              <div class="schedule-platform-header">
+                <span class="schedule-platform-title fb">
+                  <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: #60a5fa;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                  <span>แพลตฟอร์ม Facebook</span>
+                </span>
+                <span style="font-size: 10.5px; background: rgba(96, 165, 250, 0.15); color: #60a5fa; padding: 2px 6px; border-radius: 4px; font-weight: 700;">Long-Form & Reels</span>
+              </div>
+              <div class="schedule-item-detail">
+                <strong>รูปแบบหลัก:</strong> โพสต์รูปภาพ, วิดีโอยาว/Reels, บทความเชิงลึก (Storytelling)
+              </div>
+              <div class="schedule-item-detail">
+                <strong>วัตถุประสงค์:</strong> สร้างความน่าเชื่อถือ เจาะลึกฟังก์ชัน และสร้างคอมมูนิตี้
+              </div>
+              <ul class="schedule-bullets">
+                <li>เน้นภาพประกอบที่คมชัดและสื่อความหมายทันที</li>
+                <li>มี <strong>Call to Action (CTA)</strong> ชัดเจน (ไลก์, แชร์, คอมเมนต์, ทักแชท)</li>
+                <li>บอกเล่าเรื่องราวมิติการอยู่อาศัยและการลงทุน</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Box 3: Weekly Cadence Matrix -->
+          <div class="schedule-table-wrap">
+            <div style="font-size: 12.5px; font-weight: 800; color: #f8fafc; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;">
+              <span style="display: flex; align-items: center; gap: 5px;"><span>⏱️</span> แผนการดำเนินงานประจำสัปดาห์ (Weekly Cadence)</span>
+              <span style="font-size: 10.5px; color: #34d399; font-weight: normal;">● วงรอบประจำสัปดาห์</span>
+            </div>
+            <table class="schedule-mini-table">
+              <thead>
+                <tr>
+                  <th style="width: 22%;">วัน</th>
+                  <th style="width: 28%;">แพลตฟอร์ม</th>
+                  <th style="width: 32%;">หัวข้อ / คอนเซปต์</th>
+                  <th style="width: 18%;">รูปแบบสื่อ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="schedule-day-badge day-mon">จันทร์</span></td>
+                  <td><span class="schedule-platform-tag plat-tk">TikTok</span></td>
+                  <td><strong>เปิดประเด็นฮิต / Trend Challenge</strong></td>
+                  <td><span style="color: #94a3b8; font-size: 11px;">วิดีโอสั้น</span></td>
+                </tr>
+                <tr>
+                  <td><span class="schedule-day-badge day-wed">พุธ</span></td>
+                  <td><span class="schedule-platform-tag plat-fb">Facebook</span></td>
+                  <td><strong>สาระน่ารู้ / Infographic เจาะลึก</strong></td>
+                  <td><span style="color: #94a3b8; font-size: 11px;">รูปภาพ / อัลบั้ม</span></td>
+                </tr>
+                <tr>
+                  <td><span class="schedule-day-badge day-fri">ศุกร์</span></td>
+                  <td><span class="schedule-platform-tag plat-both">TikTok &amp; FB</span></td>
+                  <td><strong>รีวิวสินค้า / เบื้องหลังการทำงาน</strong></td>
+                  <td><span style="color: #94a3b8; font-size: 11px;">วิดีโอสั้น / Reels</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="font-size: 10.5px; color: #94a3b8; margin-top: 8px; font-style: italic;">
+              *หมายเหตุ: ตารางนี้สามารถปรับเปลี่ยนได้ตามความเหมาะสมและกระแสที่เกิดขึ้นในแต่ละช่วงเวลา
+            </div>
+          </div>
         </div>
       </div>
 
@@ -9100,6 +9392,13 @@
             <div class="step-text-desc">Cross-Platform & Pipeline ก.ย.</div>
           </div>
         </button>
+        <button class="tiktok-step-tab" id="tkTab5" onclick="switchTikTokTopic(5);">
+          <div class="step-num-badge">5</div>
+          <div>
+            <div class="step-text-title">ตารางแผนงาน TikTok & FB</div>
+            <div class="step-text-desc">แนวทางและตารางสัปดาห์</div>
+          </div>
+        </button>
       </div>
 
       <!-- Content Area -->
@@ -10122,6 +10421,124 @@
           </div>
         </div>
 
+        <!-- PANE 5: ตาราง Content TikTok รวม Facebook (อ้างอิง tiktok_and_facebook_content_schedule.md) -->
+        <div class="tiktok-topic-pane" id="tkPane5">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border-subtle); flex-wrap: wrap; gap: 8px;">
+            <div>
+              <div style="font-size: 16px; font-weight: 800; color: var(--text-dark); display: flex; align-items: center; gap: 8px;">
+                <span>📅</span> 5.1 ตาราง Content TikTok รวม Facebook และแนวทางปฏิบัติ
+              </div>
+              <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">
+                แหล่งข้อมูลทางการ: <code>c:\Users\KCA\Downloads\tiktok_and_facebook_content_schedule.md</code>
+              </div>
+            </div>
+            <span style="font-size: 11.5px; background: rgba(56, 189, 248, 0.15); color: #0284c7; padding: 4px 10px; border-radius: 20px; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.3);">
+              Cross-Platform Content Strategy
+            </span>
+          </div>
+
+          <!-- Section A: Overview -->
+          <div class="pane5-spec-card">
+            <h4><span>📌</span> ภาพรวมตารางเนื้อหา (Content Overview)</h4>
+            <div style="font-size: 13.5px; color: var(--text-dark); line-height: 1.6; background: rgba(56, 189, 248, 0.06); padding: 12px 16px; border-radius: 10px; border-left: 4px solid #0284c7;">
+              ตารางนี้รวบรวมแผนการจัดทำและเผยแพร่เนื้อหาสำหรับแพลตฟอร์ม <strong>TikTok</strong> และ <strong>Facebook</strong> เพื่อให้การสื่อสารเป็นไปในทิศทางเดียวกันและครอบคลุมกลุ่มเป้าหมาย ทั้งในแง่การสร้างการรับรู้ (Awareness), การสร้างคอมมูนิตี้ (Community) และการกระตุ้นการตัดสินใจจองคอนโด City Link โคราช
+            </div>
+          </div>
+
+          <!-- Section B: Specifications by Platform -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+            <!-- TikTok Specs -->
+            <div class="pane5-spec-card" style="border-top: 3px solid #ff0050;">
+              <h4>
+                <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: #ff0050;"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.85.12V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.49 6.3 6.3 0 0 0 1.86-4.49v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-.86-.09z"/></svg>
+                <span>1. แพลตฟอร์ม TikTok</span>
+              </h4>
+              <div style="font-size: 12.5px; margin-bottom: 8px;">
+                <strong style="color: var(--text-dark);">• รูปแบบหลัก:</strong> วิดีโอสั้น (Short-form video) เน้นความบันเทิง การให้ความรู้แบบย่อ หรือกระแสที่กำลังได้รับความนิยม (Trends)
+              </div>
+              <div style="font-size: 12.5px; margin-bottom: 10px;">
+                <strong style="color: var(--text-dark);">• วัตถุประสงค์:</strong> สร้างการมองเห็น (Visibility) เพิ่มผู้ติดตาม และกระตุ้นการมีส่วนร่วม (Engagement) อย่างรวดเร็ว
+              </div>
+              <div style="background: rgba(0, 0, 0, 0.04); padding: 10px 12px; border-radius: 8px;">
+                <strong style="font-size: 12px; color: #ff0050;">🎯 แนวทางปฏิบัติ (Best Practices):</strong>
+                <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 12px; line-height: 1.5; color: var(--text-muted);">
+                  <li>ความยาวเหมาะสม: <strong>15 - 60 วินาที</strong></li>
+                  <li>เปิดคลิปด้วยประเด็นดึงดูดใจภายใน <strong>3 วินาทีแรก (Hook)</strong></li>
+                  <li>ใช้เสียงเพลงหรือเอฟเฟกต์ที่กำลังฮิตในขณะนั้น</li>
+                  <li>ใช้แฮชแท็กเฉพาะกลุ่ม เช่น #คอนโดโคราช #citylinkcondo #mayfairmarket</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Facebook Specs -->
+            <div class="pane5-spec-card" style="border-top: 3px solid #1877f2;">
+              <h4>
+                <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: #1877f2;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <span>2. แพลตฟอร์ม Facebook</span>
+              </h4>
+              <div style="font-size: 12.5px; margin-bottom: 8px;">
+                <strong style="color: var(--text-dark);">• รูปแบบหลัก:</strong> โพสต์รูปภาพ, วิดีโอยาว (Long-form/Reels), และบทความยาวหรือแคปชั่นที่มีรายละเอียด
+              </div>
+              <div style="font-size: 12.5px; margin-bottom: 10px;">
+                <strong style="color: var(--text-dark);">• วัตถุประสงค์:</strong> สร้างความน่าเชื่อถือ, บอกเล่าเรื่องราวเชิงลึก (Storytelling) และสร้างคอมมูนิตี้ของแบรนด์
+              </div>
+              <div style="background: rgba(0, 0, 0, 0.04); padding: 10px 12px; border-radius: 8px;">
+                <strong style="font-size: 12px; color: #1877f2;">🎯 แนวทางปฏิบัติ (Best Practices):</strong>
+                <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 12px; line-height: 1.5; color: var(--text-muted);">
+                  <li>เน้นภาพประกอบที่คมชัดและสื่อความหมายทันที</li>
+                  <li>มี <strong>Call to Action (CTA)</strong> ที่ชัดเจน เพื่อให้กดไลก์ แชร์ หรือแสดงความคิดเห็น</li>
+                  <li>ใส่ลิงก์สอบถามหรือทัก Inbox m.me/citylinkcondo ให้ติดต่อได้สะดวก</li>
+                  <li>เน้นอัลบั้มภาพรีวิวห้อง 35 ตร.ม. และผังโครงการ New CBD</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section C: Weekly Matrix Table -->
+          <div class="pane5-spec-card">
+            <h4><span>🗓️</span> แผนการดำเนินงานประจำสัปดาห์ (Weekly Operating Schedule)</h4>
+            <div style="overflow-x: auto;">
+              <table class="tiktok-detail-table">
+                <thead>
+                  <tr>
+                    <th style="width: 14%;">วันในสัปดาห์</th>
+                    <th style="width: 18%;">แพลตฟอร์ม</th>
+                    <th style="width: 32%;">หัวข้อ / คอนเซปต์</th>
+                    <th style="width: 20%;">รูปแบบสื่อ</th>
+                    <th style="width: 16%;">สถานะการดำเนินงาน</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong style="color: #f59e0b;">วันจันทร์</strong></td>
+                    <td><span class="schedule-platform-tag plat-tk">TikTok</span></td>
+                    <td><strong>เปิดประเด็นฮิต / Trend Challenge</strong><br><span style="font-size: 11px; color: var(--text-muted);">เกาะกระแสไวรัล, POV พนักงาน, ชีวิตเด็กคอนโด</span></td>
+                    <td>วิดีโอสั้น (15 - 60 วินาที)</td>
+                    <td><span style="color: #3b82f6; font-weight: 700;">🟢 กำหนดเผยแพร่ทุกจันทร์</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong style="color: #0284c7;">วันพุธ</strong></td>
+                    <td><span class="schedule-platform-tag plat-fb">Facebook</span></td>
+                    <td><strong>สาระน่ารู้ / Infographic เจาะลึก</strong><br><span style="font-size: 11px; color: var(--text-muted);">ทำเล New CBD, มอเตอร์เวย์ M6, กู้คอนโดยากไหม</span></td>
+                    <td>รูปภาพ / อัลบั้มภาพชุด</td>
+                    <td><span style="color: #3b82f6; font-weight: 700;">🟢 กำหนดเผยแพร่ทุกพุธ</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong style="color: #10b981;">วันศุกร์</strong></td>
+                    <td><span class="schedule-platform-tag plat-both">TikTok &amp; Facebook</span></td>
+                    <td><strong>รีวิวสินค้า / เบื้องหลังการทำงาน</strong><br><span style="font-size: 11px; color: var(--text-muted);">Room Tour 35 ตร.ม., ดีลเดือด, เบื้องหลังฝ่ายขายจริง</span></td>
+                    <td>วิดีโอสั้น / Facebook Reels</td>
+                    <td><span style="color: #10b981; font-weight: 700;">🟢 เผยแพร่คู่ขนาน 2 ช่องทาง</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div style="margin-top: 10px; font-size: 11.5px; color: var(--text-muted); font-style: italic;">
+              *หมายเหตุ: ตารางนี้สามารถปรับเปลี่ยนได้ตามความเหมาะสมและกระแสที่เกิดขึ้นในแต่ละช่วงเวลา (อัปเดตสอดรับกับเดือนตุลาคม 2569)
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -10491,7 +10908,7 @@ const TIKTOK_DATA_ITEMS = [
     creatorName: 'คุณปนัดดา',
     creatorHandle: '@NANCYY',
     creatorBadge: 'ชุดข้อมูลที่ 2',
-    category: 'Lifestyle & Community',
+    category: 'Lifestyle & Community • TikTok',
     status: 'โพสต์แล้ว',
     statusClass: 'status-posted',
     views: '3,601 (3.6K)',
@@ -11127,12 +11544,12 @@ const TIKTOK_DATA_ITEMS = [
     monthLabel: 'ตุลาคม 2569',
     week: 1,
     weekLabel: 'Week 1 (ต.ค. 69)',
-    title: 'ดีลดี โอนวันนี้ ผ่อนปีหน้า อยู่ฟรีทั้งปี 69!',
+    title: '[ศุกร์] รีวิวโปรโมชั่น: ดีลดี โอนวันนี้ ผ่อนปีหน้า อยู่ฟรีทั้งปี 69!',
     creator: 'patsapar',
     creatorName: 'คุณปรัศว์ภา',
     creatorHandle: '@Patsapar 🌈',
     creatorBadge: 'ชุดข้อมูลที่ 1',
-    category: 'Promotion of the Month',
+    category: 'Promotion of the Month • TikTok & FB',
     status: 'โพสต์แล้ว',
     statusClass: 'status-posted',
     views: '3,420 (3.4K)',
@@ -11159,12 +11576,12 @@ const TIKTOK_DATA_ITEMS = [
     monthLabel: 'ตุลาคม 2569',
     week: 2,
     weekLabel: 'Week 2 (ต.ค. 69)',
-    title: 'ชี้เป้าทำเลทอง มอเตอร์เวย์ M6 เข้า-ออกเมือง 3 เส้นทาง',
+    title: '[พุธ] สาระน่ารู้: ชี้เป้าทำเลทอง มอเตอร์เวย์ M6 เข้า-ออกเมือง 3 เส้นทาง',
     creator: 'patsapar',
     creatorName: 'คุณปรัศว์ภา',
     creatorHandle: '@Patsapar 🌈',
     creatorBadge: 'ชุดข้อมูลที่ 1',
-    category: 'Location & Connectivity',
+    category: 'Location & Connectivity • Infographic',
     status: 'โพสต์แล้ว',
     statusClass: 'status-posted',
     views: '2,150 (2.2K)',
@@ -11191,12 +11608,12 @@ const TIKTOK_DATA_ITEMS = [
     monthLabel: 'ตุลาคม 2569',
     week: 3,
     weekLabel: 'Week 3 (ต.ค. 69)',
-    title: 'พาทัวร์ห้อง 1 Bed 35 ตร.ม. ฟังก์ชันเป๊ะไม่ต้องรอรีโนเวท',
+    title: '[ศุกร์] รีวิวสินค้า: พาทัวร์ห้อง 1 Bed 35 ตร.ม. ฟังก์ชันเป๊ะไม่ต้องรอรีโนเวท',
     creator: 'patsapar',
     creatorName: 'คุณปรัศว์ภา',
     creatorHandle: '@Patsapar 🌈',
     creatorBadge: 'ชุดข้อมูลที่ 1',
-    category: 'Room Tour & Function',
+    category: 'Room Tour & Function • TikTok & FB',
     status: 'รอโพสต์',
     statusClass: 'status-planned',
     views: 'รอเผยแพร่',
@@ -11223,12 +11640,12 @@ const TIKTOK_DATA_ITEMS = [
     monthLabel: 'ตุลาคม 2569',
     week: 4,
     weekLabel: 'Week 4 (ต.ค. 69)',
-    title: 'POV: ตึก Hampton ยุคใหม่ มีสวนลอยฟ้าและฟิตเนสวิวเมือง',
+    title: '[จันทร์] เปิดประเด็นฮิต: POV ตึก Hampton ยุคใหม่ มีสวนลอยฟ้าและฟิตเนสวิวเมือง',
     creator: 'patsapar',
     creatorName: 'คุณปรัศว์ภา',
     creatorHandle: '@Patsapar 🌈',
     creatorBadge: 'ชุดข้อมูลที่ 1',
-    category: 'Lifestyle & Modern Living',
+    category: 'Lifestyle & Trend Challenge • TikTok',
     status: 'รอโพสต์',
     statusClass: 'status-planned',
     views: 'รอเผยแพร่',
@@ -11255,12 +11672,12 @@ const TIKTOK_DATA_ITEMS = [
     monthLabel: 'ตุลาคม 2569',
     week: 1,
     weekLabel: 'Week 1 (ต.ค. 69)',
-    title: 'ดีลเดือด 35 ตร.ม. เริ่มต้น 2.xx ลบ. อยู่ฟรีทั้งปี 69!',
+    title: '[ศุกร์] รีวิวโปรโมชั่น: ดีลเดือด 35 ตร.ม. เริ่มต้น 2.xx ลบ. อยู่ฟรีทั้งปี 69!',
     creator: 'panadda',
     creatorName: 'คุณปนัดดา',
     creatorHandle: '@Patty_Citylink 💎',
     creatorBadge: 'ชุดข้อมูลที่ 2',
-    category: 'Investment & Special Deals',
+    category: 'Investment & Special Deals • TikTok & FB',
     status: 'โพสต์แล้ว',
     statusClass: 'status-posted',
     views: '4,810 (4.8K)',
@@ -11287,12 +11704,12 @@ const TIKTOK_DATA_ITEMS = [
     monthLabel: 'ตุลาคม 2569',
     week: 2,
     weekLabel: 'Week 2 (ต.ค. 69)',
-    title: 'เจาะลึกทำเล New CBD ติดมอเตอร์เวย์ M6 สะดวกทุกการเชื่อมต่อ',
+    title: '[พุธ] สาระน่ารู้: เจาะลึกทำเล New CBD ติดมอเตอร์เวย์ M6 สะดวกทุกการเชื่อมต่อ',
     creator: 'panadda',
     creatorName: 'คุณปนัดดา',
     creatorHandle: '@Patty_Citylink 💎',
     creatorBadge: 'ชุดข้อมูลที่ 2',
-    category: 'Urban & Location Value',
+    category: 'Urban & Location Value • Infographic',
     status: 'โพสต์แล้ว',
     statusClass: 'status-posted',
     views: '1,930 (1.9K)',
@@ -11319,12 +11736,12 @@ const TIKTOK_DATA_ITEMS = [
     monthLabel: 'ตุลาคม 2569',
     week: 3,
     weekLabel: 'Week 3 (ต.ค. 69)',
-    title: 'Private VIP: สัมผัสความสุขได้ทันที คอนโดพร้อมอยู่ไม่ต้องรอ',
+    title: '[ศุกร์] รีวิวสินค้า: Private VIP สัมผัสความสุขได้ทันที คอนโดพร้อมอยู่ไม่ต้องรอ',
     creator: 'panadda',
     creatorName: 'คุณปนัดดา',
     creatorHandle: '@Patty_Citylink 💎',
     creatorBadge: 'ชุดข้อมูลที่ 2',
-    category: 'Room Tour & Exclusive',
+    category: 'Room Tour & Exclusive • TikTok & FB',
     status: 'รอโพสต์',
     statusClass: 'status-planned',
     views: 'รอเผยแพร่',
@@ -11351,12 +11768,12 @@ const TIKTOK_DATA_ITEMS = [
     monthLabel: 'ตุลาคม 2569',
     week: 4,
     weekLabel: 'Week 4 (ต.ค. 69)',
-    title: '5 เหตุผลที่ลูกค้าเลือก City Link Condo โคราช',
+    title: '[จันทร์] เปิดประเด็นฮิต: 5 เหตุผลที่ลูกค้าเลือก City Link Condo โคราช',
     creator: 'panadda',
     creatorName: 'คุณปนัดดา',
     creatorHandle: '@Patty_Citylink 💎',
     creatorBadge: 'ชุดข้อมูลที่ 2',
-    category: 'Customer Insights & Trust',
+    category: 'Customer Insights & Trend • TikTok',
     status: 'รอโพสต์',
     statusClass: 'status-planned',
     views: 'รอเผยแพร่',
@@ -11383,12 +11800,12 @@ const TIKTOK_DATA_ITEMS = [
     monthLabel: 'ตุลาคม 2569',
     week: 1,
     weekLabel: 'Week 1 (ต.ค. 69)',
-    title: 'ขายค่ะ...แบบขายจริง! จองเดือนนี้อยู่ฟรีปี 69 คุ้มสุดๆ',
+    title: '[ศุกร์] เบื้องหลังการทำงาน: ขายค่ะ...แบบขายจริง! จองเดือนนี้อยู่ฟรีปี 69 คุ้มสุดๆ',
     creator: 'ratri',
     creatorName: 'คุณราตรี',
     creatorHandle: '@Nann_Citylink ✨',
     creatorBadge: 'ชุดข้อมูลที่ 3',
-    category: 'Real Seller Experience',
+    category: 'Real Seller Experience • TikTok & FB',
     status: 'โพสต์แล้ว',
     statusClass: 'status-posted',
     views: '2,890 (2.9K)',
@@ -11415,12 +11832,12 @@ const TIKTOK_DATA_ITEMS = [
     monthLabel: 'ตุลาคม 2569',
     week: 2,
     weekLabel: 'Week 2 (ต.ค. 69)',
-    title: 'พาส่อง Morning Run & Mayfair Market ชิมช้อปชิลล์ข้างคอนโด',
+    title: '[จันทร์] Trend Challenge: พาส่อง Morning Run & Mayfair Market ชิมช้อปชิลล์ข้างคอนโด',
     creator: 'ratri',
     creatorName: 'คุณราตรี',
     creatorHandle: '@Nann_Citylink ✨',
     creatorBadge: 'ชุดข้อมูลที่ 3',
-    category: 'Lifestyle & Community',
+    category: 'Lifestyle & Community • TikTok',
     status: 'โพสต์แล้ว',
     statusClass: 'status-posted',
     views: '1,420 (1.4K)',
@@ -11447,12 +11864,12 @@ const TIKTOK_DATA_ITEMS = [
     monthLabel: 'ตุลาคม 2569',
     week: 3,
     weekLabel: 'Week 3 (ต.ค. 69)',
-    title: 'ใช้ชีวิตได้ง่ายกว่าที่เคย: รีวิวพื้นที่ส่วนกลางจัดเต็ม',
+    title: '[พุธ] สาระน่ารู้: ใช้ชีวิตได้ง่ายกว่าที่เคย รีวิวพื้นที่ส่วนกลางจัดเต็ม',
     creator: 'ratri',
     creatorName: 'คุณราตรี',
     creatorHandle: '@Nann_Citylink ✨',
     creatorBadge: 'ชุดข้อมูลที่ 3',
-    category: 'Community & Facilities',
+    category: 'Community & Facilities • Infographic',
     status: 'รอโพสต์',
     statusClass: 'status-planned',
     views: 'รอเผยแพร่',
@@ -11479,12 +11896,12 @@ const TIKTOK_DATA_ITEMS = [
     monthLabel: 'ตุลาคม 2569',
     week: 4,
     weekLabel: 'Week 4 (ต.ค. 69)',
-    title: 'Dee ไปหมด: คอนโดพร้อมอยู่ ไลฟ์สไตล์ที่คุณเองก็มีได้',
+    title: '[จันทร์] เปิดประเด็นฮิต: Dee ไปหมด คอนโดพร้อมอยู่ ไลฟ์สไตล์ที่คุณเองก็มีได้',
     creator: 'ratri',
     creatorName: 'คุณราตรี',
     creatorHandle: '@Nann_Citylink ✨',
     creatorBadge: 'ชุดข้อมูลที่ 3',
-    category: 'Lifestyle (Free Style)',
+    category: 'Lifestyle & Trend Challenge • TikTok',
     status: 'รอโพสต์',
     statusClass: 'status-planned',
     views: 'รอเผยแพร่',
@@ -12794,7 +13211,7 @@ function handleModalBackdropClick(event) {
 }
 
 function switchTikTokTopic(index) {
-  for (let i = 1; i <= 4; i++) {
+  for (let i = 1; i <= 5; i++) {
     const tab = document.getElementById(`tkTab${i}`);
     const pane = document.getElementById(`tkPane${i}`);
     if (tab) tab.classList.toggle('active', i === index);
