@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
@@ -1210,7 +1210,8 @@
         box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45) !important;
       }
       .demo-popup::after,
-      .topclips-popup::after {
+      .topclips-popup::after,
+      .cross-platform-popup::after {
         display: none !important;
       }
       .tiktok-modal-window {
@@ -1328,6 +1329,34 @@
       visibility: visible;
       transform: translateY(0);
       pointer-events: auto;
+    }
+
+    /* Cross-Platform Views Breakdown Popup (TikTok + Facebook) */
+    @media (min-width: 769px) {
+      .cross-platform-popup {
+        top: calc(100% + 12px) !important;
+        bottom: auto !important;
+        left: 0 !important;
+        transform: translateY(-8px) !important;
+        width: 420px !important;
+        max-width: 90vw !important;
+        box-shadow: 0 20px 48px -4px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(56, 189, 248, 0.35) !important;
+      }
+      .cross-platform-popup::after {
+        bottom: 100% !important;
+        top: auto !important;
+        left: 48px !important;
+        transform: none !important;
+        border-color: transparent transparent #091310 transparent !important;
+      }
+      .has-popup:hover .cross-platform-popup,
+      .has-popup:focus .cross-platform-popup,
+      .has-popup.popup-force-show .cross-platform-popup {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+      }
     }
 
     .donut-slice-path {
@@ -5057,8 +5086,8 @@
       </div>
 
             <!-- Antigravity Schema Ingestion & Cross-Platform Intelligence Widget -->
-      <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 14px; padding: 18px 20px; margin: 16px 0 20px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.25); position: relative; overflow: hidden;">
-        <div style="position: absolute; top: -20px; right: -20px; width: 140px; height: 140px; background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%); pointer-events: none;"></div>
+      <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 14px; padding: 18px 20px; margin: 16px 0 20px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.25); position: relative; z-index: 20;">
+        <div style="position: absolute; top: 0; right: 0; width: 140px; height: 140px; background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%); pointer-events: none; border-top-right-radius: 14px;"></div>
         
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 12px;">
           <div style="display: flex; align-items: center; gap: 10px;">
@@ -5082,14 +5111,144 @@
 
         <!-- 4 Grid KPI Boxes -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-bottom: 14px;">
-          <!-- KPI 1: Total Reach -->
-          <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 12px 14px;">
+          <!-- KPI 1: Total Reach with Platform Breakdown Popup -->
+          <div class="has-popup" tabindex="0" title="คลิกหรือชี้เพื่อดูสถิติยอดวิวแยกแพลตฟอร์ม Facebook & TikTok อย่างชัดเจน" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 12px 14px; position: relative; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='rgba(56, 189, 248, 0.4)'; this.style.background='rgba(30, 41, 59, 0.8)';" onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.08)'; this.style.background='rgba(15, 23, 42, 0.6)';">
             <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; color: #94a3b8; font-weight: 600; margin-bottom: 4px;">
-              <span>🌐 Total Views / Reach รวม</span>
-              <span style="color: #38bdf8; font-size: 11px;">TikTok + FB</span>
+              <span style="display: flex; align-items: center; gap: 5px;">🌐 Total Views / Reach รวม</span>
+              <span style="display: flex; align-items: center; gap: 4px;">
+                <span style="color: #38bdf8; font-size: 11px; font-weight: 700;">TikTok + FB</span>
+                <span style="font-size: 10px; color: #38bdf8; background: rgba(56, 189, 248, 0.15); padding: 1px 6px; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.35); font-weight: 700;">ชี้/คลิก ℹ️</span>
+              </span>
             </div>
             <div style="font-size: 22px; font-weight: 800; color: #f8fafc; letter-spacing: -0.5px;">151,528+ <span style="font-size: 12px; font-weight: normal; color: #94a3b8;">วิว</span></div>
-            <div style="font-size: 11px; color: #64748b; margin-top: 4px;">TikTok: 127.2K • FB สะสม: 24.3K</div>
+            <div style="font-size: 11px; color: #64748b; margin-top: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <span>TikTok: <strong style="color: #38bdf8;">127.2K</strong> • FB สะสม: <strong style="color: #60a5fa;">24.3K</strong></span>
+              <span style="color: #38bdf8; font-size: 10.5px; font-weight: 600;">(ดูแยกชัดเจน ↗)</span>
+            </div>
+
+            <!-- Interactive Platform Views Breakdown Popup -->
+            <div class="views-popup cross-platform-popup" id="crossPlatformViewsPopup" role="tooltip" aria-label="สรุปยอดวิวแยกตามแพลตฟอร์ม Facebook และ TikTok">
+              <!-- Popup Header -->
+              <div class="popup-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); flex-wrap: nowrap; gap: 8px;">
+                <span class="popup-title" style="display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 13px; color: #f8fafc; white-space: nowrap;">
+                  <span>📊</span> ยอดวิวแยกตามแพลตฟอร์ม (Platform Views)
+                </span>
+                <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+                  <span class="popup-badge" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 8px; border: 1px solid rgba(56, 189, 248, 0.35); white-space: nowrap;">
+                    รวม 151,528 วิว
+                  </span>
+                  <button type="button" aria-label="ปิดสรุปยอดวิว" onclick="document.querySelectorAll('.has-popup').forEach(p => p.classList.remove('popup-force-show')); event.stopPropagation();" style="background: rgba(255,255,255,0.08); border: none; color: #94a3b8; font-size: 12px; cursor: pointer; padding: 3px 6px; line-height: 1; border-radius: 4px;" onmouseover="this.style.color='#fff'; this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.color='#94a3b8'; this.style.background='rgba(255,255,255,0.08)'">✕</button>
+                </div>
+              </div>
+
+              <!-- 1. TikTok Views Card (Distinct Section) -->
+              <div style="background: linear-gradient(135deg, rgba(255, 0, 80, 0.12) 0%, rgba(0, 242, 254, 0.08) 100%); border: 1px solid rgba(255, 0, 80, 0.35); border-radius: 12px; padding: 10px 12px; margin-bottom: 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                  <div style="display: flex; align-items: center; gap: 7px;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; background: #000; border-radius: 6px; font-size: 12px; border: 1px solid rgba(255,0,80,0.4);">🎵</span>
+                    <div>
+                      <div style="font-weight: 800; font-size: 12.5px; color: #f8fafc; line-height: 1.2;">TikTok Video Views</div>
+                      <div style="font-size: 10px; color: #94a3b8;">ช่องทางหลัก TikTok วิดีโอสั้น</div>
+                    </div>
+                  </div>
+                  <div style="text-align: right;">
+                    <div style="display: flex; align-items: baseline; gap: 4px; justify-content: flex-end;">
+                      <span style="font-size: 17px; font-weight: 800; color: #00f2fe; letter-spacing: -0.5px;">127,228</span>
+                      <span style="font-size: 11px; color: #94a3b8;">วิว</span>
+                    </div>
+                    <span style="background: rgba(0, 242, 254, 0.18); color: #00f2fe; font-size: 10px; font-weight: 800; padding: 1px 6px; border-radius: 4px; border: 1px solid rgba(0, 242, 254, 0.3);">84.0% Share</span>
+                  </div>
+                </div>
+                <!-- TikTok Creator Breakdown List -->
+                <div style="font-size: 11px; display: flex; flex-direction: column; gap: 5px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(0, 0, 0, 0.25); padding: 4px 8px; border-radius: 6px;">
+                    <span style="color: #cbd5e1; display: flex; align-items: center; gap: 5px;">
+                      <span>🌟</span>
+                      <span>คุณปรัศว์ภา (ชุด 1):</span>
+                    </span>
+                    <span style="color: #38bdf8; font-weight: 700;">47,714 วิว <span style="font-size: 9.5px; color: #64748b; font-weight: normal;">(ส.ค. 38.6K / ก.ย. 9.1K)</span></span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(0, 0, 0, 0.25); padding: 4px 8px; border-radius: 6px;">
+                    <span style="color: #cbd5e1; display: flex; align-items: center; gap: 5px;">
+                      <span>✨</span>
+                      <span>คุณปนัดดา (ชุด 2):</span>
+                    </span>
+                    <span style="color: #fb7185; font-weight: 700;">38,961 วิว <span style="font-size: 9.5px; color: #64748b; font-weight: normal;">(สิงหาคม สะสม)</span></span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(0, 0, 0, 0.25); padding: 4px 8px; border-radius: 6px;">
+                    <span style="color: #cbd5e1; display: flex; align-items: center; gap: 5px;">
+                      <span>💫</span>
+                      <span>คุณราตรี (ชุด 3):</span>
+                    </span>
+                    <span style="color: #34d399; font-weight: 700;">40,553 วิว <span style="font-size: 9.5px; color: #64748b; font-weight: normal;">(ส.ค. 38.1K / ก.ย. 2.4K)</span></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. Facebook Views Card (Distinct Section) -->
+              <div style="background: linear-gradient(135deg, rgba(24, 119, 242, 0.15) 0%, rgba(59, 130, 246, 0.08) 100%); border: 1px solid rgba(24, 119, 242, 0.35); border-radius: 12px; padding: 10px 12px; margin-bottom: 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                  <div style="display: flex; align-items: center; gap: 7px;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; background: #1877f2; border-radius: 6px; font-size: 13px; font-weight: 900; color: #fff; box-shadow: 0 2px 6px rgba(24, 119, 242, 0.4);">f</span>
+                    <div>
+                      <div style="font-weight: 800; font-size: 12.5px; color: #f8fafc; line-height: 1.2;">Facebook Video Views</div>
+                      <div style="font-size: 10px; color: #94a3b8;">โพสต์วิดีโอบน Facebook Page</div>
+                    </div>
+                  </div>
+                  <div style="text-align: right;">
+                    <div style="display: flex; align-items: baseline; gap: 4px; justify-content: flex-end;">
+                      <span style="font-size: 17px; font-weight: 800; color: #60a5fa; letter-spacing: -0.5px;">24,300</span>
+                      <span style="font-size: 11px; color: #94a3b8;">วิว</span>
+                    </div>
+                    <span style="background: rgba(37, 99, 235, 0.25); color: #93c5fd; font-size: 10px; font-weight: 800; padding: 1px 6px; border-radius: 4px; border: 1px solid rgba(59, 130, 246, 0.3);">16.0% Share</span>
+                  </div>
+                </div>
+                <!-- Facebook Post Breakdown List -->
+                <div style="font-size: 11px; display: flex; flex-direction: column; gap: 5px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(0, 0, 0, 0.25); padding: 4px 8px; border-radius: 6px;">
+                    <span style="color: #cbd5e1; display: flex; align-items: center; gap: 5px;">
+                      <span>📘</span>
+                      <span>คลิปคุณปนัดดา (สัปดาห์ 1):</span>
+                    </span>
+                    <span style="color: #93c5fd; font-weight: 700;">15,400 วิว <span style="font-size: 9.5px; color: #64748b; font-weight: normal;">(Organic Video)</span></span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(0, 0, 0, 0.25); padding: 4px 8px; border-radius: 6px;">
+                    <span style="color: #cbd5e1; display: flex; align-items: center; gap: 5px;">
+                      <span>📘</span>
+                      <span>คลิปคุณปนัดดา (สัปดาห์ 2):</span>
+                    </span>
+                    <span style="color: #93c5fd; font-weight: 700;">8,900 วิว <span style="font-size: 9.5px; color: #64748b; font-weight: normal;">(Organic Video)</span></span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(0, 0, 0, 0.25); padding: 4px 8px; border-radius: 6px;">
+                    <span style="color: #cbd5e1; display: flex; align-items: center; gap: 5px;">
+                      <span>🔄</span>
+                      <span>การต่อยอดคลิปคู่ขนาน:</span>
+                    </span>
+                    <span style="color: #a5f3fc; font-weight: 600; font-size: 10px;">ขยาย Reach เข้าสู่เพจคู่ขนาน</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. Proportional Comparison Bar (Platform Share) -->
+              <div style="margin-bottom: 12px; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 8px 10px;">
+                <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 6px;">
+                  <span style="color: #00f2fe; font-weight: 700; display: flex; align-items: center; gap: 4px;">🎵 TikTok: 84.0% (127.2K)</span>
+                  <span style="color: #60a5fa; font-weight: 700; display: flex; align-items: center; gap: 4px;">FB: 16.0% (24.3K) 🔵</span>
+                </div>
+                <div style="height: 10px; background: rgba(255, 255, 255, 0.1); border-radius: 6px; overflow: hidden; display: flex; box-shadow: inset 0 1px 3px rgba(0,0,0,0.4);">
+                  <div style="width: 84%; background: linear-gradient(90deg, #ff0050 0%, #00f2fe 100%); height: 100%; transition: width 0.3s;" title="TikTok: 84.0% (127,228 วิว)"></div>
+                  <div style="width: 16%; background: #1877f2; height: 100%; transition: width 0.3s;" title="Facebook: 16.0% (24,300 วิว)"></div>
+                </div>
+              </div>
+
+              <!-- 4. Footer with deep dive button -->
+              <div style="padding-top: 8px; border-top: 1px dashed rgba(255, 255, 255, 0.12); display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
+                <span style="color: #94a3b8; font-size: 10px;">📁 ข้อมูล Verified Ingestion</span>
+                <button type="button" onclick="document.querySelectorAll('.has-popup').forEach(p => p.classList.remove('popup-force-show')); openTikTokModal(4); return false;" style="background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8; font-size: 11px; font-weight: 700; cursor: pointer; border-radius: 6px; padding: 3px 8px; transition: all 0.2s;" onmouseover="this.style.background='rgba(56, 189, 248, 0.3)'" onmouseout="this.style.background='rgba(56, 189, 248, 0.15)'">
+                  📊 ดูตารางเปรียบเทียบฉบับเต็ม →
+                </button>
+              </div>
+            </div>
           </div>
 
           <!-- KPI 2: Total Interactions -->
@@ -9224,7 +9383,7 @@
     document.addEventListener('DOMContentLoaded', function() {
       document.addEventListener('click', function(e) {
         const popupHost = e.target.closest('.has-popup');
-        if (e.target.closest('.followers-popup') || e.target.closest('.donut-popup') || e.target.closest('.engagement-popup') || e.target.closest('.views-popup') || e.target.closest('.demo-popup') || e.target.closest('.topclips-popup')) return;
+        if (e.target.closest('.followers-popup') || e.target.closest('.donut-popup') || e.target.closest('.engagement-popup') || e.target.closest('.views-popup') || e.target.closest('.demo-popup') || e.target.closest('.topclips-popup') || e.target.closest('.cross-platform-popup')) return;
         if (popupHost) {
           const wasOpen = popupHost.classList.contains('popup-force-show');
           document.querySelectorAll('.has-popup').forEach(p => p.classList.remove('popup-force-show'));
