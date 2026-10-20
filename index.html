@@ -1349,6 +1349,14 @@
         transform: none !important;
         border-color: transparent transparent #091310 transparent !important;
       }
+      .cross-platform-popup.popup-align-right {
+        left: auto !important;
+        right: 0 !important;
+      }
+      .cross-platform-popup.popup-align-right::after {
+        left: auto !important;
+        right: 48px !important;
+      }
       .has-popup:hover .cross-platform-popup,
       .has-popup:focus .cross-platform-popup,
       .has-popup.popup-force-show .cross-platform-popup {
@@ -5236,34 +5244,200 @@
             </div>
           </div>
 
-          <!-- KPI 2: Total Interactions (Facebook Only) -->
-          <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(24, 119, 242, 0.25); border-radius: 10px; padding: 12px 14px;">
+          <!-- KPI 2: Total Interactions (Facebook Only with Popup) -->
+          <div class="has-popup" tabindex="0" title="คลิกหรือชี้เพื่อดูเจาะลึกยอด Like, Comment, Save, Share บน Facebook" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(24, 119, 242, 0.3); border-radius: 10px; padding: 12px 14px; position: relative; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='rgba(56, 189, 248, 0.5)'; this.style.background='rgba(30, 41, 59, 0.8)';" onmouseout="this.style.borderColor='rgba(24, 119, 242, 0.3)'; this.style.background='rgba(15, 23, 42, 0.6)';">
             <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; color: #94a3b8; font-weight: 600; margin-bottom: 4px;">
-              <span>💬 Total Interactions รวม</span>
-              <span style="color: #60a5fa; font-size: 11px;">Likes/Cmts/Saves</span>
+              <span style="display: flex; align-items: center; gap: 5px;">💬 Total Interactions รวม</span>
+              <span style="display: flex; align-items: center; gap: 4px;">
+                <span style="color: #60a5fa; font-size: 11px; font-weight: 700;">Likes/Cmts/Saves</span>
+                <span style="font-size: 10px; color: #38bdf8; background: rgba(56, 189, 248, 0.15); padding: 1px 6px; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.35); font-weight: 700;">ชี้/คลิก ℹ️</span>
+              </span>
             </div>
             <div style="font-size: 22px; font-weight: 800; color: #f8fafc; letter-spacing: -0.5px;">2,702+ <span style="font-size: 12px; font-weight: normal; color: #94a3b8;">ครั้ง</span></div>
-            <div style="font-size: 11px; color: #64748b; margin-top: 4px;">Likes: 2,580+ • Cmts: 95 • Saves: 27</div>
+            <div style="font-size: 11px; color: #64748b; margin-top: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <span>Likes: <strong style="color: #60a5fa;">2,580+</strong> • Cmts: <strong style="color: #93c5fd;">95</strong> • Saves: <strong style="color: #cbd5e1;">27</strong></span>
+              <span style="color: #38bdf8; font-size: 10.5px; font-weight: 600;">(ดูแยก ↗)</span>
+            </div>
+
+            <!-- Interactive Popup for Facebook Interactions -->
+            <div class="views-popup cross-platform-popup" id="fbInteractionsPopup" role="tooltip" aria-label="สรุปยอดการมีส่วนร่วมเฉพาะ Facebook">
+              <!-- Popup Header -->
+              <div class="popup-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); flex-wrap: nowrap; gap: 8px;">
+                <span class="popup-title" style="display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 13px; color: #f8fafc; white-space: nowrap;">
+                  <span>💬</span> ยอดการมีส่วนร่วมเฉพาะ Facebook (Interactions)
+                </span>
+                <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+                  <span class="popup-badge" style="background: rgba(24, 119, 242, 0.3); color: #93c5fd; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 8px; border: 1px solid rgba(24, 119, 242, 0.45); white-space: nowrap;">
+                    รวม 2,702+ ครั้ง
+                  </span>
+                  <button type="button" aria-label="ปิดสรุปยอดการมีส่วนร่วม" onclick="document.querySelectorAll('.has-popup').forEach(p => p.classList.remove('popup-force-show')); event.stopPropagation();" style="background: rgba(255,255,255,0.08); border: none; color: #94a3b8; font-size: 12px; cursor: pointer; padding: 3px 6px; line-height: 1; border-radius: 4px;" onmouseover="this.style.color='#fff'; this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.color='#94a3b8'; this.style.background='rgba(255,255,255,0.08)'">✕</button>
+                </div>
+              </div>
+
+              <!-- 4 Interaction Type Cards -->
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 12px;">
+                <div style="background: linear-gradient(135deg, rgba(24, 119, 242, 0.25) 0%, rgba(30, 58, 138, 0.2) 100%); border: 1px solid rgba(24, 119, 242, 0.45); border-radius: 8px; padding: 8px 6px; text-align: center;">
+                  <div style="font-size: 14px; margin-bottom: 2px;">👍</div>
+                  <div style="font-size: 16px; font-weight: 800; color: #60a5fa;">2,580+</div>
+                  <div style="font-size: 10px; color: #94a3b8;">Likes (ถูกใจ)</div>
+                  <div style="font-size: 9.5px; color: #34d399; font-weight: 700; margin-top: 2px;">95.5%</div>
+                </div>
+                <div style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.2) 0%, rgba(14, 116, 144, 0.2) 100%); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 8px; padding: 8px 6px; text-align: center;">
+                  <div style="font-size: 14px; margin-bottom: 2px;">💬</div>
+                  <div style="font-size: 16px; font-weight: 800; color: #38bdf8;">95+</div>
+                  <div style="font-size: 10px; color: #94a3b8;">Comments</div>
+                  <div style="font-size: 9.5px; color: #38bdf8; font-weight: 700; margin-top: 2px;">3.5%</div>
+                </div>
+                <div style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(107, 33, 168, 0.2) 100%); border: 1px solid rgba(168, 85, 247, 0.4); border-radius: 8px; padding: 8px 6px; text-align: center;">
+                  <div style="font-size: 14px; margin-bottom: 2px;">🔖</div>
+                  <div style="font-size: 16px; font-weight: 800; color: #c084fc;">27+</div>
+                  <div style="font-size: 10px; color: #94a3b8;">Saves (บันทึก)</div>
+                  <div style="font-size: 9.5px; color: #c084fc; font-weight: 700; margin-top: 2px;">1.0%</div>
+                </div>
+                <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(4, 120, 87, 0.2) 100%); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 8px; padding: 8px 6px; text-align: center;">
+                  <div style="font-size: 14px; margin-bottom: 2px;">↗️</div>
+                  <div style="font-size: 16px; font-weight: 800; color: #34d399;">45+</div>
+                  <div style="font-size: 10px; color: #94a3b8;">Shares (แชร์)</div>
+                  <div style="font-size: 9.5px; color: #34d399; font-weight: 700; margin-top: 2px;">1.7%</div>
+                </div>
+              </div>
+
+              <!-- Breakdown per Facebook Content -->
+              <div style="background: linear-gradient(135deg, rgba(24, 119, 242, 0.15) 0%, rgba(30, 58, 138, 0.1) 100%); border: 1px solid rgba(24, 119, 242, 0.35); border-radius: 12px; padding: 10px 12px; margin-bottom: 10px;">
+                <div style="font-size: 11.5px; font-weight: 700; color: #93c5fd; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center;">
+                  <span>📘 ยอดการมีส่วนร่วมแยกตามคอนเทนต์วิดีโอ (Facebook)</span>
+                  <span style="font-size: 10px; color: #34d399;">คุณปนัดดา</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 5px; font-size: 11px;">
+                  <div style="background: rgba(0, 0, 0, 0.25); padding: 5px 8px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="color: #cbd5e1;">สัปดาห์ 1: <strong>"ขายค่ะ....แบบขายจริง"</strong></span>
+                    <span style="color: #60a5fa; font-weight: 700;">1,912 ครั้ง <span style="font-size: 9.5px; color: #94a3b8; font-weight: normal;">(Likes: 1,820 • Cmts: 64 • Saves: 28)</span></span>
+                  </div>
+                  <div style="background: rgba(0, 0, 0, 0.25); padding: 5px 8px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="color: #cbd5e1;">สัปดาห์ 2: <strong>"อยากบอกอะไรกับคนถัดไป"</strong></span>
+                    <span style="color: #60a5fa; font-weight: 700;">808 ครั้ง <span style="font-size: 9.5px; color: #94a3b8; font-weight: normal;">(Likes: 760 • Cmts: 31 • Saves: 17)</span></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Organic Posts Interaction Note -->
+              <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 8px 10px; margin-bottom: 10px; font-size: 11px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                  <span style="color: #cbd5e1; font-weight: 600;">🌟 โพสต์โปรโมชั่นคุณปรัศว์ภา (กันยายน 5 โพสต์):</span>
+                  <span style="color: #38bdf8; font-weight: 700;">132 ครั้ง</span>
+                </div>
+                <div style="font-size: 10px; color: #94a3b8;">
+                  Likes: 106 • Comments: 24 • Saves: 2 (มีการสอบถามโปรโมชั่น Ready to move in)
+                </div>
+              </div>
+
+              <!-- Footer with deep dive button -->
+              <div style="padding-top: 8px; border-top: 1px dashed rgba(255, 255, 255, 0.12); display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
+                <span style="color: #94a3b8; font-size: 10px;">📁 ข้อมูล Content Face book</span>
+                <button type="button" onclick="document.querySelectorAll('.has-popup').forEach(p => p.classList.remove('popup-force-show')); openTikTokModal(4); return false;" style="background: rgba(24, 119, 242, 0.2); border: 1px solid rgba(24, 119, 242, 0.45); color: #93c5fd; font-size: 11px; font-weight: 700; cursor: pointer; border-radius: 6px; padding: 3px 8px; transition: all 0.2s;" onmouseover="this.style.background='rgba(24, 119, 242, 0.35)'" onmouseout="this.style.background='rgba(24, 119, 242, 0.2)'">
+                  📊 ดูตารางเปรียบเทียบฉบับเต็ม →
+                </button>
+              </div>
+            </div>
           </div>
 
-          <!-- KPI 3: Engagement Rate (Facebook Only) -->
-          <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(24, 119, 242, 0.25); border-radius: 10px; padding: 12px 14px;">
+          <!-- KPI 3: Engagement Rate (Facebook Only with Popup) -->
+          <div class="has-popup" tabindex="0" title="คลิกหรือชี้เพื่อดูที่มาของอัตราการมีส่วนร่วม 11.1% บน Facebook" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(24, 119, 242, 0.3); border-radius: 10px; padding: 12px 14px; position: relative; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='rgba(56, 189, 248, 0.5)'; this.style.background='rgba(30, 41, 59, 0.8)';" onmouseout="this.style.borderColor='rgba(24, 119, 242, 0.3)'; this.style.background='rgba(15, 23, 42, 0.6)';">
             <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; color: #94a3b8; font-weight: 600; margin-bottom: 4px;">
-              <span>📈 Engagement Rate (ER)</span>
-              <span style="color: #10b981; font-size: 11px;">เฉพาะ Facebook</span>
+              <span style="display: flex; align-items: center; gap: 5px;">📈 Engagement Rate (ER)</span>
+              <span style="display: flex; align-items: center; gap: 4px;">
+                <span style="color: #10b981; font-size: 11px; font-weight: 700;">เฉพาะ Facebook</span>
+                <span style="font-size: 10px; color: #38bdf8; background: rgba(56, 189, 248, 0.15); padding: 1px 6px; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.35); font-weight: 700;">ชี้/คลิก ℹ️</span>
+              </span>
             </div>
             <div style="font-size: 22px; font-weight: 800; color: #34d399; letter-spacing: -0.5px;">11.1% <span style="font-size: 12px; font-weight: normal; color: #94a3b8;">เฉลี่ย FB</span></div>
-            <div style="font-size: 11px; color: #64748b; margin-top: 4px;">ผู้ติดตามสนใจสูง (เทียบกับ TikTok 3.8%)</div>
+            <div style="font-size: 11px; color: #64748b; margin-top: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <span>ผู้ติดตามสนใจสูง (เทียบกับ TikTok 3.8%)</span>
+              <span style="color: #38bdf8; font-size: 10.5px; font-weight: 600;">(ดูที่มา ↗)</span>
+            </div>
+
+            <!-- Interactive Popup for Facebook Engagement Rate -->
+            <div class="views-popup cross-platform-popup" id="fbErPopup" role="tooltip" aria-label="สรุปอัตราการมีส่วนร่วมเฉพาะ Facebook">
+              <div class="popup-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); flex-wrap: nowrap; gap: 8px;">
+                <span class="popup-title" style="display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 13px; color: #f8fafc; white-space: nowrap;">
+                  <span>📈</span> อัตราการมีส่วนร่วมเฉพาะ Facebook (ER)
+                </span>
+                <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+                  <span class="popup-badge" style="background: rgba(16, 185, 129, 0.25); color: #34d399; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.45); white-space: nowrap;">
+                    ER เฉลี่ย 11.12%
+                  </span>
+                  <button type="button" aria-label="ปิดสรุปอัตราการมีส่วนร่วม" onclick="document.querySelectorAll('.has-popup').forEach(p => p.classList.remove('popup-force-show')); event.stopPropagation();" style="background: rgba(255,255,255,0.08); border: none; color: #94a3b8; font-size: 12px; cursor: pointer; padding: 3px 6px; line-height: 1; border-radius: 4px;" onmouseover="this.style.color='#fff'; this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.color='#94a3b8'; this.style.background='rgba(255,255,255,0.08)'">✕</button>
+                </div>
+              </div>
+              <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 10px; padding: 10px 12px; margin-bottom: 10px; font-size: 11px;">
+                <div style="font-weight: 800; color: #34d399; margin-bottom: 4px;">🎯 สูตรการคำนวณ ER บน Facebook:</div>
+                <div style="color: #cbd5e1; line-height: 1.5;">
+                  (Total Interactions: <strong>2,702</strong> / Total Views: <strong>24,300</strong>) × 100 = <strong style="color: #34d399; font-size: 13px;">11.12%</strong>
+                </div>
+              </div>
+              <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 10px 12px; margin-bottom: 10px; font-size: 11px; color: #cbd5e1; line-height: 1.5;">
+                <div style="font-weight: 700; color: #93c5fd; margin-bottom: 4px;">💡 ข้อสังเกตเชิงคุณภาพ:</div>
+                • เพจ Facebook ของ City Link Condo มีฐานผู้ติดตามเดิมที่มีความต้องการซื้อเพื่ออยู่อาศัยหรือลงทุนจริง (High Purchasing Intent)<br>
+                • ทำให้มีอัตราการ Comment สอบถามรายละเอียดและ Save สูงกว่า TikTok เกือบ 3 เท่า
+              </div>
+              <div style="padding-top: 8px; border-top: 1px dashed rgba(255, 255, 255, 0.12); display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
+                <span style="color: #94a3b8; font-size: 10px;">📁 ข้อมูล Verified Ingestion</span>
+                <button type="button" onclick="document.querySelectorAll('.has-popup').forEach(p => p.classList.remove('popup-force-show')); openTikTokModal(4); return false;" style="background: rgba(24, 119, 242, 0.2); border: 1px solid rgba(24, 119, 242, 0.45); color: #93c5fd; font-size: 11px; font-weight: 700; cursor: pointer; border-radius: 6px; padding: 3px 8px; transition: all 0.2s;" onmouseover="this.style.background='rgba(24, 119, 242, 0.35)'" onmouseout="this.style.background='rgba(24, 119, 242, 0.2)'">
+                  📊 ดูตารางเปรียบเทียบฉบับเต็ม →
+                </button>
+              </div>
+            </div>
           </div>
 
-          <!-- KPI 4: Content Pipeline Status (Facebook Only) -->
-          <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(24, 119, 242, 0.25); border-radius: 10px; padding: 12px 14px;">
+          <!-- KPI 4: Content Pipeline Status (Facebook Only with Popup) -->
+          <div class="has-popup" tabindex="0" title="คลิกหรือชี้เพื่อดูสถานะ 48 รายการคอนเทนต์บน Facebook" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(24, 119, 242, 0.3); border-radius: 10px; padding: 12px 14px; position: relative; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='rgba(56, 189, 248, 0.5)'; this.style.background='rgba(30, 41, 59, 0.8)';" onmouseout="this.style.borderColor='rgba(24, 119, 242, 0.3)'; this.style.background='rgba(15, 23, 42, 0.6)';">
             <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; color: #94a3b8; font-weight: 600; margin-bottom: 4px;">
-              <span>📑 Content Status Pipeline</span>
-              <span style="color: #f59e0b; font-size: 11px;">48 รายการ Facebook</span>
+              <span style="display: flex; align-items: center; gap: 5px;">📑 Content Pipeline</span>
+              <span style="display: flex; align-items: center; gap: 4px;">
+                <span style="color: #f59e0b; font-size: 11px; font-weight: 700;">48 รายการ FB</span>
+                <span style="font-size: 10px; color: #38bdf8; background: rgba(56, 189, 248, 0.15); padding: 1px 6px; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.35); font-weight: 700;">ชี้/คลิก ℹ️</span>
+              </span>
             </div>
             <div style="font-size: 22px; font-weight: 800; color: #f8fafc; letter-spacing: -0.5px;">4 <span style="font-size: 13px; color: #34d399; font-weight: 700;">โพสต์แล้ว</span> <span style="font-size: 13px; color: #94a3b8;">/ 44 แผน</span></div>
-            <div style="font-size: 11px; color: #64748b; margin-top: 4px;">ส.ค.: 4 โพสต์ • ก.ย.: รวบรวม • ต.ค.: 24 แผน</div>
+            <div style="font-size: 11px; color: #64748b; margin-top: 4px; display: flex; justify-content: space-between; align-items: center;">
+              <span>ส.ค.: 4 โพสต์ • ก.ย.: รวบรวม • ต.ค.: 24 แผน</span>
+              <span style="color: #38bdf8; font-size: 10.5px; font-weight: 600;">(ดูรายการ ↗)</span>
+            </div>
+
+            <!-- Interactive Popup for Facebook Content Pipeline -->
+            <div class="views-popup cross-platform-popup popup-align-right" id="fbPipelinePopup" role="tooltip" aria-label="สรุปแผนงานคอนเทนต์เฉพาะ Facebook">
+              <div class="popup-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); flex-wrap: nowrap; gap: 8px;">
+                <span class="popup-title" style="display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 13px; color: #f8fafc; white-space: nowrap;">
+                  <span>📑</span> แผนงานและสถานะคอนเทนต์ Facebook
+                </span>
+                <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+                  <span class="popup-badge" style="background: rgba(245, 158, 11, 0.25); color: #fbbf24; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 8px; border: 1px solid rgba(245, 158, 11, 0.45); white-space: nowrap;">
+                    รวม 48 รายการ
+                  </span>
+                  <button type="button" aria-label="ปิดสรุปแผนงานคอนเทนต์" onclick="document.querySelectorAll('.has-popup').forEach(p => p.classList.remove('popup-force-show')); event.stopPropagation();" style="background: rgba(255,255,255,0.08); border: none; color: #94a3b8; font-size: 12px; cursor: pointer; padding: 3px 6px; line-height: 1; border-radius: 4px;" onmouseover="this.style.color='#fff'; this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.color='#94a3b8'; this.style.background='rgba(255,255,255,0.08)'">✕</button>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px; font-size: 11px; margin-bottom: 10px;">
+                <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 7px 10px; display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #cbd5e1;">✅ <strong>สิงหาคม 2569:</strong> โพสต์วิดีโอบน Facebook แล้ว</span>
+                  <span style="color: #34d399; font-weight: 700;">4 โพสต์เสร็จสมบูรณ์</span>
+                </div>
+                <div style="background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 7px 10px; display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #cbd5e1;">🔄 <strong>กันยายน 2569:</strong> สรุปยอด Reach &amp; ออร์แกนิกโพสต์</span>
+                  <span style="color: #38bdf8; font-weight: 700;">16 รายการตามแผน</span>
+                </div>
+                <div style="background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; padding: 7px 10px; display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #cbd5e1;">📅 <strong>ตุลาคม 2569:</strong> เตรียมเผยแพร่คู่ขนาน 3 ครีเอเตอร์</span>
+                  <span style="color: #fbbf24; font-weight: 700;">24 รายการ (คนละ 8 แผน)</span>
+                </div>
+              </div>
+              <div style="padding-top: 8px; border-top: 1px dashed rgba(255, 255, 255, 0.12); display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
+                <span style="color: #94a3b8; font-size: 10px;">📁 ข้อมูล Content Face book</span>
+                <button type="button" onclick="document.querySelectorAll('.has-popup').forEach(p => p.classList.remove('popup-force-show')); openTikTokModal(4); return false;" style="background: rgba(24, 119, 242, 0.2); border: 1px solid rgba(24, 119, 242, 0.45); color: #93c5fd; font-size: 11px; font-weight: 700; cursor: pointer; border-radius: 6px; padding: 3px 8px; transition: all 0.2s;" onmouseover="this.style.background='rgba(24, 119, 242, 0.35)'" onmouseout="this.style.background='rgba(24, 119, 242, 0.2)'">
+                  📊 ดูตารางเปรียบเทียบฉบับเต็ม →
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
