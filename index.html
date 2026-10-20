@@ -5045,7 +5045,7 @@
           </div>
           <div class="tiktok-header-info">
             <h3>5. TikTok Video Content Performance & Audience Insights <span class="tiktok-header-badge">@citylink</span></h3>
-            <p>วิเคราะห์ผลตอบรับคอนเทนต์วิดีโอสั้น, สถิติการมีส่วนร่วม, กลุ่มผู้ชม และคำค้นหา SEO • อิงข้อมูลจาก [ตาราง Content tiktok รวม-Facebook.xlsx]</p>
+            <p>วิเคราะห์ผลตอบรับคอนเทนต์วิดีโอสั้น, สถิติการมีส่วนร่วม, กลุ่มผู้ชม และคำค้นหา SEO • อิงข้อมูลตามโครงสร้าง [antigravity_dashboard_schema.md] &amp; [content_dashboard_data.json] จากตารางรวม TikTok &amp; Facebook</p>
           </div>
         </div>
         <div style="display: flex; align-items: center; gap: 10px;">
@@ -5053,6 +5053,84 @@
             <span class="pulsing-dot"></span>
             <span>📊 เปิด Popup รายละเอียดเชิงลึก 5 หัวข้อ (รวมตาราง Content TikTok & FB)</span>
           </button>
+        </div>
+      </div>
+
+            <!-- Antigravity Schema Ingestion & Cross-Platform Intelligence Widget -->
+      <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 14px; padding: 18px 20px; margin: 16px 0 20px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.25); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -20px; right: -20px; width: 140px; height: 140px; background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%); pointer-events: none;"></div>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 12px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 20px;">🤖</span>
+            <div>
+              <div style="font-size: 15px; font-weight: 800; color: #38bdf8; display: flex; align-items: center; gap: 8px;">
+                AI Antigravity Dashboard Extraction &amp; Context Schema
+                <span style="background: rgba(16, 185, 129, 0.2); color: #34d399; font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 700; border: 1px solid rgba(16, 185, 129, 0.4);">Verified Ingestion</span>
+              </div>
+              <div style="font-size: 12px; color: #94a3b8; margin-top: 2px;">
+                อ้างอิงข้อมูล: <code>antigravity_dashboard_schema.md</code> &amp; <code>content_dashboard_data.json</code> • ซิงค์ 3 ชีตครีเอเตอร์ (ปรัศว์ภา, ปนัดดา, ราตรี)
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <button onclick="openTikTokModal(4); return false;" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 5px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(56, 189, 248, 0.25)'" onmouseout="this.style.background='rgba(56, 189, 248, 0.12)'">
+              📊 ดูตารางเปรียบเทียบ Facebook vs TikTok
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Grid KPI Boxes -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-bottom: 14px;">
+          <!-- KPI 1: Total Reach -->
+          <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 12px 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; color: #94a3b8; font-weight: 600; margin-bottom: 4px;">
+              <span>🌐 Total Views / Reach รวม</span>
+              <span style="color: #38bdf8; font-size: 11px;">TikTok + FB</span>
+            </div>
+            <div style="font-size: 22px; font-weight: 800; color: #f8fafc; letter-spacing: -0.5px;">151,528+ <span style="font-size: 12px; font-weight: normal; color: #94a3b8;">วิว</span></div>
+            <div style="font-size: 11px; color: #64748b; margin-top: 4px;">TikTok: 127.2K • FB สะสม: 24.3K</div>
+          </div>
+
+          <!-- KPI 2: Total Interactions -->
+          <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 12px 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; color: #94a3b8; font-weight: 600; margin-bottom: 4px;">
+              <span>💬 Total Interactions รวม</span>
+              <span style="color: #ec4899; font-size: 11px;">Likes/Cmts/Saves</span>
+            </div>
+            <div style="font-size: 22px; font-weight: 800; color: #f8fafc; letter-spacing: -0.5px;">6,285+ <span style="font-size: 12px; font-weight: normal; color: #94a3b8;">ครั้ง</span></div>
+            <div style="font-size: 11px; color: #64748b; margin-top: 4px;">Likes: 3,420+ • Cmts: 115 • Saves: 76</div>
+          </div>
+
+          <!-- KPI 3: Engagement Rate -->
+          <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 12px 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; color: #94a3b8; font-weight: 600; margin-bottom: 4px;">
+              <span>📈 Engagement Rate (ER)</span>
+              <span style="color: #10b981; font-size: 11px;">เฉลี่ยระบบ</span>
+            </div>
+            <div style="font-size: 22px; font-weight: 800; color: #34d399; letter-spacing: -0.5px;">4.2% <span style="font-size: 12px; font-weight: normal; color: #94a3b8;">เฉลี่ยรวม</span></div>
+            <div style="font-size: 11px; color: #64748b; margin-top: 4px;">TikTok: 3.8% • Facebook: 11.1%</div>
+          </div>
+
+          <!-- KPI 4: Content Pipeline Status -->
+          <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 12px 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; color: #94a3b8; font-weight: 600; margin-bottom: 4px;">
+              <span>📑 Content Status Pipeline</span>
+              <span style="color: #f59e0b; font-size: 11px;">71 รายการ</span>
+            </div>
+            <div style="font-size: 22px; font-weight: 800; color: #f8fafc; letter-spacing: -0.5px;">38 <span style="font-size: 13px; color: #34d399; font-weight: 700;">โพสต์แล้ว</span> <span style="font-size: 13px; color: #94a3b8;">/ 33 แผน</span></div>
+            <div style="font-size: 11px; color: #64748b; margin-top: 4px;">ส.ค.: 28 โพสต์ • ก.ย.: 9 โพสต์ • ต.ค.: 12 แผน</div>
+          </div>
+        </div>
+
+        <!-- Demographic & Creator Quick Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 11.5px; color: #cbd5e1; background: rgba(0, 0, 0, 0.25); padding: 8px 12px; border-radius: 8px;">
+          <div>
+            <span>👥 <strong>Audience Demographics ข้ามแพลตฟอร์ม:</strong> หญิง <strong>52.8%</strong> • ชาย <strong>45.4%</strong> • อื่นๆ <strong>1.8%</strong> (กลุ่มอายุหลัก: 25-34 ปี 54%, 35-44 ปี 28%)</span>
+          </div>
+          <div>
+            <span>👤 <strong>สัดส่วนผลงานครีเอเตอร์:</strong> คุณปรัศว์ภา (56.8K วิว) • คุณปนัดดา (63.2K วิว) • คุณราตรี (45.4K วิว)</span>
+          </div>
         </div>
       </div>
 
@@ -10311,18 +10389,29 @@
 
         <!-- PANE 4: เปรียบเทียบ Facebook & แผนงานกันยายน -->
         <div class="tiktok-topic-pane" id="tkPane4">
-          <div style="font-size: 15px; font-weight: 800; color: var(--text-dark); margin-bottom: 6px;">📊 4.1 ตารางเปรียบเทียบผลลัพธ์ Content Facebook &amp; TikTok ประจำเดือนกันยายน 2569</div>
-          <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">การทำงานคู่ขนานข้ามแพลตฟอร์ม ยอดเข้าชม และการมีส่วนร่วม (Engagement Rate):</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border-subtle); flex-wrap: wrap; gap: 8px;">
+            <div>
+              <div style="font-size: 16px; font-weight: 800; color: var(--text-dark); display: flex; align-items: center; gap: 8px;">
+                <span>📊</span> 4.1 ตารางเปรียบเทียบผลลัพธ์ Content Facebook &amp; TikTok ประจำเดือนกันยายน 2569
+              </div>
+              <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">
+                สถิติบูรณาการจาก <code>antigravity_dashboard_schema.md</code> &amp; <code>content_dashboard_data.json</code> • รวม 3 ครีเอเตอร์
+              </div>
+            </div>
+            <span style="font-size: 11.5px; background: rgba(16, 185, 129, 0.15); color: #059669; padding: 4px 10px; border-radius: 20px; font-weight: 700; border: 1px solid rgba(16, 185, 129, 0.3);">
+              Cross-Platform Integrated
+            </span>
+          </div>
 
           <table class="tiktok-detail-table">
             <thead>
               <tr>
-                <th style="width: 12%;">สัปดาห์</th>
-                <th style="width: 28%;">หัวข้อ Content</th>
+                <th style="width: 10%;">สัปดาห์</th>
+                <th style="width: 26%;">หัวข้อ Content</th>
                 <th style="width: 12%;">สถานะ</th>
                 <th style="width: 12%;">วันที่โพสต์</th>
-                <th style="width: 18%;">TikTok Performance</th>
-                <th style="width: 18%;">Facebook Performance</th>
+                <th style="width: 20%;">TikTok Performance (3 Creators)</th>
+                <th style="width: 20%;">Facebook Performance</th>
               </tr>
             </thead>
             <tbody>
@@ -10331,97 +10420,165 @@
                 <td><strong>โปรโมชั่นประจำเดือน Ready to move in</strong></td>
                 <td><span style="color: #10b981; font-weight: 700;">โพสต์แล้ว</span></td>
                 <td>12/09/2026</td>
-                <td><strong>7,741 Views</strong><br><span style="font-size: 11.5px; color: var(--text-muted);">21 Engages (ER 0.27%)</span></td>
-                <td><strong style="color: #1877f2;">15,400 Views</strong><br><span style="font-size: 11.5px; color: #10b981; font-weight: 700;">1,775 Engages (ER 11.46%)</span></td>
+                <td>
+                  <strong style="color: #ff0050;">18,010 Views</strong><br>
+                  <span style="font-size: 11px; color: var(--text-muted);">
+                    • ปรัศว์ภา: 7,827 (24 Eng)<br>
+                    • ปนัดดา: 7,741 (21 Eng)<br>
+                    • ราตรี: 2,442 (22 Eng)
+                  </span>
+                </td>
+                <td>
+                  <strong style="color: #1877f2;">15,400 Views</strong><br>
+                  <span style="font-size: 11.5px; color: #10b981; font-weight: 700;">1,775 Engages (ER 11.46%)</span>
+                </td>
               </tr>
               <tr>
                 <td><strong>Week 2</strong></td>
                 <td><strong>แผนพัฒนาพื้นที่รอบๆ ในอนาคต...</strong></td>
                 <td><span style="color: #10b981; font-weight: 700;">โพสต์แล้ว</span></td>
                 <td>13/09/2026</td>
-                <td><strong>575 Views</strong><br><span style="font-size: 11.5px; color: #10b981; font-weight: 700;">43 Engages (ER 7.48%)</span></td>
-                <td><strong style="color: #1877f2;">8,900 Views</strong><br><span style="font-size: 11.5px; color: #10b981; font-weight: 700;">937 Engages (ER 10.47%)</span></td>
+                <td>
+                  <strong style="color: #ff0050;">1,578 Views</strong><br>
+                  <span style="font-size: 11px; color: var(--text-muted);">
+                    • ปรัศว์ภา: 653 (42 Eng)<br>
+                    • ปนัดดา: 575 (40 Eng)<br>
+                    • ราตรี: 350 (16 Eng)
+                  </span>
+                </td>
+                <td>
+                  <strong style="color: #1877f2;">8,900 Views</strong><br>
+                  <span style="font-size: 11.5px; color: #10b981; font-weight: 700;">937 Engages (ER 10.47%)</span>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Free Style</strong></td>
+                <td><strong>ไลฟ์สไตล์คอนโด &amp; บรรยากาศโครงการ</strong></td>
+                <td><span style="color: #10b981; font-weight: 700;">โพสต์แล้ว</span></td>
+                <td>17-21/09/2026</td>
+                <td>
+                  <strong style="color: #ff0050;">1,811 Views</strong><br>
+                  <span style="font-size: 11px; color: var(--text-muted);">
+                    • ปรัศว์ภา: 488 Views (35 Eng)<br>
+                    • ราตรี: 1,193 Views (233 Eng)<br>
+                    • ท้ายเดือน: 130 Views (18 Eng)
+                  </span>
+                </td>
+                <td>
+                  <strong style="color: #1877f2;">4,200 Views</strong><br>
+                  <span style="font-size: 11.5px; color: #10b981; font-weight: 700;">412 Engages (ER 9.8%)</span>
+                </td>
               </tr>
               <tr>
                 <td><strong>Week 3</strong></td>
-                <td>โครงการ Nature (Native)</td>
+                <td>โคราช Native (โครงการธรรมชาติใจกลางเมือง)</td>
                 <td><span style="color: #3b82f6; font-weight: 700;">รอโพสต์</span></td>
-                <td>-</td>
-                <td><span style="color: var(--text-muted);">ตามแผนงานสัปดาห์ที่ 3</span></td>
-                <td><span style="color: var(--text-muted);">ตามแผนงานสัปดาห์ที่ 3</span></td>
+                <td>แผนงาน ก.ย.</td>
+                <td><span style="color: var(--text-muted);">ตามแผนงานคอนเทนต์สัปดาห์ที่ 3</span></td>
+                <td><span style="color: var(--text-muted);">ตามแผนงานคอนเทนต์สัปดาห์ที่ 3</span></td>
               </tr>
               <tr>
                 <td><strong>Week 4</strong></td>
-                <td>แผนคอนเทนต์ (Free Style)</td>
+                <td>ซื้อคอนโดหน้าฝน / รีวิวไลฟ์สไตล์</td>
                 <td><span style="color: #3b82f6; font-weight: 700;">รอโพสต์</span></td>
-                <td>-</td>
-                <td><span style="color: var(--text-muted);">ตามแผนงานสัปดาห์ที่ 4</span></td>
-                <td><span style="color: var(--text-muted);">ตามแผนงานสัปดาห์ที่ 4</span></td>
+                <td>แผนงาน ก.ย.</td>
+                <td><span style="color: var(--text-muted);">ตามแผนงานคอนเทนต์สัปดาห์ที่ 4</span></td>
+                <td><span style="color: var(--text-muted);">ตามแผนงานคอนเทนต์สัปดาห์ที่ 4</span></td>
               </tr>
               <tr style="background: rgba(16, 185, 129, 0.08); font-weight: 800;">
-                <td colspan="4" style="text-align: right; color: var(--text-dark);">รวมสถิติสะสมเผยแพร่แล้ว (2 สัปดาห์แรก ก.ย. 69):</td>
-                <td><strong style="color: #ff0050;">8,316 Views</strong><br><span style="font-size: 11.5px;">64 Engages (Top 7.7K)</span></td>
-                <td><strong style="color: #1877f2;">24,300 Views</strong><br><span style="font-size: 11.5px; color: #047857;">2,712 Engages (ER 11.13%)</span></td>
+                <td colspan="4" style="text-align: right; color: var(--text-dark);">รวมสถิติสะสมเผยแพร่แล้ว (เดือน ก.ย. 69 ข้ามแพลตฟอร์ม):</td>
+                <td><strong style="color: #ff0050;">21,399 Views</strong><br><span style="font-size: 11.5px;">465 Engages (TikTok)</span></td>
+                <td><strong style="color: #1877f2;">28,500 Views</strong><br><span style="font-size: 11.5px; color: #047857;">3,124 Engages (FB)</span></td>
               </tr>
             </tbody>
           </table>
 
+          <!-- 4.2 Cross-Platform Creator Aggregation Table -->
           <div style="margin-top: 24px;">
-            <div style="font-size: 15px; font-weight: 800; color: var(--text-dark); margin-bottom: 6px;">📊 4.2 ตารางสรุป Content Facebook ประจำเดือนสิงหาคม 2569</div>
-            <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">รายการคอนเทนต์ที่เผยแพร่บน Facebook คู่ขนานกับ TikTok ในเดือนสิงหาคม:</div>
+            <div style="font-size: 15px; font-weight: 800; color: var(--text-dark); margin-bottom: 6px;">👥 4.2 สรุปผลงานข้ามแพลตฟอร์มรายบุคคล (Cross-Platform Creator Aggregation)</div>
+            <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">ดึงข้อมูลตาม Schema บูรณาการสถิติจากทั้ง 3 ครีเอเตอร์ ตลอดช่วง สิงหาคม - ตุลาคม 2569:</div>
 
             <table class="tiktok-detail-table">
               <thead>
                 <tr>
-                  <th style="width: 15%;">สัปดาห์</th>
-                  <th style="width: 45%;">หัวข้อ Content</th>
-                  <th style="width: 15%;">สถานะ</th>
-                  <th style="width: 15%;">วันที่โพสต์</th>
-                  <th style="width: 25%;">รูปแบบ Content</th>
+                  <th style="width: 20%;">ผู้รับผิดชอบ / ครีเอเตอร์</th>
+                  <th style="width: 16%;">TikTok Views รวม</th>
+                  <th style="width: 16%;">Facebook Views รวม</th>
+                  <th style="width: 16%;">Cross-Platform Views</th>
+                  <th style="width: 16%;">Interactions รวม</th>
+                  <th style="width: 16%;">สถานะชิ้นงาน</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Week 1</strong></td>
-                  <td><strong>ขายค่ะ....แบบขายจริง</strong></td>
-                  <td><span style="color: #10b981; font-weight: 700;">โพสต์แล้ว</span></td>
-                  <td>23/08/2026</td>
-                  <td>วิดีโอ (สอดคล้องกับ TikTok)</td>
+                  <td><strong>คุณปรัศว์ภา (ชุดที่ 1)</strong><br><span style="font-size: 11px; color: var(--text-muted);">@Patsapar 🌈</span></td>
+                  <td><strong>47,714</strong></td>
+                  <td style="color: #1877f2;"><strong>9,098</strong></td>
+                  <td><strong style="color: #059669;">56,812</strong></td>
+                  <td>1,146 ครั้ง</td>
+                  <td><span style="color: #10b981; font-weight: 700;">13 โพสต์แล้ว</span> / 4 แผน</td>
                 </tr>
                 <tr>
-                  <td><strong>Week 2</strong></td>
-                  <td><strong>อยากบอกอะไรกับคนถัดไป</strong></td>
-                  <td><span style="color: #10b981; font-weight: 700;">โพสต์แล้ว</span></td>
-                  <td>22/08/2026</td>
-                  <td>วิดีโอ (สอดคล้องกับ TikTok)</td>
+                  <td><strong>คุณปนัดดา (ชุดที่ 2)</strong><br><span style="font-size: 11px; color: var(--text-muted);">@Patty_Citylink 🏡</span></td>
+                  <td><strong>47,277</strong></td>
+                  <td style="color: #1877f2;"><strong>24,300</strong></td>
+                  <td><strong style="color: #059669;">71,577</strong></td>
+                  <td>2,912 ครั้ง</td>
+                  <td><span style="color: #10b981; font-weight: 700;">12 โพสต์แล้ว</span> / 4 แผน</td>
                 </tr>
                 <tr>
-                  <td><strong>Event</strong></td>
-                  <td><strong>ภาพบรรยากาศงาน Private Event</strong></td>
-                  <td><span style="color: #047857; font-weight: 700;">โพสต์แล้ว</span></td>
-                  <td>20/08/2026</td>
-                  <td>อัลบั้มภาพ / วิดีโอ (สอดคล้องกับ TikTok)</td>
+                  <td><strong>คุณราตรี (ชุดที่ 3)</strong><br><span style="font-size: 11px; color: var(--text-muted);">@Nann_Citylink ✨</span></td>
+                  <td><strong>44,447</strong></td>
+                  <td style="color: #1877f2;"><strong>1,200</strong></td>
+                  <td><strong style="color: #059669;">45,647</strong></td>
+                  <td>2,102 ครั้ง</td>
+                  <td><span style="color: #10b981; font-weight: 700;">12 โพสต์แล้ว</span> / 4 แผน</td>
                 </tr>
-                <tr>
-                  <td><strong>Week 3</strong></td>
-                  <td><strong>จอง ทำสัญญา ดาวน์</strong></td>
-                  <td><span style="color: #10b981; font-weight: 700;">โพสต์แล้ว</span></td>
-                  <td>06/09/2026</td>
-                  <td>วิดีโอ (สอดคล้องกับ TikTok)</td>
-                </tr>
-                <tr>
-                  <td><strong>Week 4</strong></td>
-                  <td><strong>ยื่นขอสินเชื่อ</strong></td>
-                  <td><span style="color: #10b981; font-weight: 700;">โพสต์แล้ว</span></td>
-                  <td>10/09/2026</td>
-                  <td>วิดีโอ (สอดคล้องกับ TikTok)</td>
+                <tr style="background: rgba(56, 189, 248, 0.08); font-weight: 800;">
+                  <td style="color: var(--text-dark);">รวมทั้งหมด (3 ครีเอเตอร์):</td>
+                  <td><strong style="color: #ff0050;">139,438 Views</strong></td>
+                  <td><strong style="color: #1877f2;">34,598 Views</strong></td>
+                  <td><strong style="color: #059669; font-size: 14px;">174,036 Views</strong></td>
+                  <td><strong>6,160 Interactions</strong></td>
+                  <td><strong style="color: #10b981;">37 โพสต์แล้ว</strong> / 12 แผน</td>
                 </tr>
               </tbody>
             </table>
           </div>
-        </div>
 
-        <!-- PANE 5: ตาราง Content TikTok รวม Facebook (อ้างอิง tiktok_and_facebook_content_schedule.md) -->
+          <!-- 4.3 Demographics & Peak Times Insights -->
+          <div style="margin-top: 24px; background: rgba(56, 189, 248, 0.04); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 12px; padding: 16px;">
+            <div style="font-size: 14.5px; font-weight: 800; color: #0284c7; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+              <span>🎯</span> 4.3 สรุปข้อมูลกลุ่มเป้าหมายเชิงลึก (Audience Demographics &amp; Peak Times)
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 10px;">
+              <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 12px;">
+                <div style="font-size: 12px; font-weight: 700; color: var(--text-muted); margin-bottom: 4px;">สัดส่วนเพศผู้ชม (Gender Distribution)</div>
+                <div style="font-size: 13.5px; color: var(--text-dark); line-height: 1.6;">
+                  • <strong>หญิง:</strong> 52.8% (เน้นคอนเทนต์รีวิวห้องนอน &amp; ส่วนกลาง)<br>
+                  • <strong>ชาย:</strong> 45.4% (เน้นคอนเทนต์ทำเล มอเตอร์เวย์ M6 &amp; วิเคราะห์ราคา)<br>
+                  • <strong>อื่นๆ:</strong> 1.8%
+                </div>
+              </div>
+              <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 12px;">
+                <div style="font-size: 12px; font-weight: 700; color: var(--text-muted); margin-bottom: 4px;">ช่วงอายุหลัก (Age Demographics)</div>
+                <div style="font-size: 13.5px; color: var(--text-dark); line-height: 1.6;">
+                  • <strong>25 - 34 ปี:</strong> 54% (กลุ่ม First Jobber &amp; เริ่มสร้างครอบครัว)<br>
+                  • <strong>35 - 44 ปี:</strong> 28% (กลุ่มผู้ซื้อเพื่ออยู่อาศัยจริงและลงทุน)<br>
+                  • <strong>18 - 24 ปี &amp; 45+ ปี:</strong> 18%
+                </div>
+              </div>
+              <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 12px;">
+                <div style="font-size: 12px; font-weight: 700; color: var(--text-muted); margin-bottom: 4px;">เวลาเข้าชมสูงสุด (Peak Times)</div>
+                <div style="font-size: 13.5px; color: var(--text-dark); line-height: 1.6;">
+                  • <strong>จันทร์ - ศุกร์:</strong> 12:00 - 13:30 น. และ 19:30 - 22:30 น.<br>
+                  • <strong>เสาร์ - อาทิตย์:</strong> 10:00 - 14:00 น. และ 20:00 - 23:00 น.<br>
+                  • <strong>คำค้นหาเด่น (SEO):</strong> คอนโดโคราช, มอเตอร์เวย์ M6, ตึก Hampton
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- PANE 5: ตาราง Content TikTok รวม Facebook (อ้างอิง tiktok_and_facebook_content_schedule.md) -->
         <div class="tiktok-topic-pane" id="tkPane5">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border-subtle); flex-wrap: wrap; gap: 8px;">
             <div>
@@ -10751,21 +10908,21 @@ const TIKTOK_DATA_ITEMS = [
     category: 'Promotion Campaign',
     status: 'โพสต์แล้ว',
     statusClass: 'status-posted',
-    views: '4,963 (5K)',
-    viewsRaw: 4963,
-    likes: '15',
-    likesRaw: 15,
+    views: '7,827 (7.8K)',
+    viewsRaw: 7827,
+    likes: '21',
+    likesRaw: 21,
     comments: '2',
     saves: '0',
     shares: '1',
-    playTime: '4ชม.10น.43ว.',
-    watchTime: '3.0 วินาที',
-    fullRate: '1.66%',
-    followers: '+1 ราย',
-    gender: 'ชาย 52% / หญิง 47% / อื่นๆ 1%',
-    hasSlip: true,
+    playTime: '7ชม.34น.51ว.',
+    watchTime: '3.5 วินาที',
+    fullRate: '1.99%',
+    followers: '+2 ราย',
+    gender: 'ชาย 50% / หญิง 48% / อื่นๆ 2%',
+    hasSlip: false,
     postDate: '12/09/2026',
-    updateDate: '14/09/2026',
+    updateDate: '21/09/2026',
     thumb: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAA0JCgsKCA0LCwsPDg0QFCEVFBISFCgdHhghMCoyMS8qLi00O0tANDhHOS0uQllCR05QVFVUMz9dY1xSYktTVFH/2wBDAQ4PDxQRFCcVFSdRNi42UVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVH/wAARCAA7ABsDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDBTQLBlG9GwP8AP41InhvTnJ2pKQOp54/WtyKKIoxdscjAGP61ct4ohZXKIzhnXDMCp28dawdSzsWonOx+HNPhbc6BV9WOf51Wn03QTM5OSSc/KSB+AHArTvNNto4JZlunfYrNzt7DPXOax7a3u7i3WVc4bPdvWqUkxONjfU/6JETxuUfnir2ngmyvCBkhRis2zKXulxMQcAnH1B4rQtmKaXqLDqIx/WrUSbmHqs9xHpku3PzDbgVHpmoJBp0Mbs24DngdzmpIz55CSeWBnqFxUlzaRCdhEylBwDg0lEdyK2klt4AsMo2k/dwODx/jVyK9kazuIGVcSgBiPSqawzmNVEDeoYKckGpUjkUEMjDPTjrWkRMga0kxm3kGfR6knl8iZomcSMvVkUgH86mjOxq0mcTMZGWNS3ZVAFVZMV2tDkE15Ci/uIR06tz0+lMk8RIrYFqCe7LJwf0rngSM478UAkAgd+tQM6q21mOZN58mMjna8uP6Utx4qzO2LdCPVZOP1FcnmincD//Z',
     avatar: 'data:image/jpeg;base64,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'
   },
@@ -10783,21 +10940,21 @@ const TIKTOK_DATA_ITEMS = [
     category: 'City Link Development',
     status: 'โพสต์แล้ว',
     statusClass: 'status-posted',
-    views: '123',
-    viewsRaw: 123,
-    likes: '12',
-    likesRaw: 12,
-    comments: '0',
-    saves: '1',
+    views: '653',
+    viewsRaw: 653,
+    likes: '36',
+    likesRaw: 36,
+    comments: '6',
+    saves: '0',
     shares: '0',
-    playTime: '24น.17ว.',
-    watchTime: '11.4 วินาที',
-    fullRate: '14.06%',
-    followers: '0 ราย',
-    gender: 'ชาย 32% / หญิง 68%',
+    playTime: '1ชม.58น.06ว.',
+    watchTime: '11.6 วินาที',
+    fullRate: '10.28%',
+    followers: '+2 ราย',
+    gender: 'หญิง 68% / ชาย 32%',
     hasSlip: false,
     postDate: '13/09/2026',
-    updateDate: '14/09/2026',
+    updateDate: '21/09/2026',
     thumb: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAA0JCgsKCA0LCwsPDg0QFCEVFBISFCgdHhghMCoyMS8qLi00O0tANDhHOS0uQllCR05QVFVUMz9dY1xSYktTVFH/2wBDAQ4PDxQRFCcVFSdRNi42UVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVH/wAARCAA0ABoDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDD/saxQFDbfKRg88/nSpoGnSttjtX92MpwK0579HUph2OeD8qg8dyeetNFyGVlWAPEMkqJ/u5yM5x78e9TcdimPD9laPv2JIB2IJ5/HNQ/2FZnkWUWP+uzf41one6N+4VA+TkyFtufbgHFTCV8f8fuPbaRj9KLhYwbmOUys63DKp6Lzx+tTWc7Q2rxs5cuME1HqCbI4xDcW7ykfP5ZLEHjg8kcfQc59jVW3vJp4XhTZiN94yDyvAJ49OKGgsW59O1G7t4Z7e4MYViFRmKgd8j15zXRZh9EqK4mjW/CQbRHDGm1eSBgf/qqrLcHzXyozuOeKLXAz52uJTGogYqoGCseCR+HWsiC2vTeLFDHKrMcMOVG3POfbiuoHiDSmCg3DtxjHktj/wBBrBt9S06DWDOzP5a7tvyY5PTjHpmncDqLaOK2sbVfNjDxY3sCCQ3Ufln+VVpjbyTSObqMlmJJ3gVjSz291ctMFdrd2BJXrggA4zjHSqEt5aCZwiyhNxxuHOKYjEBxnjNKDwRgfX0oooAUSOqlQzAHrg03JoooA//Z',
     avatar: 'data:image/jpeg;base64,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'
   },
@@ -10807,29 +10964,29 @@ const TIKTOK_DATA_ITEMS = [
     monthLabel: 'กันยายน 2569',
     week: 3,
     weekLabel: 'Week 3 (ก.ย. 69)',
-    title: 'โคราช Native (โครงการธรรมชาติใจกลางเมือง)',
+    title: 'Free Style • ไลฟ์สไตล์ & คอนโดโคราช (ก.ย.)',
     creator: 'patsapar',
     creatorName: 'คุณปรัศว์ภา',
     creatorHandle: '@Patsapar 🌈',
     creatorBadge: 'ชุดข้อมูลที่ 1',
-    category: 'Product Highlight',
-    status: 'รอโพสต์',
-    statusClass: 'status-planned',
-    views: 'รอเผยแพร่',
-    viewsRaw: 0,
-    likes: '-',
-    likesRaw: 0,
-    comments: '-',
-    saves: '-',
-    shares: '-',
-    playTime: '-',
-    watchTime: '-',
-    fullRate: '-',
-    followers: '-',
-    gender: 'กลุ่มผู้สนใจบ้าน/คอนโด',
+    category: 'Lifestyle Content',
+    status: 'โพสต์แล้ว',
+    statusClass: 'status-posted',
+    views: '265',
+    viewsRaw: 265,
+    likes: '17',
+    likesRaw: 17,
+    comments: '5',
+    saves: '1',
+    shares: '0',
+    playTime: '48น. 47วิ',
+    watchTime: '10.3 วินาที',
+    fullRate: '4.95%',
+    followers: '0 ราย',
+    gender: 'หญิง 66% / ชาย 34%',
     hasSlip: false,
-    postDate: 'แผน ก.ย. 69',
-    updateDate: '21/09/2026',
+    postDate: '19/09/2026',
+    updateDate: '19/10/2026',
     thumb: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAA0JCgsKCA0LCwsPDg0QFCEVFBISFCgdHhghMCoyMS8qLi00O0tANDhHOS0uQllCR05QVFVUMz9dY1xSYktTVFH/2wBDAQ4PDxQRFCcVFSdRNi42UVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVH/wAARCAA0ABoDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDD/saxQFDbfKRg88/nSpoGnSttjtX92MpwK0579HUph2OeD8qg8dyeetNFyGVlWAPEMkqJ/u5yM5x78e9TcdimPD9laPv2JIB2IJ5/HNQ/2FZnkWUWP+uzf41one6N+4VA+TkyFtufbgHFTCV8f8fuPbaRj9KLhYwbmOUys63DKp6Lzx+tTWc7Q2rxs5cuME1HqCbI4xDcW7ykfP5ZLEHjg8kcfQc59jVW3vJp4XhTZiN94yDyvAJ49OKGgsW59O1G7t4Z7e4MYViFRmKgd8j15zXRZh9EqK4mjW/CQbRHDGm1eSBgf/qqrLcHzXyozuOeKLXAz52uJTGogYqoGCseCR+HWsiC2vTeLFDHKrMcMOVG3POfbiuoHiDSmCg3DtxjHktj/wBBrBt9S06DWDOzP5a7tvyY5PTjHpmncDqLaOK2sbVfNjDxY3sCCQ3Ufln+VVpjbyTSObqMlmJJ3gVjSz291ctMFdrd2BJXrggA4zjHSqEt5aCZwiyhNxxuHOKYjEBxnjNKDwRgfX0oooAUSOqlQzAHrg03JoooA//Z',
     avatar: 'data:image/jpeg;base64,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'
   },
@@ -10839,29 +10996,29 @@ const TIKTOK_DATA_ITEMS = [
     monthLabel: 'กันยายน 2569',
     week: 4,
     weekLabel: 'Week 4 (ก.ย. 69)',
-    title: 'แผนคอนเทนต์ (Free Style)',
+    title: 'Free Style • พาทัวร์บรรยากาศ & สิ่งอำนวยความสะดวก',
     creator: 'patsapar',
     creatorName: 'คุณปรัศว์ภา',
     creatorHandle: '@Patsapar 🌈',
     creatorBadge: 'ชุดข้อมูลที่ 1',
     category: 'Lifestyle Content',
-    status: 'รอโพสต์',
-    statusClass: 'status-planned',
-    views: 'รอเผยแพร่',
-    viewsRaw: 0,
-    likes: '-',
-    likesRaw: 0,
-    comments: '-',
-    saves: '-',
-    shares: '-',
-    playTime: '-',
-    watchTime: '-',
-    fullRate: '-',
-    followers: '-',
-    gender: 'กลุ่มผู้ติดตามใหม่',
+    status: 'โพสต์แล้ว',
+    statusClass: 'status-posted',
+    views: '223',
+    viewsRaw: 223,
+    likes: '18',
+    likesRaw: 18,
+    comments: '7',
+    saves: '0',
+    shares: '0',
+    playTime: '27น. 06ว',
+    watchTime: '6.6 วินาที',
+    fullRate: '14.69%',
+    followers: '0 ราย',
+    gender: 'หญิง 68% / ชาย 31% / อื่นๆ 1%',
     hasSlip: false,
-    postDate: 'แผน ก.ย. 69',
-    updateDate: '21/09/2026',
+    postDate: '21/09/2026',
+    updateDate: '19/10/2026',
     thumb: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAA0JCgsKCA0LCwsPDg0QFCEVFBISFCgdHhghMCoyMS8qLi00O0tANDhHOS0uQllCR05QVFVUMz9dY1xSYktTVFH/2wBDAQ4PDxQRFCcVFSdRNi42UVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVH/wAARCAA7ABsDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDBTQLBlG9GwP8AP41InhvTnJ2pKQOp54/WtyKKIoxdscjAGP61ct4ohZXKIzhnXDMCp28dawdSzsWonOx+HNPhbc6BV9WOf51Wn03QTM5OSSc/KSB+AHArTvNNto4JZlunfYrNzt7DPXOax7a3u7i3WVc4bPdvWqUkxONjfU/6JETxuUfnir2ngmyvCBkhRis2zKXulxMQcAnH1B4rQtmKaXqLDqIx/WrUSbmHqs9xHpku3PzDbgVHpmoJBp0Mbs24DngdzmpIz55CSeWBnqFxUlzaRCdhEylBwDg0lEdyK2klt4AsMo2k/dwODx/jVyK9kazuIGVcSgBiPSqawzmNVEDeoYKckGpUjkUEMjDPTjrWkRMga0kxm3kGfR6knl8iZomcSMvVkUgH86mjOxq0mcTMZGWNS3ZVAFVZMV2tDkE15Ci/uIR06tz0+lMk8RIrYFqCe7LJwf0rngSM478UAkAgd+tQM6q21mOZN58mMjna8uP6Utx4qzO2LdCPVZOP1FcnmincD//Z',
     avatar: 'data:image/jpeg;base64,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'
   },
@@ -11434,8 +11591,8 @@ const TIKTOK_DATA_ITEMS = [
     watchTime: '4.7 วินาที',
     fullRate: '4.06%',
     followers: '0 ราย',
-    gender: 'ชาย 44% / หญิง 56%',
-    hasSlip: true,
+    gender: 'หญิง 56% / ชาย 44%',
+    hasSlip: false,
     postDate: '20/09/2026',
     updateDate: '21/09/2026',
     thumb: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAA0JCgsKCA0LCwsPDg0QFCEVFBISFCgdHhghMCoyMS8qLi00O0tANDhHOS0uQllCR05QVFVUMz9dY1xSYktTVFH/2wBDAQ4PDxQRFCcVFSdRNi42UVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVH/wAARCAAwABYDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDmNN12CyuppbiB4xOrbvLUbh82e9Q3GsKLoNZXl0qkgnzMHP4dK3bG10q8naA2AEwyoVHkjXOSME9ByKj1Lw3Zrcb7Z3Rwy/uyA4AxzyRz+dNtLcF5CaNreqX0bqjQyGPHLpjr9MelFS+HbT7HcXcZZSwC5+Xb60Vk5K+hrFOxb8PIZPFkiiNgP3jOpbA/1h7fjVu+aGWxgv5ZpJPtDN+734APOMfT+tT+E7LVI9XuL/VkMCtGw2kgKWZ8+tdFFYWnkyEx70ViAHOQM+34inN9mTBWWqPPfDDFpbxnEhJ2cu2fWiulh0C7sri4MJt47d2+RI1PHoST1JFFZSkmzaMWkXtb1qKG0d4V/fL8qFxhc5qnD4muysEdzbQqk20s4zyOBkflXIXfiz7bbIkiQDGGwZCef++ar/8ACR7mj3rCyxgKoL9APwrWEUk7mMpNtHaN4y0tlfak7qrAblCj16AkHt6UVxVzrmmBnlGmW7tI2SFnb9Pl4FFT7NdivaM//9k=',
@@ -11455,7 +11612,7 @@ const TIKTOK_DATA_ITEMS = [
     category: 'City Link Development',
     status: 'เรียบร้อย',
     statusClass: 'status-posted',
-    views: 'กำลังเก็บสถิติ',
+    views: '350 (รอสถิติสะสม)',
     viewsRaw: 350,
     likes: '12',
     likesRaw: 12,
@@ -11466,7 +11623,7 @@ const TIKTOK_DATA_ITEMS = [
     watchTime: '6.2 วินาที',
     fullRate: '5.80%',
     followers: '+1 ราย',
-    gender: 'ชาย 44% / หญิง 56%',
+    gender: 'หญิง 56% / ชาย 44%',
     hasSlip: false,
     postDate: '21/09/2026',
     updateDate: '21/09/2026',
@@ -11511,28 +11668,28 @@ const TIKTOK_DATA_ITEMS = [
     monthLabel: 'กันยายน 2569',
     week: 4,
     weekLabel: 'Week 4 (ก.ย. 69)',
-    title: 'แผนคอนเทนต์ (Free Style)',
+    title: 'Free Style • บรรยากาศโครงการ & สวนสีเขียว',
     creator: 'ratri',
     creatorName: 'คุณราตรี',
     creatorHandle: '@Nann_Citylink ✨',
     creatorBadge: 'ชุดข้อมูลที่ 3',
     category: 'Lifestyle Content',
-    status: 'รอโพสต์',
-    statusClass: 'status-planned',
-    views: 'รอเผยแพร่',
-    viewsRaw: 0,
-    likes: '-',
-    likesRaw: 0,
-    comments: '-',
-    saves: '-',
-    shares: '-',
-    playTime: '-',
-    watchTime: '-',
-    fullRate: '-',
-    followers: '-',
-    gender: 'กลุ่มผู้ติดตามใหม่',
+    status: 'โพสต์แล้ว',
+    statusClass: 'status-posted',
+    views: '1,193',
+    viewsRaw: 1193,
+    likes: '228',
+    likesRaw: 228,
+    comments: '5',
+    saves: '0',
+    shares: '0',
+    playTime: '1ชม.04นาที05วินาที',
+    watchTime: '3.0 วินาที',
+    fullRate: '7.46%',
+    followers: '0 ราย',
+    gender: 'หญิง 63% / ชาย 37%',
     hasSlip: false,
-    postDate: 'แผน ก.ย. 69',
+    postDate: '17/09/2026',
     updateDate: '21/09/2026',
     thumb: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAA0JCgsKCA0LCwsPDg0QFCEVFBISFCgdHhghMCoyMS8qLi00O0tANDhHOS0uQllCR05QVFVUMz9dY1xSYktTVFH/2wBDAQ4PDxQRFCcVFSdRNi42UVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVH/wAARCAAwABYDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDmNN12CyuppbiB4xOrbvLUbh82e9Q3GsKLoNZXl0qkgnzMHP4dK3bG10q8naA2AEwyoVHkjXOSME9ByKj1Lw3Zrcb7Z3Rwy/uyA4AxzyRz+dNtLcF5CaNreqX0bqjQyGPHLpjr9MelFS+HbT7HcXcZZSwC5+Xb60Vk5K+hrFOxb8PIZPFkiiNgP3jOpbA/1h7fjVu+aGWxgv5ZpJPtDN+734APOMfT+tT+E7LVI9XuL/VkMCtGw2kgKWZ8+tdFFYWnkyEx70ViAHOQM+34inN9mTBWWqPPfDDFpbxnEhJ2cu2fWiulh0C7sri4MJt47d2+RI1PHoST1JFFZSkmzaMWkXtb1qKG0d4V/fL8qFxhc5qnD4muysEdzbQqk20s4zyOBkflXIXfiz7bbIkiQDGGwZCef++ar/8ACR7mj3rCyxgKoL9APwrWEUk7mMpNtHaN4y0tlfak7qrAblCj16AkHt6UVxVzrmmBnlGmW7tI2SFnb9Pl4FFT7NdivaM//9k=',
     avatar: 'data:image/jpeg;base64,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'
