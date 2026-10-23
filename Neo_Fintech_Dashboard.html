@@ -48,7 +48,7 @@
     /* Floating Switcher & 24h Status Bar */
     .top-utility-bar {
       width: 100%;
-      max-width: 1360px;
+      max-width: 1660px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -105,7 +105,7 @@
     /* Master Device Container (Outer Bezel) */
     .cockpit-frame {
       width: 100%;
-      max-width: 1360px;
+      max-width: 1660px;
       background: var(--dark-bezel);
       border: 2px solid rgba(255, 255, 255, 0.08);
       border-radius: 36px;
@@ -925,6 +925,365 @@
       font-size: 14px;
     }
 
+        /* ========================================================================== */
+    /* SIDE FILTER BAR DOCK (แถบตัวกรองด้านข้าง ม.ค. - ต.ค. 2569)                 */
+    /* ========================================================================== */
+    .dashboard-page-layout {
+      display: flex;
+      gap: 20px;
+      width: 100%;
+      max-width: 1660px;
+      margin: 0 auto;
+      align-items: flex-start;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Left Side Filter Dock */
+    .side-filter-dock {
+      width: 260px;
+      flex-shrink: 0;
+      background: var(--dark-bezel);
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      border-radius: 28px;
+      padding: 18px 14px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+      position: sticky;
+      top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      z-index: 100;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      overflow-x: hidden;
+      transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), padding 0.25s ease;
+    }
+
+    .side-filter-dock::-webkit-scrollbar {
+      width: 4px;
+    }
+    .side-filter-dock::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+    }
+
+    .dock-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .dock-title-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .dock-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      background: rgba(0, 232, 135, 0.15);
+      color: var(--mint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      border: 1px solid rgba(0, 232, 135, 0.3);
+    }
+    .dock-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+    }
+    .dock-subtitle {
+      font-size: 10.5px;
+      color: #94a3b8;
+    }
+    .dock-collapse-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 11px;
+      transition: all 0.2s ease;
+    }
+    .dock-collapse-btn:hover {
+      background: rgba(0, 232, 135, 0.2);
+      color: var(--mint);
+      border-color: var(--mint);
+    }
+
+    .dock-section-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 2px 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Quick Grid */
+    .dock-quick-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 4px;
+    }
+    .dock-btn-quick {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      color: #cbd5e1;
+      padding: 5px 2px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+    .dock-btn-quick:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+    }
+    .dock-btn-quick.active {
+      background: var(--mint);
+      color: #0b0c10;
+      border-color: var(--mint);
+      font-weight: 800;
+      box-shadow: 0 3px 10px rgba(0, 232, 135, 0.35);
+    }
+    .dock-btn-all {
+      grid-column: span 4;
+      background: rgba(0, 232, 135, 0.08);
+      border: 1px solid rgba(0, 232, 135, 0.2);
+      color: var(--mint);
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 7px 10px;
+      border-radius: 9px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.15s ease;
+    }
+    .dock-btn-all:hover {
+      background: rgba(0, 232, 135, 0.16);
+    }
+    .dock-btn-all.active {
+      background: var(--mint);
+      color: #0b0c10;
+      border-color: var(--mint);
+      box-shadow: 0 4px 14px rgba(0, 232, 135, 0.35);
+    }
+
+    /* Monthly Items (10 Months) */
+    .dock-month-list {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5px;
+    }
+    .dock-month-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 9px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid transparent;
+      color: #cbd5e1;
+      cursor: pointer;
+      font-size: 11.5px;
+      font-weight: 600;
+      transition: all 0.15s ease;
+      text-align: left;
+      width: 100%;
+    }
+    .dock-month-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.1);
+      transform: translateX(2px);
+    }
+    .dock-month-item.active {
+      background: linear-gradient(135deg, rgba(0, 232, 135, 0.18) 0%, rgba(0, 232, 135, 0.06) 100%);
+      border: 1.5px solid var(--mint);
+      color: #ffffff;
+      font-weight: 700;
+      box-shadow: 0 3px 12px rgba(0, 232, 135, 0.15);
+    }
+    .dock-month-left {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .month-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #475569;
+      transition: all 0.2s ease;
+    }
+    .dock-month-item.active .month-dot {
+      background: var(--mint);
+      box-shadow: 0 0 6px var(--mint);
+    }
+    .month-num-badge {
+      font-family: var(--font-num);
+      font-size: 10px;
+      color: #64748b;
+      font-weight: 700;
+      width: 14px;
+    }
+    .dock-month-item.active .month-num-badge {
+      color: var(--mint);
+    }
+    .month-tag-pill {
+      font-family: var(--font-num);
+      font-size: 10px;
+      padding: 1.5px 5px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #94a3b8;
+      font-weight: 700;
+    }
+    .dock-month-item.active .month-tag-pill {
+      background: rgba(0, 232, 135, 0.2);
+      color: var(--mint);
+    }
+
+    /* Dock Footer Card */
+    .dock-footer-card {
+      margin-top: auto;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .dock-footer-label {
+      font-size: 10px;
+      color: #64748b;
+      font-weight: 600;
+    }
+    .dock-footer-val {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--mint);
+    }
+    .dock-footer-spend {
+      font-family: var(--font-num);
+      font-size: 11px;
+      color: #e2e8f0;
+      font-weight: 700;
+    }
+
+    /* Collapsed Sidebar */
+    .side-filter-dock.collapsed {
+      width: 66px;
+      padding: 14px 6px;
+    }
+    .side-filter-dock.collapsed .dock-subtitle,
+    .side-filter-dock.collapsed .dock-title,
+    .side-filter-dock.collapsed .dock-section-label,
+    .side-filter-dock.collapsed .dock-footer-card,
+    .side-filter-dock.collapsed .month-tag-pill,
+    .side-filter-dock.collapsed .month-name-full {
+      display: none;
+    }
+    .side-filter-dock.collapsed .dock-header {
+      justify-content: center;
+      flex-direction: column;
+      gap: 6px;
+      padding-bottom: 6px;
+    }
+    .side-filter-dock.collapsed .dock-collapse-btn {
+      width: 100%;
+    }
+    .side-filter-dock.collapsed .dock-quick-grid {
+      grid-template-columns: 1fr;
+    }
+    .side-filter-dock.collapsed .dock-month-item {
+      justify-content: center;
+      padding: 7px 2px;
+    }
+    .side-filter-dock.collapsed .dock-month-left {
+      gap: 2px;
+      justify-content: center;
+    }
+
+    /* Top Active Month Indicator */
+    .active-month-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 99px;
+      background: rgba(0, 232, 135, 0.15);
+      border: 1px solid rgba(0, 232, 135, 0.35);
+      color: #ffffff;
+      font-size: 11.5px;
+      font-weight: 600;
+    }
+    .active-month-pill strong {
+      color: var(--mint);
+      font-weight: 800;
+    }
+
+    /* Mobile Drawer Toggle */
+    .mobile-filter-toggle-btn {
+      display: none;
+      background: linear-gradient(135deg, rgba(0, 232, 135, 0.25) 0%, rgba(0, 232, 135, 0.1) 100%);
+      border: 1.5px solid var(--mint);
+      color: #ffffff;
+      padding: 5px 12px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      align-items: center;
+      gap: 6px;
+    }
+
+    @media (max-width: 1280px) {
+      .dashboard-page-layout {
+        flex-direction: column;
+      }
+      .side-filter-dock {
+        position: relative;
+        top: 0;
+        width: 100%;
+        max-height: none;
+        padding: 14px;
+        border-radius: 24px;
+      }
+      .side-filter-dock.collapsed {
+        width: 100%;
+      }
+      .dock-month-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 6px;
+      }
+      .mobile-filter-toggle-btn {
+        display: inline-flex;
+      }
+    }
+
     /* Responsive Styles for All Devices (24/7 Accessibility) */
     @media (max-width: 1100px) {
       .top-grid {
@@ -994,11 +1353,21 @@
 
   <!-- Top 24/7 Live Status & View Switcher -->
   <div class="top-utility-bar">
-    <div class="live-badge">
-      <span class="live-dot"></span>
-      <span>CITY LINK CONDO • ONLINE 24/7 (LIVE DASHBOARD)</span>
+    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+      <div class="live-badge">
+        <span class="live-dot"></span>
+        <span>CITY LINK CONDO • ONLINE 24/7 (LIVE DASHBOARD)</span>
+      </div>
+      <!-- Active Month Indicator Pill -->
+      <div class="active-month-pill" id="topActiveMonthBadge">
+        <span>🗓️ ข้อมูลเดือน:</span>
+        <strong id="topActiveMonthName">ตุลาคม 2569 (ล่าสุด)</strong>
+      </div>
     </div>
-    <div style="display: flex; gap: 8px; align-items: center;">
+    <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+      <button class="mobile-filter-toggle-btn" onclick="toggleSidebarCollapse();" title="เปิด/ปิด แถบตัวกรองเดือน">
+        <span>🗓️ แถบเลือกเดือน</span>
+      </button>
       <a href="index.html" onclick="if(window.location.protocol==='file:'){this.href='Marketing_Dashboard_2569.html';}" class="theme-switch-btn" title="สลับไปโหมด Classic Executive Cockpit">
         <span>📊 สลับเป็นโหมด Classic Cockpit</span>
       </a>
@@ -1008,8 +1377,146 @@
     </div>
   </div>
 
-  <!-- Master Cockpit Device Frame -->
-  <div class="cockpit-frame">
+  <!-- Master Page Container with Left Side Filter Dock -->
+  <div class="dashboard-page-layout">
+
+    <!-- LEFT SIDE FILTER DOCK (แถบตัวกรองด้านข้าง ม.ค. - ต.ค. 2569) -->
+    <aside class="side-filter-dock" id="sideFilterDock">
+      <div class="dock-header">
+        <div class="dock-title-group">
+          <div class="dock-icon">🗓️</div>
+          <div>
+            <div class="dock-title">ตัวกรองเดือน</div>
+            <div class="dock-subtitle">ประจำปี 2569 (ม.ค. - ต.ค.)</div>
+          </div>
+        </div>
+        <button class="dock-collapse-btn" onclick="toggleSidebarCollapse();" title="ย่อ/ขยาย แถบตัวกรอง" id="dockCollapseBtn">
+          ◀
+        </button>
+      </div>
+
+      <!-- Quick All & Quarters -->
+      <div class="dock-section-label">
+        <span>ภาพรวม &amp; ไตรมาส</span>
+      </div>
+      <div class="dock-quick-grid">
+        <button class="dock-btn-all" data-month="all" onclick="selectMonth('all');">
+          <span>🌟 ทั้งปี 2569 (YTD)</span>
+          <span style="font-size: 10px; opacity: 0.8;">10 เดือน</span>
+        </button>
+        <button class="dock-btn-quick" data-month="Q1" onclick="selectMonth('Q1');">
+          <span>Q1</span>
+        </button>
+        <button class="dock-btn-quick" data-month="Q2" onclick="selectMonth('Q2');">
+          <span>Q2</span>
+        </button>
+        <button class="dock-btn-quick" data-month="Q3" onclick="selectMonth('Q3');">
+          <span>Q3</span>
+        </button>
+        <button class="dock-btn-quick" data-month="Q4" onclick="selectMonth('Q4');">
+          <span>Q4</span>
+        </button>
+      </div>
+
+      <!-- Monthly Selector List (10 เดือนเต็ม) -->
+      <div class="dock-section-label" style="margin-top: 4px;">
+        <span>เลือกดูรายเดือน (10 เดือน)</span>
+        <span style="font-size: 9px; color: var(--mint);">LIVE</span>
+      </div>
+      <div class="dock-month-list" id="dockMonthList">
+        <button class="dock-month-item active" data-month="ต.ค." onclick="selectMonth('ต.ค.');">
+          <div class="dock-month-left">
+            <span class="month-dot"></span>
+            <span class="month-num-badge">10</span>
+            <span class="month-name-full">ตุลาคม (ต.ค.) ⭐</span>
+          </div>
+          <span class="month-tag-pill">฿10.6K</span>
+        </button>
+        <button class="dock-month-item" data-month="ก.ย." onclick="selectMonth('ก.ย.');">
+          <div class="dock-month-left">
+            <span class="month-dot"></span>
+            <span class="month-num-badge">09</span>
+            <span class="month-name-full">กันยายน (ก.ย.)</span>
+          </div>
+          <span class="month-tag-pill">฿29.5K</span>
+        </button>
+        <button class="dock-month-item" data-month="ส.ค." onclick="selectMonth('ส.ค.');">
+          <div class="dock-month-left">
+            <span class="month-dot"></span>
+            <span class="month-num-badge">08</span>
+            <span class="month-name-full">สิงหาคม (ส.ค.)</span>
+          </div>
+          <span class="month-tag-pill">฿21.8K</span>
+        </button>
+        <button class="dock-month-item" data-month="ก.ค." onclick="selectMonth('ก.ค.');">
+          <div class="dock-month-left">
+            <span class="month-dot"></span>
+            <span class="month-num-badge">07</span>
+            <span class="month-name-full">กรกฎาคม (ก.ค.)</span>
+          </div>
+          <span class="month-tag-pill">฿19.9K</span>
+        </button>
+        <button class="dock-month-item" data-month="มิ.ย." onclick="selectMonth('มิ.ย.');">
+          <div class="dock-month-left">
+            <span class="month-dot"></span>
+            <span class="month-num-badge">06</span>
+            <span class="month-name-full">มิถุนายน (มิ.ย.)</span>
+          </div>
+          <span class="month-tag-pill">฿6.2K</span>
+        </button>
+        <button class="dock-month-item" data-month="พ.ค." onclick="selectMonth('พ.ค.');">
+          <div class="dock-month-left">
+            <span class="month-dot"></span>
+            <span class="month-num-badge">05</span>
+            <span class="month-name-full">พฤษภาคม (พ.ค.)</span>
+          </div>
+          <span class="month-tag-pill">฿24.0K</span>
+        </button>
+        <button class="dock-month-item" data-month="เม.ย." onclick="selectMonth('เม.ย.');">
+          <div class="dock-month-left">
+            <span class="month-dot"></span>
+            <span class="month-num-badge">04</span>
+            <span class="month-name-full">เมษายน (เม.ย.)</span>
+          </div>
+          <span class="month-tag-pill">฿3.9K</span>
+        </button>
+        <button class="dock-month-item" data-month="มี.ค." onclick="selectMonth('มี.ค.');">
+          <div class="dock-month-left">
+            <span class="month-dot"></span>
+            <span class="month-num-badge">03</span>
+            <span class="month-name-full">มีนาคม (มี.ค.)</span>
+          </div>
+          <span class="month-tag-pill">฿18.6K</span>
+        </button>
+        <button class="dock-month-item" data-month="ก.พ." onclick="selectMonth('ก.พ.');">
+          <div class="dock-month-left">
+            <span class="month-dot"></span>
+            <span class="month-num-badge">02</span>
+            <span class="month-name-full">กุมภาพันธ์ (ก.พ.)</span>
+          </div>
+          <span class="month-tag-pill">฿15.5K</span>
+        </button>
+        <button class="dock-month-item" data-month="ม.ค." onclick="selectMonth('ม.ค.');">
+          <div class="dock-month-left">
+            <span class="month-dot"></span>
+            <span class="month-num-badge">01</span>
+            <span class="month-name-full">มกราคม (ม.ค.)</span>
+          </div>
+          <span class="month-tag-pill">฿27.1K</span>
+        </button>
+      </div>
+
+      <!-- Dock Footer Card -->
+      <div class="dock-footer-card">
+        <div class="dock-footer-label">เดือนที่เลือกปัจจุบัน</div>
+        <div class="dock-footer-val" id="dockSelectedMonthText">ตุลาคม 2569 (ล่าสุด)</div>
+        <div class="dock-footer-spend" id="dockSelectedMonthSpend">งบรวม: ฿10,614.91</div>
+        <div style="font-size: 10px; color: #94a3b8;" id="dockSelectedMonthMeta">Inquiries: 16 แชท • 3 นัดหมาย</div>
+      </div>
+    </aside>
+
+    <!-- Master Cockpit Device Frame -->
+    <div class="cockpit-frame">
 
     <!-- TOP PANEL: VIBRANT MINT GREEN (#00E887) -->
     <div class="top-panel">
@@ -1508,90 +2015,545 @@
     let currentCategory = 'overview';
     let currentCreatorFilter = 'all';
 
-    // Category Data Configurations
-    const CATEGORY_DATA = {
-      overview: {
-        title: "Dashboard<br>Marketing Performance",
-        score: "832",
-        pts: "+14 pts",
-        sub: "Excellent Health • ตรวจสอบความเคลื่อนไหวสด 24 ชั่วโมง",
-        needleRot: 52,
-        pill1: { title: "งบที่ใช้จริง", val: "฿10,614" },
-        pill2: { title: "Lead มุ่งหวัง", val: "16 แชท/3 นัด" },
-        cards: [
-          { icon: "💳", title: "สัดส่วนการใช้งบโฆษณา<br>(Ad Budget Efficiency)", val: "87.9", unit: "%", sub: "High Impact", trend: true },
-          { icon: "💬", title: "ข้อความทักแชท CLC<br>(Facebook Inquiries)", val: "16", unit: "แชท", sub: "High Impact", trend: false },
-          { icon: "🎯", title: "คุณภาพลูกค้ามุ่งหวัง<br>(Quality Leads)", val: "3", unit: "ราย", sub: "18.75% CVR", trend: false },
-          { icon: "👥", title: "ผู้ติดตามรวม 2 เพจ<br>(Total Followers)", val: "55.9", unit: "K", sub: "+2,569 YTD", trend: false },
-          { icon: "🎵", title: "ยอดวิว TikTok รวม<br>(3 Creators Views)", val: "62.6", unit: "K", sub: "125% ของเป้า", trend: true },
-          { icon: "⚡", title: "อัตราการมีส่วนร่วม<br>(Average ER TikTok)", val: "5.8", unit: "%", sub: "Viral Peak 8.96%", trend: false }
-        ],
-        chartTitle: "Score & Budget History",
-        chartTooltip: "816 pts"
-      },
-      condo: {
-        title: "City Link<br>Condo Sales",
-        score: "92",
-        pts: "Score 92/100",
-        sub: "Hot Demand • พร้อมโอนและอยู่ฟรีตลอดปี 2569",
-        needleRot: 68,
-        pill1: { title: "งบโฆษณา CLC", val: "฿9,333" },
-        pill2: { title: "Hot Leads ตอบด่วน", val: "2 ราย (15น.)" },
-        cards: [
-          { icon: "💰", title: "งบโฆษณา Facebook CLC<br>(CLC Ad Spend)", val: "9.3", unit: "K", sub: "฿9,333.08 (87.9%)", trend: true },
-          { icon: "💬", title: "ข้อความทักเพจ CLC<br>(Cost / Inquiry)", val: "16", unit: "แชท", sub: "เฉลี่ย ฿583.32", trend: false },
-          { icon: "🔥", title: "Hot Leads (เกรด 80-100)<br>(พร้อมจอง / นัดดูโครงการ)", val: "2", unit: "ราย", sub: "SLA ตอบ 15 นาที", trend: true },
-          { icon: "📍", title: "กลุ่มผู้ชมหลัก จ.นครราชสีมา<br>(Location Audience)", val: "18.5", unit: "%", sub: "โคราช ขอนแก่น กทม.", trend: false },
-          { icon: "🏠", title: "ห้องยอดนิยม 1 Bed 35ตร.ม.<br>(Top Inquired Type)", val: "35", unit: "sq.m.", sub: "เริ่มต้น 2.xx ลบ.", trend: false },
-          { icon: "🏆", title: "Win-Rate ปิดการขาย<br>(Conversion Rate)", val: "66.7", unit: "%", sub: "นัดเข้าชมห้องจริง", trend: true }
-        ],
-        chartTitle: "Citylink Leads & Inquiries Trend",
-        chartTooltip: "16 Inquiries"
-      },
-      mayfair: {
-        title: "Mayfair<br>Market Life",
-        score: "880",
-        pts: "+32.4% MoM",
-        sub: "Community Hub • ชิมช้อปชิลล์ & สตรีทฟู้ดข้างคอนโด",
-        needleRot: 60,
-        pill1: { title: "ผู้ติดตามเพจ", val: "36,559" },
-        pill2: { title: "Organic Reach", val: "9,120 คน" },
-        cards: [
-          { icon: "🎪", title: "ผู้ติดตามเพจ Mayfair<br>(Market Followers)", val: "36.5", unit: "K", sub: "65.4% ของเพจรวม", trend: true },
-          { icon: "🍲", title: "Mayfair Street Food<br>(Footfall & Check-ins)", val: "8.4", unit: "K", sub: "คนเข้าชมตลาด", trend: true },
-          { icon: "⏰", title: "ช่วงเวลาผู้คนหนาแน่นสูงสุด<br>(Peak Hours Fri-Sun)", val: "19-21", unit: "น.", sub: "พีค 98% ทุกสุดสัปดาห์", trend: false },
-          { icon: "🏃", title: "Morning Run & Community<br>(สุขภาพและครอบครัว)", val: "74", unit: "%", sub: "ผู้พักอาศัยและคนโคราช", trend: false },
-          { icon: "✨", title: "อัตราการเติบโตยอดวิวเพจ<br>(Footfall Growth)", val: "32.4", unit: "%", sub: "เพิ่มขึ้นจากเดือนก่อน", trend: true },
-          { icon: "❤️", title: "Engagement Rate เพจ<br>(รีวิวและคอมเมนต์)", val: "4.8", unit: "%", sub: "สูงกว่าค่าเฉลี่ยตลาด", trend: false }
-        ],
-        chartTitle: "Mayfair Market Footfall Trend",
-        chartTooltip: "9.1K Reach"
-      },
-      tiktok: {
-        title: "TikTok Sales<br>Creators Hub",
-        score: "896",
-        pts: "125.2% KPI",
-        sub: "Viral Momentum • 3 เซลล์ครีเอเตอร์ รวม 43 คอนเทนต์",
-        needleRot: 72,
-        pill1: { title: "ยอดวิวรวม", val: "62,600+" },
-        pill2: { title: "การมีส่วนร่วม", val: "2,023 ครั้ง" },
-        cards: [
-          { icon: "👁️", title: "ยอดวิวรวม TikTok สะสม<br>(Total Video Views)", val: "62.6", unit: "K", sub: "เกินเป้าหมาย 50,000", trend: true },
-          { icon: "💎", title: "คุณปนัดดา (@Patty_Citylink)<br>(อันดับ 1 ยอดวิวสูงสุด)", val: "33.8", unit: "K", sub: "สัดส่วน 54.0%", trend: true },
-          { icon: "🌈", title: "คุณปรัศว์ภา (@Patsapar)<br>(ชี้เป้าทำเลและโปรโมชั่น)", val: "14.7", unit: "K", sub: "สัดส่วน 23.5%", trend: false },
-          { icon: "🌿", title: "คุณราตรี (@Ratri_Citylink)<br>(บรรยากาศและไลฟ์สไตล์)", val: "14.1", unit: "K", sub: "สัดส่วน 22.5%", trend: false },
-          { icon: "💬", title: "Interactions รวม<br>(Likes, Saves, Shares)", val: "2,023", unit: "ครั้ง", sub: "Likes 1,890+ / Cmts 62+", trend: true },
-          { icon: "⚡", title: "Engagement Rate เฉลี่ย<br>(สูงกว่าค่าเฉลี่ยตลาด 3%)", val: "5.8", unit: "%", sub: "Viral สูงสุด 8.96%", trend: true }
-        ],
-        chartTitle: "TikTok Monthly Views Growth",
-        chartTooltip: "62.6K Views"
-      }
-    };
+    // =========================================================================
+    // MONTHLY DATA STORE & FILTER ENGINE (ม.ค. - ต.ค. 2569)
+    // =========================================================================
+    let currentSelectedMonth = 'ต.ค.';
+    const MONTH_REGISTRY = {
+  "all": {
+    "name": "ทั้งปี 2569 (ม.ค. - ต.ค. YTD)",
+    "short": "ทั้งปี 69",
+    "spendTotal": "฿177,666.62",
+    "spendFb": "฿142,594.88",
+    "spendFbNum": 142594.88,
+    "spendGoogle": "฿35,071.74",
+    "budgetTotal": "฿402,000.00",
+    "budgetPct": "44.2",
+    "inquiries": "733",
+    "qualityLeads": "66",
+    "visits": "11",
+    "closed": "5",
+    "costPerMsg": "194.54",
+    "score": "860",
+    "pts": "+42 pts",
+    "sub": "Total Annual YTD • ประสิทธิภาพการตลาดรวม 10 เดือนเต็ม",
+    "needleRot": 64,
+    "followers": "55.9",
+    "tiktokViews": "62.6",
+    "tiktokEr": "5.8",
+    "mayfairReach": "42.1K คน",
+    "chartTooltip": "฿177.6K Total"
+  },
+  "Q1": {
+    "name": "ไตรมาส 1 (ม.ค. - มี.ค. 2569)",
+    "short": "Q1 2569",
+    "spendTotal": "฿61,355.59",
+    "spendFb": "฿48,315.47",
+    "spendFbNum": 48315.47,
+    "spendGoogle": "฿13,040.12",
+    "budgetTotal": "฿141,000.00",
+    "budgetPct": "43.5",
+    "inquiries": "311",
+    "qualityLeads": "26",
+    "visits": "7",
+    "closed": "3",
+    "costPerMsg": "155.35",
+    "score": "910",
+    "pts": "+28 pts",
+    "sub": "Q1 Peak Season • ช่วงต้นปียอดทักแชทและปิดการขายสูง",
+    "needleRot": 76,
+    "followers": "54.1",
+    "tiktokViews": "54.5",
+    "tiktokEr": "5.5",
+    "mayfairReach": "32.5K คน",
+    "chartTooltip": "฿61.3K (311 แชท)"
+  },
+  "Q2": {
+    "name": "ไตรมาส 2 (เม.ย. - มิ.ย. 2569)",
+    "short": "Q2 2569",
+    "spendTotal": "฿35,180.49",
+    "spendFb": "฿26,132.98",
+    "spendFbNum": 26132.98,
+    "spendGoogle": "฿9,047.51",
+    "budgetTotal": "฿108,000.00",
+    "budgetPct": "32.6",
+    "inquiries": "146",
+    "qualityLeads": "13",
+    "visits": "3",
+    "closed": "2",
+    "costPerMsg": "178.99",
+    "score": "805",
+    "pts": "-12 pts",
+    "sub": "Q2 Mid-Year • ปรับกลุ่มเป้าหมายและคุมต้นทุนต่อคลิก",
+    "needleRot": 48,
+    "followers": "54.9",
+    "tiktokViews": "52.1",
+    "tiktokEr": "5.4",
+    "mayfairReach": "28.4K คน",
+    "chartTooltip": "฿35.2K (146 แชท)"
+  },
+  "Q3": {
+    "name": "ไตรมาส 3 (ก.ค. - ก.ย. 2569)",
+    "short": "Q3 2569",
+    "spendTotal": "฿70,905.27",
+    "spendFb": "฿58,812.35",
+    "spendFbNum": 58812.35,
+    "spendGoogle": "฿12,092.92",
+    "budgetTotal": "฿108,000.00",
+    "budgetPct": "65.7",
+    "inquiries": "258",
+    "qualityLeads": "24",
+    "visits": "2",
+    "closed": "0",
+    "costPerMsg": "227.95",
+    "score": "855",
+    "pts": "+15 pts",
+    "sub": "Q3 Acceleration • ทราฟฟิกสูงสุดและแชททักทะลุ 258 รายการ",
+    "needleRot": 62,
+    "followers": "55.7",
+    "tiktokViews": "60.5",
+    "tiktokEr": "5.7",
+    "mayfairReach": "38.6K คน",
+    "chartTooltip": "฿70.9K (258 แชท)"
+  },
+  "Q4": {
+    "name": "ไตรมาส 4 (ต.ค. 2569 - ล่าสุด)",
+    "short": "Q4 2569",
+    "spendTotal": "฿10,614.91",
+    "spendFb": "฿9,333.08",
+    "spendFbNum": 9333.08,
+    "spendGoogle": "฿1,281.83",
+    "budgetTotal": "฿36,000.00",
+    "budgetPct": "29.5",
+    "inquiries": "16",
+    "qualityLeads": "3",
+    "visits": "0",
+    "closed": "0",
+    "costPerMsg": "583.32",
+    "score": "832",
+    "pts": "+14 pts",
+    "sub": "Q4 Year-End Launch • แคมเปญพร้อมโอนโปรแรงท้ายปี",
+    "needleRot": 52,
+    "followers": "55.9",
+    "tiktokViews": "62.6",
+    "tiktokEr": "5.8",
+    "mayfairReach": "9.1K คน",
+    "chartTooltip": "816 pts (ต.ค.)"
+  },
+  "ม.ค.": {
+    "name": "มกราคม 2569 (ม.ค.)",
+    "short": "ม.ค. 69",
+    "spendTotal": "฿27,101.08",
+    "spendFb": "฿21,458.08",
+    "spendFbNum": 21458.08,
+    "spendGoogle": "฿5,643.00",
+    "budgetTotal": "฿47,000.00",
+    "budgetPct": "57.7",
+    "inquiries": "117",
+    "qualityLeads": "10",
+    "visits": "3",
+    "closed": "1",
+    "costPerMsg": "183.40",
+    "score": "890",
+    "pts": "+24 pts",
+    "sub": "New Year Campaign • ยอดทัก 117 แชท ปิดการขายได้ 1 ยูนิต",
+    "needleRot": 70,
+    "followers": "53.4",
+    "tiktokViews": "48.2",
+    "tiktokEr": "5.2",
+    "mayfairReach": "7.2K คน",
+    "chartTooltip": "117 แชท (ม.ค.)"
+  },
+  "ก.พ.": {
+    "name": "กุมภาพันธ์ 2569 (ก.พ.)",
+    "short": "ก.พ. 69",
+    "spendTotal": "฿15,572.76",
+    "spendFb": "฿11,896.36",
+    "spendFbNum": 11896.36,
+    "spendGoogle": "฿3,676.40",
+    "budgetTotal": "฿47,000.00",
+    "budgetPct": "33.1",
+    "inquiries": "83",
+    "qualityLeads": "12",
+    "visits": "2",
+    "closed": "0",
+    "costPerMsg": "143.33",
+    "score": "865",
+    "pts": "+10 pts",
+    "sub": "Valentine High Conversion • ต้นทุนต่อ Lead ต่ำสุด ฿991.36",
+    "needleRot": 64,
+    "followers": "53.8",
+    "tiktokViews": "51.0",
+    "tiktokEr": "5.4",
+    "mayfairReach": "7.5K คน",
+    "chartTooltip": "83 แชท (ก.พ.)"
+  },
+  "มี.ค.": {
+    "name": "มีนาคม 2569 (มี.ค.)",
+    "short": "มี.ค. 69",
+    "spendTotal": "฿18,681.75",
+    "spendFb": "฿14,961.03",
+    "spendFbNum": 14961.03,
+    "spendGoogle": "฿3,720.72",
+    "budgetTotal": "฿47,000.00",
+    "budgetPct": "39.7",
+    "inquiries": "111",
+    "qualityLeads": "4",
+    "visits": "2",
+    "closed": "2",
+    "costPerMsg": "134.78",
+    "score": "920",
+    "pts": "+35 pts",
+    "sub": "Top Closer Month • ปิดการขายสำเร็จ 2 ยูนิตยอดเยี่ยม!",
+    "needleRot": 78,
+    "followers": "54.1",
+    "tiktokViews": "54.5",
+    "tiktokEr": "5.5",
+    "mayfairReach": "7.9K คน",
+    "chartTooltip": "111 แชท / 2 โอน (มี.ค.)"
+  },
+  "เม.ย.": {
+    "name": "เมษายน 2569 (เม.ย.)",
+    "short": "เม.ย. 69",
+    "spendTotal": "฿3,940.71",
+    "spendFb": "฿2,562.87",
+    "spendFbNum": 2562.87,
+    "spendGoogle": "฿1,377.84",
+    "budgetTotal": "฿36,000.00",
+    "budgetPct": "10.9",
+    "inquiries": "12",
+    "qualityLeads": "4",
+    "visits": "2",
+    "closed": "2",
+    "costPerMsg": "213.57",
+    "score": "780",
+    "pts": "-15 pts",
+    "sub": "Songkran Special • ประหยัดงบสูงสุด ปิดได้ 2 ห้องต่อเนื่อง",
+    "needleRot": 40,
+    "followers": "54.3",
+    "tiktokViews": "42.0",
+    "tiktokEr": "5.1",
+    "mayfairReach": "6.8K คน",
+    "chartTooltip": "12 แชท / 2 โอน (เม.ย.)"
+  },
+  "พ.ค.": {
+    "name": "พฤษภาคม 2569 (พ.ค.)",
+    "short": "พ.ค. 69",
+    "spendTotal": "฿24,055.16",
+    "spendFb": "฿19,055.16",
+    "spendFbNum": 19055.16,
+    "spendGoogle": "฿5,000.00",
+    "budgetTotal": "฿36,000.00",
+    "budgetPct": "66.8",
+    "inquiries": "81",
+    "qualityLeads": "3",
+    "visits": "0",
+    "closed": "0",
+    "costPerMsg": "235.25",
+    "score": "815",
+    "pts": "+8 pts",
+    "sub": "Back-to-School Traffic • ทราฟฟิกฟื้นตัว ยอดทัก 81 แชท",
+    "needleRot": 50,
+    "followers": "54.6",
+    "tiktokViews": "46.5",
+    "tiktokEr": "5.3",
+    "mayfairReach": "7.4K คน",
+    "chartTooltip": "81 แชท (พ.ค.)"
+  },
+  "มิ.ย.": {
+    "name": "มิถุนายน 2569 (มิ.ย.)",
+    "short": "มิ.ย. 69",
+    "spendTotal": "฿6,269.78",
+    "spendFb": "฿4,514.95",
+    "spendFbNum": 4514.95,
+    "spendGoogle": "฿1,754.83",
+    "budgetTotal": "฿36,000.00",
+    "budgetPct": "17.4",
+    "inquiries": "53",
+    "qualityLeads": "6",
+    "visits": "1",
+    "closed": "0",
+    "costPerMsg": "85.19",
+    "score": "810",
+    "pts": "+5 pts",
+    "sub": "Cost Efficient • ต้นทุนทักแชทคุ้มค่าเพียง ฿85.19/แชท",
+    "needleRot": 49,
+    "followers": "54.9",
+    "tiktokViews": "52.1",
+    "tiktokEr": "5.4",
+    "mayfairReach": "7.7K คน",
+    "chartTooltip": "53 แชท (มิ.ย.)"
+  },
+  "ก.ค.": {
+    "name": "กรกฎาคม 2569 (ก.ค.)",
+    "short": "ก.ค. 69",
+    "spendTotal": "฿19,951.12",
+    "spendFb": "฿16,320.13",
+    "spendFbNum": 16320.13,
+    "spendGoogle": "฿3,630.99",
+    "budgetTotal": "฿36,000.00",
+    "budgetPct": "55.4",
+    "inquiries": "138",
+    "qualityLeads": "3",
+    "visits": "1",
+    "closed": "0",
+    "costPerMsg": "118.26",
+    "score": "885",
+    "pts": "+22 pts",
+    "sub": "Record High Inquiries • สถิติยอดทักสูงสุดแห่งปี 138 แชท",
+    "needleRot": 69,
+    "followers": "55.2",
+    "tiktokViews": "57.8",
+    "tiktokEr": "5.6",
+    "mayfairReach": "8.0K คน",
+    "chartTooltip": "138 แชท สถิติสูงสุด (ก.ค.)"
+  },
+  "ส.ค.": {
+    "name": "สิงหาคม 2569 (ส.ค.)",
+    "short": "ส.ค. 69",
+    "spendTotal": "฿21,883.25",
+    "spendFb": "฿17,068.90",
+    "spendFbNum": 17068.90,
+    "spendGoogle": "฿4,814.35",
+    "budgetTotal": "฿36,000.00",
+    "budgetPct": "60.8",
+    "inquiries": "81",
+    "qualityLeads": "11",
+    "visits": "1",
+    "closed": "0",
+    "costPerMsg": "210.73",
+    "score": "875",
+    "pts": "+18 pts",
+    "sub": "Google Traffic Surge • ทราฟฟิกกูเกิล 10,094 คลิก และ 11 Hot Leads",
+    "needleRot": 66,
+    "followers": "55.5",
+    "tiktokViews": "59.4",
+    "tiktokEr": "5.7",
+    "mayfairReach": "8.2K คน",
+    "chartTooltip": "81 แชท / 11 Leads (ส.ค.)"
+  },
+  "ก.ย.": {
+    "name": "กันยายน 2569 (ก.ย.)",
+    "short": "ก.ย. 69",
+    "spendTotal": "฿29,570.90",
+    "spendFb": "฿25,423.32",
+    "spendFbNum": 25423.32,
+    "spendGoogle": "฿4,147.58",
+    "budgetTotal": "฿36,000.00",
+    "budgetPct": "82.1",
+    "inquiries": "39",
+    "qualityLeads": "10",
+    "visits": "0",
+    "closed": "0",
+    "costPerMsg": "651.88",
+    "score": "815",
+    "pts": "+6 pts",
+    "sub": "Strong Pipeline • 10 รายชื่อมุ่งหวังรอเข้าชมนัดหมาย",
+    "needleRot": 50,
+    "followers": "55.7",
+    "tiktokViews": "60.5",
+    "tiktokEr": "5.7",
+    "mayfairReach": "8.3K คน",
+    "chartTooltip": "39 แชท / 10 Leads (ก.ย.)"
+  },
+  "ต.ค.": {
+    "name": "ตุลาคม 2569 (ต.ค. ⭐ ล่าสุด)",
+    "short": "ต.ค. 69 ⭐",
+    "spendTotal": "฿10,614.91",
+    "spendFb": "฿9,333.08",
+    "spendFbNum": 9333.08,
+    "spendGoogle": "฿1,281.83",
+    "budgetTotal": "฿36,000.00",
+    "budgetPct": "29.5",
+    "inquiries": "16",
+    "qualityLeads": "3",
+    "visits": "0",
+    "closed": "0",
+    "costPerMsg": "583.32",
+    "score": "832",
+    "pts": "+14 pts",
+    "sub": "Excellent Health • ตรวจสอบความเคลื่อนไหวสด 24 ชั่วโมง",
+    "needleRot": 52,
+    "followers": "55.9",
+    "tiktokViews": "62.6",
+    "tiktokEr": "5.8",
+    "mayfairReach": "9.1K คน",
+    "chartTooltip": "816 pts (ต.ค. ล่าสุด)"
+  }
+}
+;
 
-    // Category Switching Logic
+    function toggleSidebarCollapse() {
+      const dock = document.getElementById('sideFilterDock');
+      const btn = document.getElementById('dockCollapseBtn');
+      if (!dock) return;
+      dock.classList.toggle('collapsed');
+      if (btn) {
+        btn.innerText = dock.classList.contains('collapsed') ? '▶' : '◀';
+        btn.title = dock.classList.contains('collapsed') ? 'ขยายแถบตัวกรอง' : 'ย่อแถบตัวกรอง';
+      }
+    }
+
+    function selectMonth(monthKey) {
+      if (!MONTH_REGISTRY[monthKey]) return;
+      currentSelectedMonth = monthKey;
+      const mData = MONTH_REGISTRY[monthKey];
+
+      // 1. Update Left Side Dock Active States
+      document.querySelectorAll('#sideFilterDock button').forEach(b => {
+        if (b.getAttribute('data-month') === monthKey) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+
+      // 2. Update Top Active Month Badge
+      const topBadgeName = document.getElementById('topActiveMonthName');
+      if (topBadgeName) topBadgeName.innerText = mData.name;
+
+      // 3. Update Dock Footer
+      const dockText = document.getElementById('dockSelectedMonthText');
+      if (dockText) dockText.innerText = mData.name;
+      const dockSpend = document.getElementById('dockSelectedMonthSpend');
+      if (dockSpend) dockSpend.innerText = 'งบรวม: ' + mData.spendTotal;
+      const dockMeta = document.getElementById('dockSelectedMonthMeta');
+      if (dockMeta) dockMeta.innerText = 'Inquiries: ' + mData.inquiries + ' แชท • ' + mData.qualityLeads + ' นัดหมาย';
+
+      // 4. Update Time Filter Pills in SVG Chart
+      document.querySelectorAll('.time-pill-btn').forEach(btn => {
+        const txt = btn.innerText;
+        if ((monthKey === 'ส.ค.' && txt.includes('ส.ค.')) ||
+            (monthKey === 'ก.ย.' && txt.includes('ก.ย.')) ||
+            (monthKey === 'ต.ค.' && txt.includes('ต.ค.'))) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      // 5. Apply Data to Current View
+      renderDashboardForState();
+    }
+
+    function renderDashboardForState() {
+      const m = MONTH_REGISTRY[currentSelectedMonth] || MONTH_REGISTRY['ต.ค.'];
+      const cat = currentCategory;
+
+      if (cat === 'overview') {
+        document.getElementById('heroMainTitle').innerHTML = "Dashboard<br>Marketing Performance";
+        document.getElementById('heroScoreVal').innerText = m.score;
+        document.getElementById('heroPtsBadge').innerText = m.pts;
+        document.getElementById('heroScoreSub').innerText = m.sub;
+        document.getElementById('pill1Title').innerText = "งบที่ใช้จริง";
+        document.getElementById('pill1Val').innerText = m.spendTotal;
+        document.getElementById('pill2Title').innerText = "Lead มุ่งหวัง";
+        document.getElementById('pill2Val').innerText = m.inquiries + " แชท/" + m.qualityLeads + " นัด";
+
+        const needle = document.getElementById('gaugeNeedle');
+        if (needle) needle.setAttribute('transform', `rotate(${m.needleRot}, 130, 130)`);
+
+        updateBentoCard(0, "💳", "สัดส่วนการใช้งบโฆษณา<br>(Ad Budget Efficiency)", m.budgetPct, "%", m.spendTotal + " / " + m.budgetTotal, true);
+        updateBentoCard(1, "💬", "ข้อความทักแชท CLC<br>(Facebook Inquiries)", m.inquiries, "แชท", "เฉลี่ย ฿" + m.costPerMsg + "/แชท", false);
+        updateBentoCard(2, "🎯", "คุณภาพลูกค้ามุ่งหวัง<br>(Quality Leads)", m.qualityLeads, "ราย", (parseInt(m.closed) > 0 ? "ปิดการขาย " + m.closed + " ห้อง" : "รอบัญชีติดตาม"), false);
+        updateBentoCard(3, "👥", "ผู้ติดตามรวม 2 เพจ<br>(Total Followers)", m.followers, "K", "CLC + Mayfair", false);
+        updateBentoCard(4, "🎵", "ยอดวิว TikTok รวม<br>(3 Creators Views)", m.tiktokViews, "K", "3 เซลล์คอนเทนต์", true);
+        updateBentoCard(5, "⚡", "อัตราการมีส่วนร่วม<br>(Average ER TikTok)", m.tiktokEr, "%", "Viral Peak 8.96%", false);
+
+        document.getElementById('chartSectionTitle').innerText = "Score & Budget History (" + m.short + ")";
+        document.getElementById('chartTooltipBadge').innerHTML = "<span>" + m.chartTooltip + "</span>";
+
+        const ctcSpend = document.getElementById('spotlightCtcSpend');
+        if (ctcSpend) ctcSpend.innerText = m.spendFb;
+        const ctcPeriod = document.getElementById('spotlightCtcPeriod');
+        if (ctcPeriod) ctcPeriod.innerText = m.short;
+
+      } else if (cat === 'condo') {
+        document.getElementById('heroMainTitle').innerHTML = "City Link<br>Condo Sales";
+        document.getElementById('heroScoreVal').innerText = (parseInt(m.score) > 850 ? "92" : "88");
+        document.getElementById('heroPtsBadge').innerText = "Score " + (parseInt(m.score) > 850 ? "92/100" : "88/100");
+        document.getElementById('heroScoreSub').innerText = "Hot Demand • ประจำช่วง " + m.name;
+        document.getElementById('pill1Title').innerText = "งบโฆษณา CLC";
+        document.getElementById('pill1Val').innerText = m.spendFb;
+        document.getElementById('pill2Title').innerText = "Hot Leads ตอบด่วน";
+        document.getElementById('pill2Val').innerText = m.qualityLeads + " ราย (15น.)";
+
+        const needle = document.getElementById('gaugeNeedle');
+        if (needle) needle.setAttribute('transform', `rotate(${m.needleRot + 10}, 130, 130)`);
+
+        updateBentoCard(0, "💰", "งบโฆษณา Facebook CLC<br>(CLC Ad Spend)", (m.spendFbNum / 1000).toFixed(1), "K", m.spendFb + " (" + m.budgetPct + "%)", true);
+        updateBentoCard(1, "💬", "ข้อความทักเพจ CLC<br>(Cost / Inquiry)", m.inquiries, "แชท", "เฉลี่ย ฿" + m.costPerMsg, false);
+        updateBentoCard(2, "🔥", "Hot Leads (เกรด 80-100)<br>(พร้อมจอง / นัดดูโครงการ)", m.qualityLeads, "ราย", "SLA ตอบ 15 นาที", true);
+        updateBentoCard(3, "📍", "กลุ่มผู้ชมหลัก จ.นครราชสีมา<br>(Location Audience)", "18.5", "%", "โคราช ขอนแก่น กทม.", false);
+        updateBentoCard(4, "🏠", "ห้องยอดนิยม 1 Bed 35ตร.ม.<br>(Top Inquired Type)", "35", "sq.m.", "เริ่มต้น 2.xx ลบ.", false);
+        updateBentoCard(5, "🏆", "สถิติการเข้าชม / ปิดการขาย<br>(Visits & Closed)", (m.visits + "/" + m.closed), "เคส", "นัด " + m.visits + " / โอน " + m.closed, true);
+
+        document.getElementById('chartSectionTitle').innerText = "Citylink Leads & Inquiries Trend (" + m.short + ")";
+        document.getElementById('chartTooltipBadge').innerHTML = "<span>" + m.inquiries + " Inquiries</span>";
+
+      } else if (cat === 'mayfair') {
+        document.getElementById('heroMainTitle').innerHTML = "Mayfair<br>Market Life";
+        document.getElementById('heroScoreVal').innerText = "880";
+        document.getElementById('heroPtsBadge').innerText = "+32.4% MoM";
+        document.getElementById('heroScoreSub').innerText = "Community Hub • ชิมช้อปชิลล์ & สตรีทฟู้ดข้างคอนโด (" + m.short + ")";
+        document.getElementById('pill1Title').innerText = "ผู้ติดตามเพจ";
+        document.getElementById('pill1Val').innerText = "36,559";
+        document.getElementById('pill2Title').innerText = "Organic Reach";
+        document.getElementById('pill2Val').innerText = m.mayfairReach;
+
+        const needle = document.getElementById('gaugeNeedle');
+        if (needle) needle.setAttribute('transform', "rotate(60, 130, 130)");
+
+        updateBentoCard(0, "🎪", "ผู้ติดตามเพจ Mayfair<br>(Market Followers)", "36.5", "K", "65.4% ของเพจรวม", true);
+        updateBentoCard(1, "🍲", "Mayfair Street Food<br>(Footfall & Check-ins)", "8.4", "K", "คนเข้าชมตลาด", true);
+        updateBentoCard(2, "⏰", "ช่วงเวลาผู้คนหนาแน่นสูงสุด<br>(Peak Hours Fri-Sun)", "19-21", "น.", "พีค 98% ทุกสุดสัปดาห์", false);
+        updateBentoCard(3, "🏃", "Morning Run & Community<br>(สุขภาพและครอบครัว)", "74", "%", "ผู้พักอาศัยและคนโคราช", false);
+        updateBentoCard(4, "✨", "อัตราการเติบโตยอดวิวเพจ<br>(Footfall Growth)", "32.4", "%", "เพิ่มขึ้นจากเดือนก่อน", true);
+        updateBentoCard(5, "❤️", "Engagement Rate เพจ<br>(รีวิวและคอมเมนต์)", "4.8", "%", "สูงกว่าค่าเฉลี่ยตลาด", false);
+
+        document.getElementById('chartSectionTitle').innerText = "Mayfair Market Footfall Trend (" + m.short + ")";
+        document.getElementById('chartTooltipBadge').innerHTML = "<span>" + m.mayfairReach + "</span>";
+
+      } else if (cat === 'tiktok') {
+        document.getElementById('heroMainTitle').innerHTML = "TikTok Sales<br>3 Creators";
+        document.getElementById('heroScoreVal').innerText = "895";
+        document.getElementById('heroPtsBadge').innerText = m.tiktokViews + "K Views";
+        document.getElementById('heroScoreSub').innerText = "Viral Sales Force • 3 เซลล์ทำคอนเทนต์ดันยอดขาย (" + m.short + ")";
+        document.getElementById('pill1Title').innerText = "ยอดวิวสะสม";
+        document.getElementById('pill1Val').innerText = m.tiktokViews + "K";
+        document.getElementById('pill2Title').innerText = "Interactions รวม";
+        document.getElementById('pill2Val').innerText = "2,023+";
+
+        const needle = document.getElementById('gaugeNeedle');
+        if (needle) needle.setAttribute('transform', "rotate(72, 130, 130)");
+
+        updateBentoCard(0, "🌟", "คุณปนัดดา (@Pleng_Panadda)<br>(พาชมห้องและโปรโมชั่น)", "33.8", "K", "สัดส่วน 54.0%", true);
+        updateBentoCard(1, "🌈", "คุณปรัศว์ภา (@Patsapar)<br>(ชี้เป้าทำเลและโปรโมชั่น)", "14.7", "K", "สัดส่วน 23.5%", false);
+        updateBentoCard(2, "🌿", "คุณราตรี (@Ratri_Citylink)<br>(บรรยากาศและไลฟ์สไตล์)", "14.1", "K", "สัดส่วน 22.5%", false);
+        updateBentoCard(3, "💬", "Interactions รวม<br>(Likes, Saves, Shares)", "2,023", "ครั้ง", "Likes 1,890+ / Cmts 62+", true);
+        updateBentoCard(4, "⚡", "Engagement Rate เฉลี่ย<br>(สูงกว่าค่าเฉลี่ยตลาด 3%)", m.tiktokEr, "%", "Viral สูงสุด 8.96%", true);
+        updateBentoCard(5, "🎬", "คอนเทนต์วิดีโอ 9:16<br>(ชิ้นงาน High-Definition)", "12", "คลิป", "ผลงานจริงเดือน ต.ค.", false);
+
+        document.getElementById('chartSectionTitle').innerText = "TikTok Monthly Views Growth (" + m.short + ")";
+        document.getElementById('chartTooltipBadge').innerHTML = "<span>" + m.tiktokViews + "K Views</span>";
+      }
+    }
+
+    function updateBentoCard(idx, icon, title, val, unit, sub, trend) {
+      const iconEl = document.getElementById('cIcon' + idx);
+      const titleEl = document.getElementById('cTitle' + idx);
+      const valEl = document.getElementById('cVal' + idx);
+      const unitEl = document.getElementById('cUnit' + idx);
+      const subEl = document.getElementById('cSub' + idx);
+      if (iconEl) iconEl.innerText = icon;
+      if (titleEl) titleEl.innerHTML = title;
+      if (valEl) valEl.innerText = val;
+      if (unitEl) unitEl.innerText = unit;
+      if (subEl) subEl.innerText = sub;
+    }
+
     function switchCategory(catKey) {
       currentCategory = catKey;
-
       document.querySelectorAll('.nav-pill-btn').forEach(btn => {
         if (btn.getAttribute('data-tab') === catKey) {
           btn.classList.add('active');
@@ -1599,46 +2561,20 @@
           btn.classList.remove('active');
         }
       });
-
-      const data = CATEGORY_DATA[catKey];
-      if (!data) return;
-
-      document.getElementById('heroMainTitle').innerHTML = data.title;
-      document.getElementById('heroScoreVal').innerText = data.score;
-      document.getElementById('heroPtsBadge').innerText = data.pts;
-      document.getElementById('heroScoreSub').innerText = data.sub;
-      document.getElementById('pill1Title').innerText = data.pill1.title;
-      document.getElementById('pill1Val').innerText = data.pill1.val;
-      document.getElementById('pill2Title').innerText = data.pill2.title;
-      document.getElementById('pill2Val').innerText = data.pill2.val;
-
-      const needle = document.getElementById('gaugeNeedle');
-      if (needle) {
-        needle.setAttribute('transform', `rotate(${data.needleRot}, 130, 130)`);
-      }
-
-      data.cards.forEach((c, idx) => {
-        const iconEl = document.getElementById(`cIcon${idx}`);
-        const titleEl = document.getElementById(`cTitle${idx}`);
-        const valEl = document.getElementById(`cVal${idx}`);
-        const subEl = document.getElementById(`cSub${idx}`);
-        if (iconEl) iconEl.innerText = c.icon;
-        if (titleEl) titleEl.innerHTML = c.title;
-        if (valEl) valEl.innerText = c.val;
-        if (subEl) subEl.innerText = c.sub;
-        const unitEl = document.getElementById(cUnit33538);
-        if (unitEl) unitEl.innerText = c.unit;
-      });
-
-      document.getElementById('chartSectionTitle').innerText = data.chartTitle;
-      document.getElementById('chartTooltipBadge').innerHTML = `<span>${data.chartTooltip}</span>`;
-
+      renderDashboardForState();
       const showcase = document.getElementById('tiktokShowcasePanel');
       if (catKey === 'tiktok') {
         showcase.classList.add('show');
         renderPosters();
       }
     }
+
+    function setTimeFilter(period) {
+      if (period === 'aug') selectMonth('ส.ค.');
+      else if (period === 'sep') selectMonth('ก.ย.');
+      else if (period === 'oct') selectMonth('ต.ค.');
+    }
+
 
     function toggleTikTokShowcase() {
       const panel = document.getElementById('tiktokShowcasePanel');
