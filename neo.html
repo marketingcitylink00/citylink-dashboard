@@ -265,9 +265,9 @@
     }
 
     .hero-main-title {
-      font-size: 34px;
+      font-size: clamp(26px, 2.3vw, 32px);
       font-weight: 900;
-      line-height: 1.05;
+      line-height: 1.08;
       letter-spacing: -1px;
       color: #0b0c10;
     }
@@ -1055,7 +1055,7 @@
         <!-- Left Hero Area (Score & Speedometer Radial Gauge) -->
         <div class="hero-score-col">
           <div class="hero-title-area">
-            <h1 class="hero-main-title" id="heroMainTitle">Marketing<br>Karma Pulse</h1>
+            <h1 class="hero-main-title" id="heroMainTitle">Dashboard<br>Marketing Performance</h1>
             <div class="hero-toggle-pills" id="heroSubPills">
               <span class="hero-sub-pill active" onclick="setHeroSubChannel('all');">All Channels</span>
               <span class="hero-sub-pill" onclick="setHeroSubChannel('facebook');">Facebook CLC</span>
@@ -1507,7 +1507,7 @@
     // Category Data Configurations
     const CATEGORY_DATA = {
       overview: {
-        title: "Marketing<br>Karma Pulse",
+        title: "Dashboard<br>Marketing Performance",
         score: "832",
         pts: "+14 pts",
         sub: "Excellent Health • ตรวจสอบความเคลื่อนไหวสด 24 ชั่วโมง",
