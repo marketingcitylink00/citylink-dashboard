@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
@@ -4463,6 +4463,12 @@
         <button class="control-circle-btn" onclick="copySummaryText()" title="คัดลอกสรุปข้อความ (LINE/แชท)">📋</button>
         <button class="control-circle-btn" onclick="exportDataCSV()" title="ดาวน์โหลด CSV">📥</button>
         <button class="control-circle-btn" onclick="window.print()" title="พิมพ์ PDF">🖨️</button>
+
+        <!-- Toggle to Neo-Fintech Pulse Dashboard -->
+        <a href="Neo_Fintech_Dashboard.html" onclick="if(window.location.protocol!=='file:'){this.href='neo.html';}" class="control-neo-pill" title="สลับไปยัง Neo-Fintech Pulse Dashboard (ดีไซน์ใหม่ล่าสุด 24 ชม.)" style="text-decoration: none; display: inline-flex; align-items: center; gap: 7px; padding: 7px 15px; background: linear-gradient(135deg, #00E887 0%, #00B368 100%); color: #082115; font-size: 0.82rem; font-weight: 800; border-radius: 9999px; box-shadow: 0 4px 14px rgba(0, 232, 135, 0.4); border: 1px solid rgba(255,255,255,0.6); transition: all 0.2s ease;">
+          <span style="font-size: 1rem;">✨</span>
+          <span>โหมด Neo-Fintech</span>
+        </a>
 
         <!-- User Profile Pill -->
         <div class="user-profile-pill">
