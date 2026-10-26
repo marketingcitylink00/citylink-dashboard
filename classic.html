@@ -78,12 +78,14 @@
       color: var(--text-dark);
       min-height: 100vh;
       display: flex;
-      padding: 24px;
-      gap: 24px;
+      padding: clamp(14px, 1.6vw, 24px);
+      gap: clamp(14px, 1.6vw, 24px);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
       max-width: 100vw;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     /* Custom Slim Scrollbars */
@@ -330,12 +332,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
       width: 100%;
+      flex-wrap: wrap;
+      min-width: 0;
     }
 
     .header-title-group {
       min-width: 0;
+      flex: 1 1 auto;
     }
 
     .header-title-group h2 {
@@ -356,8 +361,10 @@
     .header-controls {
       display: flex;
       align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      flex-shrink: 1;
     }
 
     #toast {
@@ -478,9 +485,11 @@
     /* ========================================================================== */
     .bento-master-grid {
       display: grid;
-      grid-template-columns: 2.1fr 1fr;
-      gap: 22px;
+      grid-template-columns: minmax(0, 1.65fr) minmax(370px, 1.05fr);
+      gap: 20px;
       align-items: start;
+      width: 100%;
+      min-width: 0;
     }
 
     /* Left Column */
@@ -673,12 +682,16 @@
     .widget-donut-card {
       background: var(--bg-card-sage);
       border-radius: 26px;
-      padding: 26px;
+      padding: 22px;
       border: 1px solid rgba(16, 185, 129, 0.15);
       box-shadow: var(--card-shadow);
       display: flex;
       flex-direction: column;
       gap: 18px;
+      overflow: hidden;
+      max-width: 100%;
+      box-sizing: border-box;
+      min-width: 0;
     }
 
     .widget-card-header {
@@ -940,13 +953,62 @@
       border-bottom: none;
     }
 
-    /* Responsive Breakdown */
-    @media (max-width: 1200px) {
-      .bento-master-grid {
-        grid-template-columns: 1fr;
+    /* Responsive Fluid Breakpoints */
+    @media (max-width: 1440px) {
+      body {
+        padding: 18px 20px;
+        gap: 18px;
       }
       .app-sidebar {
-        width: 220px;
+        width: 235px;
+        padding: 22px 16px;
+      }
+      .bento-master-grid {
+        grid-template-columns: minmax(0, 1.55fr) minmax(340px, 1fr);
+        gap: 18px;
+      }
+      .widget-donut-card,
+      .widget-audience-card {
+        padding: 20px 22px;
+      }
+    }
+
+    @media (max-width: 1250px) {
+      body {
+        padding: 16px;
+        gap: 16px;
+      }
+      .app-sidebar {
+        width: 215px;
+        padding: 20px 14px;
+      }
+      .bento-master-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+      }
+      .bento-right-col {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 18px;
+        width: 100%;
+        min-width: 0;
+      }
+      .widget-donut-card,
+      .widget-audience-card {
+        width: 100%;
+        min-width: 0;
+      }
+      .header-controls {
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 1050px) {
+      .lead-2charts-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .lead-overview-5cards {
+        grid-template-columns: repeat(3, 1fr) !important;
       }
     }
 
@@ -2326,22 +2388,32 @@
     .widget-audience-card {
       background: var(--bg-card);
       border-radius: 26px;
-      padding: 22px 24px;
+      padding: 20px 22px;
       border: 1px solid var(--border-card);
       box-shadow: var(--card-shadow);
       display: flex;
       flex-direction: column;
       gap: 16px;
       transition: transform 0.2s, box-shadow 0.2s;
+      overflow: hidden;
+      max-width: 100%;
+      box-sizing: border-box;
+      min-width: 0;
     }
 
     .widget-audience-card:hover {
       box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.06);
     }
 
+    .widget-audience-card .widget-card-header {
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
     /* Tabs */
     .audience-tab-pills {
       display: flex;
+      flex-wrap: wrap;
       gap: 4px;
       background: var(--bg-canvas);
       padding: 4px;
@@ -2349,7 +2421,8 @@
     }
 
     .aud-tab-btn {
-      flex: 1;
+      flex: 1 1 auto;
+      min-width: 70px;
       padding: 6px 6px;
       font-size: 11px;
       font-weight: 700;
@@ -7507,52 +7580,52 @@
       if (!container) return;
 
       container.innerHTML = `
-        <svg viewBox="0 0 430 160" style="width: 100%; height: 100%; overflow: visible;">
+        <svg viewBox="0 0 380 155" style="width: 100%; height: auto; max-height: 160px; display: block;">
           <!-- Grid Lines (0%, 20%, 40%, 60%, 80%) -->
           <g stroke="var(--svg-grid)" stroke-width="1.2">
-            <line x1="150" y1="15" x2="150" y2="130" stroke="var(--border-subtle)" stroke-width="1.5" />
-            <line x1="210" y1="15" x2="210" y2="130" stroke-dasharray="3,3" />
-            <line x1="270" y1="15" x2="270" y2="130" stroke-dasharray="3,3" />
-            <line x1="330" y1="15" x2="330" y2="130" stroke-dasharray="3,3" />
-            <line x1="390" y1="15" x2="390" y2="130" stroke-dasharray="3,3" />
+            <line x1="135" y1="15" x2="135" y2="128" stroke="var(--border-subtle)" stroke-width="1.5" />
+            <line x1="185" y1="15" x2="185" y2="128" stroke-dasharray="3,3" />
+            <line x1="235" y1="15" x2="235" y2="128" stroke-dasharray="3,3" />
+            <line x1="285" y1="15" x2="285" y2="128" stroke-dasharray="3,3" />
+            <line x1="335" y1="15" x2="335" y2="128" stroke-dasharray="3,3" />
           </g>
 
           <!-- Axis Labels -->
-          <g font-size="9" fill="var(--svg-text-dim)" text-anchor="middle" font-weight="600">
-            <text x="150" y="145">0%</text>
-            <text x="210" y="145">20%</text>
-            <text x="270" y="145">40%</text>
-            <text x="330" y="145">60%</text>
-            <text x="390" y="145">80%</text>
+          <g font-size="8.5" fill="var(--svg-text-dim)" text-anchor="middle" font-weight="600">
+            <text x="135" y="142">0%</text>
+            <text x="185" y="142">20%</text>
+            <text x="235" y="142">40%</text>
+            <text x="285" y="142">60%</text>
+            <text x="335" y="142">80%</text>
           </g>
 
-          <!-- Row 1: นครราชสีมา (โคราช) 68.8% (206px) -->
-          <text x="142" y="36" text-anchor="end" font-size="10.5" font-weight="700" fill="var(--svg-text-main)">นครราชสีมา (โคราช)</text>
-          <rect x="150" y="24" width="206" height="15" rx="4" fill="#059669" style="cursor: pointer; transition: width 0.3s;">
+          <!-- Row 1: นครราชสีมา (โคราช) 68.8% (172px) -->
+          <text x="127" y="34" text-anchor="end" font-size="10" font-weight="700" fill="var(--svg-text-main)">นครราชสีมา (โคราช)</text>
+          <rect x="135" y="23" width="172" height="15" rx="4" fill="#059669" style="cursor: pointer; transition: width 0.3s;">
             <title>นครราชสีมา (โคราช): 68.8% (ผู้ชม 194,000 Reach • งบ ฿636,578.63)</title>
           </rect>
-          <text x="362" y="36" font-size="10.5" font-weight="800" fill="#059669">68.8%</text>
+          <text x="314" y="34" font-size="10" font-weight="800" fill="#059669">68.8%</text>
 
-          <!-- Row 2: กรุงเทพมหานคร 18.5% (55px) -->
-          <text x="142" y="65" text-anchor="end" font-size="10.5" font-weight="600" fill="var(--svg-text-main)">กรุงเทพมหานคร</text>
-          <rect x="150" y="53" width="55" height="15" rx="4" fill="#2563eb" style="cursor: pointer; transition: width 0.3s;">
+          <!-- Row 2: กรุงเทพมหานคร 18.5% (46px) -->
+          <text x="127" y="62" text-anchor="end" font-size="10" font-weight="600" fill="var(--svg-text-main)">กรุงเทพมหานคร</text>
+          <rect x="135" y="51" width="46" height="15" rx="4" fill="#2563eb" style="cursor: pointer; transition: width 0.3s;">
             <title>กรุงเทพมหานครและปริมณฑล: 18.5% (ผู้ชม 18,500 Reach • งบ ฿22,124.19)</title>
           </rect>
-          <text x="211" y="65" font-size="10.5" font-weight="800" fill="#2563eb">18.5%</text>
+          <text x="188" y="62" font-size="10" font-weight="800" fill="#2563eb">18.5%</text>
 
-          <!-- Row 3: ขอนแก่น / ชัยภูมิ / บุรีรัมย์ 9.8% (29px) -->
-          <text x="142" y="94" text-anchor="end" font-size="10.5" font-weight="600" fill="var(--svg-text-main)">ขอนแก่น / ชัยภูมิ / บุรีรัมย์</text>
-          <rect x="150" y="82" width="29" height="15" rx="4" fill="#d97706" style="cursor: pointer; transition: width 0.3s;">
+          <!-- Row 3: ขอนแก่น / ชัยภูมิ / บุรีรัมย์ 9.8% (24px) -->
+          <text x="127" y="90" text-anchor="end" font-size="10" font-weight="600" fill="var(--svg-text-main)">ขอนแก่น / ชัยภูมิ / บุรีรัมย์</text>
+          <rect x="135" y="79" width="24" height="15" rx="4" fill="#d97706" style="cursor: pointer; transition: width 0.3s;">
             <title>ขอนแก่น / ชัยภูมิ / บุรีรัมย์: 9.8% (ผู้ชม 27,900 Reach • งบ ฿67,712.25)</title>
           </rect>
-          <text x="185" y="94" font-size="10.5" font-weight="800" fill="#d97706">9.8%</text>
+          <text x="166" y="90" font-size="10" font-weight="800" fill="#d97706">9.8%</text>
 
-          <!-- Row 4: อื่นๆ 2.9% (9px) -->
-          <text x="142" y="123" text-anchor="end" font-size="10.5" font-weight="600" fill="var(--svg-text-main)">อื่นๆ</text>
-          <rect x="150" y="111" width="9" height="15" rx="4" fill="#94a3b8" style="cursor: pointer; transition: width 0.3s;">
+          <!-- Row 4: อื่นๆ 2.9% (7px) -->
+          <text x="127" y="118" text-anchor="end" font-size="10" font-weight="600" fill="var(--svg-text-main)">อื่นๆ</text>
+          <rect x="135" y="107" width="8" height="15" rx="4" fill="#94a3b8" style="cursor: pointer; transition: width 0.3s;">
             <title>จังหวัดอื่นๆ ทั่วประเทศ: 2.9% (ผู้ชม 15,000 Reach • งบ ฿51,271.05)</title>
           </rect>
-          <text x="165" y="123" font-size="10.5" font-weight="800" fill="#94a3b8">2.9%</text>
+          <text x="149" y="118" font-size="10" font-weight="800" fill="#94a3b8">2.9%</text>
         </svg>
       `;
     }
@@ -7563,70 +7636,70 @@
       if (!container) return;
 
       container.innerHTML = `
-        <svg viewBox="0 0 430 180" style="width: 100%; height: 100%; overflow: visible;">
+        <svg viewBox="0 0 380 175" style="width: 100%; height: auto; max-height: 175px; display: block;">
           <!-- Grid Lines (0%, 10%, 20%, 30%) -->
           <g stroke="var(--svg-grid)" stroke-width="1.2">
-            <line x1="40" y1="140" x2="415" y2="140" stroke="var(--border-subtle)" stroke-width="1.5" />
-            <line x1="40" y1="100" x2="415" y2="100" stroke-dasharray="3,3" />
-            <line x1="40" y1="60" x2="415" y2="60" stroke-dasharray="3,3" />
-            <line x1="40" y1="20" x2="415" y2="20" stroke-dasharray="3,3" />
+            <line x1="35" y1="135" x2="370" y2="135" stroke="var(--border-subtle)" stroke-width="1.5" />
+            <line x1="35" y1="95" x2="370" y2="95" stroke-dasharray="3,3" />
+            <line x1="35" y1="55" x2="370" y2="55" stroke-dasharray="3,3" />
+            <line x1="35" y1="15" x2="370" y2="15" stroke-dasharray="3,3" />
           </g>
 
           <!-- Y Axis Labels -->
-          <g font-size="9" fill="var(--svg-text-dim)" text-anchor="end" font-weight="600">
-            <text x="35" y="143">0%</text>
-            <text x="35" y="103">10%</text>
-            <text x="35" y="63">20%</text>
-            <text x="35" y="23">30%</text>
+          <g font-size="8.5" fill="var(--svg-text-dim)" text-anchor="end" font-weight="600">
+            <text x="30" y="138">0%</text>
+            <text x="30" y="98">10%</text>
+            <text x="30" y="58">20%</text>
+            <text x="30" y="18">30%</text>
           </g>
 
-          <!-- Group 1: 18-24 ปี (xCenter = 85) -->
-          <rect x="66" y="109" width="16" height="31" rx="3" fill="#e11d48" style="cursor: pointer;">
+          <!-- Group 1: 18-24 ปี (xCenter = 76) -->
+          <rect x="58" y="105" width="15" height="30" rx="3" fill="#e11d48" style="cursor: pointer;">
             <title>18-24 ปี: หญิง 7.8%</title>
           </rect>
-          <text x="74" y="104" font-size="8.5" font-weight="700" fill="#e11d48" text-anchor="middle">7.8%</text>
+          <text x="65" y="100" font-size="8" font-weight="700" fill="#e11d48" text-anchor="middle">7.8%</text>
 
-          <rect x="86" y="119" width="16" height="21" rx="3" fill="#2563eb" style="cursor: pointer;">
+          <rect x="76" y="115" width="15" height="20" rx="3" fill="#2563eb" style="cursor: pointer;">
             <title>18-24 ปี: ชาย 5.2%</title>
           </rect>
-          <text x="94" y="114" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="middle">5.2%</text>
-          <text x="84" y="156" font-size="9.5" font-weight="600" fill="var(--svg-text-dim)" text-anchor="middle">18-24 ปี</text>
+          <text x="83" y="110" font-size="8" font-weight="700" fill="#2563eb" text-anchor="middle">5.2%</text>
+          <text x="74" y="152" font-size="9" font-weight="600" fill="var(--svg-text-dim)" text-anchor="middle">18-24 ปี</text>
 
-          <!-- Group 2: 25-34 ปี (กลุ่มหลัก) (xCenter = 175) -->
-          <rect x="156" y="22" width="16" height="118" rx="3" fill="#e11d48" style="cursor: pointer;">
+          <!-- Group 2: 25-34 ปี (กลุ่มหลัก) (xCenter = 160) -->
+          <rect x="142" y="18" width="15" height="117" rx="3" fill="#e11d48" style="cursor: pointer;">
             <title>25-34 ปี: หญิง 29.5% (กลุ่มเป้าหมายหลัก)</title>
           </rect>
-          <text x="164" y="17" font-size="9" font-weight="800" fill="#e11d48" text-anchor="middle">29.5%</text>
+          <text x="149" y="13" font-size="8.5" font-weight="800" fill="#e11d48" text-anchor="middle">29.5%</text>
 
-          <rect x="176" y="50" width="16" height="90" rx="3" fill="#2563eb" style="cursor: pointer;">
+          <rect x="160" y="46" width="15" height="89" rx="3" fill="#2563eb" style="cursor: pointer;">
             <title>25-34 ปี: ชาย 22.4%</title>
           </rect>
-          <text x="184" y="45" font-size="9" font-weight="800" fill="#2563eb" text-anchor="middle">22.4%</text>
-          <text x="174" y="156" font-size="9.5" font-weight="700" fill="var(--accent-emerald)" text-anchor="middle">25-34 ปี (หลัก)</text>
+          <text x="167" y="41" font-size="8.5" font-weight="800" fill="#2563eb" text-anchor="middle">22.4%</text>
+          <text x="158" y="152" font-size="9" font-weight="700" fill="var(--accent-emerald)" text-anchor="middle">25-34 ปี (หลัก)</text>
 
-          <!-- Group 3: 35-44 ปี (ครอบครัว/ลงทุน) (xCenter = 265) -->
-          <rect x="246" y="72" width="16" height="68" rx="3" fill="#e11d48" style="cursor: pointer;">
+          <!-- Group 3: 35-44 ปี (ครอบครัว/ลงทุน) (xCenter = 244) -->
+          <rect x="226" y="67" width="15" height="68" rx="3" fill="#e11d48" style="cursor: pointer;">
             <title>35-44 ปี: หญิง 17.1%</title>
           </rect>
-          <text x="254" y="67" font-size="8.5" font-weight="700" fill="#e11d48" text-anchor="middle">17.1%</text>
+          <text x="233" y="62" font-size="8" font-weight="700" fill="#e11d48" text-anchor="middle">17.1%</text>
 
-          <rect x="266" y="81" width="16" height="59" rx="3" fill="#2563eb" style="cursor: pointer;">
+          <rect x="244" y="76" width="15" height="59" rx="3" fill="#2563eb" style="cursor: pointer;">
             <title>35-44 ปี: ชาย 14.8%</title>
           </rect>
-          <text x="274" y="76" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="middle">14.8%</text>
-          <text x="264" y="156" font-size="9.5" font-weight="600" fill="var(--svg-text-dim)" text-anchor="middle">35-44 ปี</text>
+          <text x="251" y="71" font-size="8" font-weight="700" fill="#2563eb" text-anchor="middle">14.8%</text>
+          <text x="242" y="152" font-size="9" font-weight="600" fill="var(--svg-text-dim)" text-anchor="middle">35-44 ปี</text>
 
-          <!-- Group 4: 45-54 ปี (xCenter = 355) -->
-          <rect x="336" y="135" width="16" height="5" rx="2" fill="#e11d48" style="cursor: pointer;">
+          <!-- Group 4: 45-54 ปี (xCenter = 328) -->
+          <rect x="310" y="130" width="15" height="5" rx="2" fill="#e11d48" style="cursor: pointer;">
             <title>45-54 ปี: หญิง 1.2%</title>
           </rect>
-          <text x="344" y="130" font-size="8.5" font-weight="700" fill="#e11d48" text-anchor="middle">1.2%</text>
+          <text x="317" y="125" font-size="8" font-weight="700" fill="#e11d48" text-anchor="middle">1.2%</text>
 
-          <rect x="356" y="133" width="16" height="7" rx="2" fill="#2563eb" style="cursor: pointer;">
+          <rect x="328" y="128" width="15" height="7" rx="2" fill="#2563eb" style="cursor: pointer;">
             <title>45-54 ปี: ชาย 1.8%</title>
           </rect>
-          <text x="364" y="128" font-size="8.5" font-weight="700" fill="#2563eb" text-anchor="middle">1.8%</text>
-          <text x="354" y="156" font-size="9.5" font-weight="600" fill="var(--svg-text-dim)" text-anchor="middle">45-54 ปี</text>
+          <text x="335" y="123" font-size="8" font-weight="700" fill="#2563eb" text-anchor="middle">1.8%</text>
+          <text x="326" y="152" font-size="9" font-weight="600" fill="var(--svg-text-dim)" text-anchor="middle">45-54 ปี</text>
         </svg>
       `;
     }
