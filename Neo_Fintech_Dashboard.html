@@ -2661,9 +2661,22 @@
       const grid = document.getElementById('videoPostersGrid');
       if (!grid) return;
 
-      let filtered = CARDS_DATA;
+      // Filter: Only display content that has real published status, real data, and real photos
+      let filtered = CARDS_DATA.filter(item => item.status === '\u0e42\u0e1e\u0e2a\u0e15\u0e4c\u0e41\u0e25\u0e49\u0e27' && item.views && item.views !== '-' && item.views !== '\u0e41\u0e1c\u0e19\u0e07\u0e32\u0e19' && item.views !== '\u0e23\u0e2d\u0e42\u0e1e\u0e2a\u0e15\u0e4c' && item.views !== '\u0e23\u0e2d\u0e40\u0e1c\u0e22\u0e41\u0e1e\u0e23\u0e48' && NEO_THUMBS[String(item.id)] && !NEO_THUMBS[String(item.id)].includes('svg'));
+      
       if (currentCreatorFilter !== 'all') {
         filtered = filtered.filter(item => item.creator === currentCreatorFilter);
+      }
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; padding: 48px 24px; text-align: center; background: rgba(255, 255, 255, 0.02); border-radius: 16px; border: 1px dashed rgba(255, 255, 255, 0.1);">
+            <div style="font-size: 36px; margin-bottom: 10px;">â³</div>
+            <div style="font-size: 15px; font-weight: 700; color: #fff;">คอนเทนต์ไตรมาส 4 (ต.ค. 69) อยู่ระหว่างการผลิตและรอเผยแพร่</div>
+            <div style="font-size: 12.5px; color: #94a3b8; margin-top: 6px;">ระบบจะแสดงผลเฉพาะคอนเทนต์ที่มีรูปภาพและข้อมูลสถิติจริงจากการเผยแพร่แล้วเท่านั้น</div>
+          </div>
+        `;
+        return;
       }
 
       grid.innerHTML = filtered.map(item => {
@@ -2678,9 +2691,9 @@
               <span class="poster-creator-tag">${item.creatorName} (${item.creatorHandle})</span>
               <div class="poster-title">${item.title}</div>
               <div class="poster-stats-row">
-                <span>👁️ ${item.views}</span>
-                <span>❤️ ${item.likes}</span>
-                <span>💬 ${item.comments}</span>
+                <span>ðŸ‘ï¸ ${item.views}</span>
+                <span>â¤ï¸ ${item.likes}</span>
+                <span>ðŸ’¬ ${item.comments}</span>
               </div>
             </div>
           </div>
