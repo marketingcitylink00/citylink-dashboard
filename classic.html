@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
@@ -1008,7 +1008,7 @@
         grid-template-columns: 1fr !important;
       }
       .lead-overview-5cards {
-        grid-template-columns: repeat(3, 1fr) !important;
+        grid-template-columns: repeat(2, 1fr) !important;
       }
     }
 
@@ -1626,11 +1626,11 @@
       100% { transform: scale(0.95); opacity: 0.8; }
     }
 
-    /* 4.1 5 Overview Cards Grid */
+    /* 4.1 4 Overview Cards Grid */
     .lead-overview-5cards {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
     }
 
     @media (max-width: 960px) {
@@ -4872,24 +4872,6 @@
               </div>
             </div>
 
-            <!-- Card 5: Hot Conversion Rate -->
-            <div class="lead-kpi-box box-conv has-popup" tabindex="0">
-              <div class="lead-kpi-header">
-                <span style="color: #059669;">🏆 Hot Win-Rate</span>
-                <span style="color: #10b981;">⚡</span>
-              </div>
-              <div class="lead-kpi-value" style="color: #059669;" id="mainLeadConvRate">60.0%</div>
-              <div class="lead-kpi-sub" id="mainLeadConvSub">ตอบเฉลี่ย 3.8 นาที</div>
-              <div class="donut-popup" style="width: 260px;">
-                <div class="popup-header">
-                  <span class="popup-title"><span>🏆</span> Hot Conversion Rate</span>
-                  <span class="popup-badge" style="background: rgba(16, 185, 129, 0.25); color: #34d399;">ยอดเยี่ยม</span>
-                </div>
-                <div class="popup-row"><span>สัดส่วน Hot Leads:</span><strong style="color: #10b981;" id="popLeadConvRatio">60.0% (3/5)</strong></div>
-                <div class="popup-row"><span>ความเร็วเฉลี่ย:</span><strong style="color: #38bdf8;" id="popLeadConvSpeed">3.8 นาที</strong></div>
-                <div class="popup-footer-note">⚡ การตอบกลับเร็วช่วยดัน Win-Rate ปิดการขายได้สูงสุด</div>
-              </div>
-            </div>
           </div>
 
           <!-- 4.2 Real-time High-Priority Feed (Hot & Warm & Cool Leads Alert) -->
