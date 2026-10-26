@@ -1902,6 +1902,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      flex-wrap: wrap;
     }
 
     [data-theme="dark"] .lead-hot-name {
@@ -1915,6 +1916,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      flex-wrap: wrap;
     }
 
     [data-theme="dark"] .lead-warm-name {
@@ -2115,6 +2117,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      flex-wrap: wrap;
     }
 
     [data-theme="dark"] .lead-cool-name {
@@ -2231,6 +2234,19 @@
       background: rgba(6, 199, 85, 0.25);
       color: #4ade80;
       border-color: rgba(6, 199, 85, 0.4);
+    }
+
+    .lead-contact-badge.badge-na {
+      background: rgba(148, 163, 184, 0.12);
+      color: var(--text-muted);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      font-weight: 500;
+    }
+
+    [data-theme="dark"] .lead-contact-badge.badge-na {
+      background: rgba(148, 163, 184, 0.15);
+      color: #94a3b8;
+      border-color: rgba(148, 163, 184, 0.3);
     }
 
     /* 4.3 TWO CHARTS GRID */
@@ -6042,48 +6058,58 @@
         },
         hotLeads: [
           {
-            name: '💬 คุณธีรพงศ์ ส. (โปรโมชั่น & พร้อมเข้าอยู่)',
-            score: 'Score: 92/100',
-            contact: '📞 Tel: 089-421-XXXX',
+            name: '💬 Komcharn Wisedned (คมชาญ วิเศษเนตร)',
+            phone: '084-605-4031',
+            line: '-',
+            score: 'Score: 95/100',
+            contact: '📞 Tel: 084-605-4031',
             contactType: 'tel',
-            msg: '"สอบถามโปรโมชั่นมีอะไรบ้าง คอนโดพร้อมเข้าอยู่เลยมั้ยครับ สนใจซื้อคอนโด นัดหมายเข้าชมโครงการช่วงบ่าย สะดวกโทรเบอร์นี้ครับ"',
-            time: '⏰ 2026-10-18 14:20 • แอดมินแนน (City Link) • Intent: โปรโมชั่นมีอะไรบ้าง / คอนโดพร้อมเข้าอยู่ / นัดหมายเข้าชมโครงการ'
+            msg: '"คมชาญ วิเศษเนตร 0846054031 1 bed ราคาเท่าไหร่คับ เหลือชั้นไหนบ้าง สนใจแบบ 1 ห้อง กับ 2 ห้องครับ สอบถามแปลนห้องคับ"',
+            time: '⏰ 2026-10-24 16:15 • แอดมินแนน (City Link) • Intent: แบบ 1-2 ห้องนอน / มีห้องว่างชั้นไหน / สนใจซื้อคอนโด'
           },
           {
-            name: '💬 คุณกิตติศักดิ์ ว. (2 ห้องนอน & นัดชมโครงการ)',
-            score: 'Score: 89/100',
-            contact: '📞 Tel: 081-876-XXXX',
-            contactType: 'tel',
-            msg: '"สนใจห้องค่ะ แบบ 2 ห้องนอนราคาเท่าไร มีห้องว่างชั้นไหนบ้างค่ะ นัดหมายเข้าชมโครงการช่วงสุดสัปดาห์นี้ ติดต่อกลับได้เลย"',
-            time: '⏰ 2026-10-21 11:30 • แอดมินแนน (City Link) • Intent: แบบ 2 ห้องนอนราคาเท่าไร / มีห้องว่างชั้นไหนบ้าง / นัดหมายเข้าชมโครงการ'
+            name: '💬 Kingkaew Zankl',
+            phone: '-',
+            line: 'kingkaew_z',
+            score: 'Score: 94/100',
+            contact: '💬 Line: kingkaew_z',
+            contactType: 'line',
+            msg: '"มีผ่อนตรงกับโครงการไหมคะ ขอดูห้องค่ะ แอดไลน์ kingkaew_z ส่งรายละเอียดได้เลยค่ะ"',
+            time: '⏰ 2026-10-21 11:30 • แอดมินแนน (City Link) • Intent: มีแบบผ่อนกับโครงการมั้ยค่ะ / นัดหมายเข้าชมโครงการ / ดูรูปห้องตัวอย่าง'
           },
           {
-            name: '💬 คุณธนากร บ. (ยื่นกู้สินเชื่อ & นัดทำสัญญา)',
-            score: 'Score: 88/100',
-            contact: '📞 Tel: 094-512-XXXX',
+            name: '💬 วรินทร ศิริพัฒน์',
+            phone: '082-945-6671',
+            line: '-',
+            score: 'Score: 93/100',
+            contact: '📞 Tel: 082-945-6671',
             contactType: 'tel',
-            msg: '"สนใจซื้อคอนโด 1 Bed ตึก Cambridge ยื่นขอสินเชื่อต้องใช้เอกสารอะไรบ้าง ทางโครงการดิวกับธนาคารไหนบ้างครับ นัดทำสัญญาเสาร์นี้"',
-            time: '⏰ 2026-10-24 16:15 • แอดมินแนน (City Link) • Intent: ยื่นขอสินเชื่อต้องใช้เอกสารอะไรบ้าง / ทางโครงการดิวกับธนาคารไหน / นัดทำสัญญา'
+            msg: '"สนใจห้องโปรโมชั่น Ready to move in ชั้น 5 วิวสวน นัดทำสัญญาและปรึกษาสินเชื่อวันเสาร์นี้ เบอร์ 082-9456671 ครับ"',
+            time: '⏰ 2026-10-18 14:20 • แอดมินแนน (City Link) • Intent: โปรโมชั่นมีอะไรบ้าง / ยื่นขอสินเชื่อ / นัดทำสัญญา Ready to move in'
           }
         ],
         warmLeads: [
           {
-            name: '💬 คุณพัชรีวรรณ ก. (ขอแปลน & แบบผ่อนโครงการ)',
-            score: 'Score: 75/100',
-            contact: '💬 Line: patchari_k',
+            name: '💬 ใครใครก็ชอบเรียก ลูกหมี',
+            phone: '-',
+            line: 'lookmhee_condo',
+            score: 'Score: 78/100',
+            contact: '💬 Line: lookmhee_condo',
             contactType: 'line',
-            msg: '"มีแบบกี่แบบคะ ขอรายละเอียดหน่อยค่ะ ดูแปลนหน่อยค่ะ และดูรูปห้องตัวอย่าง มีแบบผ่อนกับโครงการมั้ยค่ะ เงินเดือนต้องเท่าไรค่ะ"',
-            time: '⏰ 2026-10-16 11:15 • แอดมินเพจ City Link • Intent: ดูแปลนหน่อยค่ะ / ดูรูปห้องตัวอย่าง / มีแบบผ่อนกับโครงการมั้ยค่ะ / เงินเดือนเท่าไร'
+            msg: '"เปิดจองแล้วใช่มั้ยคะ ราคาเท่าไหร่คะ สนใจห้องตัวอย่างค่ะ ทักไลน์ lookmhee_condo ได้นะคะ"',
+            time: '⏰ 2026-10-16 11:15 • แอดมินแนน (City Link) • Intent: สอบถามราคา / ดูรูปห้องตัวอย่าง / ขอรายละเอียด'
           }
         ],
         coolLeads: [
           {
-            name: '💬 คุณศุภชัย ม. (ราคาเริ่มต้น & Pet-Friendly)',
+            name: '💬 Jxri Se',
+            phone: '-',
+            line: 'jxri_pet',
             score: 'Score: 35/100',
-            contact: '💬 Line: suphachai_m',
+            contact: '💬 Line: jxri_pet',
             contactType: 'line',
-            msg: '"สนใจคอนโดค่ะ ราคาเริ่มต้นเท่าไรค่ะ สอบถามโครงการใหม่ pet friendlyมั้ยค่ะ คอนโดเลี้ยงสัตว์ได้มั้ย มีที่จอดรถกี่คัน สะดวกคุยในนี้ค่ะ(Chat FB)"',
-            time: '⏰ 2026-10-25 10:45 • แอดมินเพจ City Link • Intent: สนใจคอนโด / ราคาเริ่มต้นเท่าไร / pet friendly / คอนโดเลี้ยงสัตว์ได้มั้ย / Chat FB'
+            msg: '"สวัสดีค่า ขอสอบถามราคาห้องค่ะ สามารถเลี้ยงสัตว์ได้ไหมคะ ให้ไลน์ไว้ jxri_pet ค่า"',
+            time: '⏰ 2026-10-25 10:45 • แอดมินเพจ City Link • Intent: ราคาเริ่มต้นเท่าไร / pet friendly / คอนโดเลี้ยงสัตว์ได้มั้ย / Chat FB'
           }
         ]
       },
@@ -6113,48 +6139,58 @@
         },
         hotLeads: [
           {
-            name: '💬 คุณธีรพงศ์ ส. (โปรโมชั่น & พร้อมเข้าอยู่)',
-            score: 'Score: 92/100',
-            contact: '📞 Tel: 089-421-XXXX',
+            name: '💬 Komcharn Wisedned (คมชาญ วิเศษเนตร)',
+            phone: '084-605-4031',
+            line: '-',
+            score: 'Score: 95/100',
+            contact: '📞 Tel: 084-605-4031',
             contactType: 'tel',
-            msg: '"สอบถามโปรโมชั่นมีอะไรบ้าง คอนโดพร้อมเข้าอยู่เลยมั้ยครับ สนใจซื้อคอนโด นัดหมายเข้าชมโครงการช่วงบ่าย สะดวกโทรเบอร์นี้ครับ"',
-            time: '⏰ 2026-10-18 14:20 • แอดมินแนน (City Link) • Intent: โปรโมชั่นมีอะไรบ้าง / คอนโดพร้อมเข้าอยู่ / นัดหมายเข้าชมโครงการ'
+            msg: '"คมชาญ วิเศษเนตร 0846054031 1 bed ราคาเท่าไหร่คับ เหลือชั้นไหนบ้าง สนใจแบบ 1 ห้อง กับ 2 ห้องครับ สอบถามแปลนห้องคับ"',
+            time: '⏰ 2026-10-24 16:15 • แอดมินแนน (City Link) • Intent: แบบ 1-2 ห้องนอน / มีห้องว่างชั้นไหน / สนใจซื้อคอนโด'
           },
           {
-            name: '💬 คุณกิตติศักดิ์ ว. (2 ห้องนอน & นัดชมโครงการ)',
-            score: 'Score: 89/100',
-            contact: '📞 Tel: 081-876-XXXX',
-            contactType: 'tel',
-            msg: '"สนใจห้องค่ะ แบบ 2 ห้องนอนราคาเท่าไร มีห้องว่างชั้นไหนบ้างค่ะ นัดหมายเข้าชมโครงการช่วงสุดสัปดาห์นี้ ติดต่อกลับได้เลย"',
-            time: '⏰ 2026-10-21 11:30 • แอดมินแนน (City Link) • Intent: แบบ 2 ห้องนอนราคาเท่าไร / มีห้องว่างชั้นไหนบ้าง / นัดหมายเข้าชมโครงการ'
+            name: '💬 Kingkaew Zankl',
+            phone: '-',
+            line: 'kingkaew_z',
+            score: 'Score: 94/100',
+            contact: '💬 Line: kingkaew_z',
+            contactType: 'line',
+            msg: '"มีผ่อนตรงกับโครงการไหมคะ ขอดูห้องค่ะ แอดไลน์ kingkaew_z ส่งรายละเอียดได้เลยค่ะ"',
+            time: '⏰ 2026-10-21 11:30 • แอดมินแนน (City Link) • Intent: มีแบบผ่อนกับโครงการมั้ยค่ะ / นัดหมายเข้าชมโครงการ / ดูรูปห้องตัวอย่าง'
           },
           {
-            name: '💬 คุณธนากร บ. (ยื่นกู้สินเชื่อ & นัดทำสัญญา)',
-            score: 'Score: 88/100',
-            contact: '📞 Tel: 094-512-XXXX',
+            name: '💬 วรินทร ศิริพัฒน์',
+            phone: '082-945-6671',
+            line: '-',
+            score: 'Score: 93/100',
+            contact: '📞 Tel: 082-945-6671',
             contactType: 'tel',
-            msg: '"สนใจซื้อคอนโด 1 Bed ตึก Cambridge ยื่นขอสินเชื่อต้องใช้เอกสารอะไรบ้าง ทางโครงการดิวกับธนาคารไหนบ้างครับ นัดทำสัญญาเสาร์นี้"',
-            time: '⏰ 2026-10-24 16:15 • แอดมินแนน (City Link) • Intent: ยื่นขอสินเชื่อต้องใช้เอกสารอะไรบ้าง / ทางโครงการดิวกับธนาคารไหน / นัดทำสัญญา'
+            msg: '"สนใจห้องโปรโมชั่น Ready to move in ชั้น 5 วิวสวน นัดทำสัญญาและปรึกษาสินเชื่อวันเสาร์นี้ เบอร์ 082-9456671 ครับ"',
+            time: '⏰ 2026-10-18 14:20 • แอดมินแนน (City Link) • Intent: โปรโมชั่นมีอะไรบ้าง / ยื่นขอสินเชื่อ / นัดทำสัญญา Ready to move in'
           }
         ],
         warmLeads: [
           {
-            name: '💬 คุณพัชรีวรรณ ก. (ขอแปลน & แบบผ่อนโครงการ)',
-            score: 'Score: 75/100',
-            contact: '💬 Line: patchari_k',
+            name: '💬 ใครใครก็ชอบเรียก ลูกหมี',
+            phone: '-',
+            line: 'lookmhee_condo',
+            score: 'Score: 78/100',
+            contact: '💬 Line: lookmhee_condo',
             contactType: 'line',
-            msg: '"มีแบบกี่แบบคะ ขอรายละเอียดหน่อยค่ะ ดูแปลนหน่อยค่ะ และดูรูปห้องตัวอย่าง มีแบบผ่อนกับโครงการมั้ยค่ะ เงินเดือนต้องเท่าไรค่ะ"',
-            time: '⏰ 2026-10-16 11:15 • แอดมินเพจ City Link • Intent: ดูแปลนหน่อยค่ะ / ดูรูปห้องตัวอย่าง / มีแบบผ่อนกับโครงการมั้ยค่ะ / เงินเดือนเท่าไร'
+            msg: '"เปิดจองแล้วใช่มั้ยคะ ราคาเท่าไหร่คะ สนใจห้องตัวอย่างค่ะ ทักไลน์ lookmhee_condo ได้นะคะ"',
+            time: '⏰ 2026-10-16 11:15 • แอดมินแนน (City Link) • Intent: สอบถามราคา / ดูรูปห้องตัวอย่าง / ขอรายละเอียด'
           }
         ],
         coolLeads: [
           {
-            name: '💬 คุณศุภชัย ม. (ราคาเริ่มต้น & Pet-Friendly)',
+            name: '💬 Jxri Se',
+            phone: '-',
+            line: 'jxri_pet',
             score: 'Score: 35/100',
-            contact: '💬 Line: suphachai_m',
+            contact: '💬 Line: jxri_pet',
             contactType: 'line',
-            msg: '"สนใจคอนโดค่ะ ราคาเริ่มต้นเท่าไรค่ะ สอบถามโครงการใหม่ pet friendlyมั้ยค่ะ คอนโดเลี้ยงสัตว์ได้มั้ย มีที่จอดรถกี่คัน สะดวกคุยในนี้ค่ะ(Chat FB)"',
-            time: '⏰ 2026-10-25 10:45 • แอดมินเพจ City Link • Intent: สนใจคอนโด / ราคาเริ่มต้นเท่าไร / pet friendly / คอนโดเลี้ยงสัตว์ได้มั้ย / Chat FB'
+            msg: '"สวัสดีค่า ขอสอบถามราคาห้องค่ะ สามารถเลี้ยงสัตว์ได้ไหมคะ ให้ไลน์ไว้ jxri_pet ค่า"',
+            time: '⏰ 2026-10-25 10:45 • แอดมินเพจ City Link • Intent: ราคาเริ่มต้นเท่าไร / pet friendly / คอนโดเลี้ยงสัตว์ได้มั้ย / Chat FB'
           }
         ]
       },
@@ -6912,10 +6948,18 @@
         : `⚡ กำลังเชื่อมต่อฝ่ายขายเพื่อติดต่อกลับ: ${l.name.replace('💬 ', '')} (Action SLA 15 นาที)`;
 
       let contactBadgeHtml = '';
-      if (l.contact) {
-        const isLine = l.contactType === 'line' || l.contact.includes('Line');
-        const badgeCls = isLine ? 'lead-contact-badge badge-line' : 'lead-contact-badge badge-tel';
-        contactBadgeHtml = `<span class="${badgeCls}">${l.contact}</span>`;
+      const phoneVal = l.phone || (l.contactType === 'tel' ? l.contact.replace('📞 Tel: ', '').replace('📞 ', '') : null);
+      const lineVal = l.line || (l.contactType === 'line' ? l.contact.replace('💬 Line: ', '').replace('💬 ', '') : null);
+
+      if (phoneVal && phoneVal !== '-') {
+        contactBadgeHtml += `<span class="lead-contact-badge badge-tel">📞 ${phoneVal}</span> `;
+      } else {
+        contactBadgeHtml += `<span class="lead-contact-badge badge-na">📞 Tel: -</span> `;
+      }
+      if (lineVal && lineVal !== '-') {
+        contactBadgeHtml += `<span class="lead-contact-badge badge-line">💬 Line: ${lineVal}</span> `;
+      } else {
+        contactBadgeHtml += `<span class="lead-contact-badge badge-na">💬 Line: -</span> `;
       }
 
       const cardHtml = `
@@ -12149,4 +12193,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
-
