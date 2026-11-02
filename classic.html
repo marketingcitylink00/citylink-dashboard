@@ -6048,7 +6048,7 @@
       { month: 'ก.ค.', budget: 30000, spent: 16320.13, inquiries: 138, contacts: 3,  visits: 1, closed: 0, costMsg: 118.26, costContact: 5440.04 },
       { month: 'ส.ค.', budget: 30000, spent: 17068.90, inquiries: 81,  contacts: 11, visits: 1, closed: 0, costMsg: 210.73, costContact: 1551.72 },
       { month: 'ก.ย.', budget: 30000, spent: 25423.32, inquiries: 39,  contacts: 10, visits: 0, closed: 0, costMsg: 651.88, costContact: 2542.33 },
-      { month: 'ต.ค.', budget: 20000, spent: 15944.24, inquiries: 38, contacts: 5, visits: 0, closed: 0, costMsg: 419.59, costContact: 3188.85 },
+      { month: 'ต.ค.', budget: 20000, spent: 16945.11, inquiries: 38, contacts: 5, visits: 0, closed: 0, costMsg: 445.92, costContact: 3389.02 },
       { month: 'พ.ย.', budget: 20000, spent: 0, inquiries: 0, contacts: 0, visits: 0, closed: 0, costMsg: 0, costContact: 0 }
     ];
 
@@ -6076,8 +6076,8 @@
       { month: 'ก.ค.', mayfair: 36017, clc: 19351, tiktok: 83 },
       { month: 'ส.ค.', mayfair: 36228, clc: 19392, tiktok: 83 },
       { month: 'ก.ย.', mayfair: 36422, clc: 19381, tiktok: 83 },
-      { month: 'ต.ค.', mayfair: 36588, clc: 19377, tiktok: 83 },
-      { month: 'พ.ย.', mayfair: 36592, clc: 19379, tiktok: 83 }
+      { month: 'ต.ค.', mayfair: 36592, clc: 19379, tiktok: 83 },
+      { month: 'พ.ย.', mayfair: 36752, clc: 19377, tiktok: 83 }
     ];
 
     const eventsData = [
@@ -7407,7 +7407,7 @@
       if (currentPeriod === 'Q1') fData = followersData[2]; // Mar
       else if (currentPeriod === 'Q2') fData = followersData[5]; // Jun
       else if (currentPeriod === 'Q3') fData = followersData[8]; // Sep
-      else if (currentPeriod === 'Q4') fData = followersData[9] || followersData[followersData.length - 1]; // Oct
+      else if (currentPeriod === 'Q4') fData = followersData[followersData.length - 1]; // Latest Q4 month
       else if (currentPeriod !== 'all') {
         const found = followersData.find(f => f.month === currentPeriod);
         if (found) fData = found;
@@ -9360,14 +9360,14 @@
       const text = `📊 สรุปรายงานผลงานการตลาดและโฆษณา ประจำปี 2569 (อัปเดตข้อมูล 2 พ.ย. 2569 - งวด พ.ย. 2569)
 โครงการ: City Link Condo & Mayfair
 -------------------------------------------
-💰 งบโฆษณาใช้จริงรวม: ฿184,252.58 (45.05% ของงบ ฿409,000)
+💰 งบโฆษณาใช้จริงรวม: ฿185,253.45 (45.29% ของงบ ฿409,000)
 🔍 Google Ads Traffic: 58,597 Clicks (รวม ต.ค. 4,849 Clicks / Avg CPC ฿0.26)
 💬 Facebook Inquiries (CLC): 753 ข้อความ (฿198.15 / Msg)
 📋 ลีดคุณภาพ (Contacts): 68 ราย (Conv 9.03% / ต.ค. 5 ราย / ก.ย. 10 ราย / ส.ค. 11 ราย)
 🏢 เข้าชมโครงการจริง (Site Visits): 12 ราย
 🏆 ยอดปิดการขาย (Closed): 5 ยูนิต (ต้นทุนปิดขาย ฿28,518.78/ยูนิต)
-📈 ผู้ติดตามเพจ Mayfair: 36,592 (+170 คน ใน ต.ค.)
-📈 ผู้ติดตามเพจ City Link: 19,379 (ต.ค. -2 คน, ก.ย. -11 คน, ส.ค. +41 คน)
+📈 ผู้ติดตามเพจ Mayfair: 36,752 (+160 คน ใน พ.ย.)
+📈 ผู้ติดตามเพจ City Link: 19,377 (พ.ย. -2 คน, ต.ค. -2 คน, ก.ย. -11 คน)
 -------------------------------------------
 💡 Action Plan สำคัญ:
 1. ติดตั้ง Chatbot คัดกรองลีดใน Inbox ส่งเซลส์โทรกลับใน 15 นาที
