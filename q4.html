@@ -554,11 +554,11 @@
 
     /* BOTTOM PANEL: DEEP MIDNIGHT CHARCOAL (#0B0C10) */
     .bottom-panel {
-      background: #ffffff;
+      background: var(--dark-bg);
       border-radius: 28px;
       padding: 24px 28px 28px 28px;
-      color: #0f172a;
-      border: 1.5px solid #e2e8f0;
+      color: #ffffff;
+      border: 1px solid var(--dark-card-border);
     }
 
     .bottom-grid {
@@ -572,8 +572,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: #f8fafc;
-      border: 1.5px solid #e2e8f0;
+      background: var(--dark-card);
+      border: 1px solid var(--dark-card-border);
       border-radius: 22px;
       padding: 20px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
@@ -590,13 +590,13 @@
     .section-title {
       font-size: 20px;
       font-weight: 800;
-      color: #0f172a;
+      color: #ffffff;
       letter-spacing: -0.5px;
     }
 
     .filter-time-pills {
       display: flex;
-      background: #e2e8f0;
+      background: rgba(255, 255, 255, 0.06);
       padding: 3px;
       border-radius: 99px;
       gap: 3px;
@@ -609,12 +609,12 @@
       border-radius: 99px;
       font-size: 11.5px;
       font-weight: 700;
-      color: #475569;
+      color: #94a3b8;
       cursor: pointer;
       transition: all 0.15s ease;
     }
     .time-pill-btn.active {
-      background: #0284c7;
+      background: rgba(255, 255, 255, 0.18);
       color: #ffffff;
     }
 
@@ -666,8 +666,8 @@
     .offers-card-box {
       display: flex;
       flex-direction: column;
-      background: #f8fafc;
-      border: 1.5px solid #e2e8f0;
+      background: var(--dark-card);
+      border: 1px solid var(--dark-card-border);
       border-radius: 22px;
       padding: 20px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
@@ -827,7 +827,7 @@
 
     .creator-filter-btn {
       background: rgba(255, 255, 255, 0.08);
-      border: 1px solid #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.12);
       color: #cbd5e1;
       font-family: var(--font-prompt);
       font-size: 12px;
@@ -1449,8 +1449,8 @@
     /* GA4 WEBSITE PERFORMANCE & HOVER POPUP SYSTEM                              */
     /* ========================================================================== */
     .ga4-bento-card {
-      background: #ffffff;
-      border: 1.5px solid #e2e8f0;
+      background: #1c2c47;
+      border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 18px;
       padding: 16px;
       position: relative;
@@ -1464,7 +1464,7 @@
       background: rgba(255, 255, 255, 0.06);
     }
     .ga4-bento-card.card-google-focus {
-      border: 1.5px solid #86efac;
+      border: 1.5px solid rgba(0, 230, 118, 0.4);
       box-shadow: inset 0 0 20px rgba(0, 230, 118, 0.05);
     }
     .ga4-bento-card.card-google-focus:hover {
@@ -1579,8 +1579,8 @@
     }
 
     .ga4-breakdown-card {
-      background: #ffffff;
-      border: 1.5px solid #e2e8f0;
+      background: #19263e;
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 20px;
       padding: 20px;
       margin-bottom: 18px;
@@ -1617,15 +1617,15 @@
 
     /* THEME: LIGHT EXECUTIVE MODE */
     [data-bottom-theme="light"] .bottom-panel {
-      background: #ffffff;
-      color: #0f172a;
+      background: #f1f5f9 !important;
+      color: #0f172a !important;
       border-color: #cbd5e1 !important;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
     }
     [data-bottom-theme="light"] .history-card-box,
     [data-bottom-theme="light"] .offers-card-box,
     [data-bottom-theme="light"] .ga4-dashboard-section {
-      background: #f8fafc;
+      background: #ffffff !important;
       border-color: #e2e8f0 !important;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
     }
@@ -1639,7 +1639,7 @@
       color: #475569 !important;
     }
     [data-bottom-theme="light"] .ga4-bento-card {
-      background: #ffffff;
+      background: #f8fafc !important;
       border-color: #e2e8f0 !important;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
     }
@@ -1651,19 +1651,19 @@
       color: #0f172a !important;
     }
     [data-bottom-theme="light"] .ga4-bento-card.card-google-focus {
-      background: #f0fdf4;
+      background: #ecfdf5 !important;
       border-color: #10b981 !important;
     }
     [data-bottom-theme="light"] .ga4-bento-card.card-google-focus div[style*="font-size: 32px"] {
       color: #047857 !important;
     }
     [data-bottom-theme="light"] .ga4-breakdown-card {
-      background: #ffffff;
+      background: #f8fafc !important;
       border-color: #e2e8f0 !important;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
     }
     [data-bottom-theme="light"] .ga4-daily-card {
-      background: #f8fafc !important;
+      background: #ffffff !important;
       border-color: #e2e8f0 !important;
     }
     [data-bottom-theme="light"] .ga4-daily-card div[style*="font-size: 18px"],
@@ -1699,13 +1699,13 @@
       stroke: #cbd5e1 !important;
     }
     [data-bottom-theme="light"] .filter-time-pills {
-      background: #e2e8f0;
+      background: #e2e8f0 !important;
     }
     [data-bottom-theme="light"] .time-pill-btn {
-      color: #475569;
+      color: #64748b !important;
     }
     [data-bottom-theme="light"] .time-pill-btn.active {
-      background: #0284c7;
+      background: #0284c7 !important;
       color: #ffffff !important;
     }
     [data-bottom-theme="light"] .theme-toggle-pill {
@@ -1718,18 +1718,18 @@
 
     /* THEME: OLED DARK MODE */
     [data-bottom-theme="oled"] .bottom-panel {
-      background: #ffffff;
-      border-color: #0f172a;
+      background: #050608 !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
     }
     [data-bottom-theme="oled"] .history-card-box,
     [data-bottom-theme="oled"] .offers-card-box,
     [data-bottom-theme="oled"] .ga4-dashboard-section {
-      background: #f8fafc;
+      background: #0a0c10 !important;
       border-color: rgba(255, 255, 255, 0.08) !important;
     }
     [data-bottom-theme="oled"] .ga4-bento-card,
     [data-bottom-theme="oled"] .ga4-breakdown-card {
-      background: #ffffff;
+      background: #0e1117 !important;
       border-color: rgba(255, 255, 255, 0.08) !important;
     }
   </style>
@@ -2167,15 +2167,15 @@
     <!-- BOTTOM PANEL: DEEP MIDNIGHT CHARCOAL (#0B0C10) -->
     <div class="bottom-panel" id="bottomPanel">
       <!-- Bottom Controls & Theme Selector Bar -->
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid #e2e8f0;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08);">
         <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="font-size: 13.5px; font-weight: 700; color: #0f172a; letter-spacing: -0.2px;">âš¡ Live Analytics &amp; Channel Spotlight</span>
+          <span style="font-size: 13.5px; font-weight: 700; color: #ffffff; letter-spacing: -0.2px;">âš¡ Live Analytics &amp; Channel Spotlight</span>
           <span style="font-size: 10.5px; background: rgba(0, 232, 135, 0.15); color: #00E887; border: 1px solid rgba(0, 232, 135, 0.35); padding: 2px 8px; border-radius: 99px; font-weight: 700;">Realtime Feed</span>
         </div>
-        <div style="display: inline-flex; align-items: center; gap: 6px; background: #f1f5f9; padding: 4px 6px; border-radius: 99px; border: 1px solid #e2e8f0;">
-          <span style="font-size: 11px; color: #475569; font-weight: 600; padding: 0 6px;">ðŸŽ¨ à¸ªà¸µà¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡:</span>
-          <button id="btnThemeNavy" onclick="setBottomTheme('navy');" class="theme-toggle-pill" title="à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡à¸ªà¸µà¸à¸£à¸¡à¸—à¹ˆà¸² Slate à¸Šà¸±à¸”à¸¥à¸¶à¸ à¸ªà¸šà¸²à¸¢à¸•à¸²">ðŸ’Ž High-Contrast Slate</button>
-          <button id="btnThemeLight" onclick="setBottomTheme('light');" class="theme-toggle-pill active" title="à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡à¸ªà¸µà¸‚à¸²à¸§à¸ªà¸§à¹ˆà¸²à¸‡ à¸ªà¸šà¸²à¸¢à¸•à¸² à¸•à¸±à¸§à¸«à¸™à¸±à¸‡à¸ªà¸·à¸­à¸”à¸³à¸„à¸¡à¸Šà¸±à¸”">â˜€ï¸ à¸ªà¸§à¹ˆà¸²à¸‡ (Light)</button>
+        <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(255, 255, 255, 0.06); padding: 4px 6px; border-radius: 99px; border: 1px solid rgba(255, 255, 255, 0.12);">
+          <span style="font-size: 11px; color: #cbd5e1; font-weight: 600; padding: 0 6px;">ðŸŽ¨ à¸ªà¸µà¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡:</span>
+          <button id="btnThemeNavy" onclick="setBottomTheme('navy');" class="theme-toggle-pill active" title="à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡à¸ªà¸µà¸à¸£à¸¡à¸—à¹ˆà¸² Slate à¸Šà¸±à¸”à¸¥à¸¶à¸ à¸ªà¸šà¸²à¸¢à¸•à¸²">ðŸ’Ž High-Contrast Slate</button>
+          <button id="btnThemeLight" onclick="setBottomTheme('light');" class="theme-toggle-pill" title="à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡à¸ªà¸µà¸‚à¸²à¸§à¸ªà¸§à¹ˆà¸²à¸‡ à¸ªà¸šà¸²à¸¢à¸•à¸² à¸•à¸±à¸§à¸«à¸™à¸±à¸‡à¸ªà¸·à¸­à¸”à¸³à¸„à¸¡à¸Šà¸±à¸”">â˜€ï¸ à¸ªà¸§à¹ˆà¸²à¸‡ (Light)</button>
           <button id="btnThemeOled" onclick="setBottomTheme('oled');" class="theme-toggle-pill" title="à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡à¸ªà¸µà¸”à¸³à¹€à¸‚à¹‰à¸¡à¸ªà¸™à¸´à¸— OLED Dark">ðŸŒ™ à¸¡à¸·à¸”à¸ªà¸™à¸´à¸— (OLED)</button>
         </div>
       </div>
@@ -2196,32 +2196,32 @@
           <!-- Interactive SVG Line Chart -->
           <div class="chart-container">
             <svg class="chart-svg" viewBox="0 0 540 160">
-              <line x1="40" y1="30" x2="520" y2="30" stroke="#e2e8f0" stroke-dasharray="4"/>
-              <line x1="40" y1="80" x2="520" y2="80" stroke="#e2e8f0" stroke-dasharray="4"/>
-              <line x1="40" y1="130" x2="520" y2="130" stroke="#e2e8f0" stroke-dasharray="4"/>
+              <line x1="40" y1="30" x2="520" y2="30" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4"/>
+              <line x1="40" y1="80" x2="520" y2="80" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4"/>
+              <line x1="40" y1="130" x2="520" y2="130" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4"/>
               
-              <text x="15" y="34" fill="#475569" font-size="11" font-family="Prompt">850</text>
-              <text x="15" y="84" fill="#475569" font-size="11" font-family="Prompt">820</text>
-              <text x="15" y="134" fill="#475569" font-size="11" font-family="Prompt">800</text>
+              <text x="15" y="34" fill="#64748b" font-size="11" font-family="Prompt">850</text>
+              <text x="15" y="84" fill="#64748b" font-size="11" font-family="Prompt">820</text>
+              <text x="15" y="134" fill="#64748b" font-size="11" font-family="Prompt">800</text>
               
               <defs>
                 <linearGradient id="chartGlow" x1="0%" y1="0%" x2="0%" y2="1">
-                  <stop offset="0%" stop-color="#0284c7" stop-opacity="0.2"/>
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15"/>
                   <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
                 </linearGradient>
               </defs>
               <polygon points="50,135 110,135 170,105 240,78 300,140 370,140 430,75 510,75 510,150 50,150" fill="url(#chartGlow)"/>
 
-              <polyline id="trendLine" points="50,135 110,135 170,105 240,78 300,140 370,140 430,75 510,75" fill="none" stroke="#0284c7" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline id="trendLine" points="50,135 110,135 170,105 240,78 300,140 370,140 430,75 510,75" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
               
-              <circle cx="50" cy="135" r="4.5" fill="#0284c7" stroke="#ffffff" stroke-width="2"/>
-              <circle cx="110" cy="135" r="4.5" fill="#0284c7" stroke="#ffffff" stroke-width="2"/>
-              <circle cx="170" cy="105" r="4.5" fill="#0284c7" stroke="#ffffff" stroke-width="2"/>
+              <circle cx="50" cy="135" r="4.5" fill="#0b0c10" stroke="#ffffff" stroke-width="2"/>
+              <circle cx="110" cy="135" r="4.5" fill="#0b0c10" stroke="#ffffff" stroke-width="2"/>
+              <circle cx="170" cy="105" r="4.5" fill="#0b0c10" stroke="#ffffff" stroke-width="2"/>
               <circle cx="240" cy="78" r="6" fill="#00E887" stroke="#ffffff" stroke-width="2.5"/>
-              <circle cx="300" cy="140" r="4.5" fill="#0284c7" stroke="#ffffff" stroke-width="2"/>
-              <circle cx="370" cy="140" r="4.5" fill="#0284c7" stroke="#ffffff" stroke-width="2"/>
-              <circle cx="430" cy="75" r="4.5" fill="#0284c7" stroke="#ffffff" stroke-width="2"/>
-              <circle cx="510" cy="75" r="4.5" fill="#0284c7" stroke="#ffffff" stroke-width="2"/>
+              <circle cx="300" cy="140" r="4.5" fill="#0b0c10" stroke="#ffffff" stroke-width="2"/>
+              <circle cx="370" cy="140" r="4.5" fill="#0b0c10" stroke="#ffffff" stroke-width="2"/>
+              <circle cx="430" cy="75" r="4.5" fill="#0b0c10" stroke="#ffffff" stroke-width="2"/>
+              <circle cx="510" cy="75" r="4.5" fill="#0b0c10" stroke="#ffffff" stroke-width="2"/>
             </svg>
 
             <!-- Floating Active Tooltip Badge -->
@@ -2295,12 +2295,12 @@
           </div>
           <div>
             <div style="display: flex; align-items: center; gap: 8px;">
-              <h2 style="font-size: 19px; font-weight: 800; color: #0f172a; margin: 0;">Google Analytics 4 (GA4) • Website Traffic Hub</h2>
+              <h2 style="font-size: 19px; font-weight: 800; color: #ffffff; margin: 0;">Google Analytics 4 (GA4) • Website Traffic Hub</h2>
               <span style="background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.35); font-size: 10.5px; font-weight: 700; padding: 2px 8px; border-radius: 10px; display: inline-flex; align-items: center; gap: 4px;">
                 <span style="width: 6px; height: 6px; border-radius: 50%; background: #ef4444; display: inline-block;"></span> LIVE GA4 DATA
               </span>
             </div>
-            <p style="font-size: 12px; color: #475569; margin: 2px 0 0 0;">
+            <p style="font-size: 12px; color: #94a3b8; margin: 2px 0 0 0;">
               ข้อมูลสถิติผู้เข้าชมเว็บไซต์ทางการ <strong>www.citylinkcondo.com</strong> (บัญชี Klang Casa) • ประจำวันที่ 1 - 4 พฤศจิกายน 2569
             </p>
           </div>
@@ -2317,10 +2317,10 @@
         <!-- Card 1: Active Users -->
         <div class="ga4-bento-card" onmouseenter="showGa4HoverCard(this, 1);" onmouseleave="hidePillHoverCard();" onclick="openGa4Modal(1); hidePillHoverCard();" title="นำเม้าส์มาวางเพื่อดูรายละเอียดสถิติผู้ใช้งาน">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-            <span style="font-size: 11.5px; color: #475569; font-weight: 600;">ผู้ใช้งานจริง (Active Users)</span>
+            <span style="font-size: 11.5px; color: #94a3b8; font-weight: 600;">ผู้ใช้งานจริง (Active Users)</span>
             <span style="font-size: 10px; background: rgba(0, 230, 118, 0.15); color: #00e676; padding: 2px 8px; border-radius: 10px; font-weight: 700;">100% New</span>
           </div>
-          <div style="font-size: 32px; font-weight: 900; color: #0f172a; letter-spacing: -0.5px; line-height: 1;">19 <span style="font-size: 14px; font-weight: 600; color: #64748b;">คน</span></div>
+          <div style="font-size: 32px; font-weight: 900; color: #ffffff; letter-spacing: -0.5px; line-height: 1;">19 <span style="font-size: 14px; font-weight: 600; color: #94a3b8;">คน</span></div>
           <div style="font-size: 11px; color: #38bdf8; margin-top: 6px; font-weight: 500;">
             ✨ ผู้ใช้ใหม่ทั้งหมด 19 คน (New Visitors)
           </div>
@@ -2329,11 +2329,11 @@
         <!-- Card 2: Total Pageviews -->
         <div class="ga4-bento-card" onmouseenter="showGa4HoverCard(this, 2);" onmouseleave="hidePillHoverCard();" onclick="openGa4Modal(2); hidePillHoverCard();" title="นำเม้าส์มาวางเพื่อดูรายละเอียดการดูหน้าเว็บ">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-            <span style="font-size: 11.5px; color: #475569; font-weight: 600;">จำนวนการดูหน้าเว็บ (Views)</span>
+            <span style="font-size: 11.5px; color: #94a3b8; font-weight: 600;">จำนวนการดูหน้าเว็บ (Views)</span>
             <span style="font-size: 10px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 2px 8px; border-radius: 10px; font-weight: 700;">2.05 หน้า/คน</span>
           </div>
-          <div style="font-size: 32px; font-weight: 900; color: #0f172a; letter-spacing: -0.5px; line-height: 1;">39 <span style="font-size: 14px; font-weight: 600; color: #64748b;">ครั้ง</span></div>
-          <div style="font-size: 11px; color: #475569; margin-top: 6px; font-weight: 500;">
+          <div style="font-size: 32px; font-weight: 900; color: #ffffff; letter-spacing: -0.5px; line-height: 1;">39 <span style="font-size: 14px; font-weight: 600; color: #94a3b8;">ครั้ง</span></div>
+          <div style="font-size: 11px; color: #94a3b8; margin-top: 6px; font-weight: 500;">
             ⚡ 122 กิจกรรมและการโต้ตอบ (Total Events)
           </div>
         </div>
@@ -2341,11 +2341,11 @@
         <!-- Card 3: Avg Engagement Time -->
         <div class="ga4-bento-card" onmouseenter="showGa4HoverCard(this, 3);" onmouseleave="hidePillHoverCard();" onclick="openGa4Modal(3); hidePillHoverCard();" title="นำเม้าส์มาวางเพื่อดูรายละเอียดเวลาบนเว็บ">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-            <span style="font-size: 11.5px; color: #475569; font-weight: 600;">เวลาเฉลี่ยบนเว็บ (Engagement)</span>
+            <span style="font-size: 11.5px; color: #94a3b8; font-weight: 600;">เวลาเฉลี่ยบนเว็บ (Engagement)</span>
             <span style="font-size: 10px; background: rgba(245, 158, 11, 0.15); color: #fbbf24; padding: 2px 8px; border-radius: 10px; font-weight: 700;">Rate 28.6%</span>
           </div>
-          <div style="font-size: 32px; font-weight: 900; color: #0f172a; letter-spacing: -0.5px; line-height: 1;">19.7 <span style="font-size: 14px; font-weight: 600; color: #64748b;">วินาที</span></div>
-          <div style="font-size: 11px; color: #475569; margin-top: 6px; font-weight: 500;">
+          <div style="font-size: 32px; font-weight: 900; color: #ffffff; letter-spacing: -0.5px; line-height: 1;">19.7 <span style="font-size: 14px; font-weight: 600; color: #94a3b8;">วินาที</span></div>
+          <div style="font-size: 11px; color: #94a3b8; margin-top: 6px; font-weight: 500;">
             🎯 อัตราตีกลับ (Bounce Rate) 71.4%
           </div>
         </div>
@@ -2356,8 +2356,8 @@
             <span style="font-size: 11.5px; color: #00e676; font-weight: 700;">ทราฟฟิกจาก Google ทั้งหมด</span>
             <span style="font-size: 10px; background: #00e676; color: #003319; padding: 2px 8px; border-radius: 10px; font-weight: 800;">52.6% ครองอันดับ 1</span>
           </div>
-          <div style="font-size: 32px; font-weight: 900; color: #047857; letter-spacing: -0.5px; line-height: 1;">10 <span style="font-size: 14px; font-weight: 600; color: #059669;">คน (10 เซสชัน)</span></div>
-          <div style="font-size: 11px; color: #15803d; margin-top: 6px; font-weight: 600;">
+          <div style="font-size: 32px; font-weight: 900; color: #00e676; letter-spacing: -0.5px; line-height: 1;">10 <span style="font-size: 14px; font-weight: 600; color: #a7f3d0;">คน (10 เซสชัน)</span></div>
+          <div style="font-size: 11px; color: #e2e8f0; margin-top: 6px; font-weight: 500;">
             🔍 Google Ads 5 ราย • Organic Search 5 ราย
           </div>
         </div>
@@ -2367,10 +2367,10 @@
       <div class="ga4-breakdown-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
           <div>
-            <h3 style="font-size: 16px; font-weight: 800; color: #0f172a; margin: 0;">🚦 ช่องทางที่มาของผู้เข้าชม (Source / Medium)</h3>
-            <p style="font-size: 11.5px; color: #475569; margin: 3px 0 0 0;">จัดเรียงตามจำนวนผู้ใช้งานและเซสชันจริงจากมากไปน้อย</p>
+            <h3 style="font-size: 16px; font-weight: 800; color: #ffffff; margin: 0;">🚦 ช่องทางที่มาของผู้เข้าชม (Source / Medium)</h3>
+            <p style="font-size: 11.5px; color: #94a3b8; margin: 3px 0 0 0;">จัดเรียงตามจำนวนผู้ใช้งานและเซสชันจริงจากมากไปน้อย</p>
           </div>
-          <span style="font-size: 11px; color: #475569; background: #f1f5f9; border: 1px solid #e2e8f0; padding: 4px 10px; border-radius: 12px;">รวม 19 Users / 21 Sessions</span>
+          <span style="font-size: 11px; color: #94a3b8; background: rgba(255,255,255,0.06); padding: 4px 10px; border-radius: 12px;">รวม 19 Users / 21 Sessions</span>
         </div>
 
         <!-- Channel Rows with Progress Bars -->
@@ -2378,10 +2378,10 @@
           <!-- 1. Direct -->
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
-              <span style="color: #0f172a; font-weight: 700;">🔗 (direct) / (none) — พิมพ์ชื่อเว็บตรง / ลิงก์ Bookmark</span>
+              <span style="color: #ffffff; font-weight: 600;">🔗 (direct) / (none) — พิมพ์ชื่อเว็บตรง / ลิงก์ Bookmark</span>
               <span style="color: #38bdf8; font-weight: 700;">7 คน (36.8%) • 7 Sessions</span>
             </div>
-            <div style="width: 100%; height: 8px; background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 4px; overflow: hidden;">
+            <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.06); border-radius: 4px; overflow: hidden;">
               <div style="width: 36.8%; height: 100%; background: linear-gradient(90deg, #0284c7, #38bdf8); border-radius: 4px;"></div>
             </div>
           </div>
@@ -2389,10 +2389,10 @@
           <!-- 2. Google Ads (cpc) -->
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
-              <span style="color: #0f172a; font-weight: 700;">🎯 google / cpc — โฆษณา Google Search Ads</span>
+              <span style="color: #ffffff; font-weight: 600;">🎯 google / cpc — โฆษณา Google Search Ads</span>
               <span style="color: #00e676; font-weight: 700;">5 คน (26.3%) • 5 Sessions</span>
             </div>
-            <div style="width: 100%; height: 8px; background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 4px; overflow: hidden;">
+            <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.06); border-radius: 4px; overflow: hidden;">
               <div style="width: 26.3%; height: 100%; background: linear-gradient(90deg, #00b0ff, #00e676); border-radius: 4px;"></div>
             </div>
           </div>
@@ -2400,10 +2400,10 @@
           <!-- 3. Google Organic Search -->
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
-              <span style="color: #0f172a; font-weight: 700;">🔍 google / organic — ค้นหาผ่าน Google โดยธรรมชาติ (SEO)</span>
+              <span style="color: #ffffff; font-weight: 600;">🔍 google / organic — ค้นหาผ่าน Google โดยธรรมชาติ (SEO)</span>
               <span style="color: #a7f3d0; font-weight: 700;">5 คน (26.3%) • 6 Sessions</span>
             </div>
-            <div style="width: 100%; height: 8px; background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 4px; overflow: hidden;">
+            <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.06); border-radius: 4px; overflow: hidden;">
               <div style="width: 26.3%; height: 100%; background: linear-gradient(90deg, #10b981, #6ee7b7); border-radius: 4px;"></div>
             </div>
           </div>
@@ -2411,10 +2411,10 @@
           <!-- 4. Other / Referral -->
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
-              <span style="color: #0f172a; font-weight: 700;">🌐 (other) & Referral — ช่องทางอื่นๆ และการส่งต่อ</span>
+              <span style="color: #ffffff; font-weight: 600;">🌐 (other) & Referral — ช่องทางอื่นๆ และการส่งต่อ</span>
               <span style="color: #94a3b8; font-weight: 700;">2 คน (10.5%) • 3 Sessions</span>
             </div>
-            <div style="width: 100%; height: 8px; background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 4px; overflow: hidden;">
+            <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.06); border-radius: 4px; overflow: hidden;">
               <div style="width: 10.5%; height: 100%; background: linear-gradient(90deg, #64748b, #94a3b8); border-radius: 4px;"></div>
             </div>
           </div>
@@ -2438,8 +2438,8 @@
       <div class="ga4-breakdown-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
           <div>
-            <h3 style="font-size: 16px; font-weight: 800; color: #0f172a; margin: 0;">📈 สถิติรายวัน & ทำเลที่ตั้ง (Daily & Geography)</h3>
-            <p style="font-size: 11.5px; color: #475569; margin: 3px 0 0 0;">ยอดผู้เข้าชมรายวัน และเมืองที่เปิดดูเว็บไซต์</p>
+            <h3 style="font-size: 16px; font-weight: 800; color: #ffffff; margin: 0;">📈 สถิติรายวัน & ทำเลที่ตั้ง (Daily & Geography)</h3>
+            <p style="font-size: 11.5px; color: #94a3b8; margin: 3px 0 0 0;">ยอดผู้เข้าชมรายวัน และเมืองที่เปิดดูเว็บไซต์</p>
           </div>
           <span style="font-size: 11px; color: #00e676; font-weight: 700;">Peak วันอาทิตย์ 3 พ.ย.</span>
         </div>
@@ -2448,27 +2448,27 @@
         <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px;">
           <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '1 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 10px; text-align: center;">
             <div style="font-size: 11px; color: #94a3b8;">1 พ.ย. (ศุกร์)</div>
-            <div style="font-size: 18px; font-weight: 800; color: #0f172a; margin-top: 4px;">0</div>
+            <div style="font-size: 18px; font-weight: 800; color: #64748b; margin-top: 4px;">0</div>
           </div>
           <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '2 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 10px; text-align: center;">
             <div style="font-size: 11px; color: #94a3b8;">2 พ.ย. (เสาร์)</div>
-            <div style="font-size: 18px; font-weight: 800; color: #0f172a; margin-top: 4px;">0</div>
+            <div style="font-size: 18px; font-weight: 800; color: #64748b; margin-top: 4px;">0</div>
           </div>
           <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '3 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(0, 230, 118, 0.08); border: 1.5px solid rgba(0, 230, 118, 0.4); border-radius: 12px; padding: 10px; text-align: center;">
             <div style="font-size: 11px; color: #00e676; font-weight: 700;">3 พ.ย. (อาทิตย์ 🚀)</div>
-            <div style="font-size: 22px; font-weight: 900; color: #047857; margin-top: 2px;">11</div>
+            <div style="font-size: 22px; font-weight: 900; color: #ffffff; margin-top: 2px;">11</div>
             <div style="width: 100%; height: 3px; background: #00e676; border-radius: 2px; margin-top: 4px;"></div>
           </div>
           <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '4 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 10px; text-align: center;">
             <div style="font-size: 11px; color: #94a3b8;">4 พ.ย. (จันทร์)</div>
-            <div style="font-size: 20px; font-weight: 900; color: #0369a1; margin-top: 2px;">8</div>
+            <div style="font-size: 20px; font-weight: 900; color: #ffffff; margin-top: 2px;">8</div>
             <div style="width: 72%; height: 3px; background: #38bdf8; border-radius: 2px; margin: 4px auto 0 auto;"></div>
           </div>
         </div>
 
         <!-- Geographic Tags -->
         <div style="border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 12px;">
-          <div style="font-size: 11.5px; color: #475569; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+          <div style="font-size: 11.5px; color: #94a3b8; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
             <span>📍 เมืองที่มีผู้เข้าชมมากที่สุด:</span>
           </div>
           <div style="display: flex; flex-wrap: wrap; gap: 8px;">
@@ -3760,7 +3760,7 @@ function showPillHoverCard(el, pillIdx) {
                 </h3>
               </div>
             </div>
-            <div style="font-size: 11px; color: #475569; background: #f1f5f9; border: 1px solid #e2e8f0; padding: 4px 10px; border-radius: 20px; white-space: nowrap;">
+            <div style="font-size: 11px; color: #94a3b8; background: rgba(255,255,255,0.06); padding: 4px 10px; border-radius: 20px; white-space: nowrap;">
               📅 ` + m.short + `
             </div>
           </div>
