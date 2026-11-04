@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="utf-8">
@@ -364,10 +364,26 @@
       justify-content: space-between;
       position: relative;
       cursor: pointer;
-      transition: transform 0.2s ease;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1.5px solid transparent;
     }
     .white-pill-card:hover {
-      transform: translateY(-2px);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 77, 44, 0.16);
+      border-color: rgba(0, 230, 118, 0.4);
+    }
+    .white-pill-card:hover .pill-card-arrow {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #0b0c10;
+      font-weight: 900;
+      transition: all 0.25s ease;
     }
 
     .pill-card-head {
@@ -394,6 +410,7 @@
       font-size: 11px;
       color: #0b0c10;
       font-weight: 900;
+      transition: all 0.25s ease;
     }
 
     .pill-card-val {
@@ -902,7 +919,9 @@
       background: #13151c;
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 28px;
-      max-width: 520px;
+      max-width: 540px;
+      max-height: 90vh;
+      overflow-y: auto;
       width: 100%;
       padding: 24px;
       position: relative;
@@ -1624,20 +1643,20 @@
 
           <!-- Bottom 2 White Pill Bento Cards -->
           <div class="hero-bottom-pills">
-            <div class="white-pill-card" onclick="switchCategory('condo');">
+            <div class="white-pill-card" onclick="openPillDetailModal(1);" title="คลิกเพื่อดูตัวเลขและรายละเอียดเจาะลึก">
               <div class="pill-card-head">
-                <span class="pill-card-title" id="pill1Title">งบที่ใช้จริง</span>
+                <span class="pill-card-title" id="pill1Title">งบโฆษณา Facebook</span>
                 <span class="pill-card-arrow">↗</span>
               </div>
-              <div class="pill-card-val" id="pill1Val">฿14,390</div>
+              <div class="pill-card-val" id="pill1Val">฿17,463.51</div>
             </div>
 
-            <div class="white-pill-card" onclick="switchCategory('condo');">
+            <div class="white-pill-card" onclick="openPillDetailModal(2);" title="คลิกเพื่อดูตัวเลขและรายละเอียดเจาะลึก">
               <div class="pill-card-head">
-                <span class="pill-card-title" id="pill2Title">Lead มุ่งหวัง</span>
+                <span class="pill-card-title" id="pill2Title">งบโฆษณา Google Ads.</span>
                 <span class="pill-card-arrow">↗</span>
               </div>
-              <div class="pill-card-val" id="pill2Val">30 แชท/5 นัด</div>
+              <div class="pill-card-val" id="pill2Val">฿1,281.83</div>
             </div>
           </div>
         </div>
@@ -2549,10 +2568,10 @@
         document.getElementById('heroScoreVal').innerText = m.score;
         document.getElementById('heroPtsBadge').innerText = m.pts;
         document.getElementById('heroScoreSub').innerText = m.sub;
-        document.getElementById('pill1Title').innerText = "งบที่ใช้จริง";
-        document.getElementById('pill1Val').innerText = m.spendTotal;
-        document.getElementById('pill2Title').innerText = "Lead มุ่งหวัง";
-        document.getElementById('pill2Val').innerText = m.inquiries + " แชท/" + m.qualityLeads + " นัด";
+        document.getElementById('pill1Title').innerText = "งบโฆษณา Facebook";
+        document.getElementById('pill1Val').innerText = m.spendFb;
+        document.getElementById('pill2Title').innerText = "งบโฆษณา Google Ads.";
+        document.getElementById('pill2Val').innerText = m.spendGoogle;
 
         const needle = document.getElementById('gaugeNeedle');
         if (needle) needle.setAttribute('transform', `rotate(${m.needleRot}, 130, 130)`);
@@ -2780,6 +2799,185 @@
       document.getElementById('neoModal').classList.remove('open');
     }
 
+function openPillDetailModal(pillIdx) {
+      const m = MONTH_REGISTRY[currentSelectedMonth] || MONTH_REGISTRY['Q4'] || MONTH_REGISTRY['ต.ค.'];
+      const cat = currentCategory || 'overview';
+      const modal = document.getElementById('neoModal');
+      const body = document.getElementById('modalBody');
+      if (!modal || !body) return;
+
+      let title = "";
+      let badge = "";
+      let icon = "";
+      let mainVal = "";
+      let mainLabel = "";
+      let statCards = [];
+      let insightText = "";
+      let themeColor = "#00e676";
+
+      if (cat === 'mayfair') {
+        if (pillIdx === 1 || pillIdx === '1') {
+          title = "ผู้ติดตามเพจ Mayfair Market";
+          badge = "Community & Lifestyle Page";
+          icon = "👥";
+          mainVal = "36,559";
+          mainLabel = "ยอดผู้ติดตามสะสมเพจ Mayfair Market (ม.ค. - พ.ย. 2569)";
+          themeColor = "#00f2fe";
+          statCards = [
+            { label: "การเติบโต MoM", val: "+32.4%", sub: "เทียบเดือนก่อนหน้า" },
+            { label: "หมวดหมู่อีเวนต์", val: "ชิมช้อปชิลล์", sub: "สตรีทฟู้ด & งานดนตรี" },
+            { label: "Organic Reach", val: (m.mayfairReach || "24.8K"), sub: "การเข้าถึงแบบธรรมชาติ" },
+            { label: "ทำเลที่ตั้ง", val: "City Link", sub: "โซนคอมมูนิตี้หน้าโครงการ" }
+          ];
+          insightText = "เพจ Mayfair Market มีการเติบโตของฐานแฟนคลับในพื้นที่โคราชอย่างต่อเนื่อง ช่วยสร้างสีสันและกระตุ้นการเข้าชมโครงการ City Link ในบรรยากาศ Lifestyle Community";
+        } else {
+          title = "Organic Reach Mayfair Market";
+          badge = "Organic Social Reach";
+          icon = "🌐";
+          mainVal = (m.mayfairReach || "24.8K");
+          mainLabel = "ยอดการเข้าถึงแบบ Organic ประจำช่วง " + m.short;
+          themeColor = "#4ade80";
+          statCards = [
+            { label: "ช่องทางหลัก", val: "Facebook Page", sub: "Mayfair Market Korat" },
+            { label: "กลุ่มผู้ชมหลัก", val: "18-44 ปี", sub: "ชาวโคราชและนักท่องเที่ยว" },
+            { label: "คอนเทนต์ยอดนิยม", val: "Food & Night Vibes", sub: "รีวิวร้านอาหารและดนตรีสด" },
+            { label: "การส่งต่อ Traffic", val: "Walk-in & Footfall", sub: "ดึงคนเข้าสู่พื้นที่โครงการ" }
+          ];
+          insightText = "การเข้าถึงแบบธรรมชาติสูงกว่าค่าเฉลี่ยท้องถิ่น สามารถต่อยอดเป็น Co-marketing ประชาสัมพันธ์ยูนิตคอนโดให้แก่ผู้ที่มาเยือนตลาดได้โดยตรง";
+        }
+      } else if (cat === 'tiktok') {
+        if (pillIdx === 1 || pillIdx === '1') {
+          title = "ยอดวิวสะสม TikTok (2 Creators)";
+          badge = "Viral Organic Short Video";
+          icon = "🎵";
+          mainVal = m.tiktokViews + "K";
+          mainLabel = "ยอดวิวรวมจาก 2 ครีเอเตอร์เซลล์ (" + m.short + ")";
+          themeColor = "#ff007f";
+          statCards = [
+            { label: "ครีเอเตอร์คุณปนัดดา", val: "33.8K วิว", sub: "ยอดเอนเกจสูงสุดประจำไตรมาส" },
+            { label: "ครีเอเตอร์คุณพัสภาร์", val: "14.7K วิว", sub: "คอนเทนต์เจาะลึกพาชมยูนิตจริง" },
+            { label: "อัตราเฉลี่ย ER", val: m.tiktokEr + "%", sub: "Viral Peak สูงถึง 8.96%" },
+            { label: "จำนวนคอนเทนต์", val: "43 คลิป", sub: "อัปเดตสม่ำเสมอทุกสัปดาห์" }
+          ];
+          insightText = "ช่องทาง TikTok กลายเป็น Sales Engine สำคัญในการสร้าง Emotional Connection กับผู้ซื้อวัย 24-35 ปี โดยคลิปที่เน้นพาทัวร์ห้องจริงให้ผลลัพธ์การสอบถามทักแชทดีที่สุด";
+        } else {
+          title = "Interactions รวม TikTok";
+          badge = "Total User Engagement";
+          icon = "⚡";
+          mainVal = "1,588+";
+          mainLabel = "ยอดการมีส่วนร่วมรวม (ไลก์ คอมเมนต์ บันทึก แชร์)";
+          themeColor = "#a855f7";
+          statCards = [
+            { label: "Average ER", val: m.tiktokEr + "%", sub: "สูงกว่าเกณฑ์มาตรฐานอสังหาฯ (2-3%)" },
+            { label: "ยอดบันทึกคลิป", val: "240+ ครั้ง", sub: "กลุ่มที่มีแนวโน้มจองซื้อสูง" },
+            { label: "ยอดแชร์คอนเทนต์", val: "185+ แชร์", sub: "บอกต่อเพื่อนและครอบครัว" },
+            { label: "คอนเทนต์ท็อปฮิต", val: "ห้อง 1 Bed 35ตร.ม.", sub: "วิวสระว่ายน้ำส่วนกลาง" }
+          ];
+          insightText = "Engagement ในระดับสูงสะท้อนถึงความสนใจจริงของผู้รับชม คลิปวิดีโอถูกส่งต่อและบันทึกเก็บไว้ เป็นแหล่ง Lead ทางอ้อมที่มีศักยภาพสูง";
+        }
+      } else {
+        // Default: overview / condo
+        if (pillIdx === 1 || pillIdx === '1') {
+          title = "งบโฆษณา Facebook (Facebook Ads)";
+          badge = "Meta Ads Suite • Feed, Messenger & Reels";
+          icon = "🏢";
+          mainVal = m.spendFb;
+          mainLabel = "ยอดค่าใช้จ่ายโฆษณาจริงบน Facebook (ช่วง " + m.name + ")";
+          themeColor = "#1877f2";
+          const fbShare = (m.spendTotal && m.spendTotal !== '฿0.00') ? ((parseFloat(m.spendFb.replace(/[^0-9.]/g, '')) / (parseFloat(m.spendTotal.replace(/[^0-9.]/g, '')) || 1)) * 100).toFixed(1) + "%" : "100.0%";
+          statCards = [
+            { label: "ข้อความทักเพจ (Inquiries)", val: m.inquiries + " แชท", sub: "เฉลี่ย ฿" + m.costPerMsg + " / แชท" },
+            { label: "ลูกค้ามุ่งหวัง (Quality Leads)", val: m.qualityLeads + " ราย", sub: "Hot Leads SLA ตอบ 15 นาที" },
+            { label: "การนัดหมาย / ปิดการขาย", val: (parseInt(m.closed) > 0 ? "ปิดการขาย " + m.closed + " ห้อง" : (parseInt(m.visits) > 0 ? "นัดชม " + m.visits + " ราย" : "ติดตามนัดชมห้อง")), sub: "ทีมขาย CLC ดำเนินการต่อเนื่อง" },
+            { label: "สัดส่วนเทียบงบใช้จริง", val: fbShare, sub: "งบจัดสรร " + m.budgetTotal + " (" + m.budgetPct + "%)" }
+          ];
+          insightText = "แคมเปญ Facebook Ads มุ่งเน้นกระตุ้นการทักแชท (Message Inquiries) เพื่อให้ทีมขายเข้าถึงผู้สนใจห้องชุด City Link Condo แนะนำคงระดับงบประมาณและหมุนเวียนชิ้นงานโฆษณาเพื่อป้องกัน Ad Fatigue";
+        } else {
+          title = "งบโฆษณา Google Ads. (Google Search Ads)";
+          badge = "Google Ads Suite • Search Intent & PPC Campaign";
+          icon = "🔍";
+          mainVal = m.spendGoogle;
+          mainLabel = "ยอดค่าใช้จ่ายโฆษณาจริงบน Google Ads (ช่วง " + m.name + ")";
+          themeColor = "#00e676";
+          const googleShare = (m.spendTotal && m.spendTotal !== '฿0.00') ? ((parseFloat(m.spendGoogle.replace(/[^0-9.]/g, '')) / (parseFloat(m.spendTotal.replace(/[^0-9.]/g, '')) || 1)) * 100).toFixed(1) + "%" : "0.0%";
+          statCards = [
+            { label: "ประเภทแคมเปญ", val: "Google Search (PPC)", sub: "เจาะจงกลุ่ม High Intent Buyers" },
+            { label: "คำค้นหาหลัก (Keywords)", val: "คอนโดโคราช, City Link", sub: "คอนโดพร้อมอยู่ ใจกลางเมือง" },
+            { label: "เป้าหมายการส่งต่อ", val: "Landing Page & โทร", sub: "เชื่อมต่อฝ่ายขายโดยตรง" },
+            { label: "สัดส่วนเทียบงบใช้จริง", val: googleShare, sub: "จากยอดใช้จริง " + m.spendTotal }
+          ];
+          insightText = "Google Search Ads ดักจับผู้ที่มีความต้องการซื้อและค้นหาคอนโดในโคราชแบบเจาะจง ช่วยสร้างความน่าเชื่อถือและส่งเสริมแคมเปญ Facebook ให้มี Conversion สูงสุด";
+        }
+      }
+
+      body.innerHTML = `
+        <div style="display: flex; flex-direction: column; gap: 18px; font-family: 'Prompt', -apple-system, sans-serif;">
+          <!-- Top Header -->
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 44px; height: 44px; border-radius: 14px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: inset 0 0 12px rgba(255,255,255,0.05);">
+                ` + icon + `
+              </div>
+              <div>
+                <div style="font-size: 11px; font-weight: 700; color: ` + themeColor + `; letter-spacing: 0.5px; text-transform: uppercase;">
+                  ` + badge + `
+                </div>
+                <h3 style="font-size: 18px; font-weight: 800; color: #ffffff; margin: 2px 0 0 0; line-height: 1.25;">
+                  ` + title + `
+                </h3>
+              </div>
+            </div>
+            <div style="font-size: 11px; color: #94a3b8; background: rgba(255,255,255,0.06); padding: 4px 10px; border-radius: 20px; white-space: nowrap;">
+              📅 ` + m.short + `
+            </div>
+          </div>
+
+          <!-- Highlight Big Number Box -->
+          <div style="background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 20px; text-align: center; position: relative; overflow: hidden;">
+            <div style="font-size: 12px; color: #94a3b8; font-weight: 600; margin-bottom: 6px;">
+              ` + mainLabel + `
+            </div>
+            <div style="font-size: 38px; font-weight: 900; color: #ffffff; letter-spacing: -0.5px; text-shadow: 0 4px 20px rgba(0,0,0,0.5); line-height: 1.1;">
+              ` + mainVal + `
+            </div>
+            <div style="margin-top: 8px; font-size: 11.5px; color: ` + themeColor + `; font-weight: 700;">
+              ✨ ข้อมูลยืนยันอย่างเป็นทางการ (Single Source of Truth 2569)
+            </div>
+          </div>
+
+          <!-- Detailed Metric Cards Grid (2x2) -->
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+            ` + statCards.map(c => `
+              <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px 14px;">
+                <div style="font-size: 11px; color: #94a3b8; font-weight: 500;">` + c.label + `</div>
+                <div style="font-size: 17px; font-weight: 800; color: #ffffff; margin: 4px 0 2px 0;">` + c.val + `</div>
+                <div style="font-size: 10.5px; color: #64748b;">` + c.sub + `</div>
+              </div>
+            `).join('') + `
+          </div>
+
+          <!-- Strategy Insight Box -->
+          <div style="background: rgba(0, 230, 118, 0.08); border: 1px solid rgba(0, 230, 118, 0.2); border-radius: 14px; padding: 12px 14px; font-size: 12px; line-height: 1.5; color: #e2e8f0;">
+            <div style="font-weight: 700; color: #00e676; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+              💡 บทวิเคราะห์และข้อเสนอแนะเชิงกลยุทธ์
+            </div>
+            ` + insightText + `
+          </div>
+
+          <!-- Bottom Action Buttons -->
+          <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 4px;">
+            <button onclick="window.print();" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 9px 16px; border-radius: 12px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+              🖨️ พิมพ์ / บันทึกหน้านี้
+            </button>
+            <button onclick="closeNeoModal();" style="background: #00e676; border: none; color: #003319; padding: 9px 20px; border-radius: 12px; font-size: 12px; font-weight: 800; cursor: pointer; transition: all 0.2s;">
+              ปิดหน้าต่าง
+            </button>
+          </div>
+        </div>
+      `;
+      modal.classList.add('open');
+    }
+
     function handleCardClick(idx) {
       if (currentCategory === 'overview') {
         if (idx === 0 || idx === 1 || idx === 2) switchCategory('condo');
@@ -2802,6 +3000,8 @@
     }
 
     // Initialize
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeNeoModal(); });
+
     window.addEventListener('DOMContentLoaded', () => {
       switchCategory('overview');
       renderPosters();
