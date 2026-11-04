@@ -2052,156 +2052,157 @@
         </div>
       </div>
 
-      <!-- 2-Column Detailed Analytics Grid -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 16px; margin-bottom: 18px;">
-        <!-- Left: Traffic Acquisition (Source / Medium) -->
-        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 20px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-            <div>
-              <h3 style="font-size: 15px; font-weight: 800; color: #ffffff; margin: 0;">🚦 ช่องทางที่มาของผู้เข้าชม (Source / Medium)</h3>
-              <p style="font-size: 11px; color: #94a3b8; margin: 2px 0 0 0;">จัดเรียงตามจำนวนผู้ใช้งานและเซสชันจริง</p>
-            </div>
-            <span style="font-size: 11px; color: #94a3b8; background: rgba(255,255,255,0.06); padding: 3px 8px; border-radius: 10px;">รวม 19 Users / 21 Sessions</span>
+      <!-- Row 1: Traffic Acquisition (Source / Medium) - Full Width -->
+      <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 20px; margin-bottom: 18px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <h3 style="font-size: 16px; font-weight: 800; color: #ffffff; margin: 0;">🚦 ช่องทางที่มาของผู้เข้าชม (Source / Medium)</h3>
+            <p style="font-size: 11.5px; color: #94a3b8; margin: 3px 0 0 0;">จัดเรียงตามจำนวนผู้ใช้งานและเซสชันจริงจากมากไปน้อย</p>
           </div>
+          <span style="font-size: 11px; color: #94a3b8; background: rgba(255,255,255,0.06); padding: 4px 10px; border-radius: 12px;">รวม 19 Users / 21 Sessions</span>
+        </div>
 
-          <!-- Channel Rows with Progress Bars -->
-          <div style="display: flex; flex-direction: column; gap: 11px;">
-            <!-- 1. Direct -->
-            <div>
-              <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
-                <span style="color: #ffffff; font-weight: 700;">🌐 (direct) / (none) — พิมพ์เข้าเว็บโดยตรง</span>
-                <span style="color: #38bdf8; font-weight: 800;">7 คน (36.8%) • 9 เซสชัน</span>
-              </div>
-              <div style="background: rgba(255,255,255,0.08); border-radius: 6px; height: 8px; overflow: hidden;">
-                <div style="background: #38bdf8; width: 36.8%; height: 100%; border-radius: 6px;"></div>
-              </div>
+        <!-- Channel Rows with Progress Bars -->
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <!-- 1. Direct -->
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
+              <span style="color: #ffffff; font-weight: 700;">🌐 (direct) / (none) — พิมพ์เข้าเว็บไซต์โดยตรง</span>
+              <span style="color: #38bdf8; font-weight: 800;">7 คน (36.8%) • 9 เซสชัน</span>
             </div>
-
-            <!-- 2. Google Ads (CPC) -->
-            <div>
-              <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
-                <span style="color: #ffffff; font-weight: 700;">💰 google / cpc — โฆษณา Google Search Ads</span>
-                <span style="color: #00e676; font-weight: 800;">5 คน (26.3%) • 5 เซสชัน</span>
-              </div>
-              <div style="background: rgba(255,255,255,0.08); border-radius: 6px; height: 8px; overflow: hidden;">
-                <div style="background: #00e676; width: 26.3%; height: 100%; border-radius: 6px;"></div>
-              </div>
-            </div>
-
-            <!-- 3. Google Organic -->
-            <div>
-              <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
-                <span style="color: #ffffff; font-weight: 700;">🔍 google / organic — ค้นหาธรรมชาติบน Google</span>
-                <span style="color: #34d399; font-weight: 800;">5 คน (26.3%) • 5 เซสชัน</span>
-              </div>
-              <div style="background: rgba(255,255,255,0.08); border-radius: 6px; height: 8px; overflow: hidden;">
-                <div style="background: #34d399; width: 26.3%; height: 100%; border-radius: 6px;"></div>
-              </div>
-            </div>
-
-            <!-- 4. Eaksaha Group Referral -->
-            <div>
-              <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
-                <span style="color: #cbd5e1; font-weight: 600;">🏢 eaksahagroup.com / referral — เว็บเครือเอกสห</span>
-                <span style="color: #fbbf24; font-weight: 700;">1 คน (5.3%) • 1 เซสชัน</span>
-              </div>
-              <div style="background: rgba(255,255,255,0.08); border-radius: 6px; height: 8px; overflow: hidden;">
-                <div style="background: #fbbf24; width: 5.3%; height: 100%; border-radius: 6px;"></div>
-              </div>
-            </div>
-
-            <!-- 5. Facebook Mobile Referral -->
-            <div>
-              <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
-                <span style="color: #cbd5e1; font-weight: 600;">📱 m.facebook.com / referral — ส่งต่อจาก Facebook</span>
-                <span style="color: #c084fc; font-weight: 700;">1 คน (5.3%) • 1 เซสชัน</span>
-              </div>
-              <div style="background: rgba(255,255,255,0.08); border-radius: 6px; height: 8px; overflow: hidden;">
-                <div style="background: #c084fc; width: 5.3%; height: 100%; border-radius: 6px;"></div>
-              </div>
+            <div style="background: rgba(255,255,255,0.08); border-radius: 6px; height: 9px; overflow: hidden;">
+              <div style="background: #38bdf8; width: 36.8%; height: 100%; border-radius: 6px;"></div>
             </div>
           </div>
 
-          <!-- Highlight Note -->
-          <div style="margin-top: 14px; background: rgba(0, 230, 118, 0.08); border: 1px dashed rgba(0, 230, 118, 0.3); border-radius: 12px; padding: 10px 12px; font-size: 11.5px; color: #a7f3d0; line-height: 1.4;">
-            🎯 <strong>Google Search (Ads + Organic) รวมเป็น 52.6%</strong> ของทราฟฟิกเว็บไซต์ทั้งหมด ยืนยันว่าแคมเปญ Google Search ส่งคนเข้าชมโครงการได้จริงต่อเนื่อง
+          <!-- 2. Google Ads (CPC) -->
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
+              <span style="color: #ffffff; font-weight: 700;">💰 google / cpc — โฆษณา Google Search Ads (Paid Search)</span>
+              <span style="color: #00e676; font-weight: 800;">5 คน (26.3%) • 5 เซสชัน</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.08); border-radius: 6px; height: 9px; overflow: hidden;">
+              <div style="background: #00e676; width: 26.3%; height: 100%; border-radius: 6px;"></div>
+            </div>
+          </div>
+
+          <!-- 3. Google Organic -->
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
+              <span style="color: #ffffff; font-weight: 700;">🔍 google / organic — ค้นหาแบบธรรมชาติบน Google Search</span>
+              <span style="color: #34d399; font-weight: 800;">5 คน (26.3%) • 5 เซสชัน</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.08); border-radius: 6px; height: 9px; overflow: hidden;">
+              <div style="background: #34d399; width: 26.3%; height: 100%; border-radius: 6px;"></div>
+            </div>
+          </div>
+
+          <!-- 4. Eaksaha Group Referral -->
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
+              <span style="color: #cbd5e1; font-weight: 600;">🏢 eaksahagroup.com / referral — ส่งต่อจากเว็บไซต์เครือเอกสหกรุ๊ป</span>
+              <span style="color: #fbbf24; font-weight: 700;">1 คน (5.3%) • 1 เซสชัน</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.08); border-radius: 6px; height: 9px; overflow: hidden;">
+              <div style="background: #fbbf24; width: 5.3%; height: 100%; border-radius: 6px;"></div>
+            </div>
+          </div>
+
+          <!-- 5. Facebook Mobile Referral -->
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
+              <span style="color: #cbd5e1; font-weight: 600;">📱 m.facebook.com / referral — ส่งต่อจากลิงก์ Facebook Mobile</span>
+              <span style="color: #c084fc; font-weight: 700;">1 คน (5.3%) • 1 เซสชัน</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.08); border-radius: 6px; height: 9px; overflow: hidden;">
+              <div style="background: #c084fc; width: 5.3%; height: 100%; border-radius: 6px;"></div>
+            </div>
           </div>
         </div>
 
-        <!-- Right: Daily Trend & Geography -->
-        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+        <!-- Highlight Note -->
+        <div style="margin-top: 14px; background: rgba(0, 230, 118, 0.08); border: 1px dashed rgba(0, 230, 118, 0.3); border-radius: 12px; padding: 10px 14px; font-size: 12px; color: #a7f3d0; line-height: 1.45;">
+          🎯 <strong>Google Search (Ads + Organic) รวมเป็น 52.6%</strong> ของทราฟฟิกเว็บไซต์ทั้งหมด ยืนยันว่าแคมเปญ Google Search ส่งคนเข้าชมโครงการได้จริงต่อเนื่อง
+        </div>
+      </div>
+
+      <!-- Row 2: Daily Trend & Geography (ย้ายลงมาอยู่ด้านล่าง เต็มความกว้าง) -->
+      <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 20px; margin-bottom: 18px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-              <div>
-                <h3 style="font-size: 15px; font-weight: 800; color: #ffffff; margin: 0;">📈 สถิติรายวัน & ทำเลที่ตั้ง (Daily & Geography)</h3>
-                <p style="font-size: 11px; color: #94a3b8; margin: 2px 0 0 0;">ยอดผู้เข้าชมรายวัน และเมืองที่เปิดดูเว็บไซต์</p>
-              </div>
-              <span style="font-size: 11px; color: #34d399; font-weight: 700;">Peak วันอาทิตย์ 3 พ.ย.</span>
-            </div>
+            <h3 style="font-size: 16px; font-weight: 800; color: #ffffff; margin: 0; display: flex; align-items: center; gap: 8px;">
+              📈 สถิติรายวัน &amp; ทำเลที่ตั้ง (Daily &amp; Geography)
+            </h3>
+            <p style="font-size: 11.5px; color: #94a3b8; margin: 3px 0 0 0;">ยอดผู้เข้าชมรายวัน และเมืองที่เปิดดูเว็บไซต์ www.citylinkcondo.com</p>
+          </div>
+          <span style="font-size: 11px; color: #34d399; background: rgba(0, 230, 118, 0.1); border: 1px solid rgba(0, 230, 118, 0.25); padding: 4px 10px; border-radius: 12px; font-weight: 700;">
+            Peak วันอาทิตย์ 3 พ.ย.
+          </span>
+        </div>
 
-            <!-- Daily Visual Mini-Bars (1 - 4 พ.ย.) -->
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 16px; text-align: center;">
-              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 10px 6px;">
-                <div style="font-size: 10px; color: #94a3b8;">1 พ.ย. (ศุกร์)</div>
-                <div style="font-size: 18px; font-weight: 900; color: #64748b; margin: 4px 0;">0</div>
-                <div style="height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px;"></div>
-              </div>
-              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 10px 6px;">
-                <div style="font-size: 10px; color: #94a3b8;">2 พ.ย. (เสาร์)</div>
-                <div style="font-size: 18px; font-weight: 900; color: #64748b; margin: 4px 0;">0</div>
-                <div style="height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px;"></div>
-              </div>
-              <div style="background: rgba(0, 230, 118, 0.08); border: 1.5px solid rgba(0, 230, 118, 0.35); border-radius: 12px; padding: 10px 6px; box-shadow: 0 4px 15px rgba(0, 230, 118, 0.1);">
-                <div style="font-size: 10px; color: #00e676; font-weight: 700;">3 พ.ย. (อาทิตย์ 🚀)</div>
-                <div style="font-size: 18px; font-weight: 900; color: #ffffff; margin: 4px 0;">11</div>
-                <div style="height: 4px; background: #00e676; border-radius: 2px;"></div>
-              </div>
-              <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 10px 6px;">
-                <div style="font-size: 10px; color: #e2e8f0; font-weight: 600;">4 พ.ย. (จันทร์)</div>
-                <div style="font-size: 18px; font-weight: 900; color: #38bdf8; margin: 4px 0;">8</div>
-                <div style="height: 4px; background: #38bdf8; border-radius: 2px;"></div>
-              </div>
-            </div>
+        <!-- Daily Visual Mini-Bars (1 - 4 พ.ย.) -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 18px; text-align: center;">
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 12px 8px;">
+            <div style="font-size: 11px; color: #94a3b8;">1 พ.ย. (ศุกร์)</div>
+            <div style="font-size: 22px; font-weight: 900; color: #64748b; margin: 6px 0;">0</div>
+            <div style="height: 5px; background: rgba(255,255,255,0.06); border-radius: 3px;"></div>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 12px 8px;">
+            <div style="font-size: 11px; color: #94a3b8;">2 พ.ย. (เสาร์)</div>
+            <div style="font-size: 22px; font-weight: 900; color: #64748b; margin: 6px 0;">0</div>
+            <div style="height: 5px; background: rgba(255,255,255,0.06); border-radius: 3px;"></div>
+          </div>
+          <div style="background: rgba(0, 230, 118, 0.08); border: 1.5px solid rgba(0, 230, 118, 0.4); border-radius: 14px; padding: 12px 8px; box-shadow: 0 4px 20px rgba(0, 230, 118, 0.12);">
+            <div style="font-size: 11px; color: #00e676; font-weight: 700;">3 พ.ย. (อาทิตย์ 🚀)</div>
+            <div style="font-size: 22px; font-weight: 900; color: #ffffff; margin: 6px 0;">11</div>
+            <div style="height: 5px; background: #00e676; border-radius: 3px;"></div>
+          </div>
+          <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 12px 8px;">
+            <div style="font-size: 11px; color: #e2e8f0; font-weight: 600;">4 พ.ย. (จันทร์)</div>
+            <div style="font-size: 22px; font-weight: 900; color: #38bdf8; margin: 6px 0;">8</div>
+            <div style="height: 5px; background: #38bdf8; border-radius: 3px;"></div>
+          </div>
+        </div>
 
-            <!-- Top Cities Badges Grid -->
-            <div style="font-size: 11px; font-weight: 700; color: #94a3b8; margin-bottom: 6px;">📍 เมืองที่มีผู้เข้าชมมากที่สุด:</div>
-            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-              <span style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.25); padding: 4px 9px; border-radius: 8px; font-size: 11px; font-weight: 700;">
-                🏢 กรุงเทพฯ (Bangkok) 3 คน (15.8%)
-              </span>
-              <span style="background: rgba(0, 230, 118, 0.12); color: #34d399; border: 1px solid rgba(0, 230, 118, 0.25); padding: 4px 9px; border-radius: 8px; font-size: 11px; font-weight: 700;">
-                🌾 ขอนแก่น (Khon Kaen) 2 คน (10.5%)
-              </span>
-              <span style="background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.25); padding: 4px 9px; border-radius: 8px; font-size: 11px; font-weight: 700;">
-                🏰 โคราช & สุรนารี & หมื่นไวย 4 คน (21.1%)
-              </span>
-              <span style="background: rgba(255, 255, 255, 0.06); color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.1); padding: 4px 9px; border-radius: 8px; font-size: 11px;">
-                🌳 บุรีรัมย์ & อุบลฯ 2 คน
-              </span>
-              <span style="background: rgba(168, 85, 247, 0.12); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.25); padding: 4px 9px; border-radius: 8px; font-size: 11px;">
-                ✈️ ต่างประเทศ (Dublin, Kurobe) 2 คน
-              </span>
+        <!-- Top Cities Badges Grid -->
+        <div style="margin-bottom: 14px;">
+          <div style="font-size: 12px; font-weight: 700; color: #e2e8f0; margin-bottom: 8px;">📍 เมืองที่มีผู้เข้าชมมากที่สุด:</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.25); padding: 6px 12px; border-radius: 10px; font-size: 12px; font-weight: 700;">
+              🏢 กรุงเทพฯ (Bangkok) 3 คน (15.8%)
+            </span>
+            <span style="background: rgba(0, 230, 118, 0.12); color: #34d399; border: 1px solid rgba(0, 230, 118, 0.25); padding: 6px 12px; border-radius: 10px; font-size: 12px; font-weight: 700;">
+              🌾 ขอนแก่น (Khon Kaen) 2 คน (10.5%)
+            </span>
+            <span style="background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.25); padding: 6px 12px; border-radius: 10px; font-size: 12px; font-weight: 700;">
+              🏰 โคราช &amp; สุรนารี &amp; หมื่นไวย 4 คน (21.1%)
+            </span>
+            <span style="background: rgba(255, 255, 255, 0.06); color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.1); padding: 6px 12px; border-radius: 10px; font-size: 12px;">
+              🌳 บุรีรัมย์ &amp; อุบลฯ 2 คน
+            </span>
+            <span style="background: rgba(168, 85, 247, 0.12); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.25); padding: 6px 12px; border-radius: 10px; font-size: 12px;">
+              ✈️ ต่างประเทศ (Dublin, Kurobe) 2 คน
+            </span>
+          </div>
+        </div>
+
+        <!-- Top Page Row -->
+        <div style="background: rgba(255, 255, 255, 0.04); border-radius: 14px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 12.5px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 18px;">📄</span>
+            <div>
+              <strong style="color: #fff;">City Link Condo | Nakhon Ratchasima</strong>
+              <div style="font-size: 11px; color: #94a3b8;">หน้ารับชมหลักโครงการ (Landing Page)</div>
             </div>
           </div>
-
-          <!-- Top Page Row -->
-          <div style="margin-top: 14px; background: rgba(255, 255, 255, 0.04); border-radius: 12px; padding: 10px 12px; display: flex; justify-content: space-between; align-items: center; font-size: 11.5px;">
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <span style="font-size: 14px;">📄</span>
-              <div>
-                <strong style="color: #fff;">City Link Condo | Nakhon Ratchasima</strong>
-                <div style="font-size: 10px; color: #94a3b8;">หน้ารับชมหลักโครงการ (Landing Page)</div>
-              </div>
-            </div>
-            <div style="text-align: right;">
-              <strong style="color: #00e676; font-size: 13px;">39 ครั้ง</strong>
-              <div style="font-size: 10px; color: #94a3b8;">120 เหตุการณ์</div>
-            </div>
+          <div style="text-align: right;">
+            <strong style="color: #00e676; font-size: 15px;">39 ครั้ง</strong>
+            <div style="font-size: 11px; color: #94a3b8;">120 เหตุการณ์</div>
           </div>
         </div>
       </div>
 
-      <!-- Strategic Recommendations Banner -->
+      <!-- Row 3: Strategic Recommendations Banner -->
       <div style="background: linear-gradient(135deg, rgba(0, 230, 118, 0.08), rgba(56, 189, 248, 0.06)); border: 1.5px solid rgba(0, 230, 118, 0.25); border-radius: 18px; padding: 16px 20px;">
         <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; color: #00e676; font-size: 13.5px; margin-bottom: 6px;">
           💡 สรุปวิเคราะห์ข้อมูลการตลาดจาก Google Analytics 4 (Actionable Marketing Insights)
