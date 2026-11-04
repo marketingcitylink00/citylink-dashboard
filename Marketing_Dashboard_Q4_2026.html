@@ -948,6 +948,53 @@
       font-size: 14px;
     }
 
+/* Floating Hover Popup for Hero Pills */
+    .pill-hover-popup {
+      position: fixed;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px) scale(0.96);
+      transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(0, 230, 118, 0.45);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 230, 118, 0.18);
+      padding: 16px 18px;
+      width: 320px;
+      max-width: calc(100vw - 32px);
+      color: #ffffff;
+      font-family: 'Prompt', -apple-system, sans-serif;
+    }
+    .pill-hover-popup.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+    .pill-hover-popup::after {
+      content: '';
+      position: absolute;
+      bottom: -7px;
+      left: var(--arrow-left, 50%);
+      transform: translateX(-50%) rotate(45deg);
+      width: 14px;
+      height: 14px;
+      background: rgba(15, 23, 42, 0.96);
+      border-right: 1.5px solid rgba(0, 230, 118, 0.45);
+      border-bottom: 1.5px solid rgba(0, 230, 118, 0.45);
+    }
+    .pill-hover-popup.arrow-top::after {
+      bottom: auto;
+      top: -7px;
+      border-right: none;
+      border-bottom: none;
+      border-left: 1.5px solid rgba(0, 230, 118, 0.45);
+      border-top: 1.5px solid rgba(0, 230, 118, 0.45);
+    }
+
         /* ========================================================================== */
     /* SIDE FILTER BAR DOCK (แถบตัวกรองด้านข้าง ม.ค. - ต.ค. 2569)                 */
     /* ========================================================================== */
@@ -1643,7 +1690,7 @@
 
           <!-- Bottom 2 White Pill Bento Cards -->
           <div class="hero-bottom-pills">
-            <div class="white-pill-card" onclick="openPillDetailModal(1);" title="คลิกเพื่อดูตัวเลขและรายละเอียดเจาะลึก">
+            <div class="white-pill-card" onclick="openPillDetailModal(1); hidePillHoverCard();" onmouseenter="showPillHoverCard(this, 1);" onmouseleave="hidePillHoverCard();" title="นำเม้าส์มาวางเพื่อดูตัวเลขและรายละเอียดเจาะลึก">
               <div class="pill-card-head">
                 <span class="pill-card-title" id="pill1Title">งบโฆษณา Facebook</span>
                 <span class="pill-card-arrow">↗</span>
@@ -1651,7 +1698,7 @@
               <div class="pill-card-val" id="pill1Val">฿17,463.51</div>
             </div>
 
-            <div class="white-pill-card" onclick="openPillDetailModal(2);" title="คลิกเพื่อดูตัวเลขและรายละเอียดเจาะลึก">
+            <div class="white-pill-card" onclick="openPillDetailModal(2); hidePillHoverCard();" onmouseenter="showPillHoverCard(this, 2);" onmouseleave="hidePillHoverCard();" title="นำเม้าส์มาวางเพื่อดูตัวเลขและรายละเอียดเจาะลึก">
               <div class="pill-card-head">
                 <span class="pill-card-title" id="pill2Title">งบโฆษณา Google Ads.</span>
                 <span class="pill-card-arrow">↗</span>
@@ -1946,6 +1993,9 @@
   </div>
 
   <!-- Detail Popup Modal -->
+  <!-- Floating Hover Popup for Hero Pills -->
+  <div class="pill-hover-popup" id="pillHoverPopup"></div>
+
   <div class="neo-modal-backdrop" id="neoModal" onclick="if(event.target === this) closeNeoModal();">
     <div class="neo-modal-box">
       <button class="modal-close-btn" onclick="closeNeoModal();">✕</button>
@@ -2801,7 +2851,187 @@
       document.getElementById('neoModal').classList.remove('open');
     }
 
-function openPillDetailModal(pillIdx) {
+function showPillHoverCard(el, pillIdx) {
+      let popup = document.getElementById('pillHoverPopup');
+      if (!popup) {
+        popup = document.createElement('div');
+        popup.id = 'pillHoverPopup';
+        popup.className = 'pill-hover-popup';
+        document.body.appendChild(popup);
+      }
+
+      const m = MONTH_REGISTRY[currentSelectedMonth] || MONTH_REGISTRY['Q4'] || MONTH_REGISTRY['ต.ค.'];
+      const cat = currentCategory || 'overview';
+
+      let title = "";
+      let icon = "";
+      let badge = "";
+      let mainVal = "";
+      let mainLabel = "";
+      let themeColor = "#00e676";
+      let stats = [];
+
+      if (cat === 'mayfair') {
+        if (pillIdx === 1 || pillIdx === '1') {
+          title = "ผู้ติดตามเพจ Mayfair Market";
+          icon = "👥";
+          badge = "Facebook Community";
+          mainVal = "36,559";
+          mainLabel = "ยอดผู้ติดตามสะสม";
+          themeColor = "#00f2fe";
+          stats = [
+            { label: "การเติบโต", val: "+32.4% MoM" },
+            { label: "Reach ธรรมชาติ", val: (m.mayfairReach || "24.8K") },
+            { label: "ประเภท", val: "ชิมช้อปชิลล์" },
+            { label: "โซน", val: "หน้าโครงการ" }
+          ];
+        } else {
+          title = "Organic Reach Mayfair";
+          icon = "🌐";
+          badge = "Organic Social Reach";
+          mainVal = (m.mayfairReach || "24.8K");
+          mainLabel = "ยอดการเข้าถึงแบบธรรมชาติ";
+          themeColor = "#4ade80";
+          stats = [
+            { label: "ช่องทาง", val: "เพจ Mayfair" },
+            { label: "กลุ่มผู้ชม", val: "18-44 ปี" },
+            { label: "เนื้อหาหลัก", val: "Food & Night" },
+            { label: "ผลลัพธ์", val: "Footfall เข้างาน" }
+          ];
+        }
+      } else if (cat === 'tiktok') {
+        if (pillIdx === 1 || pillIdx === '1') {
+          title = "ยอดวิวสะสม TikTok";
+          icon = "🎵";
+          badge = "2 Creators Sales";
+          mainVal = m.tiktokViews + "K";
+          mainLabel = "ยอดวิวสะสมจาก 2 เซลล์";
+          themeColor = "#ff007f";
+          stats = [
+            { label: "ปนัดดา", val: "33.8K วิว" },
+            { label: "พัสภาร์", val: "14.7K วิว" },
+            { label: "Average ER", val: m.tiktokEr + "%" },
+            { label: "คลิปทั้งหมด", val: "43 คลิป" }
+          ];
+        } else {
+          title = "Interactions รวม TikTok";
+          icon = "⚡";
+          badge = "User Engagement";
+          mainVal = "1,588+";
+          mainLabel = "การมีส่วนร่วมรวมทั้งหมด";
+          themeColor = "#a855f7";
+          stats = [
+            { label: "เฉลี่ย ER", val: m.tiktokEr + "%" },
+            { label: "บันทึกคลิป", val: "240+ ครั้ง" },
+            { label: "แชร์คลิป", val: "185+ แชร์" },
+            { label: "ห้องยอดนิยม", val: "1 Bed 35ตร.ม." }
+          ];
+        }
+      } else {
+        // Default: overview / condo
+        if (pillIdx === 1 || pillIdx === '1') {
+          title = "งบโฆษณา Facebook";
+          icon = "🏢";
+          badge = "Meta Ads (Feed & Messenger)";
+          mainVal = m.spendFb;
+          mainLabel = "ยอดค่าใช้จ่ายจริงบน Facebook";
+          themeColor = "#1877f2";
+          stats = [
+            { label: "ข้อความทักเพจ", val: m.inquiries + " แชท" },
+            { label: "Hot Leads", val: m.qualityLeads + " ราย" },
+            { label: "ต้นทุนต่อแชท", val: "฿" + m.costPerMsg },
+            { label: "งบจัดสรร", val: m.budgetTotal }
+          ];
+        } else {
+          title = "งบโฆษณา Google Ads.";
+          icon = "🔍";
+          badge = "Google Search PPC Intent";
+          mainVal = m.spendGoogle;
+          mainLabel = "ยอดค่าใช้จ่ายจริงบน Google";
+          themeColor = "#00e676";
+          const gShare = (m.spendTotal && m.spendTotal !== '฿0.00') ? ((parseFloat(m.spendGoogle.replace(/[^0-9.]/g, '')) / (parseFloat(m.spendTotal.replace(/[^0-9.]/g, '')) || 1)) * 100).toFixed(1) + "%" : "0.0%";
+          stats = [
+            { label: "ประเภท", val: "Search PPC" },
+            { label: "คำค้นหลัก", val: "คอนโดโคราช" },
+            { label: "สัดส่วนงบ", val: gShare },
+            { label: "เป้าหมาย", val: "Landing Page" }
+          ];
+        }
+      }
+
+      popup.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 20px;">` + icon + `</span>
+            <div>
+              <div style="font-size: 13px; font-weight: 800; color: #ffffff; line-height: 1.2;">` + title + `</div>
+              <div style="font-size: 10px; font-weight: 600; color: ` + themeColor + `; letter-spacing: 0.3px;">` + badge + `</div>
+            </div>
+          </div>
+          <span style="font-size: 10.5px; color: #94a3b8; background: rgba(255,255,255,0.08); padding: 3px 8px; border-radius: 12px; font-weight: 600; white-space: nowrap;">
+            📅 ` + m.short + `
+          </span>
+        </div>
+
+        <div style="text-align: center; background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 12px 8px; margin-bottom: 10px;">
+          <div style="font-size: 11px; color: #94a3b8; font-weight: 500; margin-bottom: 3px;">` + mainLabel + `</div>
+          <div style="font-size: 30px; font-weight: 900; color: #ffffff; letter-spacing: -0.5px; line-height: 1.1; text-shadow: 0 4px 14px rgba(0,0,0,0.6);">
+            ` + mainVal + `
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 8px;">
+          ` + stats.map(s => `
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 6px 8px;">
+              <div style="font-size: 10px; color: #94a3b8;">` + s.label + `</div>
+              <div style="font-size: 13px; font-weight: 800; color: #ffffff; margin-top: 1px;">` + s.val + `</div>
+            </div>
+          `).join('') + `
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; font-size: 10px; color: #00e676; padding-top: 5px; border-top: 1px dashed rgba(255,255,255,0.1);">
+          <span>✨ Single Source of Truth 2569</span>
+          <span style="font-weight: 700;">คลิกเพื่อดูเจาะลึก ↗</span>
+        </div>
+      `;
+
+      // Position popup right above the card
+      const rect = el.getBoundingClientRect();
+      const popupWidth = 320;
+      let left = rect.left + (rect.width / 2) - (popupWidth / 2);
+      
+      // Clamp left within window
+      if (left < 12) left = 12;
+      if (left + popupWidth > window.innerWidth - 12) {
+        left = window.innerWidth - popupWidth - 12;
+      }
+
+      // Calculate arrow position relative to popup
+      const arrowLeft = Math.max(20, Math.min(popupWidth - 20, rect.left + (rect.width / 2) - left));
+      popup.style.setProperty('--arrow-left', arrowLeft + 'px');
+
+      // Check if popup fits above
+      const popupHeight = 230;
+      let top = rect.top - popupHeight - 12;
+      if (top < 10) {
+        // Show below card
+        top = rect.bottom + 12;
+        popup.classList.add('arrow-top');
+      } else {
+        popup.classList.remove('arrow-top');
+      }
+
+      popup.style.left = left + 'px';
+      popup.style.top = top + 'px';
+      popup.classList.add('visible');
+    }
+
+    function hidePillHoverCard() {
+      const popup = document.getElementById('pillHoverPopup');
+      if (popup) popup.classList.remove('visible');
+    }
+
+    function openPillDetailModal(pillIdx) {
       const m = MONTH_REGISTRY[currentSelectedMonth] || MONTH_REGISTRY['Q4'] || MONTH_REGISTRY['ต.ค.'];
       const cat = currentCategory || 'overview';
       const modal = document.getElementById('neoModal');
