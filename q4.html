@@ -2579,7 +2579,7 @@
         document.getElementById('heroScoreVal').innerText = (parseInt(m.score) > 850 ? "92" : "88");
         document.getElementById('heroPtsBadge').innerText = "Score " + (parseInt(m.score) > 850 ? "92/100" : "88/100");
         document.getElementById('heroScoreSub').innerText = "Hot Demand • ประจำช่วง " + m.name;
-        document.getElementById('pill1Title').innerText = "งบโฆษณา CLC";
+        document.getElementById('pill1Title').innerText = "งบโฆษณา Facebook";
         document.getElementById('pill1Val').innerText = m.spendFb;
         document.getElementById('pill2Title').innerText = "Hot Leads ตอบด่วน";
         document.getElementById('pill2Val').innerText = m.qualityLeads + " ราย (15น.)";
@@ -2587,7 +2587,7 @@
         const needle = document.getElementById('gaugeNeedle');
         if (needle) needle.setAttribute('transform', `rotate(${m.needleRot + 10}, 130, 130)`);
 
-        updateBentoCard(0, "💰", "งบโฆษณา Facebook CLC<br>(CLC Ad Spend)", (m.spendFbNum / 1000).toFixed(1), "K", m.spendFb + " (" + m.budgetPct + "%)", true);
+        updateBentoCard(0, "💰", "งบโฆษณา Facebook<br>(Facebook Ad Spend)", (m.spendFbNum / 1000).toFixed(1), "K", m.spendFb + " (" + m.budgetPct + "%)", true);
         updateBentoCard(1, "💬", "ข้อความทักเพจ CLC<br>(Cost / Inquiry)", m.inquiries, "แชท", "เฉลี่ย ฿" + m.costPerMsg, false);
         updateBentoCard(2, "🔥", "Hot Leads (เกรด 80-100)<br>(พร้อมจอง / นัดดูโครงการ)", m.qualityLeads, "ราย", "SLA ตอบ 15 นาที", true);
         updateBentoCard(3, "📍", "กลุ่มผู้ชมหลัก จ.นครราชสีมา<br>(Location Audience)", "18.5", "%", "โคราช ขอนแก่น กทม.", false);
