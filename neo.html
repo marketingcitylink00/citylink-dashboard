@@ -2169,14 +2169,14 @@
       <!-- Bottom Controls & Theme Selector Bar -->
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08);">
         <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="font-size: 13.5px; font-weight: 700; color: #ffffff; letter-spacing: -0.2px;">âš¡ Live Analytics &amp; Channel Spotlight</span>
+          <span style="font-size: 13.5px; font-weight: 700; color: #ffffff; letter-spacing: -0.2px;">⚡ Live Analytics &amp; Channel Spotlight</span>
           <span style="font-size: 10.5px; background: rgba(0, 232, 135, 0.15); color: #00E887; border: 1px solid rgba(0, 232, 135, 0.35); padding: 2px 8px; border-radius: 99px; font-weight: 700;">Realtime Feed</span>
         </div>
-        <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(255, 255, 255, 0.06); padding: 4px 6px; border-radius: 99px; border: 1px solid rgba(255, 255, 255, 0.12);">
-          <span style="font-size: 11px; color: #cbd5e1; font-weight: 600; padding: 0 6px;">ðŸŽ¨ à¸ªà¸µà¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡:</span>
-          <button id="btnThemeNavy" onclick="setBottomTheme('navy');" class="theme-toggle-pill active" title="à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡à¸ªà¸µà¸à¸£à¸¡à¸—à¹ˆà¸² Slate à¸Šà¸±à¸”à¸¥à¸¶à¸ à¸ªà¸šà¸²à¸¢à¸•à¸²">ðŸ’Ž High-Contrast Slate</button>
-          <button id="btnThemeLight" onclick="setBottomTheme('light');" class="theme-toggle-pill" title="à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡à¸ªà¸µà¸‚à¸²à¸§à¸ªà¸§à¹ˆà¸²à¸‡ à¸ªà¸šà¸²à¸¢à¸•à¸² à¸•à¸±à¸§à¸«à¸™à¸±à¸‡à¸ªà¸·à¸­à¸”à¸³à¸„à¸¡à¸Šà¸±à¸”">â˜€ï¸ à¸ªà¸§à¹ˆà¸²à¸‡ (Light)</button>
-          <button id="btnThemeOled" onclick="setBottomTheme('oled');" class="theme-toggle-pill" title="à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡à¸ªà¸µà¸”à¸³à¹€à¸‚à¹‰à¸¡à¸ªà¸™à¸´à¸— OLED Dark">ðŸŒ™ à¸¡à¸·à¸”à¸ªà¸™à¸´à¸— (OLED)</button>
+                <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(255, 255, 255, 0.06); padding: 4px 6px; border-radius: 99px; border: 1px solid rgba(255, 255, 255, 0.12);">
+          <span style="font-size: 11px; color: #cbd5e1; font-weight: 600; padding: 0 6px;">🎨 สีพื้นหลัง:</span>
+          <button id="btnThemeNavy" onclick="setBottomTheme('navy');" class="theme-toggle-pill active" title="พื้นหลังสีกรมท่า Slate ชัดลึก สบายตา">💎 High-Contrast Slate</button>
+          <button id="btnThemeLight" onclick="setBottomTheme('light');" class="theme-toggle-pill" title="พื้นหลังสีขาวสว่าง สบายตา ตัวหนังสือดำคมชัด">☀️ สว่าง (Light)</button>
+          <button id="btnThemeOled" onclick="setBottomTheme('oled');" class="theme-toggle-pill" title="พื้นหลังสีดำเข้มสนิท OLED Dark">🌙 มืดสนิท (OLED)</button>
         </div>
       </div>
       <div class="bottom-grid">
@@ -3373,7 +3373,7 @@
       if (filtered.length === 0) {
         grid.innerHTML = `
           <div style="grid-column: 1 / -1; padding: 48px 24px; text-align: center; background: rgba(255, 255, 255, 0.02); border-radius: 16px; border: 1px dashed rgba(255, 255, 255, 0.1);">
-            <div style="font-size: 36px; margin-bottom: 10px;">â³</div>
+            <div style="font-size: 36px; margin-bottom: 10px;">⏳</div>
             <div style="font-size: 15px; font-weight: 700; color: #fff;">คอนเทนต์ไตรมาส 4 (ต.ค. 69) อยู่ระหว่างการผลิตและรอเผยแพร่</div>
             <div style="font-size: 12.5px; color: #94a3b8; margin-top: 6px;">ระบบจะแสดงผลเฉพาะคอนเทนต์ที่มีรูปภาพและข้อมูลสถิติจริงจากการเผยแพร่แล้วเท่านั้น</div>
           </div>
@@ -3392,10 +3392,10 @@
             <div class="poster-body">
               <span class="poster-creator-tag">${item.creatorName} (${item.creatorHandle})</span>
               <div class="poster-title">${item.title}</div>
-              <div class="poster-stats-row">
-                <span>ðŸ‘ï¸ ${item.views}</span>
-                <span>â¤ï¸ ${item.likes}</span>
-                <span>ðŸ’¬ ${item.comments}</span>
+                            <div class="poster-stats-row">
+                <span>👁️ ${item.views}</span>
+                <span>❤️ ${item.likes}</span>
+                <span>💬 ${item.comments}</span>
               </div>
             </div>
           </div>
