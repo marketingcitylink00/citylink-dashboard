@@ -17,7 +17,9 @@
       --mint-dark: #004d2c;
       --mint-glow: rgba(0, 232, 135, 0.4);
       --dark-bezel: #090a0d;
-      --dark-bg: #0b0c10;
+      --dark-bg: #0d1527;
+      --dark-card: #152238;
+      --dark-card-border: rgba(255, 255, 255, 0.14);
       --dark-card: #13151b;
       --dark-card-border: rgba(255, 255, 255, 0.08);
       --white: #ffffff;
@@ -570,6 +572,12 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      background: var(--dark-card);
+      border: 1px solid var(--dark-card-border);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
     }
 
     .section-header-row {
@@ -658,6 +666,12 @@
     .offers-card-box {
       display: flex;
       flex-direction: column;
+      background: var(--dark-card);
+      border: 1px solid var(--dark-card-border);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
     }
 
     .offers-header-right {
@@ -1435,8 +1449,8 @@
     /* GA4 WEBSITE PERFORMANCE & HOVER POPUP SYSTEM                              */
     /* ========================================================================== */
     .ga4-bento-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #1c2c47;
+      border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 18px;
       padding: 16px;
       position: relative;
@@ -1539,7 +1553,186 @@
       display: flex !important;
     }
 
-</style>
+
+    /* ======================================================== */
+    /* HIGH CONTRAST & THEME SYSTEM FOR BOTTOM PANEL & CARDS    */
+    /* ======================================================== */
+    .theme-toggle-pill {
+      background: transparent;
+      border: none;
+      padding: 5px 12px;
+      border-radius: 99px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #94a3b8;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .theme-toggle-pill:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .theme-toggle-pill.active {
+      background: #2A85FF;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(42, 133, 255, 0.4);
+    }
+
+    .ga4-breakdown-card {
+      background: #19263e;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .ga4-sub-banner {
+      background: #20314f;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 14px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    .ga4-summary-banner {
+      background: linear-gradient(135deg, rgba(0, 230, 118, 0.18), rgba(56, 189, 248, 0.14));
+      border: 1.5px solid rgba(0, 230, 118, 0.4);
+      border-radius: 14px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 12.5px;
+      transition: all 0.3s ease;
+    }
+
+    /* THEME: LIGHT EXECUTIVE MODE */
+    [data-bottom-theme="light"] .bottom-panel {
+      background: #f1f5f9 !important;
+      color: #0f172a !important;
+      border-color: #cbd5e1 !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+    }
+    [data-bottom-theme="light"] .history-card-box,
+    [data-bottom-theme="light"] .offers-card-box,
+    [data-bottom-theme="light"] .ga4-dashboard-section {
+      background: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+    }
+    [data-bottom-theme="light"] .section-title,
+    [data-bottom-theme="light"] .ga4-dashboard-section h2,
+    [data-bottom-theme="light"] .ga4-breakdown-card h3 {
+      color: #0f172a !important;
+    }
+    [data-bottom-theme="light"] .ga4-dashboard-section p,
+    [data-bottom-theme="light"] .ga4-breakdown-card p {
+      color: #475569 !important;
+    }
+    [data-bottom-theme="light"] .ga4-bento-card {
+      background: #f8fafc !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    }
+    [data-bottom-theme="light"] .ga4-bento-card:hover {
+      background: #ffffff !important;
+      border-color: #00e676 !important;
+    }
+    [data-bottom-theme="light"] .ga4-bento-card div[style*="font-size: 32px"] {
+      color: #0f172a !important;
+    }
+    [data-bottom-theme="light"] .ga4-bento-card.card-google-focus {
+      background: #ecfdf5 !important;
+      border-color: #10b981 !important;
+    }
+    [data-bottom-theme="light"] .ga4-bento-card.card-google-focus div[style*="font-size: 32px"] {
+      color: #047857 !important;
+    }
+    [data-bottom-theme="light"] .ga4-breakdown-card {
+      background: #f8fafc !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    }
+    [data-bottom-theme="light"] .ga4-daily-card {
+      background: #ffffff !important;
+      border-color: #e2e8f0 !important;
+    }
+    [data-bottom-theme="light"] .ga4-daily-card div[style*="font-size: 18px"],
+    [data-bottom-theme="light"] .ga4-daily-card div[style*="font-size: 20px"] {
+      color: #0f172a !important;
+    }
+    [data-bottom-theme="light"] .ga4-breakdown-card span[style*="color: #ffffff"] {
+      color: #0f172a !important;
+    }
+    [data-bottom-theme="light"] .ga4-sub-banner {
+      background: #ffffff !important;
+      border-color: #e2e8f0 !important;
+    }
+    [data-bottom-theme="light"] .ga4-sub-banner div {
+      color: #0f172a !important;
+    }
+    [data-bottom-theme="light"] .ga4-summary-banner {
+      background: #ecfdf5 !important;
+      border-color: #a7f3d0 !important;
+      color: #065f46 !important;
+    }
+    [data-bottom-theme="light"] #trendLine {
+      stroke: #0284c7 !important;
+    }
+    [data-bottom-theme="light"] .chart-svg text {
+      fill: #475569 !important;
+    }
+    [data-bottom-theme="light"] .chart-svg circle {
+      fill: #0284c7 !important;
+      stroke: #ffffff !important;
+    }
+    [data-bottom-theme="light"] .chart-svg line {
+      stroke: #cbd5e1 !important;
+    }
+    [data-bottom-theme="light"] .filter-time-pills {
+      background: #e2e8f0 !important;
+    }
+    [data-bottom-theme="light"] .time-pill-btn {
+      color: #64748b !important;
+    }
+    [data-bottom-theme="light"] .time-pill-btn.active {
+      background: #0284c7 !important;
+      color: #ffffff !important;
+    }
+    [data-bottom-theme="light"] .theme-toggle-pill {
+      color: #64748b;
+    }
+    [data-bottom-theme="light"] .theme-toggle-pill.active {
+      background: #0284c7;
+      color: #ffffff;
+    }
+
+    /* THEME: OLED DARK MODE */
+    [data-bottom-theme="oled"] .bottom-panel {
+      background: #050608 !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+    [data-bottom-theme="oled"] .history-card-box,
+    [data-bottom-theme="oled"] .offers-card-box,
+    [data-bottom-theme="oled"] .ga4-dashboard-section {
+      background: #0a0c10 !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+    [data-bottom-theme="oled"] .ga4-bento-card,
+    [data-bottom-theme="oled"] .ga4-breakdown-card {
+      background: #0e1117 !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+  </style>
 </head>
 <body>
 
@@ -1972,7 +2165,20 @@
     <div class="center-handle-bar"></div>
 
     <!-- BOTTOM PANEL: DEEP MIDNIGHT CHARCOAL (#0B0C10) -->
-    <div class="bottom-panel">
+    <div class="bottom-panel" id="bottomPanel">
+      <!-- Bottom Controls & Theme Selector Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 13.5px; font-weight: 700; color: #ffffff; letter-spacing: -0.2px;">âš¡ Live Analytics &amp; Channel Spotlight</span>
+          <span style="font-size: 10.5px; background: rgba(0, 232, 135, 0.15); color: #00E887; border: 1px solid rgba(0, 232, 135, 0.35); padding: 2px 8px; border-radius: 99px; font-weight: 700;">Realtime Feed</span>
+        </div>
+        <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(255, 255, 255, 0.06); padding: 4px 6px; border-radius: 99px; border: 1px solid rgba(255, 255, 255, 0.12);">
+          <span style="font-size: 11px; color: #cbd5e1; font-weight: 600; padding: 0 6px;">ðŸŽ¨ à¸ªà¸µà¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡:</span>
+          <button id="btnThemeNavy" onclick="setBottomTheme('navy');" class="theme-toggle-pill active" title="à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡à¸ªà¸µà¸à¸£à¸¡à¸—à¹ˆà¸² Slate à¸Šà¸±à¸”à¸¥à¸¶à¸ à¸ªà¸šà¸²à¸¢à¸•à¸²">ðŸ’Ž High-Contrast Slate</button>
+          <button id="btnThemeLight" onclick="setBottomTheme('light');" class="theme-toggle-pill" title="à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡à¸ªà¸µà¸‚à¸²à¸§à¸ªà¸§à¹ˆà¸²à¸‡ à¸ªà¸šà¸²à¸¢à¸•à¸² à¸•à¸±à¸§à¸«à¸™à¸±à¸‡à¸ªà¸·à¸­à¸”à¸³à¸„à¸¡à¸Šà¸±à¸”">â˜€ï¸ à¸ªà¸§à¹ˆà¸²à¸‡ (Light)</button>
+          <button id="btnThemeOled" onclick="setBottomTheme('oled');" class="theme-toggle-pill" title="à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡à¸ªà¸µà¸”à¸³à¹€à¸‚à¹‰à¸¡à¸ªà¸™à¸´à¸— OLED Dark">ðŸŒ™ à¸¡à¸·à¸”à¸ªà¸™à¸´à¸— (OLED)</button>
+        </div>
+      </div>
       <div class="bottom-grid">
 
         <!-- Left Side: Score History / Line Trend -->
@@ -2158,7 +2364,7 @@
       </div>
 
       <!-- Row 1: Traffic Acquisition (Source / Medium) - Full Width -->
-      <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 20px; margin-bottom: 18px;">
+      <div class="ga4-breakdown-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
           <div>
             <h3 style="font-size: 16px; font-weight: 800; color: #ffffff; margin: 0;">🚦 ช่องทางที่มาของผู้เข้าชม (Source / Medium)</h3>
@@ -2229,7 +2435,7 @@
       </div>
 
       <!-- Row 2: Daily Trend & Geography (Moved below Source/Medium) - Full Width -->
-      <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 20px; margin-bottom: 18px;">
+      <div class="ga4-breakdown-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
           <div>
             <h3 style="font-size: 16px; font-weight: 800; color: #ffffff; margin: 0;">📈 สถิติรายวัน & ทำเลที่ตั้ง (Daily & Geography)</h3>
@@ -4267,6 +4473,29 @@ function showPillHoverCard(el, pillIdx) {
       positionHoverPopup(el, popup);
     }
 
-</script>
+
+    function setBottomTheme(theme) {
+      const panel = document.getElementById('bottomPanel');
+      if (!panel) return;
+      if (theme === 'light') {
+        panel.setAttribute('data-bottom-theme', 'light');
+      } else if (theme === 'oled') {
+        panel.setAttribute('data-bottom-theme', 'oled');
+      } else {
+        panel.removeAttribute('data-bottom-theme'); // default navy
+      }
+      document.querySelectorAll('.theme-toggle-pill').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById('btnTheme' + theme.charAt(0).toUpperCase() + theme.slice(1));
+      if (activeBtn) activeBtn.classList.add('active');
+      try { localStorage.setItem('citylink_bottom_theme', theme); } catch(e) {}
+    }
+    // Auto restore saved theme
+    try {
+      const savedTheme = localStorage.getItem('citylink_bottom_theme');
+      if (savedTheme) {
+        setTimeout(() => setBottomTheme(savedTheme), 50);
+      }
+    } catch(e) {}
+  </script>
 </body>
 </html>
