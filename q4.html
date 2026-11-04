@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="utf-8">
@@ -1365,7 +1365,7 @@
       <!-- Active Month Indicator Pill -->
       <div class="active-month-pill" id="topActiveMonthBadge">
         <span>🗓️ โฟกัสข้อมูล:</span>
-        <strong id="topActiveMonthName">ไตรมาส 4 (ต.ค. 2569 - ล่าสุด)</strong>
+        <strong id="topActiveMonthName">ไตรมาส 4 (ต.ค. - พ.ย. 2569 ล่าสุด)</strong>
       </div>
     </div>
     <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
@@ -1394,7 +1394,7 @@
           <div class="dock-icon">🗓️</div>
           <div>
             <div class="dock-title">ตัวกรองเดือน</div>
-            <div class="dock-subtitle">ประจำปี 2569 (ม.ค. - ต.ค.)</div>
+            <div class="dock-subtitle">ประจำปี 2569 (ม.ค. - พ.ย.)</div>
           </div>
         </div>
         <button class="dock-collapse-btn" onclick="toggleSidebarCollapse();" title="ย่อ/ขยาย แถบตัวกรอง" id="dockCollapseBtn">
@@ -1409,7 +1409,7 @@
       <div class="dock-quick-grid">
         <button class="dock-btn-all" data-month="all" onclick="selectMonth('all');">
           <span>🌟 ทั้งปี 2569 (YTD)</span>
-          <span style="font-size: 10px; opacity: 0.8;">10 เดือน</span>
+          <span style="font-size: 10px; opacity: 0.8;">11 เดือน</span>
         </button>
         <button class="dock-btn-quick" data-month="Q1" onclick="selectMonth('Q1');">
           <span>Q1</span>
@@ -1524,9 +1524,9 @@
       <!-- Dock Footer Card -->
       <div class="dock-footer-card">
         <div class="dock-footer-label">เดือนที่เลือกปัจจุบัน</div>
-        <div class="dock-footer-val" id="dockSelectedMonthText">ตุลาคม 2569 (ล่าสุด)</div>
-        <div class="dock-footer-spend" id="dockSelectedMonthSpend">งบรวม: ฿14,389.71</div>
-        <div style="font-size: 10px; color: #94a3b8;" id="dockSelectedMonthMeta">Inquiries: 30 แชท • 5 Leads</div>
+        <div class="dock-footer-val" id="dockSelectedMonthText">ไตรมาส 4 (ต.ค. - พ.ย. 2569 ล่าสุด)</div>
+        <div class="dock-footer-spend" id="dockSelectedMonthSpend">งบรวม: ฿18,745.34</div>
+        <div style="font-size: 10px; color: #94a3b8;" id="dockSelectedMonthMeta">Inquiries: 41 แชท • 7 Leads</div>
       </div>
     </aside>
 
@@ -1791,7 +1791,8 @@
             <div class="filter-time-pills">
               <button class="time-pill-btn" onclick="setTimeFilter('aug');">ส.ค. 69</button>
               <button class="time-pill-btn" onclick="setTimeFilter('sep');">ก.ย. 69</button>
-              <button class="time-pill-btn active" onclick="setTimeFilter('oct');">ต.ค. 69</button>
+              <button class="time-pill-btn" onclick="setTimeFilter('oct'); selectMonth('ต.ค.');">ต.ค. 69</button>
+              <button class="time-pill-btn active" onclick="setTimeFilter('nov'); selectMonth('พ.ย.');">พ.ย. 69 ⭐</button>
             </div>
           </div>
 
@@ -1858,7 +1859,7 @@
                 </div>
                 <div class="accent-stat-item" style="text-align: right;">
                   <span class="accent-stat-lbl">Period</span>
-                  <span class="accent-stat-val">ต.ค. 69</span>
+                  <span class="accent-stat-val">พ.ย. 69</span>
                 </div>
               </div>
             </div>
@@ -1872,7 +1873,7 @@
               <div class="accent-stats-row">
                 <div class="accent-stat-item">
                   <span class="accent-stat-lbl">Followers</span>
-                  <span class="accent-stat-val">36.6K</span>
+                  <span class="accent-stat-val">36.8K</span>
                 </div>
                 <div class="accent-stat-item" style="text-align: right;">
                   <span class="accent-stat-lbl">Reach</span>
@@ -2098,26 +2099,26 @@
   "all": {
     "name": "ทั้งปี 2569 (ม.ค. - พ.ย. YTD)",
     "short": "ทั้งปี 69",
-    "spendTotal": "฿185,253.45",
-    "spendFb": "฿150,205.91",
-    "spendFbNum": 150205.91,
+    "spendTotal": "฿185,771.85",
+    "spendFb": "฿150,724.31",
+    "spendFbNum": 150724.31,
     "spendGoogle": "฿35,047.54",
     "budgetTotal": "฿409,000.00",
-    "budgetPct": "45.3",
-    "inquiries": "753",
-    "qualityLeads": "68",
+    "budgetPct": "45.4",
+    "inquiries": "756",
+    "qualityLeads": "70",
     "visits": "12",
     "closed": "5",
-    "costPerMsg": "196.47",
-    "score": "865",
-    "pts": "+45 pts",
+    "costPerMsg": "199.37",
+    "score": "868",
+    "pts": "+48 pts",
     "sub": "Total Annual YTD • ประสิทธิภาพการตลาดรวม 11 เดือน (งบรวม ฿409,000)",
     "needleRot": 68,
-    "followers": "56.2",
+    "followers": "56.1",
     "tiktokViews": "48.5",
     "tiktokEr": "5.8",
     "mayfairReach": "42.1K คน",
-    "chartTooltip": "฿181.4K Total"
+    "chartTooltip": "฿185.8K Total (YTD)"
   },
   "Q1": {
     "name": "ไตรมาส 1 (ม.ค. - มี.ค. 2569)",
@@ -2192,28 +2193,28 @@
     "chartTooltip": "฿70.9K (258 แชท)"
   },
   "Q4": {
-    "name": "ไตรมาส 4 (ต.ค. 2569 - ล่าสุด)",
+    "name": "ไตรมาส 4 (ต.ค. - พ.ย. 2569 ล่าสุด)",
     "short": "Q4 2569",
-    "spendTotal": "฿18,226.94",
-    "spendFb": "฿16,945.11",
-    "spendFbNum": 16945.11,
+    "spendTotal": "฿18,745.34",
+    "spendFb": "฿17,463.51",
+    "spendFbNum": 17463.51,
     "spendGoogle": "฿1,281.83",
     "budgetTotal": "฿52,000.00",
-    "budgetPct": "35.1",
-    "inquiries": "38",
-    "qualityLeads": "5",
+    "budgetPct": "36.0",
+    "inquiries": "41",
+    "qualityLeads": "7",
     "visits": "0",
     "closed": "0",
-    "costPerMsg": "445.92",
-    "score": "848",
-    "pts": "+18 pts",
-    "sub": "Q4 Year-End Launch • ยอดทักแตะ 30 แชท และ 5 Quality Leads",
-    "needleRot": 60,
-    "followers": "56.2",
+    "costPerMsg": "425.94",
+    "score": "852",
+    "pts": "+22 pts",
+    "sub": "Q4 Year-End Progress • ยอดทักสะสม 41 แชท และ 7 Quality Leads (อัพเดท พ.ย.)",
+    "needleRot": 62,
+    "followers": "56.1",
     "tiktokViews": "48.5",
     "tiktokEr": "5.8",
     "mayfairReach": "9.1K คน",
-    "chartTooltip": "848 pts (ต.ค.)"
+    "chartTooltip": "41 แชท / 7 Leads (Q4 ล่าสุด)"
   },
   "ม.ค.": {
     "name": "มกราคม 2569 (ม.ค.)",
@@ -2524,7 +2525,8 @@
         const txt = btn.innerText;
         if ((monthKey === 'ส.ค.' && txt.includes('ส.ค.')) ||
             (monthKey === 'ก.ย.' && txt.includes('ก.ย.')) ||
-            (monthKey === 'ต.ค.' && txt.includes('ต.ค.'))) {
+            (monthKey === 'ต.ค.' && txt.includes('ต.ค.')) ||
+            (monthKey === 'พ.ย.' && txt.includes('พ.ย.'))) {
           btn.classList.add('active');
         } else {
           btn.classList.remove('active');
@@ -2803,6 +2805,7 @@
 
     // Initialize
     window.addEventListener('DOMContentLoaded', () => {
+      selectMonth(currentSelectedMonth);
       switchCategory('overview');
       renderPosters();
     });
