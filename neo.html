@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="utf-8">
@@ -1417,7 +1417,117 @@
         grid-template-columns: 1fr;
       }
     }
-  </style>
+  
+
+    /* ========================================================================== */
+    /* GA4 WEBSITE PERFORMANCE & HOVER POPUP SYSTEM                              */
+    /* ========================================================================== */
+    .ga4-bento-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 16px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .ga4-bento-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45), 0 0 20px rgba(0, 230, 118, 0.22);
+      border-color: rgba(0, 230, 118, 0.6);
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .ga4-bento-card.card-google-focus {
+      border: 1.5px solid rgba(0, 230, 118, 0.4);
+      box-shadow: inset 0 0 20px rgba(0, 230, 118, 0.05);
+    }
+    .ga4-bento-card.card-google-focus:hover {
+      box-shadow: 0 14px 32px rgba(0, 77, 44, 0.4), 0 0 25px rgba(0, 230, 118, 0.4);
+      border-color: #00e676;
+    }
+    .ga4-daily-card {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    .ga4-daily-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0, 230, 118, 0.6) !important;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), 0 0 15px rgba(0, 230, 118, 0.25);
+    }
+    .ga4-geo-pill {
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .ga4-geo-pill:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.25);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Common Hover Popup styling */
+    .pill-hover-popup {
+      position: fixed;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px) scale(0.96);
+      transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+      background: rgba(15, 23, 42, 0.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(0, 230, 118, 0.45);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 25px rgba(0, 230, 118, 0.2);
+      padding: 16px 18px;
+      width: 320px;
+      max-width: calc(100vw - 32px);
+      color: #ffffff;
+      font-family: 'Prompt', -apple-system, sans-serif;
+    }
+    .pill-hover-popup.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+    .pill-hover-popup::after {
+      content: '';
+      position: absolute;
+      bottom: -7px;
+      left: var(--arrow-left, 50%);
+      transform: translateX(-50%) rotate(45deg);
+      width: 14px;
+      height: 14px;
+      background: rgba(15, 23, 42, 0.97);
+      border-right: 1.5px solid rgba(0, 230, 118, 0.45);
+      border-bottom: 1.5px solid rgba(0, 230, 118, 0.45);
+    }
+    .pill-hover-popup.arrow-top::after {
+      bottom: auto;
+      top: -7px;
+      border-right: none;
+      border-bottom: none;
+      border-left: 1.5px solid rgba(0, 230, 118, 0.45);
+      border-top: 1.5px solid rgba(0, 230, 118, 0.45);
+    }
+
+    /* Common Neo Modal backdrop */
+    .neo-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .neo-modal-backdrop.open {
+      display: flex !important;
+    }
+
+</style>
 </head>
 <body>
 
@@ -1974,6 +2084,7 @@
     </div>
 
     <!-- SECTION: GOOGLE ANALYTICS 4 (GA4) WEBSITE PERFORMANCE -->
+        <!-- SECTION: GOOGLE ANALYTICS 4 (GA4) WEBSITE PERFORMANCE -->
     <div class="ga4-dashboard-section" id="sec-ga4" style="margin-top: 24px;">
       <!-- Section Header -->
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
@@ -2000,10 +2111,10 @@
         </div>
       </div>
 
-      <!-- 4 Top Bento Metric Cards -->
+      <!-- 4 Top Bento Metric Cards with Hover Popups and Deep-Dive Modal -->
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 18px;">
         <!-- Card 1: Active Users -->
-        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 18px; padding: 16px; position: relative;">
+        <div class="ga4-bento-card" onmouseenter="showGa4HoverCard(this, 1);" onmouseleave="hidePillHoverCard();" onclick="openGa4Modal(1); hidePillHoverCard();" title="นำเม้าส์มาวางเพื่อดูรายละเอียดสถิติผู้ใช้งาน">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
             <span style="font-size: 11.5px; color: #94a3b8; font-weight: 600;">ผู้ใช้งานจริง (Active Users)</span>
             <span style="font-size: 10px; background: rgba(0, 230, 118, 0.15); color: #00e676; padding: 2px 8px; border-radius: 10px; font-weight: 700;">100% New</span>
@@ -2015,7 +2126,7 @@
         </div>
 
         <!-- Card 2: Total Pageviews -->
-        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 18px; padding: 16px; position: relative;">
+        <div class="ga4-bento-card" onmouseenter="showGa4HoverCard(this, 2);" onmouseleave="hidePillHoverCard();" onclick="openGa4Modal(2); hidePillHoverCard();" title="นำเม้าส์มาวางเพื่อดูรายละเอียดการดูหน้าเว็บ">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
             <span style="font-size: 11.5px; color: #94a3b8; font-weight: 600;">จำนวนการดูหน้าเว็บ (Views)</span>
             <span style="font-size: 10px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 2px 8px; border-radius: 10px; font-weight: 700;">2.05 หน้า/คน</span>
@@ -2027,7 +2138,7 @@
         </div>
 
         <!-- Card 3: Avg Engagement Time -->
-        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 18px; padding: 16px; position: relative;">
+        <div class="ga4-bento-card" onmouseenter="showGa4HoverCard(this, 3);" onmouseleave="hidePillHoverCard();" onclick="openGa4Modal(3); hidePillHoverCard();" title="นำเม้าส์มาวางเพื่อดูรายละเอียดเวลาบนเว็บ">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
             <span style="font-size: 11.5px; color: #94a3b8; font-weight: 600;">เวลาเฉลี่ยบนเว็บ (Engagement)</span>
             <span style="font-size: 10px; background: rgba(245, 158, 11, 0.15); color: #fbbf24; padding: 2px 8px; border-radius: 10px; font-weight: 700;">Rate 28.6%</span>
@@ -2039,7 +2150,7 @@
         </div>
 
         <!-- Card 4: Google Channel Dominance -->
-        <div style="background: rgba(255, 255, 255, 0.03); border: 1.5px solid rgba(0, 230, 118, 0.4); border-radius: 18px; padding: 16px; position: relative; box-shadow: inset 0 0 20px rgba(0, 230, 118, 0.05);">
+        <div class="ga4-bento-card card-google-focus" onmouseenter="showGa4HoverCard(this, 4);" onmouseleave="hidePillHoverCard();" onclick="openGa4Modal(4); hidePillHoverCard();" title="นำเม้าส์มาวางเพื่อดูรายละเอียดทราฟฟิก Google">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
             <span style="font-size: 11.5px; color: #00e676; font-weight: 700;">ทราฟฟิกจาก Google ทั้งหมด</span>
             <span style="font-size: 10px; background: #00e676; color: #003319; padding: 2px 8px; border-radius: 10px; font-weight: 800;">52.6% ครองอันดับ 1</span>
@@ -2066,161 +2177,159 @@
           <!-- 1. Direct -->
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
-              <span style="color: #ffffff; font-weight: 700;">🌐 (direct) / (none) — พิมพ์เข้าเว็บไซต์โดยตรง</span>
-              <span style="color: #38bdf8; font-weight: 800;">7 คน (36.8%) • 9 เซสชัน</span>
+              <span style="color: #ffffff; font-weight: 600;">🔗 (direct) / (none) — พิมพ์ชื่อเว็บตรง / ลิงก์ Bookmark</span>
+              <span style="color: #38bdf8; font-weight: 700;">7 คน (36.8%) • 7 Sessions</span>
             </div>
-            <div style="background: rgba(255,255,255,0.08); border-radius: 6px; height: 9px; overflow: hidden;">
-              <div style="background: #38bdf8; width: 36.8%; height: 100%; border-radius: 6px;"></div>
-            </div>
-          </div>
-
-          <!-- 2. Google Ads (CPC) -->
-          <div>
-            <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
-              <span style="color: #ffffff; font-weight: 700;">💰 google / cpc — โฆษณา Google Search Ads (Paid Search)</span>
-              <span style="color: #00e676; font-weight: 800;">5 คน (26.3%) • 5 เซสชัน</span>
-            </div>
-            <div style="background: rgba(255,255,255,0.08); border-radius: 6px; height: 9px; overflow: hidden;">
-              <div style="background: #00e676; width: 26.3%; height: 100%; border-radius: 6px;"></div>
+            <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.06); border-radius: 4px; overflow: hidden;">
+              <div style="width: 36.8%; height: 100%; background: linear-gradient(90deg, #0284c7, #38bdf8); border-radius: 4px;"></div>
             </div>
           </div>
 
-          <!-- 3. Google Organic -->
+          <!-- 2. Google Ads (cpc) -->
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
-              <span style="color: #ffffff; font-weight: 700;">🔍 google / organic — ค้นหาแบบธรรมชาติบน Google Search</span>
-              <span style="color: #34d399; font-weight: 800;">5 คน (26.3%) • 5 เซสชัน</span>
+              <span style="color: #ffffff; font-weight: 600;">🎯 google / cpc — โฆษณา Google Search Ads</span>
+              <span style="color: #00e676; font-weight: 700;">5 คน (26.3%) • 5 Sessions</span>
             </div>
-            <div style="background: rgba(255,255,255,0.08); border-radius: 6px; height: 9px; overflow: hidden;">
-              <div style="background: #34d399; width: 26.3%; height: 100%; border-radius: 6px;"></div>
+            <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.06); border-radius: 4px; overflow: hidden;">
+              <div style="width: 26.3%; height: 100%; background: linear-gradient(90deg, #00b0ff, #00e676); border-radius: 4px;"></div>
             </div>
           </div>
 
-          <!-- 4. Eaksaha Group Referral -->
+          <!-- 3. Google Organic Search -->
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
-              <span style="color: #cbd5e1; font-weight: 600;">🏢 eaksahagroup.com / referral — ส่งต่อจากเว็บไซต์เครือเอกสหกรุ๊ป</span>
-              <span style="color: #fbbf24; font-weight: 700;">1 คน (5.3%) • 1 เซสชัน</span>
+              <span style="color: #ffffff; font-weight: 600;">🔍 google / organic — ค้นหาผ่าน Google โดยธรรมชาติ (SEO)</span>
+              <span style="color: #a7f3d0; font-weight: 700;">5 คน (26.3%) • 6 Sessions</span>
             </div>
-            <div style="background: rgba(255,255,255,0.08); border-radius: 6px; height: 9px; overflow: hidden;">
-              <div style="background: #fbbf24; width: 5.3%; height: 100%; border-radius: 6px;"></div>
+            <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.06); border-radius: 4px; overflow: hidden;">
+              <div style="width: 26.3%; height: 100%; background: linear-gradient(90deg, #10b981, #6ee7b7); border-radius: 4px;"></div>
             </div>
           </div>
 
-          <!-- 5. Facebook Mobile Referral -->
+          <!-- 4. Other / Referral -->
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
-              <span style="color: #cbd5e1; font-weight: 600;">📱 m.facebook.com / referral — ส่งต่อจากลิงก์ Facebook Mobile</span>
-              <span style="color: #c084fc; font-weight: 700;">1 คน (5.3%) • 1 เซสชัน</span>
+              <span style="color: #ffffff; font-weight: 600;">🌐 (other) & Referral — ช่องทางอื่นๆ และการส่งต่อ</span>
+              <span style="color: #94a3b8; font-weight: 700;">2 คน (10.5%) • 3 Sessions</span>
             </div>
-            <div style="background: rgba(255,255,255,0.08); border-radius: 6px; height: 9px; overflow: hidden;">
-              <div style="background: #c084fc; width: 5.3%; height: 100%; border-radius: 6px;"></div>
+            <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.06); border-radius: 4px; overflow: hidden;">
+              <div style="width: 10.5%; height: 100%; background: linear-gradient(90deg, #64748b, #94a3b8); border-radius: 4px;"></div>
             </div>
           </div>
         </div>
 
-        <!-- Highlight Note -->
-        <div style="margin-top: 14px; background: rgba(0, 230, 118, 0.08); border: 1px dashed rgba(0, 230, 118, 0.3); border-radius: 12px; padding: 10px 14px; font-size: 12px; color: #a7f3d0; line-height: 1.45;">
-          🎯 <strong>Google Search (Ads + Organic) รวมเป็น 52.6%</strong> ของทราฟฟิกเว็บไซต์ทั้งหมด ยืนยันว่าแคมเปญ Google Search ส่งคนเข้าชมโครงการได้จริงต่อเนื่อง
+        <!-- Google Acquisition Summary Pill -->
+        <div style="margin-top: 14px; padding: 10px 14px; background: rgba(0, 230, 118, 0.08); border: 1px solid rgba(0, 230, 118, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 16px;">💡</span>
+            <span style="font-size: 12px; color: #e2e8f0;">
+              <strong>สรุปการครองทราฟฟิก:</strong> ผู้เข้าชมจาก <strong>Google ทั้งหมด (Ads + Search) รวม 10 คน (52.6%)</strong> เป็นแกนหลักขับเคลื่อนผู้สนใจโครงการเข้าสู่เว็บไซต์
+            </span>
+          </div>
+          <span style="font-size: 11px; font-weight: 700; color: #00e676; background: rgba(0, 230, 118, 0.15); padding: 3px 8px; border-radius: 8px;">
+            Intent Traffic สูงสุด
+          </span>
         </div>
       </div>
 
-      <!-- Row 2: Daily Trend & Geography (ย้ายลงมาอยู่ด้านล่าง เต็มความกว้าง) -->
+      <!-- Row 2: Daily Trend & Geography (Moved below Source/Medium) - Full Width -->
       <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 20px; margin-bottom: 18px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
           <div>
-            <h3 style="font-size: 16px; font-weight: 800; color: #ffffff; margin: 0; display: flex; align-items: center; gap: 8px;">
-              📈 สถิติรายวัน &amp; ทำเลที่ตั้ง (Daily &amp; Geography)
-            </h3>
-            <p style="font-size: 11.5px; color: #94a3b8; margin: 3px 0 0 0;">ยอดผู้เข้าชมรายวัน และเมืองที่เปิดดูเว็บไซต์ www.citylinkcondo.com</p>
+            <h3 style="font-size: 16px; font-weight: 800; color: #ffffff; margin: 0;">📈 สถิติรายวัน & ทำเลที่ตั้ง (Daily & Geography)</h3>
+            <p style="font-size: 11.5px; color: #94a3b8; margin: 3px 0 0 0;">ยอดผู้เข้าชมรายวัน และเมืองที่เปิดดูเว็บไซต์</p>
           </div>
-          <span style="font-size: 11px; color: #34d399; background: rgba(0, 230, 118, 0.1); border: 1px solid rgba(0, 230, 118, 0.25); padding: 4px 10px; border-radius: 12px; font-weight: 700;">
-            Peak วันอาทิตย์ 3 พ.ย.
-          </span>
+          <span style="font-size: 11px; color: #00e676; font-weight: 700;">Peak วันอาทิตย์ 3 พ.ย.</span>
         </div>
 
-        <!-- Daily Visual Mini-Bars (1 - 4 พ.ย.) -->
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 18px; text-align: center;">
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 12px 8px;">
+        <!-- 4-Day Mini Bar Cards -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px;">
+          <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '1 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 10px; text-align: center;">
             <div style="font-size: 11px; color: #94a3b8;">1 พ.ย. (ศุกร์)</div>
-            <div style="font-size: 22px; font-weight: 900; color: #64748b; margin: 6px 0;">0</div>
-            <div style="height: 5px; background: rgba(255,255,255,0.06); border-radius: 3px;"></div>
+            <div style="font-size: 18px; font-weight: 800; color: #64748b; margin-top: 4px;">0</div>
           </div>
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 12px 8px;">
+          <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '2 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 10px; text-align: center;">
             <div style="font-size: 11px; color: #94a3b8;">2 พ.ย. (เสาร์)</div>
-            <div style="font-size: 22px; font-weight: 900; color: #64748b; margin: 6px 0;">0</div>
-            <div style="height: 5px; background: rgba(255,255,255,0.06); border-radius: 3px;"></div>
+            <div style="font-size: 18px; font-weight: 800; color: #64748b; margin-top: 4px;">0</div>
           </div>
-          <div style="background: rgba(0, 230, 118, 0.08); border: 1.5px solid rgba(0, 230, 118, 0.4); border-radius: 14px; padding: 12px 8px; box-shadow: 0 4px 20px rgba(0, 230, 118, 0.12);">
+          <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '3 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(0, 230, 118, 0.08); border: 1.5px solid rgba(0, 230, 118, 0.4); border-radius: 12px; padding: 10px; text-align: center;">
             <div style="font-size: 11px; color: #00e676; font-weight: 700;">3 พ.ย. (อาทิตย์ 🚀)</div>
-            <div style="font-size: 22px; font-weight: 900; color: #ffffff; margin: 6px 0;">11</div>
-            <div style="height: 5px; background: #00e676; border-radius: 3px;"></div>
+            <div style="font-size: 22px; font-weight: 900; color: #ffffff; margin-top: 2px;">11</div>
+            <div style="width: 100%; height: 3px; background: #00e676; border-radius: 2px; margin-top: 4px;"></div>
           </div>
-          <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 12px 8px;">
-            <div style="font-size: 11px; color: #e2e8f0; font-weight: 600;">4 พ.ย. (จันทร์)</div>
-            <div style="font-size: 22px; font-weight: 900; color: #38bdf8; margin: 6px 0;">8</div>
-            <div style="height: 5px; background: #38bdf8; border-radius: 3px;"></div>
+          <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '4 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 10px; text-align: center;">
+            <div style="font-size: 11px; color: #94a3b8;">4 พ.ย. (จันทร์)</div>
+            <div style="font-size: 20px; font-weight: 900; color: #ffffff; margin-top: 2px;">8</div>
+            <div style="width: 72%; height: 3px; background: #38bdf8; border-radius: 2px; margin: 4px auto 0 auto;"></div>
           </div>
         </div>
 
-        <!-- Top Cities Badges Grid -->
-        <div style="margin-bottom: 14px;">
-          <div style="font-size: 12px; font-weight: 700; color: #e2e8f0; margin-bottom: 8px;">📍 เมืองที่มีผู้เข้าชมมากที่สุด:</div>
+        <!-- Geographic Tags -->
+        <div style="border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 12px;">
+          <div style="font-size: 11.5px; color: #94a3b8; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+            <span>📍 เมืองที่มีผู้เข้าชมมากที่สุด:</span>
+          </div>
           <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <span style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.25); padding: 6px 12px; border-radius: 10px; font-size: 12px; font-weight: 700;">
-              🏢 กรุงเทพฯ (Bangkok) 3 คน (15.8%)
+            <span class="ga4-geo-pill" onmouseenter="showGa4GeoHover(this, 'bkk');" onmouseleave="hidePillHoverCard();" style="font-size: 11.5px; background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 10px; border-radius: 10px; font-weight: 600;">
+              🏙️ กรุงเทพฯ (Bangkok) 3 คน (15.8%)
             </span>
-            <span style="background: rgba(0, 230, 118, 0.12); color: #34d399; border: 1px solid rgba(0, 230, 118, 0.25); padding: 6px 12px; border-radius: 10px; font-size: 12px; font-weight: 700;">
+            <span class="ga4-geo-pill" onmouseenter="showGa4GeoHover(this, 'kk');" onmouseleave="hidePillHoverCard();" style="font-size: 11.5px; background: rgba(0, 230, 118, 0.1); color: #00e676; border: 1px solid rgba(0, 230, 118, 0.25); padding: 4px 10px; border-radius: 10px; font-weight: 600;">
               🌾 ขอนแก่น (Khon Kaen) 2 คน (10.5%)
             </span>
-            <span style="background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.25); padding: 6px 12px; border-radius: 10px; font-size: 12px; font-weight: 700;">
-              🏰 โคราช &amp; สุรนารี &amp; หมื่นไวย 4 คน (21.1%)
+            <span class="ga4-geo-pill" onmouseenter="showGa4GeoHover(this, 'korat');" onmouseleave="hidePillHoverCard();" style="font-size: 11.5px; background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); padding: 4px 10px; border-radius: 10px; font-weight: 600;">
+              🏰 โคราช & สุรนารี & หมื่นไวย 4 คน (21.1%)
             </span>
-            <span style="background: rgba(255, 255, 255, 0.06); color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.1); padding: 6px 12px; border-radius: 10px; font-size: 12px;">
-              🌳 บุรีรัมย์ &amp; อุบลฯ 2 คน
+            <span class="ga4-geo-pill" onmouseenter="showGa4GeoHover(this, 'isan');" onmouseleave="hidePillHoverCard();" style="font-size: 11.5px; background: rgba(255, 255, 255, 0.05); color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.1); padding: 4px 10px; border-radius: 10px;">
+              🌳 บุรีรัมย์ & อุบลฯ 2 คน
             </span>
-            <span style="background: rgba(168, 85, 247, 0.12); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.25); padding: 6px 12px; border-radius: 10px; font-size: 12px;">
+            <span class="ga4-geo-pill" onmouseenter="showGa4GeoHover(this, 'inter');" onmouseleave="hidePillHoverCard();" style="font-size: 11.5px; background: rgba(168, 85, 247, 0.12); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); padding: 4px 10px; border-radius: 10px;">
               ✈️ ต่างประเทศ (Dublin, Kurobe) 2 คน
             </span>
           </div>
         </div>
 
-        <!-- Top Page Row -->
-        <div style="background: rgba(255, 255, 255, 0.04); border-radius: 14px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 12.5px;">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <span style="font-size: 18px;">📄</span>
+        <!-- Top Visited Page -->
+        <div style="margin-top: 14px; padding: 10px 14px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 16px;">📄</span>
             <div>
-              <strong style="color: #fff;">City Link Condo | Nakhon Ratchasima</strong>
+              <div style="font-size: 12.5px; font-weight: 700; color: #ffffff;">City Link Condo | Nakhon Ratchasima</div>
               <div style="font-size: 11px; color: #94a3b8;">หน้ารับชมหลักโครงการ (Landing Page)</div>
             </div>
           </div>
           <div style="text-align: right;">
-            <strong style="color: #00e676; font-size: 15px;">39 ครั้ง</strong>
-            <div style="font-size: 11px; color: #94a3b8;">120 เหตุการณ์</div>
+            <div style="font-size: 15px; font-weight: 800; color: #00e676;">39 ครั้ง</div>
+            <div style="font-size: 10px; color: #94a3b8;">120 เหตุการณ์</div>
           </div>
         </div>
       </div>
 
-      <!-- Row 3: Strategic Recommendations Banner -->
-      <div style="background: linear-gradient(135deg, rgba(0, 230, 118, 0.08), rgba(56, 189, 248, 0.06)); border: 1.5px solid rgba(0, 230, 118, 0.25); border-radius: 18px; padding: 16px 20px;">
-        <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; color: #00e676; font-size: 13.5px; margin-bottom: 6px;">
-          💡 สรุปวิเคราะห์ข้อมูลการตลาดจาก Google Analytics 4 (Actionable Marketing Insights)
+      <!-- Row 3: Strategic Actionable Insights Banner - Full Width -->
+      <div style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(2, 44, 34, 0.8)); border: 1.5px solid rgba(0, 230, 118, 0.3); border-radius: 18px; padding: 18px 20px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+          <span style="font-size: 20px;">🎯</span>
+          <span style="font-size: 14.5px; font-weight: 800; color: #ffffff;">บทวิเคราะห์กลยุทธ์เว็บไซต์ & การขับเคลื่อนการตลาดเชิงรุก</span>
+          <span style="font-size: 10.5px; background: rgba(0, 230, 118, 0.2); color: #00e676; padding: 2px 8px; border-radius: 10px; font-weight: 700;">Executive Action Plan</span>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; font-size: 11.5px; color: #cbd5e1; line-height: 1.5;">
-          <div>
-            • <strong style="color: #fff;">Google Ads ส่งผลลัพธ์คุ้มค่า:</strong> ทราฟฟิกจาก `google / cpc` เข้ามาถึง 5 ราย (26.3%) ใน 4 วันแรก โดยเน้นเข้าหน้าหลักโครงการ City Link แสดงถึงความแม่นยำของคีย์เวิร์ด
+        <div style="font-size: 12.5px; line-height: 1.6; color: #cbd5e1; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-top: 10px;">
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 12px;">
+            <div style="font-weight: 700; color: #00e676; margin-bottom: 4px;">1. อิมแพ็กต์จาก Google Ads & Search แข็งแกร่ง</div>
+            <div>สัดส่วน 52.6% ของผู้เข้าชมมาจาก Google โดยมีค่าเฉลี่ยเปิดดู 2.05 หน้าต่อคน แสดงว่าผู้ที่เข้ามามีความสนใจค้นหาคอนโดจริง ควรคงงบ Search Ads เพื่อรักษาทราฟฟิกคุณภาพสูงนี้ต่อเนื่อง</div>
           </div>
-          <div>
-            • <strong style="color: #fff;">ความต้องการซื้อจาก กทม. และขอนแก่น:</strong> ผู้เข้าชม 26.3% มาจากนอกพื้นที่ (กทม. 3 ราย, ขอนแก่น 2 ราย) สะท้อนความต้องการคอนโดเพื่อการอยู่อาศัยและการลงทุนในโคราช
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 12px;">
+            <div style="font-weight: 700; color: #38bdf8; margin-bottom: 4px;">2. กลุ่มผู้สนใจจากกรุงเทพฯ และหัวเมืองอีสาน</div>
+            <div>มีทราฟฟิกจาก กทม. (15.8%) และขอนแก่น (10.5%) สะท้อนกลุ่มนักลงทุนหรือผู้ย้ายถิ่นฐาน ควรทำคอนเทนต์เน้นจุดแข็งเรื่องศักยภาพทำเลโคราช และ Yield ผลตอบแทนการปล่อยเช่าเพื่อดึงดูดกลุ่มนี้</div>
           </div>
-          <div>
-            • <strong style="color: #fff;">วันอาทิตย์คือช่วง Peak Traffic:</strong> วันที่ 3 พ.ย. ยอดคนเข้าชมพุ่งแตะ 11 คน ควรเพิ่มงบประมูลคีย์เวิร์ด (Bid Schedule) ในช่วงวันหยุดสุดสัปดาห์เพื่อดักจับ Lead สูงสุด
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 12px;">
+            <div style="font-weight: 700; color: #fbbf24; margin-bottom: 4px;">3. แนะนำเพิ่ม Floating LINE Button บนหน้าเว็บ</div>
+            <div>ด้วย Engagement Time เฉลี่ย 19.7 วินาทีบนหน้าหลัก หากมีปุ่มแชท LINE แบบ Floating ที่สะดุดตาพร้อมข้อเสนอพิเศษ จะช่วยแปลงผู้เข้าชม 39 ครั้งนี้ให้กลายเป็น Hot Leads ได้ทันทียิ่งขึ้น</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- EXPANDABLE TIKTOK 9:16 VIDEO SHOWCASE (12 POSTERS) -->
+
     <div class="tiktok-showcase-panel" id="tiktokShowcasePanel">
       <div class="showcase-header">
         <div>
@@ -3486,6 +3595,515 @@ function showPillHoverCard(el, pillIdx) {
       switchCategory('overview');
       renderPosters();
     });
-  </script>
+  
+
+    /* ========================================================================== */
+    /* GA4 WEBSITE PERFORMANCE INTERACTIVE FUNCTIONS                              */
+    /* ========================================================================== */
+
+    function hidePillHoverCard() {
+      const popup = document.getElementById('pillHoverPopup');
+      if (popup) {
+        popup.classList.remove('visible');
+      }
+    }
+
+    function closeNeoModal() {
+      const modal = document.getElementById('neoModal');
+      if (modal) {
+        modal.classList.remove('open');
+      }
+    }
+
+    function showGa4HoverCard(el, cardIdx) {
+      let popup = document.getElementById('pillHoverPopup');
+      if (!popup) {
+        popup = document.createElement('div');
+        popup.id = 'pillHoverPopup';
+        popup.className = 'pill-hover-popup';
+        document.body.appendChild(popup);
+      }
+
+      let title = "";
+      let icon = "📊";
+      let badge = "Google Analytics 4";
+      let mainVal = "";
+      let mainLabel = "";
+      let themeColor = "#00e676";
+      let stats = [];
+
+      if (cardIdx === 1 || cardIdx === '1') {
+        title = "ผู้ใช้งานจริงบนเว็บไซต์ (Active Users)";
+        icon = "👥";
+        badge = "GA4 Real Visitors";
+        mainVal = "19 คน";
+        mainLabel = "ยอดผู้เข้าชมจริง www.citylinkcondo.com";
+        themeColor = "#00e676";
+        stats = [
+          { label: "ผู้ใช้ใหม่ (New)", val: "19 คน (100%)" },
+          { label: "วัน Peak สูงสุด", val: "3 พ.ย. (11 คน 🚀)" },
+          { label: "เซสชันทั้งหมด", val: "21 Sessions" },
+          { label: "ทำเลอันดับ 1", val: "กทม. & โคราช" }
+        ];
+      } else if (cardIdx === 2 || cardIdx === '2') {
+        title = "จำนวนการดูหน้าเว็บ (Views)";
+        icon = "📄";
+        badge = "Engagement Depth";
+        mainVal = "39 ครั้ง";
+        mainLabel = "จำนวนครั้งที่เปิดอ่านหน้าเว็บรวม";
+        themeColor = "#38bdf8";
+        stats = [
+          { label: "เฉลี่ยต่อคน", val: "2.05 หน้า / คน" },
+          { label: "กิจกรรมทั้งหมด", val: "122 Events" },
+          { label: "หน้าหลักโครงการ", val: "39 ครั้ง (100%)" },
+          { label: "ความถี่ต่อเซสชัน", val: "1.86 หน้า/เซสชัน" }
+        ];
+      } else if (cardIdx === 3 || cardIdx === '3') {
+        title = "เวลาเฉลี่ยบนเว็บไซต์ (Engagement)";
+        icon = "⏱️";
+        badge = "Session Quality";
+        mainVal = "19.7 วินาที";
+        mainLabel = "ระยะเวลาเฉลี่ยที่ผู้ใช้งานเปิดชมข้อมูล";
+        themeColor = "#fbbf24";
+        stats = [
+          { label: "Engagement Rate", val: "28.6% (มีส่วนร่วม)" },
+          { label: "Bounce Rate", val: "71.4% (อัตราตีกลับ)" },
+          { label: "เซสชันคุณภาพ", val: "6 เซสชัน" },
+          { label: "ข้อเสนอแนะ CRO", val: "เพิ่ม Floating LINE" }
+        ];
+      } else if (cardIdx === 4 || cardIdx === '4') {
+        title = "สัดส่วนทราฟฟิก Google รวม (Ads + Search)";
+        icon = "🔍";
+        badge = "Traffic Dominance #1";
+        mainVal = "10 คน (52.6%)";
+        mainLabel = "ผู้เข้าชมจากช่องทาง Google ทั้งหมด";
+        themeColor = "#00e676";
+        stats = [
+          { label: "Google Ads (cpc)", val: "5 คน (26.3%)" },
+          { label: "Google Search (SEO)", val: "5 คน (26.3%)" },
+          { label: "Direct เข้าเว็บตรง", val: "7 คน (36.8%)" },
+          { label: "Referral & Other", val: "2 คน (10.5%)" }
+        ];
+      }
+
+      popup.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 20px;">` + icon + `</span>
+            <div>
+              <div style="font-size: 13px; font-weight: 800; color: #ffffff; line-height: 1.2;">` + title + `</div>
+              <div style="font-size: 10px; font-weight: 600; color: ` + themeColor + `; letter-spacing: 0.3px;">` + badge + `</div>
+            </div>
+          </div>
+          <span style="font-size: 10px; color: #94a3b8; background: rgba(255,255,255,0.08); padding: 3px 8px; border-radius: 12px; font-weight: 600; white-space: nowrap;">
+            📅 1 - 4 พ.ย. 69
+          </span>
+        </div>
+
+        <div style="text-align: center; background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 12px 8px; margin-bottom: 10px;">
+          <div style="font-size: 11px; color: #94a3b8; font-weight: 500; margin-bottom: 3px;">` + mainLabel + `</div>
+          <div style="font-size: 30px; font-weight: 900; color: ` + themeColor + `; letter-spacing: -0.5px; line-height: 1.1; text-shadow: 0 4px 14px rgba(0,0,0,0.6);">
+            ` + mainVal + `
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 8px;">
+          ` + stats.map(s => `
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 6px 8px;">
+              <div style="font-size: 10px; color: #94a3b8;">` + s.label + `</div>
+              <div style="font-size: 13px; font-weight: 800; color: #ffffff; margin-top: 1px;">` + s.val + `</div>
+            </div>
+          `).join('') + `
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; font-size: 10px; color: #00e676; padding-top: 5px; border-top: 1px dashed rgba(255,255,255,0.1);">
+          <span>✨ Google Analytics 4 Official Data</span>
+          <span style="font-weight: 700;">คลิกเพื่อดูเจาะลึก ↗</span>
+        </div>
+      `;
+
+      positionHoverPopup(el, popup);
+    }
+
+    function showGa4DailyHover(el, dayStr) {
+      let popup = document.getElementById('pillHoverPopup');
+      if (!popup) {
+        popup = document.createElement('div');
+        popup.id = 'pillHoverPopup';
+        popup.className = 'pill-hover-popup';
+        document.body.appendChild(popup);
+      }
+
+      let info = {
+        title: "สถิติผู้เข้าชมรายวัน",
+        date: dayStr,
+        val: "0 คน",
+        sub: "ก่อนเปิดแคมเปญอย่างเป็นทางการ",
+        note: "ระบบเตรียมความพร้อมการเชื่อมต่อและตรวจเช็ค Tagging"
+      };
+
+      if (dayStr === '3 พ.ย.') {
+        info = {
+          title: "วันที่มีผู้เข้าชมสูงสุด (Peak Day)",
+          date: "วันอาทิตย์ 3 พ.ย. 2569",
+          val: "11 คน (57.9%)",
+          sub: "วันเปิดตัวแคมเปญโฆษณาออนไลน์",
+          note: "ทราฟฟิกพุ่งสูงสุดพร้อมกันจากทั้ง Google Ads และ Direct คอนเวอร์ชันเริ่มต้นตอบรับดีเยี่ยม"
+        };
+      } else if (dayStr === '4 พ.ย.') {
+        info = {
+          title: "ยอดผู้เข้าชมต่อเนื่อง",
+          date: "วันจันทร์ 4 พ.ย. 2569",
+          val: "8 คน (42.1%)",
+          sub: "ทราฟฟิกวันทำงานต่อเนื่อง",
+          note: "มีผู้เข้าชมจาก Organic Search และ Ads เข้ามาต่อเนื่อง สถิติต่อเซสชันคุณภาพสูง"
+        };
+      }
+
+      popup.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 18px;">📈</span>
+            <div>
+              <div style="font-size: 13px; font-weight: 800; color: #ffffff;">` + info.title + `</div>
+              <div style="font-size: 10px; font-weight: 600; color: #00e676;">` + info.date + `</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; background: rgba(0, 230, 118, 0.08); border: 1px solid rgba(0, 230, 118, 0.2); border-radius: 12px; padding: 10px 8px; margin-bottom: 8px;">
+          <div style="font-size: 11px; color: #94a3b8;">` + info.sub + `</div>
+          <div style="font-size: 26px; font-weight: 900; color: #ffffff; margin-top: 2px;">` + info.val + `</div>
+        </div>
+
+        <div style="font-size: 11px; color: #cbd5e1; line-height: 1.4; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 8px;">
+          💡 <strong>บันทึก:</strong> ` + info.note + `
+        </div>
+      `;
+
+      positionHoverPopup(el, popup);
+    }
+
+    function showGa4GeoHover(el, geoKey) {
+      let popup = document.getElementById('pillHoverPopup');
+      if (!popup) {
+        popup = document.createElement('div');
+        popup.id = 'pillHoverPopup';
+        popup.className = 'pill-hover-popup';
+        document.body.appendChild(popup);
+      }
+
+      let info = {
+        title: "ทำเลที่ตั้งผู้เข้าชม",
+        location: "กรุงเทพมหานคร",
+        val: "3 คน (15.8%)",
+        desc: "กลุ่มผู้มีกำลังซื้อสูงจากส่วนกลาง มองหาคอนโดพักผ่อนหรือลงทุนในเมืองใหญ่"
+      };
+
+      if (geoKey === 'kk') {
+        info = {
+          title: "ทำเลที่ตั้งผู้เข้าชม",
+          location: "ขอนแก่น (Khon Kaen)",
+          val: "2 คน (10.5%)",
+          desc: "ศูนย์กลางเศรษฐกิจอีสานตอนบน ลูกค้ามองหาที่พักอาศัยเชื่อมโยงเมืองโคราช"
+        };
+      } else if (geoKey === 'korat') {
+        info = {
+          title: "ทำเลที่ตั้งผู้เข้าชม",
+          location: "นครราชสีมา (ตัวเมือง, สุรนารี, หมื่นไวย)",
+          val: "4 คน (21.1%)",
+          desc: "Real Demand ภายในพื้นที่โคราช คนทำงาน บุคลากรทางการแพทย์ และผู้ที่อยู่อาศัยจริง"
+        };
+      } else if (geoKey === 'isan') {
+        info = {
+          title: "ทำเลที่ตั้งผู้เข้าชม",
+          location: "บุรีรัมย์ & อุบลราชธานี",
+          val: "2 คน (10.5%)",
+          desc: "กลุ่มผู้สนใจจากหัวเมืองอีสานใต้ เชื่อมโยงถนนมิตรภาพและการเดินทางมาโคราช"
+        };
+      } else if (geoKey === 'inter') {
+        info = {
+          title: "ทำเลที่ตั้งผู้เข้าชม",
+          location: "ต่างประเทศ (Dublin ไอร์แลนด์, Kurobe ญี่ปุ่น)",
+          val: "2 คน (10.5%)",
+          desc: "ชาวไทยในต่างแดน หรือชาวต่างชาติที่หาข้อมูลคอนโดมิเนียมในประเทศไทย"
+        };
+      }
+
+      popup.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 18px;">📍</span>
+            <div>
+              <div style="font-size: 13px; font-weight: 800; color: #ffffff;">` + info.title + `</div>
+              <div style="font-size: 10.5px; font-weight: 700; color: #38bdf8;">` + info.location + `</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 12px; padding: 10px 8px; margin-bottom: 8px;">
+          <div style="font-size: 11px; color: #94a3b8;">สัดส่วนผู้เข้าชม</div>
+          <div style="font-size: 24px; font-weight: 900; color: #ffffff; margin-top: 2px;">` + info.val + `</div>
+        </div>
+
+        <div style="font-size: 11px; color: #cbd5e1; line-height: 1.4; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 8px;">
+          🎯 <strong>ลักษณะกลุ่มเป้าหมาย:</strong> ` + info.desc + `
+        </div>
+      `;
+
+      positionHoverPopup(el, popup);
+    }
+
+    function positionHoverPopup(el, popup) {
+      const rect = el.getBoundingClientRect();
+      const popupWidth = 320;
+      let left = rect.left + (rect.width / 2) - (popupWidth / 2);
+      
+      if (left < 12) left = 12;
+      if (left + popupWidth > window.innerWidth - 12) {
+        left = window.innerWidth - popupWidth - 12;
+      }
+
+      const arrowLeft = Math.max(20, Math.min(popupWidth - 20, rect.left + (rect.width / 2) - left));
+      popup.style.setProperty('--arrow-left', arrowLeft + 'px');
+
+      const popupHeight = 250;
+      let top = rect.top - popupHeight - 12;
+      if (top < 10) {
+        top = rect.bottom + 12;
+        popup.classList.add('arrow-top');
+      } else {
+        popup.classList.remove('arrow-top');
+      }
+
+      popup.style.left = left + 'px';
+      popup.style.top = top + 'px';
+      popup.classList.add('visible');
+    }
+
+    function openGa4Modal(cardIdx) {
+      let modal = document.getElementById('neoModal');
+      let body = document.getElementById('modalBody');
+      if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'neoModal';
+        modal.className = 'neo-modal-backdrop';
+        modal.innerHTML = `
+          <div class="neo-modal-dialog" style="position: relative; max-width: 680px; width: 92%; background: #0f172a; border: 1.5px solid rgba(0, 230, 118, 0.4); border-radius: 24px; box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 30px rgba(0, 230, 118, 0.2); padding: 24px; color: #fff; max-height: 90vh; overflow-y: auto;">
+            <button onclick="closeNeoModal();" style="position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.08); border: none; color: #94a3b8; font-size: 18px; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">✕</button>
+            <div id="modalBody"></div>
+          </div>
+        `;
+        modal.onclick = function(e) {
+          if (e.target === modal) closeNeoModal();
+        };
+        document.body.appendChild(modal);
+        body = document.getElementById('modalBody');
+      }
+      if (!body) return;
+
+      let title = "รายงานวิเคราะห์ Google Analytics 4 (GA4)";
+      let badge = "Website Traffic Intelligence";
+      let icon = "📊";
+      let mainVal = "19 คน (39 ครั้ง)";
+      let mainLabel = "สถิติภาพรวม 1 - 4 พ.ย. 2569";
+      let statCards = [];
+      let insightText = "";
+      let themeColor = "#00e676";
+      let tableHtml = "";
+
+      if (cardIdx === 1 || cardIdx === '1') {
+        title = "สถิติผู้ใช้งานจริงบนเว็บไซต์ (Active Users)";
+        badge = "GA4 Real-time & Engaged Users";
+        icon = "👥";
+        mainVal = "19 คน";
+        mainLabel = "ผู้เข้าชมเว็บไซต์ www.citylinkcondo.com (100% New Users)";
+        themeColor = "#00e676";
+        statCards = [
+          { label: "ผู้ใช้งานทั้งหมด", val: "19 คน", sub: "New Users 100%" },
+          { label: "จำนวนเซสชัน", val: "21 เซสชัน", sub: "เฉลี่ย 1.1 เซสชัน/คน" },
+          { label: "วัน Peak สูงสุด", val: "3 พ.ย. (11 คน)", sub: "คิดเป็น 57.9% ของยอดรวม" },
+          { label: "กลุ่มทำเลอันดับ 1", val: "โคราช 4 คน / กทม. 3 คน", sub: "รวมกันกว่า 36.8%" }
+        ];
+        insightText = "ผู้เข้าชม 100% เป็นผู้ใช้ใหม่ (First-time Visitors) แสดงว่าแคมเปญเริ่มเข้าถึงกลุ่มผู้ชมใหม่ๆ ได้ตามเป้าหมาย โดยเฉพาะการเปิดรับชมในวันอาทิตย์ที่ 3 พ.ย. ซึ่งเป็นวันหยุดพักผ่อนของผู้สนใจซื้อที่อยู่อาศัย";
+        tableHtml = `
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px; margin-top: 12px;">
+            <div style="font-weight: 700; color: #fff; margin-bottom: 8px; font-size: 13px;">📅 ตารางสรุปผู้เข้าชมรายวัน (1 - 4 พ.ย. 2569)</div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 12px; color: #cbd5e1;">
+              <thead>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; color: #94a3b8;">
+                  <th style="padding: 6px;">วันที่</th>
+                  <th style="padding: 6px;">ผู้ใช้งาน (คน)</th>
+                  <th style="padding: 6px;">สัดส่วน</th>
+                  <th style="padding: 6px;">สถานะ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px;">1 พ.ย. 69 (ศุกร์)</td><td style="padding: 6px;">0</td><td style="padding: 6px;">0.0%</td><td style="padding: 6px; color: #94a3b8;">เตรียมระบบ</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px;">2 พ.ย. 69 (เสาร์)</td><td style="padding: 6px;">0</td><td style="padding: 6px;">0.0%</td><td style="padding: 6px; color: #94a3b8;">เตรียมระบบ</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(0, 230, 118, 0.05);"><td style="padding: 6px; font-weight: 700; color: #00e676;">3 พ.ย. 69 (อาทิตย์ 🚀)</td><td style="padding: 6px; font-weight: 800; color: #fff;">11</td><td style="padding: 6px; font-weight: 700; color: #00e676;">57.9%</td><td style="padding: 6px; color: #00e676; font-weight: 700;">Peak Launch Day</td></tr>
+                <tr><td style="padding: 6px;">4 พ.ย. 69 (จันทร์)</td><td style="padding: 6px; font-weight: 800; color: #fff;">8</td><td style="padding: 6px;">42.1%</td><td style="padding: 6px; color: #38bdf8;">ทราฟฟิกคงตัวต่อเนื่อง</td></tr>
+              </tbody>
+            </table>
+          </div>
+        `;
+      } else if (cardIdx === 2 || cardIdx === '2') {
+        title = "สถิติการดูหน้าเว็บ & กิจกรรม (Pageviews & Events)";
+        badge = "Content Engagement & Depth";
+        icon = "📄";
+        mainVal = "39 ครั้ง";
+        mainLabel = "ยอดการเปิดดูหน้าเว็บรวม (Pageviews) บน www.citylinkcondo.com";
+        themeColor = "#38bdf8";
+        statCards = [
+          { label: "จำนวนการดูหน้าเว็บ", val: "39 ครั้ง", sub: "City Link Landing Page" },
+          { label: "เฉลี่ยต่อผู้ใช้", val: "2.05 หน้า/คน", sub: "เปิดดูหน้าเว็บซ้ำ/เลื่อนอ่านลึก" },
+          { label: "กิจกรรมทั้งหมด", val: "122 ครั้ง", sub: "User Event Interactions" },
+          { label: "เฉลี่ยต่อเซสชัน", val: "1.86 หน้า/เซสชัน", sub: "ค่าความสนใจต่อการคลิกเข้ามา" }
+        ];
+        insightText = "ผู้ใช้งานเปิดดูหน้าเว็บเฉลี่ย 2.05 หน้าต่อคน และเกิดกิจกรรมโต้ตอบมากถึง 122 ครั้งบน Landing Page บ่งบอกว่าผู้ที่คลิกเข้ามาอ่านรายละเอียดข้อมูลยูนิตและสิ่งอำนวยความสะดวกอย่างจริงจัง";
+        tableHtml = `
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px; margin-top: 12px;">
+            <div style="font-weight: 700; color: #fff; margin-bottom: 8px; font-size: 13px;">📑 รายละเอียดหน้าเว็บและกิจกรรม (Page & Events)</div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 12px; color: #cbd5e1;">
+              <thead>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; color: #94a3b8;">
+                  <th style="padding: 6px;">ชื่อหน้าเว็บ (Page Title)</th>
+                  <th style="padding: 6px;">ยอดเข้าชม (Views)</th>
+                  <th style="padding: 6px;">เหตุการณ์ (Events)</th>
+                  <th style="padding: 6px;">สัดส่วน</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background: rgba(56, 189, 248, 0.05);"><td style="padding: 6px; font-weight: 700; color: #fff;">City Link Condo | Nakhon Ratchasima</td><td style="padding: 6px; font-weight: 800; color: #38bdf8;">39 ครั้ง</td><td style="padding: 6px;">120 ครั้ง</td><td style="padding: 6px; font-weight: 700; color: #38bdf8;">100%</td></tr>
+                <tr><td style="padding: 6px; color: #94a3b8;">หน้าต่างประเทศ / Referral อื่นๆ</td><td style="padding: 6px;">-</td><td style="padding: 6px;">2 ครั้ง</td><td style="padding: 6px;">-</td></tr>
+              </tbody>
+            </table>
+          </div>
+        `;
+      } else if (cardIdx === 3 || cardIdx === '3') {
+        title = "เวลาเฉลี่ยบนเว็บไซต์ & คุณภาพเซสชัน (Engagement)";
+        badge = "Session Quality & Retention";
+        icon = "⏱️";
+        mainVal = "19.7 วินาที";
+        mainLabel = "เวลาเฉลี่ยที่ผู้ใช้งานมีปฏิสัมพันธ์บนหน้าเว็บ";
+        themeColor = "#fbbf24";
+        statCards = [
+          { label: "เวลาเฉลี่ยบนเว็บ", val: "19.7 วินาที", sub: "User Engagement Time" },
+          { label: "Engagement Rate", val: "28.57%", sub: "สัดส่วนเซสชันคุณภาพสูง" },
+          { label: "Bounce Rate", val: "71.43%", sub: "อัตราผู้ใช้ออกจากหน้าแรก" },
+          { label: "Engaged Sessions", val: "6 เซสชัน", sub: "เซสชันอยู่เกินเกณฑ์มาตรฐาน" }
+        ];
+        insightText = "ระยะเวลาเฉลี่ย 19.7 วินาที ถือเป็นตัวเลขที่ดีสำหรับหน้า Landing Page แบบ Single Page ที่ผู้ใช้สแกนข้อมูลโปรโมชั่น การเพิ่มปุ่ม Floating LINE OA พร้อม Call-to-Action ชัดเจนจะช่วยลด Bounce Rate และดึงดูดให้ทักแชทได้ทันที";
+        tableHtml = `
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px; margin-top: 12px;">
+            <div style="font-weight: 700; color: #fff; margin-bottom: 8px; font-size: 13px;">🎯 แผนการปรับปรุง Conversion Rate Optimization (CRO)</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 11.5px; color: #cbd5e1;">
+              <div style="background: rgba(255,255,255,0.02); padding: 8px; border-radius: 8px; border-left: 3px solid #fbbf24;">
+                <strong style="color: #fbbf24;">1. Floating Sticky CTA:</strong> ติดปุ่ม 'แอด LINE รับสิทธิพิเศษ' ตรึงมุมจอตลอดการเลื่อนอ่าน
+              </div>
+              <div style="background: rgba(255,255,255,0.02); padding: 8px; border-radius: 8px; border-left: 3px solid #00e676;">
+                <strong style="color: #00e676;">2. Fast Mobile Speed:</strong> ออพติไมซ์รูปถ่ายยูนิตให้โหลดเร็วขึ้นใน 1.5 วินาที
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (cardIdx === 4 || cardIdx === '4') {
+        title = "ส่วนแบ่งทราฟฟิก Google Search & Ads";
+        badge = "High Intent Acquisition";
+        icon = "🔍";
+        mainVal = "10 คน (52.6%)";
+        mainLabel = "ทราฟฟิกจากช่องทาง Google ทั้งระบบ (Ads + Organic)";
+        themeColor = "#00e676";
+        statCards = [
+          { label: "Google Ads (cpc)", val: "5 คน (26.3%)", sub: "5 เซสชัน (Search Ads Intent)" },
+          { label: "Google Organic (SEO)", val: "5 คน (26.3%)", sub: "6 เซสชัน (ค้นหาชื่อแบรนด์)" },
+          { label: "Direct (พิมพ์ตรง)", val: "7 คน (36.8%)", sub: "7 เซสชัน (ลูกค้าจดจำแบรนด์)" },
+          { label: "ช่องทางอื่นๆ", val: "2 คน (10.5%)", sub: "3 เซสชัน (Referrals)" }
+        ];
+        insightText = "ช่องทาง Google มีสัดส่วนมากกว่าครึ่งหนึ่งของเว็บไซต์ (52.6%) โดยแบ่งเป็น Google Ads 5 คน และ Organic Search 5 คน พิสูจน์ให้เห็นว่าผู้ใช้ที่ค้นหาข้อมูลเรื่องคอนโดโคราชผ่าน Google มีความตั้งใจซื้อ (High Intent) สูงมาก ควรให้น้ำหนักกับการลงโฆษณาคีย์เวิร์ดที่แม่นยำอย่างต่อเนื่อง";
+        tableHtml = `
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px; margin-top: 12px;">
+            <div style="font-weight: 700; color: #fff; margin-bottom: 8px; font-size: 13px;">🚦 ตารางช่องทางที่มาของผู้เข้าชม (Source / Medium Breakdown)</div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 12px; color: #cbd5e1;">
+              <thead>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; color: #94a3b8;">
+                  <th style="padding: 6px;">ช่องทาง (Source / Medium)</th>
+                  <th style="padding: 6px;">ผู้ใช้ (คน)</th>
+                  <th style="padding: 6px;">เซสชัน</th>
+                  <th style="padding: 6px;">สัดส่วน</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px;">(direct) / (none) — พิมพ์ตรง / ลิงก์ Bookmark</td><td style="padding: 6px; font-weight: 800; color: #fff;">7</td><td style="padding: 6px;">7</td><td style="padding: 6px; color: #38bdf8;">36.8%</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(0, 230, 118, 0.05);"><td style="padding: 6px; font-weight: 700; color: #00e676;">google / cpc — Google Search Ads</td><td style="padding: 6px; font-weight: 800; color: #00e676;">5</td><td style="padding: 6px;">5</td><td style="padding: 6px; font-weight: 700; color: #00e676;">26.3%</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(16, 185, 129, 0.05);"><td style="padding: 6px; font-weight: 700; color: #a7f3d0;">google / organic — SEO ค้นหาธรรมชาติ</td><td style="padding: 6px; font-weight: 800; color: #a7f3d0;">5</td><td style="padding: 6px;">6</td><td style="padding: 6px; font-weight: 700; color: #a7f3d0;">26.3%</td></tr>
+                <tr><td style="padding: 6px; color: #94a3b8;">(other) & Referrals อื่นๆ</td><td style="padding: 6px;">2</td><td style="padding: 6px;">3</td><td style="padding: 6px;">10.5%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        `;
+      }
+
+      body.innerHTML = `
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <!-- Top Modal Header -->
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="font-size: 32px; background: rgba(255,255,255,0.06); padding: 8px; border-radius: 14px;">` + icon + `</div>
+              <div>
+                <h3 style="font-size: 18px; font-weight: 900; color: #ffffff; margin: 0;">` + title + `</h3>
+                <div style="font-size: 12px; font-weight: 600; color: ` + themeColor + `; margin-top: 2px;">` + badge + `</div>
+              </div>
+            </div>
+            <span style="font-size: 11px; color: #94a3b8; background: rgba(255,255,255,0.08); padding: 4px 10px; border-radius: 20px; font-weight: 600;">
+              📅 1 - 4 พ.ย. 2569
+            </span>
+          </div>
+
+          <!-- Highlight Big Value Display -->
+          <div style="text-align: center; background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 16px; margin: 2px 0;">
+            <div style="font-size: 12px; color: #94a3b8; font-weight: 500; margin-bottom: 4px;">` + mainLabel + `</div>
+            <div style="font-size: 38px; font-weight: 900; color: ` + themeColor + `; letter-spacing: -0.5px; line-height: 1.1; text-shadow: 0 4px 20px rgba(0,0,0,0.7);">
+              ` + mainVal + `
+            </div>
+          </div>
+
+          <!-- 4 Grid Stat Cards -->
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+            ` + statCards.map(c => `
+              <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px 14px;">
+                <div style="font-size: 11px; color: #94a3b8; font-weight: 500;">` + c.label + `</div>
+                <div style="font-size: 17px; font-weight: 800; color: #ffffff; margin: 4px 0 2px 0;">` + c.val + `</div>
+                <div style="font-size: 10.5px; color: #64748b;">` + c.sub + `</div>
+              </div>
+            `).join('') + `
+          </div>
+
+          <!-- Data Breakdown Table -->
+          ` + tableHtml + `
+
+          <!-- Strategy Insight Box -->
+          <div style="background: rgba(0, 230, 118, 0.08); border: 1px solid rgba(0, 230, 118, 0.2); border-radius: 14px; padding: 12px 14px; font-size: 12px; line-height: 1.5; color: #e2e8f0;">
+            <div style="font-weight: 700; color: #00e676; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+              💡 บทวิเคราะห์และข้อเสนอแนะเชิงกลยุทธ์ (Strategic Action)
+            </div>
+            ` + insightText + `
+          </div>
+
+          <!-- Bottom Action Buttons -->
+          <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 4px;">
+            <button onclick="window.print();" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 9px 16px; border-radius: 12px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+              🖨️ พิมพ์ / บันทึกหน้านี้
+            </button>
+            <button onclick="closeNeoModal();" style="background: #00e676; border: none; color: #003319; padding: 9px 20px; border-radius: 12px; font-size: 12px; font-weight: 800; cursor: pointer; transition: all 0.2s;">
+              ปิดหน้าต่าง
+            </button>
+          </div>
+        </div>
+      `;
+      modal.classList.add('open');
+    }
+
+</script>
 </body>
 </html>
