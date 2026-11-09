@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
@@ -1355,16 +1355,136 @@
       gap: 6px;
     }
 
-    @media (max-width: 1280px) {
+    /* ========================================================================== */
+    /* ULTRA-RESPONSIVE SYSTEM: TV, MACBOOK, TABLET, MOBILE, IPHONE (ALL RATIOS)  */
+    /* ========================================================================== */
+
+    /* Global Viewport & Safe Area Resets */
+    html {
+      box-sizing: border-box;
+      -webkit-text-size-adjust: 100%;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+    body {
+      overflow-x: hidden;
+      width: 100%;
+      padding-top: max(12px, env(safe-area-inset-top));
+      padding-bottom: max(16px, env(safe-area-inset-bottom));
+      padding-left: max(10px, env(safe-area-inset-left));
+      padding-right: max(10px, env(safe-area-inset-right));
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* 1. TV & ULTRA-WIDE DISPLAYS (16:9, 21:9, 32:9 - 1920px, 2K, 4K 3840px)    */
+    /* -------------------------------------------------------------------------- */
+    @media (min-width: 1800px) {
+      .dashboard-page-layout,
+      .top-utility-bar,
+      .cockpit-frame {
+        max-width: min(94vw, 2200px);
+      }
+      .side-filter-dock {
+        width: 280px;
+      }
+      .top-grid {
+        grid-template-columns: 380px 1fr;
+        gap: 32px;
+      }
+      .bento-6-grid {
+        gap: 20px;
+      }
+      .bottom-grid {
+        gap: 32px;
+      }
+      .video-posters-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+    }
+
+    @media (min-width: 2560px) {
+      /* 4K TV & Wall Cockpit Presentation Screens */
+      .dashboard-page-layout,
+      .top-utility-bar,
+      .cockpit-frame {
+        max-width: min(92vw, 2800px);
+      }
+      .side-filter-dock {
+        width: 320px;
+      }
+      .top-grid {
+        grid-template-columns: 440px 1fr;
+        gap: 40px;
+      }
+      .hero-main-title {
+        font-size: 38px;
+      }
+      .big-score-val {
+        font-size: 64px;
+      }
+      .bento-big-num {
+        font-size: 44px;
+      }
+      .bento-6-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .video-posters-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 24px;
+      }
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* 2. MACBOOK & LAPTOPS (16:10 Ratio, 13" 1280-1440px, 14" 1512px, 16" 1728px)*/
+    /* -------------------------------------------------------------------------- */
+    @media (min-width: 1081px) and (max-width: 1440px) {
+      .dashboard-page-layout {
+        gap: 16px;
+        max-width: 100%;
+        padding: 0 6px;
+      }
+      .side-filter-dock {
+        width: 228px;
+        padding: 16px 10px;
+      }
+      .top-grid {
+        grid-template-columns: 310px 1fr;
+        gap: 16px;
+      }
+      .bento-6-grid {
+        gap: 12px;
+      }
+      .white-bento-card {
+        padding: 18px 16px;
+      }
+      .bottom-grid {
+        gap: 20px;
+      }
+      .video-posters-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* 3. TABLETS & IPAD (4:3 & 16:10 Portrait - 769px to 1080px)                 */
+    /* -------------------------------------------------------------------------- */
+    @media (max-width: 1080px) {
       .dashboard-page-layout {
         flex-direction: column;
+        align-items: stretch;
       }
       .side-filter-dock {
         position: relative;
         top: 0;
         width: 100%;
         max-height: none;
-        padding: 14px;
+        padding: 14px 16px;
         border-radius: 24px;
       }
       .side-filter-dock.collapsed {
@@ -1378,72 +1498,197 @@
       .mobile-filter-toggle-btn {
         display: inline-flex;
       }
-    }
-
-    /* Responsive Styles for All Devices (24/7 Accessibility) */
-    @media (max-width: 1100px) {
       .top-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
       }
       .bento-6-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
       }
       .bottom-grid {
         grid-template-columns: 1fr;
+        gap: 22px;
       }
       .video-posters-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
       }
     }
 
+    /* -------------------------------------------------------------------------- */
+    /* 4. MOBILE, IPHONE & SMALL SCREENS (<= 768px down to 320px)                  */
+    /* -------------------------------------------------------------------------- */
     @media (max-width: 768px) {
       body {
-        padding: 8px;
+        padding-top: max(8px, env(safe-area-inset-top));
+        padding-bottom: max(14px, env(safe-area-inset-bottom));
+        padding-left: max(6px, env(safe-area-inset-left));
+        padding-right: max(6px, env(safe-area-inset-right));
+      }
+      .top-utility-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 4px 2px 10px 2px;
+      }
+      .top-utility-bar > div {
+        justify-content: space-between;
+        width: 100%;
       }
       .cockpit-frame {
-        border-radius: 24px;
+        border-radius: 22px;
         padding: 10px;
+        border-width: 1.5px;
       }
       .top-panel {
-        padding: 18px 16px;
+        padding: 18px 14px 22px 14px;
         border-radius: 20px;
       }
       .bottom-panel {
-        padding: 18px 16px;
+        padding: 18px 14px 22px 14px;
         border-radius: 20px;
       }
       .panel-header {
         flex-direction: column;
-        align-items: stretch;
+        align-items: flex-start;
+        gap: 12px;
       }
       .category-nav-pills {
+        width: 100%;
+        display: flex;
         overflow-x: auto;
-        padding: 4px;
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 4px 2px;
+        gap: 6px;
+        flex-wrap: nowrap;
+      }
+      .category-nav-pills::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-pill-btn {
+        flex-shrink: 0;
+        white-space: nowrap;
+        padding: 8px 14px;
+        font-size: 12px;
+        min-height: 40px;
+      }
+      .hero-score-col {
+        align-items: center;
+        text-align: center;
+      }
+      .hero-title-area {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .gauge-top-meta {
+        justify-content: center;
+      }
+      .score-status-sub {
+        text-align: center;
+      }
+      .hero-bottom-pills {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        gap: 8px;
       }
       .bento-6-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
       }
       .three-color-cards {
         grid-template-columns: 1fr;
+        gap: 12px;
       }
       .video-posters-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .chart-container {
+        height: 150px;
       }
     }
 
+    /* -------------------------------------------------------------------------- */
+    /* 5. IPHONE PORTRAIT & COMPACT MOBILE (<= 480px, 9:19.5, iPhone SE/12-16)    */
+    /* -------------------------------------------------------------------------- */
     @media (max-width: 480px) {
+      .cockpit-frame {
+        border-radius: 18px;
+        padding: 6px;
+        border-width: 1px;
+      }
+      .top-panel {
+        padding: 14px 10px 18px 10px;
+        border-radius: 16px;
+      }
+      .bottom-panel {
+        padding: 14px 10px 18px 10px;
+        border-radius: 16px;
+      }
+      .hero-main-title {
+        font-size: clamp(20px, 6vw, 26px);
+      }
+      .big-score-val {
+        font-size: clamp(40px, 12vw, 50px);
+      }
+      .gauge-svg {
+        width: min(240px, 85vw);
+        height: auto;
+      }
       .bento-6-grid {
         grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .white-bento-card {
+        padding: 16px 14px;
+        border-radius: 18px;
       }
       .hero-bottom-pills {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+      }
+      .white-pill-card {
+        padding: 10px 8px;
+        border-radius: 14px;
+      }
+      .dock-month-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .video-posters-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+      .video-poster-card {
+        border-radius: 14px;
+      }
+      .pill-hover-popup {
+        width: min(340px, calc(100vw - 20px)) !important;
+        padding: 12px 14px !important;
+      }
+      .neo-modal-dialog {
+        width: 95% !important;
+        padding: 16px 12px !important;
+        border-radius: 18px !important;
+      }
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* 6. EXTRA SMALL MOBILE (<= 360px - iPhone SE 1st gen, Galaxy Fold outer)     */
+    /* -------------------------------------------------------------------------- */
+    @media (max-width: 360px) {
+      .hero-bottom-pills {
+        grid-template-columns: 1fr;
+      }
+      .dock-month-list {
         grid-template-columns: 1fr;
       }
       .video-posters-grid {
         grid-template-columns: 1fr;
       }
     }
-  
 
     /* ========================================================================== */
     /* GA4 WEBSITE PERFORMANCE & HOVER POPUP SYSTEM                              */
@@ -4186,15 +4431,16 @@ function showPillHoverCard(el, pillIdx) {
       if (!el || !popup) return;
       popup.classList.add('visible');
       const rect = el.getBoundingClientRect();
-      const popupWidth = popup.offsetWidth || 350;
+      const popupWidth = Math.min(340, window.innerWidth - 20);
+      popup.style.width = popupWidth + 'px';
       let left = rect.left + (rect.width / 2) - (popupWidth / 2);
       
-      if (left < 16) left = 16;
-      if (left + popupWidth > window.innerWidth - 16) {
-        left = window.innerWidth - popupWidth - 16;
+      if (left < 10) left = 10;
+      if (left + popupWidth > window.innerWidth - 10) {
+        left = window.innerWidth - popupWidth - 10;
       }
 
-      const arrowLeft = Math.max(20, Math.min(popupWidth - 20, rect.left + (rect.width / 2) - left));
+      const arrowLeft = Math.max(16, Math.min(popupWidth - 16, rect.left + (rect.width / 2) - left));
       popup.style.setProperty('--arrow-left', arrowLeft + 'px');
 
       const popupHeight = popup.offsetHeight || 300;
