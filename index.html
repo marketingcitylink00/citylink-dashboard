@@ -1978,31 +1978,345 @@
       border-color: rgba(255, 255, 255, 0.08) !important;
     }
   
-    /* Customer Leads Section Theme Overrides */
-    [data-bottom-theme="light"] .customer-leads-section {
+        /* ========================================================================= */
+    /* THEME OVERRIDES: CUSTOMER LEADS & GOOGLE ANALYTICS (LIGHT & OLED MODES)   */
+    /* ========================================================================= */
+
+    /* --- 1. LIGHT MODE (☀️ สว่าง) --- */
+    body[data-bottom-theme="light"],
+    [data-bottom-theme="light"] {
+      --light-bg-card: #ffffff;
+      --light-text-main: #0f172a;
+      --light-text-sub: #475569;
+    }
+
+    body[data-bottom-theme="light"] .bottom-panel {
+      background: #f1f5f9 !important;
+      color: #0f172a !important;
+      border-color: #cbd5e1 !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+    }
+
+    body[data-bottom-theme="light"] .history-card-box,
+    body[data-bottom-theme="light"] .offers-card-box {
       background: #ffffff !important;
       border-color: #e2e8f0 !important;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
       color: #0f172a !important;
     }
-    [data-bottom-theme="light"] .customer-leads-header-banner {
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
-      border-color: #cbd5e1 !important;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+
+    body[data-bottom-theme="light"] .section-title {
+      color: #0f172a !important;
     }
+
+    /* Customer Leads Container in Light Mode */
+    body[data-bottom-theme="light"] #sec-customer-leads,
+    [data-bottom-theme="light"] .customer-leads-section,
+    .customer-leads-section[data-bottom-theme="light"] {
+      background: #ffffff !important;
+      border: 1.5px solid #e2e8f0 !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+      color: #0f172a !important;
+    }
+
+    /* Customer Leads Header Banner in Light Mode */
+    body[data-bottom-theme="light"] .customer-leads-header-banner,
+    [data-bottom-theme="light"] .customer-leads-header-banner,
+    .customer-leads-header-banner[data-bottom-theme="light"] {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+      border: 1.5px solid #cbd5e1 !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04) !important;
+    }
+
+    body[data-bottom-theme="light"] .leads-main-title,
     [data-bottom-theme="light"] .leads-main-title {
       color: #0f172a !important;
     }
+    body[data-bottom-theme="light"] .leads-main-title span,
+    [data-bottom-theme="light"] .leads-main-title span {
+      color: #0284c7 !important;
+    }
+    body[data-bottom-theme="light"] .leads-main-sub,
     [data-bottom-theme="light"] .leads-main-sub {
+      color: #475569 !important;
+    }
+    body[data-bottom-theme="light"] .leads-main-sub strong,
+    [data-bottom-theme="light"] .leads-main-sub strong {
+      color: #0f172a !important;
+    }
+
+    /* Customer Leads KPI Cards in Light Mode */
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="border-radius: 18px"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="border-radius: 18px"] {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(239, 68, 68, 0.08)"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(239, 68, 68, 0.08)"] {
+      background: #fef2f2 !important;
+      border-color: #fca5a5 !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(245, 158, 11, 0.08)"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(245, 158, 11, 0.08)"] {
+      background: #fffbeb !important;
+      border-color: #fcd34d !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(14, 165, 233, 0.08)"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(14, 165, 233, 0.08)"] {
+      background: #f0f9ff !important;
+      border-color: #7dd3fc !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(0, 230, 118, 0.08)"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(0, 230, 118, 0.08)"] {
+      background: #f0fdf4 !important;
+      border-color: #86efac !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="font-size: 28px"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="font-size: 28px"] {
+      color: #0f172a !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="font-size: 11px"][style*="color: #cbd5e1"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="font-size: 11px"][style*="color: #cbd5e1"] {
+      color: #475569 !important;
+    }
+
+    /* Customer Leads 3 Tier Columns in Light Mode */
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="border: 1.5px solid rgba(239, 68, 68, 0.4)"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="border: 1.5px solid rgba(239, 68, 68, 0.4)"] {
+      background: #fff5f5 !important;
+      border-color: #fecaca !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="border: 1.5px solid rgba(245, 158, 11, 0.4)"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="border: 1.5px solid rgba(245, 158, 11, 0.4)"] {
+      background: #fffdf5 !important;
+      border-color: #fef3c7 !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="border: 1.5px solid rgba(14, 165, 233, 0.4)"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="border: 1.5px solid rgba(14, 165, 233, 0.4)"] {
+      background: #f8fcff !important;
+      border-color: #e0f2fe !important;
+    }
+
+    /* Customer Lead Cards inside columns */
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="border-radius: 12px"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="border-radius: 12px"] {
+      background: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="font-weight: 800"][style*="font-size: 13px"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="font-weight: 800"][style*="font-size: 13px"] {
+      color: #0f172a !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="font-style: italic"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="font-style: italic"] {
+      background: #f1f5f9 !important;
+      color: #334155 !important;
+      border: 1px solid #e2e8f0 !important;
+    }
+
+    /* Executive Conclusion Box in Leads Section */
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(0, 230, 118, 0.08)"][style*="border-radius: 16px"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(0, 230, 118, 0.08)"][style*="border-radius: 16px"] {
+      background: #f0fdf4 !important;
+      border-color: #86efac !important;
+      color: #1e293b !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(0, 230, 118, 0.08)"][style*="border-radius: 16px"] strong,
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(0, 230, 118, 0.08)"][style*="border-radius: 16px"] strong {
+      color: #0f172a !important;
+    }
+
+    /* GA4 DASHBOARD SECTION IN LIGHT MODE */
+    body[data-bottom-theme="light"] #sec-ga4,
+    body[data-bottom-theme="light"] .ga4-dashboard-section,
+    [data-bottom-theme="light"] .ga4-dashboard-section,
+    .ga4-dashboard-section[data-bottom-theme="light"] {
+      background: #ffffff !important;
+      border: 1.5px solid #e2e8f0 !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+      border-radius: 28px !important;
+      padding: 24px !important;
+      color: #0f172a !important;
+    }
+
+    body[data-bottom-theme="light"] #sec-ga4 h2,
+    [data-bottom-theme="light"] .ga4-dashboard-section h2 {
+      color: #0f172a !important;
+    }
+    body[data-bottom-theme="light"] #sec-ga4 p,
+    [data-bottom-theme="light"] .ga4-dashboard-section p {
+      color: #475569 !important;
+    }
+    body[data-bottom-theme="light"] #sec-ga4 p strong,
+    [data-bottom-theme="light"] .ga4-dashboard-section p strong {
+      color: #0f172a !important;
+    }
+
+    /* GA4 Bento Cards (Active Users, Views, Engagement, Google Traffic) */
+    body[data-bottom-theme="light"] .ga4-bento-card,
+    [data-bottom-theme="light"] .ga4-bento-card {
+      background: #f8fafc !important;
+      border: 1.5px solid #e2e8f0 !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    }
+    body[data-bottom-theme="light"] .ga4-bento-card:hover,
+    [data-bottom-theme="light"] .ga4-bento-card:hover {
+      background: #ffffff !important;
+      border-color: #00e676 !important;
+      box-shadow: 0 8px 24px rgba(0, 230, 118, 0.15) !important;
+    }
+    body[data-bottom-theme="light"] .ga4-bento-card div[style*="font-size: 32px"],
+    [data-bottom-theme="light"] .ga4-bento-card div[style*="font-size: 32px"] {
+      color: #0f172a !important;
+    }
+    body[data-bottom-theme="light"] .ga4-bento-card span[style*="color: #94a3b8"],
+    [data-bottom-theme="light"] .ga4-bento-card span[style*="color: #94a3b8"] {
+      color: #64748b !important;
+    }
+    body[data-bottom-theme="light"] .ga4-bento-card div[style*="color: #cbd5e1"],
+    [data-bottom-theme="light"] .ga4-bento-card div[style*="color: #cbd5e1"] {
+      color: #475569 !important;
+    }
+
+    /* Google Traffic Focus Card */
+    body[data-bottom-theme="light"] .ga4-bento-card.card-google-focus,
+    [data-bottom-theme="light"] .ga4-bento-card.card-google-focus {
+      background: #ecfdf5 !important;
+      border-color: #10b981 !important;
+    }
+    body[data-bottom-theme="light"] .ga4-bento-card.card-google-focus div[style*="font-size: 32px"],
+    [data-bottom-theme="light"] .ga4-bento-card.card-google-focus div[style*="font-size: 32px"] {
+      color: #047857 !important;
+    }
+
+    /* GA4 Breakdown Cards & Tables */
+    body[data-bottom-theme="light"] .ga4-breakdown-card,
+    [data-bottom-theme="light"] .ga4-breakdown-card {
+      background: #f8fafc !important;
+      border: 1.5px solid #e2e8f0 !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+      color: #0f172a !important;
+    }
+    body[data-bottom-theme="light"] .ga4-breakdown-card h3,
+    [data-bottom-theme="light"] .ga4-breakdown-card h3 {
+      color: #0f172a !important;
+    }
+    body[data-bottom-theme="light"] .ga4-breakdown-card p,
+    [data-bottom-theme="light"] .ga4-breakdown-card p {
+      color: #475569 !important;
+    }
+    body[data-bottom-theme="light"] .ga4-breakdown-card span[style*="color: #ffffff"],
+    body[data-bottom-theme="light"] .ga4-breakdown-card div[style*="color: #ffffff"],
+    [data-bottom-theme="light"] .ga4-breakdown-card span[style*="color: #ffffff"],
+    [data-bottom-theme="light"] .ga4-breakdown-card div[style*="color: #ffffff"] {
+      color: #0f172a !important;
+    }
+
+    /* GA4 Daily Cards */
+    body[data-bottom-theme="light"] .ga4-daily-card,
+    [data-bottom-theme="light"] .ga4-daily-card {
+      background: #ffffff !important;
+      border: 1.5px solid #e2e8f0 !important;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+    }
+    body[data-bottom-theme="light"] .ga4-daily-card div[style*="font-size: 18px"],
+    body[data-bottom-theme="light"] .ga4-daily-card div[style*="font-size: 20px"],
+    [data-bottom-theme="light"] .ga4-daily-card div[style*="font-size: 18px"],
+    [data-bottom-theme="light"] .ga4-daily-card div[style*="font-size: 20px"] {
+      color: #0f172a !important;
+    }
+    body[data-bottom-theme="light"] .ga4-daily-card div[style*="font-size: 10px"],
+    [data-bottom-theme="light"] .ga4-daily-card div[style*="font-size: 10px"] {
+      color: #64748b !important;
+    }
+
+    /* Geographic pills & sub-banners */
+    body[data-bottom-theme="light"] .ga4-geo-pill,
+    [data-bottom-theme="light"] .ga4-geo-pill {
+      background: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      color: #0f172a !important;
+    }
+    body[data-bottom-theme="light"] .ga4-sub-banner,
+    [data-bottom-theme="light"] .ga4-sub-banner {
+      background: #ecfdf5 !important;
+      border-color: #a7f3d0 !important;
+      color: #065f46 !important;
+    }
+    body[data-bottom-theme="light"] .ga4-sub-banner div,
+    [data-bottom-theme="light"] .ga4-sub-banner div {
+      color: #065f46 !important;
+    }
+    body[data-bottom-theme="light"] .ga4-summary-banner,
+    [data-bottom-theme="light"] .ga4-summary-banner {
+      background: #f8fafc !important;
+      border-color: #e2e8f0 !important;
+      color: #1e293b !important;
+    }
+    body[data-bottom-theme="light"] .ga4-summary-banner div[style*="background: rgba(255, 255, 255, 0.03)"],
+    [data-bottom-theme="light"] .ga4-summary-banner div[style*="background: rgba(255, 255, 255, 0.03)"] {
+      background: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      color: #334155 !important;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+    }
+    body[data-bottom-theme="light"] .ga4-summary-banner div[style*="font-weight: 700"],
+    [data-bottom-theme="light"] .ga4-summary-banner div[style*="font-weight: 700"] {
+      color: #0f172a !important;
+    }
+
+    /* Theme Switcher Group Styling in Light Mode */
+    body[data-bottom-theme="light"] .theme-switcher-group {
+      background: #f1f5f9 !important;
+      border-color: #cbd5e1 !important;
+    }
+    body[data-bottom-theme="light"] .theme-switcher-group span {
+      color: #475569 !important;
+    }
+    body[data-bottom-theme="light"] .theme-toggle-pill {
       color: #334155 !important;
     }
-    [data-bottom-theme="oled"] .customer-leads-section {
-      background: #000000 !important;
-      border-color: rgba(255, 255, 255, 0.2) !important;
+    body[data-bottom-theme="light"] .theme-toggle-pill.active {
+      background: #0284c7 !important;
+      color: #ffffff !important;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35) !important;
     }
+
+    /* --- 2. OLED MODE (🌙 มืดสนิท) --- */
+    body[data-bottom-theme="oled"] #sec-customer-leads,
+    [data-bottom-theme="oled"] .customer-leads-section,
+    .customer-leads-section[data-bottom-theme="oled"] {
+      background: #000000 !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95) !important;
+    }
+    body[data-bottom-theme="oled"] .customer-leads-header-banner,
     [data-bottom-theme="oled"] .customer-leads-header-banner {
-      background: #0a0a0a !important;
-      border-color: rgba(255, 255, 255, 0.25) !important;
+      background: #080808 !important;
+      border: 1.5px solid rgba(56, 189, 248, 0.5) !important;
+    }
+
+    body[data-bottom-theme="oled"] #sec-ga4,
+    body[data-bottom-theme="oled"] .ga4-dashboard-section,
+    [data-bottom-theme="oled"] .ga4-dashboard-section,
+    .ga4-dashboard-section[data-bottom-theme="oled"] {
+      background: #000000 !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+      border-radius: 28px !important;
+      padding: 24px !important;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95) !important;
+    }
+    body[data-bottom-theme="oled"] .ga4-bento-card,
+    body[data-bottom-theme="oled"] .ga4-breakdown-card,
+    [data-bottom-theme="oled"] .ga4-bento-card,
+    [data-bottom-theme="oled"] .ga4-breakdown-card {
+      background: #080808 !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+    }
+    body[data-bottom-theme="oled"] .ga4-daily-card,
+    [data-bottom-theme="oled"] .ga4-daily-card {
+      background: #0d0d0d !important;
+      border-color: rgba(255, 255, 255, 0.15) !important;
     }
 </style>
 </head>
@@ -2449,9 +2763,9 @@
         </div>
                 <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(255, 255, 255, 0.06); padding: 4px 6px; border-radius: 99px; border: 1px solid rgba(255, 255, 255, 0.12);">
           <span style="font-size: 11px; color: #cbd5e1; font-weight: 600; padding: 0 6px;">🎨 สีพื้นหลัง:</span>
-          <button id="btnThemeNavy" onclick="setBottomTheme('navy');" class="theme-toggle-pill active" title="พื้นหลังสีกรมท่า Slate ชัดลึก สบายตา">💎 High-Contrast Slate</button>
-          <button id="btnThemeLight" onclick="setBottomTheme('light');" class="theme-toggle-pill" title="พื้นหลังสีขาวสว่าง สบายตา ตัวหนังสือดำคมชัด">☀️ สว่าง (Light)</button>
-          <button id="btnThemeOled" onclick="setBottomTheme('oled');" class="theme-toggle-pill" title="พื้นหลังสีดำเข้มสนิท OLED Dark">🌙 มืดสนิท (OLED)</button>
+          <button id="btnThemeNavy" onclick="setBottomTheme('navy');" class="theme-toggle-pill btn-theme-navy active" title="พื้นหลังสีกรมท่า Slate ชัดลึก สบายตา">💎 High-Contrast Slate</button>
+          <button id="btnThemeLight" onclick="setBottomTheme('light');" class="theme-toggle-pill btn-theme-light" title="พื้นหลังสีขาวสว่าง สบายตา ตัวหนังสือดำคมชัด">☀️ สว่าง (Light)</button>
+          <button id="btnThemeOled" onclick="setBottomTheme('oled');" class="theme-toggle-pill btn-theme-oled" title="พื้นหลังสีดำเข้มสนิท OLED Dark">🌙 มืดสนิท (OLED)</button>
         </div>
       </div>
       <div class="bottom-grid">
@@ -2591,6 +2905,12 @@
           <span style="font-size: 11.5px; background: rgba(0, 230, 118, 0.25); color: #6ee7b7; border: 1.5px solid rgba(0, 230, 118, 0.8); padding: 5px 12px; border-radius: 20px; font-weight: 900; box-shadow: 0 0 10px rgba(0, 230, 118, 0.3);">
             🏆 จองสำเร็จ 2 ห้อง
           </span>
+        <div class="theme-switcher-group" style="display: inline-flex; gap: 4px; align-items: center; background: rgba(0,0,0,0.3); padding: 4px 8px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12); margin-left: auto;">
+          <span style="font-size: 11px; color: #cbd5e1; font-weight: 600; padding: 0 4px;">🎨 ธีม:</span>
+          <button onclick="setBottomTheme('navy');" class="theme-toggle-pill btn-theme-navy active" title="พื้นหลังสีกรมท่า Slate ชัดลึก สบายตา">💎 Slate</button>
+          <button onclick="setBottomTheme('light');" class="theme-toggle-pill btn-theme-light" title="พื้นหลังสีขาวสว่าง สบายตา ตัวหนังสือดำคมชัด">☀️ สว่าง (Light)</button>
+          <button onclick="setBottomTheme('oled');" class="theme-toggle-pill btn-theme-oled" title="พื้นหลังสีดำเข้มสนิท OLED Dark">🌙 มืดสนิท (OLED)</button>
+        </div>
         </div>
       </div>
 
@@ -2947,6 +3267,12 @@
           <span style="font-size: 11.5px; color: #00e676; background: rgba(0, 230, 118, 0.08); border: 1px solid rgba(0, 230, 118, 0.25); padding: 5px 12px; border-radius: 20px; font-weight: 600;">
             📅 1 - 9 พ.ย. 2569 (9 วันล่าสุด)
           </span>
+          <div class="theme-switcher-group" style="display: inline-flex; gap: 4px; align-items: center; background: rgba(0,0,0,0.3); padding: 4px 8px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12);">
+            <span style="font-size: 11px; color: #cbd5e1; font-weight: 600; padding: 0 4px;">🎨 ธีม:</span>
+            <button onclick="setBottomTheme('navy');" class="theme-toggle-pill btn-theme-navy active" title="พื้นหลังสีกรมท่า Slate ชัดลึก สบายตา">💎 Slate</button>
+            <button onclick="setBottomTheme('light');" class="theme-toggle-pill btn-theme-light" title="พื้นหลังสีขาวสว่าง สบายตา ตัวหนังสือดำคมชัด">☀️ สว่าง (Light)</button>
+            <button onclick="setBottomTheme('oled');" class="theme-toggle-pill btn-theme-oled" title="พื้นหลังสีดำเข้มสนิท OLED Dark">🌙 มืดสนิท (OLED)</button>
+          </div>
         </div>
       </div>
 
@@ -5200,22 +5526,38 @@ function showPillHoverCard(el, pillIdx) {
     }
 
 
-    function setBottomTheme(theme) {
+        function setBottomTheme(theme) {
       const panel = document.getElementById('bottomPanel');
-      if (!panel) return;
-      if (theme === 'light') {
-        panel.setAttribute('data-bottom-theme', 'light');
-      } else if (theme === 'oled') {
-        panel.setAttribute('data-bottom-theme', 'oled');
-      } else {
-        panel.removeAttribute('data-bottom-theme'); // default navy
-      }
-      document.querySelectorAll('.theme-toggle-pill').forEach(btn => btn.classList.remove('active'));
-      const activeBtn = document.getElementById('btnTheme' + theme.charAt(0).toUpperCase() + theme.slice(1));
-      if (activeBtn) activeBtn.classList.add('active');
+      const leadsSec = document.getElementById('sec-customer-leads');
+      const ga4Sec = document.getElementById('sec-ga4');
+      const tiktokSec = document.getElementById('tiktokShowcasePanel');
+      const elements = [document.body, panel, leadsSec, ga4Sec, tiktokSec].filter(Boolean);
+
+      elements.forEach(el => {
+        if (theme === 'light') {
+          el.setAttribute('data-bottom-theme', 'light');
+        } else if (theme === 'oled') {
+          el.setAttribute('data-bottom-theme', 'oled');
+        } else {
+          el.removeAttribute('data-bottom-theme'); // default navy
+        }
+      });
+
+      // Synchronize all theme toggle pill buttons across all sections
+      document.querySelectorAll('.theme-toggle-pill').forEach(btn => {
+        btn.classList.remove('active');
+        const isNavy = btn.classList.contains('btn-theme-navy') || btn.id === 'btnThemeNavy';
+        const isLight = btn.classList.contains('btn-theme-light') || btn.id === 'btnThemeLight';
+        const isOled = btn.classList.contains('btn-theme-oled') || btn.id === 'btnThemeOled';
+
+        if (theme === 'light' && isLight) btn.classList.add('active');
+        else if (theme === 'oled' && isOled) btn.classList.add('active');
+        else if ((theme === 'navy' || !theme) && isNavy) btn.classList.add('active');
+      });
+
       try { localStorage.setItem('citylink_bottom_theme', theme); } catch(e) {}
     }
-    // Auto restore saved theme
+    // Auto restore saved theme on page load
     try {
       const savedTheme = localStorage.getItem('citylink_bottom_theme');
       if (savedTheme) {
