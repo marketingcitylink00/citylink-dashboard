@@ -4585,6 +4585,527 @@
     }
 
 </style>
+
+<style id="leads-ga4-theme-styles">
+/* HIGH CONTRAST & THEME SYSTEM FOR BOTTOM PANEL & CARDS    */
+    /* ======================================================== */
+    .theme-toggle-pill {
+      background: transparent;
+      border: none;
+      padding: 5px 12px;
+      border-radius: 99px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #94a3b8;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .theme-toggle-pill:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .theme-toggle-pill.active {
+      background: #2A85FF;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(42, 133, 255, 0.4);
+    }
+
+    .ga4-breakdown-card {
+      background: #19263e;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .ga4-sub-banner {
+      background: #20314f;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 14px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    .ga4-summary-banner {
+      background: linear-gradient(135deg, rgba(0, 230, 118, 0.18), rgba(56, 189, 248, 0.14));
+      border: 1.5px solid rgba(0, 230, 118, 0.4);
+      border-radius: 14px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 12.5px;
+      transition: all 0.3s ease;
+    }
+
+    /* THEME: LIGHT EXECUTIVE MODE */
+    [data-bottom-theme="light"] .bottom-panel {
+      background: #f1f5f9 !important;
+      color: #0f172a !important;
+      border-color: #cbd5e1 !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+    }
+    [data-bottom-theme="light"] .history-card-box,
+    [data-bottom-theme="light"] .offers-card-box,
+    [data-bottom-theme="light"] .ga4-dashboard-section {
+      background: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+    }
+    [data-bottom-theme="light"] .section-title,
+    [data-bottom-theme="light"] .ga4-dashboard-section h2,
+    [data-bottom-theme="light"] .ga4-breakdown-card h3 {
+      color: #0f172a !important;
+    }
+    [data-bottom-theme="light"] .ga4-dashboard-section p,
+    [data-bottom-theme="light"] .ga4-breakdown-card p {
+      color: #475569 !important;
+    }
+    [data-bottom-theme="light"] .ga4-bento-card {
+      background: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    }
+    [data-bottom-theme="light"] .ga4-bento-card:hover {
+      background: #ffffff !important;
+      border-color: #00e676 !important;
+    }
+    [data-bottom-theme="light"] .ga4-bento-card div[style*="font-size: 32px"] {
+      color: #0f172a !important;
+    }
+    [data-bottom-theme="light"] .ga4-bento-card.card-google-focus {
+      background: #ecfdf5 !important;
+      border-color: #10b981 !important;
+    }
+    [data-bottom-theme="light"] .ga4-bento-card.card-google-focus div[style*="font-size: 32px"] {
+      color: #047857 !important;
+    }
+    [data-bottom-theme="light"] .ga4-breakdown-card {
+      background: #f8fafc !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    }
+    [data-bottom-theme="light"] .ga4-daily-card {
+      background: #ffffff !important;
+      border-color: #e2e8f0 !important;
+    }
+    [data-bottom-theme="light"] .ga4-daily-card div[style*="font-size: 18px"],
+    [data-bottom-theme="light"] .ga4-daily-card div[style*="font-size: 20px"] {
+      color: #0f172a !important;
+    }
+    [data-bottom-theme="light"] .ga4-breakdown-card span[style*="color: #ffffff"] {
+      color: #0f172a !important;
+    }
+    [data-bottom-theme="light"] .ga4-sub-banner {
+      background: #ffffff !important;
+      border-color: #e2e8f0 !important;
+    }
+    [data-bottom-theme="light"] .ga4-sub-banner div {
+      color: #0f172a !important;
+    }
+    [data-bottom-theme="light"] .ga4-summary-banner {
+      background: #ecfdf5 !important;
+      border-color: #a7f3d0 !important;
+      color: #065f46 !important;
+    }
+    [data-bottom-theme="light"] #trendLine {
+      stroke: #0284c7 !important;
+    }
+    [data-bottom-theme="light"] .chart-svg text {
+      fill: #475569 !important;
+    }
+    [data-bottom-theme="light"] .chart-svg circle {
+      fill: #0284c7 !important;
+      stroke: #ffffff !important;
+    }
+    [data-bottom-theme="light"] .chart-svg line {
+      stroke: #cbd5e1 !important;
+    }
+    [data-bottom-theme="light"] .filter-time-pills {
+      background: #e2e8f0 !important;
+    }
+    [data-bottom-theme="light"] .time-pill-btn {
+      color: #64748b !important;
+    }
+    [data-bottom-theme="light"] .time-pill-btn.active {
+      background: #0284c7 !important;
+      color: #ffffff !important;
+    }
+    [data-bottom-theme="light"] .theme-toggle-pill {
+      color: #64748b;
+    }
+    [data-bottom-theme="light"] .theme-toggle-pill.active {
+      background: #0284c7;
+      color: #ffffff;
+    }
+
+    /* THEME: OLED DARK MODE */
+    [data-bottom-theme="oled"] .bottom-panel {
+      background: #050608 !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+    [data-bottom-theme="oled"] .history-card-box,
+    [data-bottom-theme="oled"] .offers-card-box,
+    [data-bottom-theme="oled"] .ga4-dashboard-section {
+      background: #0a0c10 !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+    [data-bottom-theme="oled"] .ga4-bento-card,
+    [data-bottom-theme="oled"] .ga4-breakdown-card {
+      background: #0e1117 !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+  
+        /* ========================================================================= */
+    /* THEME OVERRIDES: CUSTOMER LEADS & GOOGLE ANALYTICS (LIGHT & OLED MODES)   */
+    /* ========================================================================= */
+
+    /* --- 1. LIGHT MODE (☀️ สว่าง) --- */
+    body[data-bottom-theme="light"],
+    [data-bottom-theme="light"] {
+      --light-bg-card: #ffffff;
+      --light-text-main: #0f172a;
+      --light-text-sub: #475569;
+    }
+
+    body[data-bottom-theme="light"] .bottom-panel {
+      background: #f1f5f9 !important;
+      color: #0f172a !important;
+      border-color: #cbd5e1 !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+    }
+
+    body[data-bottom-theme="light"] .history-card-box,
+    body[data-bottom-theme="light"] .offers-card-box {
+      background: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+      color: #0f172a !important;
+    }
+
+    body[data-bottom-theme="light"] .section-title {
+      color: #0f172a !important;
+    }
+
+    /* Customer Leads Container in Light Mode */
+    body[data-bottom-theme="light"] #sec-customer-leads,
+    [data-bottom-theme="light"] .customer-leads-section,
+    .customer-leads-section[data-bottom-theme="light"] {
+      background: #ffffff !important;
+      border: 1.5px solid #e2e8f0 !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+      color: #0f172a !important;
+    }
+
+    /* Customer Leads Header Banner in Light Mode */
+    body[data-bottom-theme="light"] .customer-leads-header-banner,
+    [data-bottom-theme="light"] .customer-leads-header-banner,
+    .customer-leads-header-banner[data-bottom-theme="light"] {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+      border: 1.5px solid #cbd5e1 !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04) !important;
+    }
+
+    body[data-bottom-theme="light"] .leads-main-title,
+    [data-bottom-theme="light"] .leads-main-title {
+      color: #0f172a !important;
+    }
+    body[data-bottom-theme="light"] .leads-main-title span,
+    [data-bottom-theme="light"] .leads-main-title span {
+      color: #0284c7 !important;
+    }
+    body[data-bottom-theme="light"] .leads-main-sub,
+    [data-bottom-theme="light"] .leads-main-sub {
+      color: #475569 !important;
+    }
+    body[data-bottom-theme="light"] .leads-main-sub strong,
+    [data-bottom-theme="light"] .leads-main-sub strong {
+      color: #0f172a !important;
+    }
+
+    /* Customer Leads KPI Cards in Light Mode */
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="border-radius: 18px"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="border-radius: 18px"] {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(239, 68, 68, 0.08)"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(239, 68, 68, 0.08)"] {
+      background: #fef2f2 !important;
+      border-color: #fca5a5 !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(245, 158, 11, 0.08)"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(245, 158, 11, 0.08)"] {
+      background: #fffbeb !important;
+      border-color: #fcd34d !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(14, 165, 233, 0.08)"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(14, 165, 233, 0.08)"] {
+      background: #f0f9ff !important;
+      border-color: #7dd3fc !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(0, 230, 118, 0.08)"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(0, 230, 118, 0.08)"] {
+      background: #f0fdf4 !important;
+      border-color: #86efac !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="font-size: 28px"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="font-size: 28px"] {
+      color: #0f172a !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="font-size: 11px"][style*="color: #cbd5e1"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="font-size: 11px"][style*="color: #cbd5e1"] {
+      color: #475569 !important;
+    }
+
+    /* Customer Leads 3 Tier Columns in Light Mode */
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="border: 1.5px solid rgba(239, 68, 68, 0.4)"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="border: 1.5px solid rgba(239, 68, 68, 0.4)"] {
+      background: #fff5f5 !important;
+      border-color: #fecaca !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="border: 1.5px solid rgba(245, 158, 11, 0.4)"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="border: 1.5px solid rgba(245, 158, 11, 0.4)"] {
+      background: #fffdf5 !important;
+      border-color: #fef3c7 !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="border: 1.5px solid rgba(14, 165, 233, 0.4)"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="border: 1.5px solid rgba(14, 165, 233, 0.4)"] {
+      background: #f8fcff !important;
+      border-color: #e0f2fe !important;
+    }
+
+    /* Customer Lead Cards inside columns */
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="border-radius: 12px"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="border-radius: 12px"] {
+      background: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="font-weight: 800"][style*="font-size: 13px"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="font-weight: 800"][style*="font-size: 13px"] {
+      color: #0f172a !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="font-style: italic"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="font-style: italic"] {
+      background: #f1f5f9 !important;
+      color: #334155 !important;
+      border: 1px solid #e2e8f0 !important;
+    }
+
+    /* Executive Conclusion Box in Leads Section */
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(0, 230, 118, 0.08)"][style*="border-radius: 16px"],
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(0, 230, 118, 0.08)"][style*="border-radius: 16px"] {
+      background: #f0fdf4 !important;
+      border-color: #86efac !important;
+      color: #1e293b !important;
+    }
+    body[data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(0, 230, 118, 0.08)"][style*="border-radius: 16px"] strong,
+    [data-bottom-theme="light"] #sec-customer-leads div[style*="rgba(0, 230, 118, 0.08)"][style*="border-radius: 16px"] strong {
+      color: #0f172a !important;
+    }
+
+    /* GA4 DASHBOARD SECTION IN LIGHT MODE */
+    body[data-bottom-theme="light"] #sec-ga4,
+    body[data-bottom-theme="light"] .ga4-dashboard-section,
+    [data-bottom-theme="light"] .ga4-dashboard-section,
+    .ga4-dashboard-section[data-bottom-theme="light"] {
+      background: #ffffff !important;
+      border: 1.5px solid #e2e8f0 !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+      border-radius: 28px !important;
+      padding: 24px !important;
+      color: #0f172a !important;
+    }
+
+    body[data-bottom-theme="light"] #sec-ga4 h2,
+    [data-bottom-theme="light"] .ga4-dashboard-section h2 {
+      color: #0f172a !important;
+    }
+    body[data-bottom-theme="light"] #sec-ga4 p,
+    [data-bottom-theme="light"] .ga4-dashboard-section p {
+      color: #475569 !important;
+    }
+    body[data-bottom-theme="light"] #sec-ga4 p strong,
+    [data-bottom-theme="light"] .ga4-dashboard-section p strong {
+      color: #0f172a !important;
+    }
+
+    /* GA4 Bento Cards (Active Users, Views, Engagement, Google Traffic) */
+    body[data-bottom-theme="light"] .ga4-bento-card,
+    [data-bottom-theme="light"] .ga4-bento-card {
+      background: #ffffff !important;
+      border: 1.5px solid #e2e8f0 !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    }
+    body[data-bottom-theme="light"] .ga4-bento-card:hover,
+    [data-bottom-theme="light"] .ga4-bento-card:hover {
+      background: #ffffff !important;
+      border-color: #00e676 !important;
+      box-shadow: 0 8px 24px rgba(0, 230, 118, 0.15) !important;
+    }
+    body[data-bottom-theme="light"] .ga4-bento-card div[style*="font-size: 32px"],
+    [data-bottom-theme="light"] .ga4-bento-card div[style*="font-size: 32px"] {
+      color: #0f172a !important;
+    }
+    body[data-bottom-theme="light"] .ga4-bento-card span[style*="color: #94a3b8"],
+    [data-bottom-theme="light"] .ga4-bento-card span[style*="color: #94a3b8"] {
+      color: #64748b !important;
+    }
+    body[data-bottom-theme="light"] .ga4-bento-card div[style*="color: #cbd5e1"],
+    [data-bottom-theme="light"] .ga4-bento-card div[style*="color: #cbd5e1"] {
+      color: #475569 !important;
+    }
+
+    /* Google Traffic Focus Card */
+    body[data-bottom-theme="light"] .ga4-bento-card.card-google-focus,
+    [data-bottom-theme="light"] .ga4-bento-card.card-google-focus {
+      background: #ecfdf5 !important;
+      border-color: #10b981 !important;
+    }
+    body[data-bottom-theme="light"] .ga4-bento-card.card-google-focus div[style*="font-size: 32px"],
+    [data-bottom-theme="light"] .ga4-bento-card.card-google-focus div[style*="font-size: 32px"] {
+      color: #047857 !important;
+    }
+
+    /* GA4 Breakdown Cards & Tables */
+    body[data-bottom-theme="light"] .ga4-breakdown-card,
+    [data-bottom-theme="light"] .ga4-breakdown-card {
+      background: #f8fafc !important;
+      border: 1.5px solid #e2e8f0 !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+      color: #0f172a !important;
+    }
+    body[data-bottom-theme="light"] .ga4-breakdown-card h3,
+    [data-bottom-theme="light"] .ga4-breakdown-card h3 {
+      color: #0f172a !important;
+    }
+    body[data-bottom-theme="light"] .ga4-breakdown-card p,
+    [data-bottom-theme="light"] .ga4-breakdown-card p {
+      color: #475569 !important;
+    }
+    body[data-bottom-theme="light"] .ga4-breakdown-card span[style*="color: #ffffff"],
+    body[data-bottom-theme="light"] .ga4-breakdown-card div[style*="color: #ffffff"],
+    [data-bottom-theme="light"] .ga4-breakdown-card span[style*="color: #ffffff"],
+    [data-bottom-theme="light"] .ga4-breakdown-card div[style*="color: #ffffff"] {
+      color: #0f172a !important;
+    }
+
+    /* GA4 Daily Cards */
+    body[data-bottom-theme="light"] .ga4-daily-card,
+    [data-bottom-theme="light"] .ga4-daily-card {
+      background: #ffffff !important;
+      border: 1.5px solid #e2e8f0 !important;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+    }
+    body[data-bottom-theme="light"] .ga4-daily-card div[style*="font-size: 18px"],
+    body[data-bottom-theme="light"] .ga4-daily-card div[style*="font-size: 20px"],
+    [data-bottom-theme="light"] .ga4-daily-card div[style*="font-size: 18px"],
+    [data-bottom-theme="light"] .ga4-daily-card div[style*="font-size: 20px"] {
+      color: #0f172a !important;
+    }
+    body[data-bottom-theme="light"] .ga4-daily-card div[style*="font-size: 10px"],
+    [data-bottom-theme="light"] .ga4-daily-card div[style*="font-size: 10px"] {
+      color: #64748b !important;
+    }
+
+    /* Geographic pills & sub-banners */
+    body[data-bottom-theme="light"] .ga4-geo-pill,
+    [data-bottom-theme="light"] .ga4-geo-pill {
+      background: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      color: #0f172a !important;
+    }
+    body[data-bottom-theme="light"] .ga4-sub-banner,
+    [data-bottom-theme="light"] .ga4-sub-banner {
+      background: #ecfdf5 !important;
+      border-color: #a7f3d0 !important;
+      color: #065f46 !important;
+    }
+    body[data-bottom-theme="light"] .ga4-sub-banner div,
+    [data-bottom-theme="light"] .ga4-sub-banner div {
+      color: #065f46 !important;
+    }
+    body[data-bottom-theme="light"] .ga4-summary-banner,
+    [data-bottom-theme="light"] .ga4-summary-banner {
+      background: #f8fafc !important;
+      border-color: #e2e8f0 !important;
+      color: #1e293b !important;
+    }
+    body[data-bottom-theme="light"] .ga4-summary-banner div[style*="background: rgba(255, 255, 255, 0.03)"],
+    [data-bottom-theme="light"] .ga4-summary-banner div[style*="background: rgba(255, 255, 255, 0.03)"] {
+      background: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      color: #334155 !important;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+    }
+    body[data-bottom-theme="light"] .ga4-summary-banner div[style*="font-weight: 700"],
+    [data-bottom-theme="light"] .ga4-summary-banner div[style*="font-weight: 700"] {
+      color: #0f172a !important;
+    }
+
+    /* Theme Switcher Group Styling in Light Mode */
+    body[data-bottom-theme="light"] .theme-switcher-group {
+      background: #f1f5f9 !important;
+      border-color: #cbd5e1 !important;
+    }
+    body[data-bottom-theme="light"] .theme-switcher-group span {
+      color: #475569 !important;
+    }
+    body[data-bottom-theme="light"] .theme-toggle-pill {
+      color: #334155 !important;
+    }
+    body[data-bottom-theme="light"] .theme-toggle-pill.active {
+      background: #0284c7 !important;
+      color: #ffffff !important;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35) !important;
+    }
+
+    /* --- 2. OLED MODE (🌙 มืดสนิท) --- */
+    body[data-bottom-theme="oled"] #sec-customer-leads,
+    [data-bottom-theme="oled"] .customer-leads-section,
+    .customer-leads-section[data-bottom-theme="oled"] {
+      background: #000000 !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95) !important;
+    }
+    body[data-bottom-theme="oled"] .customer-leads-header-banner,
+    [data-bottom-theme="oled"] .customer-leads-header-banner {
+      background: #080808 !important;
+      border: 1.5px solid rgba(56, 189, 248, 0.5) !important;
+    }
+
+    body[data-bottom-theme="oled"] #sec-ga4,
+    body[data-bottom-theme="oled"] .ga4-dashboard-section,
+    [data-bottom-theme="oled"] .ga4-dashboard-section,
+    .ga4-dashboard-section[data-bottom-theme="oled"] {
+      background: #000000 !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+      border-radius: 28px !important;
+      padding: 24px !important;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95) !important;
+    }
+    body[data-bottom-theme="oled"] .ga4-bento-card,
+    body[data-bottom-theme="oled"] .ga4-breakdown-card,
+    [data-bottom-theme="oled"] .ga4-bento-card,
+    [data-bottom-theme="oled"] .ga4-breakdown-card {
+      background: #080808 !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+    }
+    body[data-bottom-theme="oled"] .ga4-daily-card,
+    [data-bottom-theme="oled"] .ga4-daily-card {
+      background: #0d0d0d !important;
+      border-color: rgba(255, 255, 255, 0.15) !important;
+    }
+</style>
 </head>
 <body>
 
@@ -5298,7 +5819,375 @@
     <!-- footer moved --> <div style="display:none" style="margin-top: 24px; padding: 20px 0; text-align: center; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border-subtle);">
       Dashboard Sales & Marketing Report 2569 (Executive Bento Edition)
     </div>
-          <!-- SECTION: GOOGLE ANALYTICS 4 (GA4) WEBSITE PERFORMANCE -->
+          <!-- SECTION: CUSTOMER GROUPS & KEYWORDS (HOT / WARM / COOL) -->
+    <div class="customer-leads-section" id="sec-customer-leads" style="margin-top: 24px; background: #0f172a; border: 1.5px solid rgba(255, 255, 255, 0.12); border-radius: 28px; padding: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); color: #ffffff;">
+      
+      <!-- High-Contrast Distinctive Section Header Banner -->
+      <div class="customer-leads-header-banner" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border: 1.5px solid rgba(56, 189, 248, 0.45); border-radius: 22px; padding: 18px 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45); margin-bottom: 22px;">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div style="width: 48px; height: 48px; border-radius: 14px; background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.45); flex-shrink: 0;">
+            🎯
+          </div>
+          <div>
+            <h3 class="leads-main-title" style="font-size: 21px; font-weight: 900; color: #ffffff; margin: 0; letter-spacing: -0.4px; line-height: 1.3;">
+              การวิเคราะห์กลุ่มลูกค้าและคีย์เวิร์ด <span style="color: #38bdf8; font-weight: 800;">(Hot / Warm / Cool Leads &amp; Keywords)</span>
+            </h3>
+            <p class="leads-main-sub" style="font-size: 13px; color: #e2e8f0; margin: 5px 0 0 0; font-weight: 500; line-height: 1.4;">
+              วิเคราะห์และคัดแยกกลุ่มลูกค้าจาก Inbox Chat FB • ประจำเดือนพฤศจิกายน 2569 (<strong style="color: #38bdf8;">8 Qualified Leads</strong> • <strong style="color: #fde68a;">เข้าชมโครงการ 6 ราย</strong> • <strong style="color: #00e676;">จองสำเร็จ 2 ยูนิต</strong>)
+            </p>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+          <span style="font-size: 11.5px; background: rgba(239, 68, 68, 0.25); color: #fecaca; border: 1.5px solid rgba(239, 68, 68, 0.6); padding: 5px 12px; border-radius: 20px; font-weight: 800;">
+            🔥 Hot 2 ราย (25%)
+          </span>
+          <span style="font-size: 11.5px; background: rgba(245, 158, 11, 0.25); color: #fef08a; border: 1.5px solid rgba(245, 158, 11, 0.6); padding: 5px 12px; border-radius: 20px; font-weight: 800;">
+            🌤️ Warm 3 ราย (37.5%)
+          </span>
+          <span style="font-size: 11.5px; background: rgba(14, 165, 233, 0.25); color: #e0f2fe; border: 1.5px solid rgba(14, 165, 233, 0.6); padding: 5px 12px; border-radius: 20px; font-weight: 800;">
+            ❄️ Cool 3 ราย (37.5%)
+          </span>
+          <span style="font-size: 11.5px; background: rgba(0, 230, 118, 0.25); color: #6ee7b7; border: 1.5px solid rgba(0, 230, 118, 0.8); padding: 5px 12px; border-radius: 20px; font-weight: 900; box-shadow: 0 0 10px rgba(0, 230, 118, 0.3);">
+            🏆 จองสำเร็จ 2 ห้อง
+          </span>
+        <div class="theme-switcher-group" style="display: inline-flex; gap: 4px; align-items: center; background: rgba(0, 0, 0, 0.4); padding: 4px 6px; border-radius: 99px; border: 1px solid rgba(255, 255, 255, 0.15);">
+  <button onclick="setBottomTheme('light');" class="theme-toggle-pill btn-theme-light" title="พื้นหลังสีขาวสว่าง สบายตา ตัวหนังสือดำคมชัด">☀️ สว่าง (Light)</button>
+  <button onclick="setBottomTheme('oled');" class="theme-toggle-pill btn-theme-oled active" title="พื้นหลังสีดำเข้มสนิท OLED Dark">🌙 มืดสนิท (OLED)</button>
+</div>
+        </div>
+      </div>
+
+      <!-- 4 Top KPI Stat Summary Cards -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-bottom: 22px;">
+        
+        <!-- KPI 1: Hot Leads -->
+        <div style="background: rgba(239, 68, 68, 0.08); border: 1.5px solid rgba(239, 68, 68, 0.35); border-radius: 18px; padding: 14px 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 11.5px; font-weight: 700; color: #f87171;">🔥 กลุ่ม Hot Leads (พร้อมซื้อ)</span>
+            <span style="font-size: 10px; background: rgba(239, 68, 68, 0.25); color: #fca5a5; padding: 2px 7px; border-radius: 8px; font-weight: 700;">Score 80-100</span>
+          </div>
+          <div style="font-size: 28px; font-weight: 900; color: #ffffff; line-height: 1.1;">2 <span style="font-size: 13px; font-weight: 600; color: #fca5a5;">ราย (25.0%)</span></div>
+          <div style="font-size: 11px; color: #cbd5e1; margin-top: 6px; font-weight: 500;">
+            🏆 จองสำเร็จ 1 ราย • เข้าชม 2 ราย (100%)
+          </div>
+        </div>
+
+        <!-- KPI 2: Warm Leads -->
+        <div style="background: rgba(245, 158, 11, 0.08); border: 1.5px solid rgba(245, 158, 11, 0.35); border-radius: 18px; padding: 14px 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 11.5px; font-weight: 700; color: #fbbf24;">🌤️ กลุ่ม Warm Leads (นัดหมายชม)</span>
+            <span style="font-size: 10px; background: rgba(245, 158, 11, 0.25); color: #fde68a; padding: 2px 7px; border-radius: 8px; font-weight: 700;">Score 40-79</span>
+          </div>
+          <div style="font-size: 28px; font-weight: 900; color: #ffffff; line-height: 1.1;">3 <span style="font-size: 13px; font-weight: 600; color: #fde68a;">ราย (37.5%)</span></div>
+          <div style="font-size: 11px; color: #cbd5e1; margin-top: 6px; font-weight: 500;">
+            🏆 จองสำเร็จ 1 ราย • เข้าชม 2 ราย • รอตาม 1 ราย
+          </div>
+        </div>
+
+        <!-- KPI 3: Cool Leads -->
+        <div style="background: rgba(14, 165, 233, 0.08); border: 1.5px solid rgba(14, 165, 233, 0.35); border-radius: 18px; padding: 14px 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 11.5px; font-weight: 700; color: #38bdf8;">❄️ กลุ่ม Cool Leads (สอบถามราคา)</span>
+            <span style="font-size: 10px; background: rgba(14, 165, 233, 0.25); color: #bae6fd; padding: 2px 7px; border-radius: 8px; font-weight: 700;">Score 1-39</span>
+          </div>
+          <div style="font-size: 28px; font-weight: 900; color: #ffffff; line-height: 1.1;">3 <span style="font-size: 13px; font-weight: 600; color: #bae6fd;">ราย (37.5%)</span></div>
+          <div style="font-size: 11px; color: #cbd5e1; margin-top: 6px; font-weight: 500;">
+            🚶 เข้าชมโครงการ 2 ราย (Conversion สูงเกินคาด!)
+          </div>
+        </div>
+
+        <!-- KPI 4: Total & Conversion Rate -->
+        <div style="background: rgba(0, 230, 118, 0.08); border: 1.5px solid rgba(0, 230, 118, 0.4); border-radius: 18px; padding: 14px 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 11.5px; font-weight: 800; color: #00e676;">🏆 อัตราเปลี่ยนเป็น Walk-in</span>
+            <span style="font-size: 10px; background: #00e676; color: #003319; padding: 2px 7px; border-radius: 8px; font-weight: 800;">75.0% Walk-in</span>
+          </div>
+          <div style="font-size: 28px; font-weight: 900; color: #00e676; line-height: 1.1;">6 / 8 <span style="font-size: 13px; font-weight: 600; color: #a7f3d0;">ราย เข้าชมจริง</span></div>
+          <div style="font-size: 11px; color: #e2e8f0; margin-top: 6px; font-weight: 600;">
+            🎉 จองสำเร็จ 2 ยูนิต (Hampton West)
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 3-Column Detailed Tier Cards (Hot / Warm / Cool) -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 16px; margin-bottom: 20px;">
+        
+        <!-- COLUMN 1: HOT LEADS -->
+        <div style="background: rgba(255,255,255,0.03); border: 1.5px solid rgba(239, 68, 68, 0.4); border-radius: 20px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <!-- Header -->
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(239,68,68,0.25); padding-bottom: 10px; margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 20px;">🔥</span>
+                <div>
+                  <div style="font-size: 14px; font-weight: 800; color: #ef4444;">กลุ่ม Hot (ความต้องการซื้อสูง)</div>
+                  <div style="font-size: 10.5px; color: #94a3b8;">Intent ชัดเจน • พร้อมเข้าชม / จอง</div>
+                </div>
+              </div>
+              <span style="font-size: 12px; font-weight: 800; color: #ef4444; background: rgba(239,68,68,0.15); padding: 3px 8px; border-radius: 10px;">
+                2 ราย
+              </span>
+            </div>
+
+            <!-- Keywords List -->
+            <div style="margin-bottom: 14px;">
+              <div style="font-size: 10.5px; font-weight: 700; color: #f87171; margin-bottom: 6px;">🏷️ คีย์เวิร์ดที่ใช้ค้นหา / ทักแชท:</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                <span style="font-size: 11px; background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); padding: 3px 8px; border-radius: 8px;">#สอบถามรายละเอียดโครงการ</span>
+                <span style="font-size: 11px; background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); padding: 3px 8px; border-radius: 8px;">#ขอดูผังห้องที่ว่าง</span>
+                <span style="font-size: 11px; background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); padding: 3px 8px; border-radius: 8px;">#ราคาCondoเท่าไร</span>
+                <span style="font-size: 11px; background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); padding: 3px 8px; border-radius: 8px;">#มีเฟอร์นิเจอร์อะไรให้บ้าง</span>
+                <span style="font-size: 11px; background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); padding: 3px 8px; border-radius: 8px;">#Condoมีกี่รูปแบบ</span>
+              </div>
+            </div>
+
+            <!-- Customer Cards -->
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <!-- Lead 1: Nok Khemsanthia -->
+              <div style="background: rgba(0, 230, 118, 0.06); border: 1px solid rgba(0, 230, 118, 0.35); border-radius: 12px; padding: 10px 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                  <div style="font-weight: 800; font-size: 13px; color: #ffffff;">👤 Nok Khemsanthia (คุณนก)</div>
+                  <span style="font-size: 10px; background: #00e676; color: #003319; font-weight: 800; padding: 2px 6px; border-radius: 6px;">🏆 จอง O0611b</span>
+                </div>
+                <div style="font-size: 11px; color: #a7f3d0; margin-bottom: 3px;">
+                  📞 088-3071082 • โครงการ: HAMPTON West • เซลล์: โบ
+                </div>
+                <div style="font-size: 11px; color: #e2e8f0; font-style: italic; background: rgba(0,0,0,0.25); padding: 4px 8px; border-radius: 6px;">
+                  "สอบถามรายละเอียดโครงการ, ขอดูผังห้องที่ว่าง"
+                </div>
+                <div style="font-size: 10px; color: #00e676; margin-top: 4px; font-weight: 700;">
+                  ✅ เข้าชมโครงการแล้ว • ปิดการจองสำเร็จ
+                </div>
+              </div>
+
+              <!-- Lead 2: Eve Napat -->
+              <div style="background: rgba(239, 68, 68, 0.06); border: 1px solid rgba(239, 68, 68, 0.25); border-radius: 12px; padding: 10px 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                  <div style="font-weight: 800; font-size: 13px; color: #ffffff;">👤 Eve Napat (คุณอีฟ)</div>
+                  <span style="font-size: 10px; background: rgba(239, 68, 68, 0.2); color: #fca5a5; font-weight: 700; padding: 2px 6px; border-radius: 6px;">🔥 นัดเข้าชม</span>
+                </div>
+                <div style="font-size: 11px; color: #94a3b8; margin-bottom: 3px;">
+                  💬 Line: ให้ ID Line เรียบร้อย • แอดมินเพจ City Link
+                </div>
+                <div style="font-size: 11px; color: #e2e8f0; font-style: italic; background: rgba(0,0,0,0.25); padding: 4px 8px; border-radius: 6px;">
+                  "ราคาCondoเท่าไร, มีเฟอร์นิเจอร์อะไรให้บ้าง, Condoมีกี่รูปแบบ"
+                </div>
+                <div style="font-size: 10px; color: #38bdf8; margin-top: 4px; font-weight: 600;">
+                  ✅ เข้าชมโครงการแล้ว • ส่งข้อมูลแบบห้อง & โปรโมชั่น
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 14px; background: rgba(239, 68, 68, 0.1); border-radius: 10px; padding: 8px 10px; font-size: 11px; color: #fca5a5;">
+            ⚡ <strong>กลยุทธ์ทีมขาย:</strong> ติดต่อกลับทันทีภายใน 15 นาที นำเสนอผังห้องจริงและเงื่อนไขจองพิเศษ
+          </div>
+        </div>
+
+        <!-- COLUMN 2: WARM LEADS -->
+        <div style="background: rgba(255,255,255,0.03); border: 1.5px solid rgba(245, 158, 11, 0.4); border-radius: 20px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <!-- Header -->
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(245,158,11,0.25); padding-bottom: 10px; margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 20px;">🌤️</span>
+                <div>
+                  <div style="font-size: 14px; font-weight: 800; color: #f59e0b;">กลุ่ม Warm (สนใจนัดชมโครงการ)</div>
+                  <div style="font-size: 10.5px; color: #94a3b8;">ถามรายละเอียดเชิงลึก • โซน / ที่จอดรถ</div>
+                </div>
+              </div>
+              <span style="font-size: 12px; font-weight: 800; color: #f59e0b; background: rgba(245,158,11,0.15); padding: 3px 8px; border-radius: 10px;">
+                3 ราย
+              </span>
+            </div>
+
+            <!-- Keywords List -->
+            <div style="margin-bottom: 14px;">
+              <div style="font-size: 10.5px; font-weight: 700; color: #fbbf24; margin-bottom: 6px;">🏷️ คีย์เวิร์ดที่ใช้ค้นหา / ทักแชท:</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                <span style="font-size: 11px; background: rgba(245, 158, 11, 0.15); color: #fde68a; border: 1px solid rgba(245, 158, 11, 0.3); padding: 3px 8px; border-radius: 8px;">#สนใจเข้าชมโครงการ</span>
+                <span style="font-size: 11px; background: rgba(245, 158, 11, 0.15); color: #fde68a; border: 1px solid rgba(245, 158, 11, 0.3); padding: 3px 8px; border-radius: 8px;">#นัดหมายเข้าชมโครงการได้ไหม</span>
+                <span style="font-size: 11px; background: rgba(245, 158, 11, 0.15); color: #fde68a; border: 1px solid rgba(245, 158, 11, 0.3); padding: 3px 8px; border-radius: 8px;">#มีรายละเอียดรูปแบบห้อง</span>
+                <span style="font-size: 11px; background: rgba(245, 158, 11, 0.15); color: #fde68a; border: 1px solid rgba(245, 158, 11, 0.3); padding: 3px 8px; border-radius: 8px;">#คอนโดอยู่โซนไหน</span>
+                <span style="font-size: 11px; background: rgba(245, 158, 11, 0.15); color: #fde68a; border: 1px solid rgba(245, 158, 11, 0.3); padding: 3px 8px; border-radius: 8px;">#มีที่จอดรถกี่%</span>
+                <span style="font-size: 11px; background: rgba(245, 158, 11, 0.15); color: #fde68a; border: 1px solid rgba(245, 158, 11, 0.3); padding: 3px 8px; border-radius: 8px;">#มีชั้นไหนที่ว่าง</span>
+              </div>
+            </div>
+
+            <!-- Customer Cards -->
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <!-- Lead 1: Nam Tuntika -->
+              <div style="background: rgba(0, 230, 118, 0.06); border: 1px solid rgba(0, 230, 118, 0.35); border-radius: 12px; padding: 10px 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                  <div style="font-weight: 800; font-size: 13px; color: #ffffff;">👤 Nam Tuntika (คุณน้ำ)</div>
+                  <span style="font-size: 10px; background: #00e676; color: #003319; font-weight: 800; padding: 2px 6px; border-radius: 6px;">🏆 จอง O0306b</span>
+                </div>
+                <div style="font-size: 11px; color: #a7f3d0; margin-bottom: 3px;">
+                  📞 083-3750521 • โครงการ: HAMPTON West • เซลล์: โบ
+                </div>
+                <div style="font-size: 11px; color: #e2e8f0; font-style: italic; background: rgba(0,0,0,0.25); padding: 4px 8px; border-radius: 6px;">
+                  "มีรายละเอียดรูปแบบห้องCondoไหม, สามารถนัดหมายเข้าชมโครงการได้ไหม"
+                </div>
+                <div style="font-size: 10px; color: #00e676; margin-top: 4px; font-weight: 700;">
+                  ✅ เข้าชมโครงการแล้ว • ปิดการจองสำเร็จ
+                </div>
+              </div>
+
+              <!-- Lead 2: Nkp Krit -->
+              <div style="background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 12px; padding: 10px 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                  <div style="font-weight: 800; font-size: 13px; color: #ffffff;">👤 Nkp Krit (คุณกฤษ)</div>
+                  <span style="font-size: 10px; background: rgba(245, 158, 11, 0.2); color: #fde68a; font-weight: 700; padding: 2px 6px; border-radius: 6px;">✅ เข้าชมแล้ว</span>
+                </div>
+                <div style="font-size: 11px; color: #94a3b8; margin-bottom: 3px;">
+                  📞 065-2593995 • โครงการ: CAMBRIDGE • เซลล์: โบ
+                </div>
+                <div style="font-size: 11px; color: #e2e8f0; font-style: italic; background: rgba(0,0,0,0.25); padding: 4px 8px; border-radius: 6px;">
+                  "สนใจเข้าชมโครงการ"
+                </div>
+                <div style="font-size: 10px; color: #38bdf8; margin-top: 4px; font-weight: 600;">
+                  ✅ เข้าชมโครงการเรียบร้อย • พาชมตึก Cambridge
+                </div>
+              </div>
+
+              <!-- Lead 3: Bird Deva -->
+              <div style="background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 12px; padding: 10px 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                  <div style="font-weight: 800; font-size: 13px; color: #ffffff;">👤 Bird Deva</div>
+                  <span style="font-size: 10px; background: rgba(245, 158, 11, 0.2); color: #fde68a; font-weight: 700; padding: 2px 6px; border-radius: 6px;">📞 ให้เบอร์นัด</span>
+                </div>
+                <div style="font-size: 11px; color: #94a3b8; margin-bottom: 3px;">
+                  📞 ให้เบอร์โทรติดต่อเรียบร้อย • แอดมินเพจ City Link
+                </div>
+                <div style="font-size: 11px; color: #e2e8f0; font-style: italic; background: rgba(0,0,0,0.25); padding: 4px 8px; border-radius: 6px;">
+                  "สนใจCondo, คอนโดอยู่โซนไหน, มีที่จอดรถกี่ %, มีชั้นไหนที่ว่าง, นัดเข้าชมโครงการ"
+                </div>
+                <div style="font-size: 10px; color: #fde68a; margin-top: 4px; font-weight: 600;">
+                  ⏳ เซลล์โทรติดตามนัดวันเวลาเข้าชมห้องตัวอย่าง
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 14px; background: rgba(245, 158, 11, 0.1); border-radius: 10px; padding: 8px 10px; font-size: 11px; color: #fde68a;">
+            📋 <strong>กลยุทธ์ทีมขาย:</strong> ติดตามภายใน 24-48 ชม. ส่งผังตึกและรายละเอียดที่จอดรถเพื่อปิดนัดชม
+          </div>
+        </div>
+
+        <!-- COLUMN 3: COOL LEADS -->
+        <div style="background: rgba(255,255,255,0.03); border: 1.5px solid rgba(14, 165, 233, 0.4); border-radius: 20px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <!-- Header -->
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(14,165,233,0.25); padding-bottom: 10px; margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 20px;">❄️</span>
+                <div>
+                  <div style="font-size: 14px; font-weight: 800; color: #0ea5e9;">กลุ่ม Cool (สอบถามราคาเบื้องต้น)</div>
+                  <div style="font-size: 10.5px; color: #94a3b8;">ถามราคาเริ่ม / ส่วนลด / เปิดขาย</div>
+                </div>
+              </div>
+              <span style="font-size: 12px; font-weight: 800; color: #0ea5e9; background: rgba(14,165,233,0.15); padding: 3px 8px; border-radius: 10px;">
+                3 ราย
+              </span>
+            </div>
+
+            <!-- Keywords List -->
+            <div style="margin-bottom: 14px;">
+              <div style="font-size: 10.5px; font-weight: 700; color: #38bdf8; margin-bottom: 6px;">🏷️ คีย์เวิร์ดที่ใช้ค้นหา / ทักแชท:</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                <span style="font-size: 11px; background: rgba(14, 165, 233, 0.15); color: #bae6fd; border: 1px solid rgba(14, 165, 233, 0.3); padding: 3px 8px; border-radius: 8px;">#ราคาคอนโดเริ่มต้นเท่าไร</span>
+                <span style="font-size: 11px; background: rgba(14, 165, 233, 0.15); color: #bae6fd; border: 1px solid rgba(14, 165, 233, 0.3); padding: 3px 8px; border-radius: 8px;">#ราคาเริ่มต้นเท่าไร</span>
+                <span style="font-size: 11px; background: rgba(14, 165, 233, 0.15); color: #bae6fd; border: 1px solid rgba(14, 165, 233, 0.3); padding: 3px 8px; border-radius: 8px;">#มีส่วนลดอะไรบ้าง</span>
+                <span style="font-size: 11px; background: rgba(14, 165, 233, 0.15); color: #bae6fd; border: 1px solid rgba(14, 165, 233, 0.3); padding: 3px 8px; border-radius: 8px;">#ขอรายละเอียดเฟอร์นิเจอร์</span>
+                <span style="font-size: 11px; background: rgba(14, 165, 233, 0.15); color: #bae6fd; border: 1px solid rgba(14, 165, 233, 0.3); padding: 3px 8px; border-radius: 8px;">#เปิดขายหรือจองห้องหรือยัง</span>
+              </div>
+            </div>
+
+            <!-- Customer Cards -->
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <!-- Lead 1: Pipo Tookta -->
+              <div style="background: rgba(14, 165, 233, 0.06); border: 1px solid rgba(14, 165, 233, 0.25); border-radius: 12px; padding: 10px 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                  <div style="font-weight: 800; font-size: 13px; color: #ffffff;">👤 Pipo Tookta (คุณตุ๊กตา)</div>
+                  <span style="font-size: 10px; background: #00e676; color: #003319; font-weight: 800; padding: 2px 6px; border-radius: 6px;">🚶 เข้าชมแล้ว</span>
+                </div>
+                <div style="font-size: 11px; color: #a7f3d0; margin-bottom: 3px;">
+                  📞 099-4622955 • โครงการ: HAMPTON West • เซลล์: โบ
+                </div>
+                <div style="font-size: 11px; color: #e2e8f0; font-style: italic; background: rgba(0,0,0,0.25); padding: 4px 8px; border-radius: 6px;">
+                  "ราคาคอนโดเริ่มต้นเท่าไร"
+                </div>
+                <div style="font-size: 10px; color: #00e676; margin-top: 4px; font-weight: 700;">
+                  ✅ เข้าชมโครงการเรียบร้อยหลังทราบราคาเริ่มต้น
+                </div>
+              </div>
+
+              <!-- Lead 2: Nchy PK -->
+              <div style="background: rgba(14, 165, 233, 0.06); border: 1px solid rgba(14, 165, 233, 0.25); border-radius: 12px; padding: 10px 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                  <div style="font-weight: 800; font-size: 13px; color: #ffffff;">👤 Nchy PK (คุณนิ้ง คุณลูกโซ่)</div>
+                  <span style="font-size: 10px; background: #00e676; color: #003319; font-weight: 800; padding: 2px 6px; border-radius: 6px;">🚶 เข้าชมแล้ว</span>
+                </div>
+                <div style="font-size: 11px; color: #a7f3d0; margin-bottom: 3px;">
+                  📞 093-3213221 • โครงการ: HAMPTON West • เซลล์: โบ
+                </div>
+                <div style="font-size: 11px; color: #e2e8f0; font-style: italic; background: rgba(0,0,0,0.25); padding: 4px 8px; border-radius: 6px;">
+                  "ราคาเริ่มต้นเท่าไร, มีส่วนลดอะไรบ้าง, ขอรายละเอียดเฟอร์นิเจอร์ที่ตกแต่ง"
+                </div>
+                <div style="font-size: 10px; color: #00e676; margin-top: 4px; font-weight: 700;">
+                  ✅ เข้าชมโครงการเรียบร้อยหลังทราบแพ็กเกจเฟอร์นิเจอร์
+                </div>
+              </div>
+
+              <!-- Lead 3: Pinn Bsy -->
+              <div style="background: rgba(14, 165, 233, 0.06); border: 1px solid rgba(14, 165, 233, 0.25); border-radius: 12px; padding: 10px 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                  <div style="font-weight: 800; font-size: 13px; color: #ffffff;">👤 Pinn Bsy</div>
+                  <span style="font-size: 10px; background: rgba(14, 165, 233, 0.2); color: #bae6fd; font-weight: 700; padding: 2px 6px; border-radius: 6px;">❄️ ขั้นสอบถาม</span>
+                </div>
+                <div style="font-size: 11px; color: #94a3b8; margin-bottom: 3px;">
+                  💬 Chat FB Inbox • แอดมินเพจ City Link
+                </div>
+                <div style="font-size: 11px; color: #e2e8f0; font-style: italic; background: rgba(0,0,0,0.25); padding: 4px 8px; border-radius: 6px;">
+                  "ตอนนี้Condoเปิดขายหรือจองห้องหรือยัง, สวัสดีค่ะคุณลูกค้าสนใจคอนโดแจ้งชื่อเบอร์โทร..."
+                </div>
+                <div style="font-size: 10px; color: #bae6fd; margin-top: 4px; font-weight: 600;">
+                  🤖 บอทดูแลอัตโนมัติ • รอแจ้งเบอร์เพื่อประสานเซลส์
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 14px; background: rgba(14, 165, 233, 0.1); border-radius: 10px; padding: 8px 10px; font-size: 11px; color: #bae6fd;">
+            🤖 <strong>กลยุทธ์ทีมขาย:</strong> ระบบแชทบอทส่งโบรชัวร์และแพ็กเกจเฟอร์นิเจอร์อัตโนมัติ เพื่อกระตุ้นให้เปลี่ยนเป็น Walk-in
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Actionable Sales Conclusion & Insight -->
+      <div style="background: rgba(0, 230, 118, 0.08); border: 1px solid rgba(0, 230, 118, 0.3); border-radius: 16px; padding: 14px 18px; font-size: 12px; line-height: 1.6; color: #e2e8f0;">
+        <div style="font-weight: 800; color: #00e676; margin-bottom: 6px; font-size: 13px; display: flex; align-items: center; gap: 8px;">
+          <span>💡</span> สรุปผลวิเคราะห์และการขับเคลื่อนยอดขาย (Executive Conversion Insights - พฤศจิกายน 2569)
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; margin-top: 8px;">
+          <div>
+            <strong style="color: #ffffff;">1. Walk-in Conversion สูงผิดปกติ (75.0%):</strong> ถึงแม้ลูกค้าบางรายจะเริ่มจากคำถามกลุ่ม Cool เช่น "ราคาเริ่มต้นเท่าไร" หรือ "มีส่วนลดไหม" แต่เซลส์ (คุณโบ) สามารถคอนเวิร์ตให้เข้ามาดูโครงการจริงได้ถึง 6 ใน 8 ราย
+          </div>
+          <div>
+            <strong style="color: #ffffff;">2. คีย์เวิร์ดทรงพลังนำสู่การจอง (Booking Drivers):</strong> คีย์เวิร์ด <em>"ขอดูผังห้องที่ว่าง"</em> (คุณนก) และ <em>"นัดหมายเข้าชมโครงการ"</em> (คุณน้ำ) นำไปสู่การจองห้องชุดคอนโด HAMPTON West ทันที 2 ห้อง (ห้อง O0611b และ O0306b)
+          </div>
+          <div>
+            <strong style="color: #ffffff;">3. โครงการเป้าหมายอันดับ 1:</strong> <strong>HAMPTON West</strong> ครองสัดส่วนความสนใจสูงสุด (7 ใน 8 ราย) รองลงมาคือ <strong>CAMBRIDGE</strong> (1 ราย)
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+            <!-- SECTION: GOOGLE ANALYTICS 4 (GA4) WEBSITE PERFORMANCE -->
     <div class="ga4-dashboard-section" id="sec-ga4" style="margin-top: 24px;">
       <!-- Section Header -->
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
@@ -5314,14 +6203,18 @@
               </span>
             </div>
             <p style="font-size: 12px; color: #94a3b8; margin: 2px 0 0 0;">
-              ข้อมูลสถิติผู้เข้าชมเว็บไซต์ทางการ <strong>www.citylinkcondo.com</strong> (บัญชี Klang Casa) • ประจำวันที่ 1 - 9 พฤศจิกายน 2569
+              ข้อมูลสถิติผู้เข้าชมเว็บไซต์ทางการ <strong>www.citylinkcondo.com</strong> (บัญชี Klang Casa) • ประจำวันที่ 1 - 12 พฤศจิกายน 2569
             </p>
           </div>
         </div>
-        <div style="display: flex; gap: 8px; align-items: center;">
+        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
           <span style="font-size: 11.5px; color: #00e676; background: rgba(0, 230, 118, 0.08); border: 1px solid rgba(0, 230, 118, 0.25); padding: 5px 12px; border-radius: 20px; font-weight: 600;">
-            📅 1 - 9 พ.ย. 2569 (9 วันล่าสุด)
+            📅 1 - 12 พ.ย. 2569 (12 วันล่าสุด)
           </span>
+          <div class="theme-switcher-group" style="display: inline-flex; gap: 4px; align-items: center; background: rgba(0, 0, 0, 0.4); padding: 4px 6px; border-radius: 99px; border: 1px solid rgba(255, 255, 255, 0.15);">
+  <button onclick="setBottomTheme('light');" class="theme-toggle-pill btn-theme-light" title="พื้นหลังสีขาวสว่าง สบายตา ตัวหนังสือดำคมชัด">☀️ สว่าง (Light)</button>
+  <button onclick="setBottomTheme('oled');" class="theme-toggle-pill btn-theme-oled active" title="พื้นหลังสีดำเข้มสนิท OLED Dark">🌙 มืดสนิท (OLED)</button>
+</div>
         </div>
       </div>
 
@@ -5333,9 +6226,9 @@
             <span style="font-size: 11.5px; color: #94a3b8; font-weight: 600;">ผู้ใช้งานจริง (Active Users)</span>
             <span style="font-size: 10px; background: rgba(0, 230, 118, 0.15); color: #00e676; padding: 2px 8px; border-radius: 10px; font-weight: 700;">100% New • ชี้เพื่อดู ℹ️</span>
           </div>
-          <div style="font-size: 32px; font-weight: 900; color: #ffffff; letter-spacing: -0.5px; line-height: 1;">87 <span style="font-size: 14px; font-weight: 600; color: #94a3b8;">คน</span></div>
+          <div style="font-size: 32px; font-weight: 900; color: #ffffff; letter-spacing: -0.5px; line-height: 1;">130 <span style="font-size: 14px; font-weight: 600; color: #94a3b8;">คน</span></div>
           <div style="font-size: 11px; color: #38bdf8; margin-top: 6px; font-weight: 500;">
-            ✨ ผู้ใช้ใหม่ทั้งหมด 87 คน (New Visitors)
+            ✨ ผู้ใช้ใหม่ทั้งหมด 130 คน (New Visitors)
           </div>
         </div>
 
@@ -5343,11 +6236,11 @@
         <div class="ga4-bento-card" onmouseenter="showGa4HoverCard(this, 2);" onmouseleave="hidePillHoverCard();" onclick="openGa4Modal(2); hidePillHoverCard();" title="นำเม้าส์มาวางเพื่อดูรายละเอียดการดูหน้าเว็บ">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
             <span style="font-size: 11.5px; color: #94a3b8; font-weight: 600;">จำนวนการดูหน้าเว็บ (Views)</span>
-            <span style="font-size: 10px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 2px 8px; border-radius: 10px; font-weight: 700;">2.56 หน้า/คน • ชี้เพื่อดู ℹ️</span>
+            <span style="font-size: 10px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 2px 8px; border-radius: 10px; font-weight: 700;">2.62 หน้า/คน • ชี้เพื่อดู ℹ️</span>
           </div>
-          <div style="font-size: 32px; font-weight: 900; color: #ffffff; letter-spacing: -0.5px; line-height: 1;">223 <span style="font-size: 14px; font-weight: 600; color: #94a3b8;">ครั้ง</span></div>
+          <div style="font-size: 32px; font-weight: 900; color: #ffffff; letter-spacing: -0.5px; line-height: 1;">340 <span style="font-size: 14px; font-weight: 600; color: #94a3b8;">ครั้ง</span></div>
           <div style="font-size: 11px; color: #94a3b8; margin-top: 6px; font-weight: 500;">
-            ⚡ 637 กิจกรรมและการโต้ตอบ (Total Events)
+            ⚡ 975 กิจกรรมและการโต้ตอบ (Total Events)
           </div>
         </div>
 
@@ -5355,11 +6248,11 @@
         <div class="ga4-bento-card" onmouseenter="showGa4HoverCard(this, 3);" onmouseleave="hidePillHoverCard();" onclick="openGa4Modal(3); hidePillHoverCard();" title="นำเม้าส์มาวางเพื่อดูรายละเอียดเวลาบนเว็บ">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
             <span style="font-size: 11.5px; color: #94a3b8; font-weight: 600;">เวลาเฉลี่ยบนเว็บ (Engagement)</span>
-            <span style="font-size: 10px; background: rgba(245, 158, 11, 0.15); color: #fbbf24; padding: 2px 8px; border-radius: 10px; font-weight: 700;">Rate 45.5% • ชี้เพื่อดู ℹ️</span>
+            <span style="font-size: 10px; background: rgba(245, 158, 11, 0.15); color: #fbbf24; padding: 2px 8px; border-radius: 10px; font-weight: 700;">Rate 44.4% • ชี้เพื่อดู ℹ️</span>
           </div>
-          <div style="font-size: 32px; font-weight: 900; color: #ffffff; letter-spacing: -0.5px; line-height: 1;">32.6 <span style="font-size: 14px; font-weight: 600; color: #94a3b8;">วินาที</span></div>
+          <div style="font-size: 32px; font-weight: 900; color: #ffffff; letter-spacing: -0.5px; line-height: 1;">33.2 <span style="font-size: 14px; font-weight: 600; color: #94a3b8;">วินาที</span></div>
           <div style="font-size: 11px; color: #94a3b8; margin-top: 6px; font-weight: 500;">
-            🎯 อัตราตีกลับ (Bounce Rate) 54.5% (คุมดีเยี่ยม 🏆)
+            🎯 อัตราตีกลับ (Bounce Rate) 55.6% (คุมดีเยี่ยม 🏆)
           </div>
         </div>
 
@@ -5367,11 +6260,11 @@
         <div class="ga4-bento-card card-google-focus" onmouseenter="showGa4HoverCard(this, 4);" onmouseleave="hidePillHoverCard();" onclick="openGa4Modal(4); hidePillHoverCard();" title="นำเม้าส์มาวางเพื่อดูรายละเอียดทราฟฟิก Google">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
             <span style="font-size: 11.5px; color: #00e676; font-weight: 700;">ทราฟฟิกจาก Google ทั้งหมด</span>
-            <span style="font-size: 10px; background: #00e676; color: #003319; padding: 2px 8px; border-radius: 10px; font-weight: 800;">49.4% ครองอันดับ 1 • ชี้เพื่อดู ℹ️</span>
+            <span style="font-size: 10px; background: #00e676; color: #003319; padding: 2px 8px; border-radius: 10px; font-weight: 800;">49.2% ครองอันดับ 1 • ชี้เพื่อดู ℹ️</span>
           </div>
-          <div style="font-size: 32px; font-weight: 900; color: #00e676; letter-spacing: -0.5px; line-height: 1;">43 <span style="font-size: 14px; font-weight: 600; color: #a7f3d0;">คน (46 เซสชัน)</span></div>
+          <div style="font-size: 32px; font-weight: 900; color: #00e676; letter-spacing: -0.5px; line-height: 1;">64 <span style="font-size: 14px; font-weight: 600; color: #a7f3d0;">คน (73 เซสชัน)</span></div>
           <div style="font-size: 11px; color: #e2e8f0; margin-top: 6px; font-weight: 500;">
-            🔍 Organic Search 33 ราย • Google Ads 10 ราย
+            🔍 Organic Search 50 ราย • Google Ads 14 ราย
           </div>
         </div>
       </div>
@@ -5381,9 +6274,9 @@
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
           <div>
             <h3 style="font-size: 16px; font-weight: 800; color: #ffffff; margin: 0;">🚦 ช่องทางที่มาของผู้เข้าชม (Source / Medium)</h3>
-            <p style="font-size: 11.5px; color: #94a3b8; margin: 3px 0 0 0;">จัดเรียงตามจำนวนผู้ใช้งานและเซสชันจริงจากมากไปน้อย</p>
+            <p style="font-size: 11.5px; color: #94a3b8; margin: 3px 0 0 0;">จัดเรียงตามจำนวนผู้ใช้งานและเซสชันจริงจากมากไปน้อย (1 - 12 พ.ย. 69)</p>
           </div>
-          <span style="font-size: 11px; color: #94a3b8; background: rgba(255,255,255,0.06); padding: 4px 10px; border-radius: 12px;">รวม 87 Users / 101 Sessions</span>
+          <span style="font-size: 11px; color: #94a3b8; background: rgba(255,255,255,0.06); padding: 4px 10px; border-radius: 12px;">รวม 130 Users / 162 Sessions</span>
         </div>
 
         <!-- Channel Rows with Progress Bars -->
@@ -5392,10 +6285,10 @@
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
               <span style="color: #ffffff; font-weight: 600;">🔍 google / organic — ค้นหาผ่าน Google โดยธรรมชาติ (SEO)</span>
-              <span style="color: #a7f3d0; font-weight: 700;">33 คน (37.9%) • 35 Sessions</span>
+              <span style="color: #a7f3d0; font-weight: 700;">50 คน (38.5%) • 56 Sessions</span>
             </div>
             <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.06); border-radius: 4px; overflow: hidden;">
-              <div style="width: 37.9%; height: 100%; background: linear-gradient(90deg, #10b981, #6ee7b7); border-radius: 4px;"></div>
+              <div style="width: 38.5%; height: 100%; background: linear-gradient(90deg, #10b981, #6ee7b7); border-radius: 4px;"></div>
             </div>
           </div>
 
@@ -5403,10 +6296,10 @@
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
               <span style="color: #ffffff; font-weight: 600;">🔗 (direct) / (none) — พิมพ์ชื่อเว็บตรง / ลิงก์ Bookmark</span>
-              <span style="color: #38bdf8; font-weight: 700;">28 คน (32.2%) • 37 Sessions</span>
+              <span style="color: #38bdf8; font-weight: 700;">45 คน (34.6%) • 60 Sessions</span>
             </div>
             <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.06); border-radius: 4px; overflow: hidden;">
-              <div style="width: 32.2%; height: 100%; background: linear-gradient(90deg, #0284c7, #38bdf8); border-radius: 4px;"></div>
+              <div style="width: 34.6%; height: 100%; background: linear-gradient(90deg, #0284c7, #38bdf8); border-radius: 4px;"></div>
             </div>
           </div>
 
@@ -5414,10 +6307,10 @@
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
               <span style="color: #ffffff; font-weight: 600;">🎯 google / cpc — โฆษณา Google Search Ads</span>
-              <span style="color: #00e676; font-weight: 700;">10 คน (11.5%) • 11 Sessions</span>
+              <span style="color: #00e676; font-weight: 700;">14 คน (10.8%) • 17 Sessions</span>
             </div>
             <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.06); border-radius: 4px; overflow: hidden;">
-              <div style="width: 11.5%; height: 100%; background: linear-gradient(90deg, #00b0ff, #00e676); border-radius: 4px;"></div>
+              <div style="width: 10.8%; height: 100%; background: linear-gradient(90deg, #00b0ff, #00e676); border-radius: 4px;"></div>
             </div>
           </div>
 
@@ -5425,21 +6318,21 @@
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
               <span style="color: #ffffff; font-weight: 600;">🏢 eaksahagroup.com / referral — เว็บไซต์เครือเอกสหกรุ๊ป</span>
-              <span style="color: #fbbf24; font-weight: 700;">6 คน (6.9%) • 8 Sessions</span>
+              <span style="color: #fbbf24; font-weight: 700;">8 คน (6.2%) • 10 Sessions</span>
             </div>
             <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.06); border-radius: 4px; overflow: hidden;">
-              <div style="width: 6.9%; height: 100%; background: linear-gradient(90deg, #d97706, #fbbf24); border-radius: 4px;"></div>
+              <div style="width: 6.2%; height: 100%; background: linear-gradient(90deg, #d97706, #fbbf24); border-radius: 4px;"></div>
             </div>
           </div>
 
           <!-- 5. Social & Other Referrals -->
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px;">
-              <span style="color: #ffffff; font-weight: 600;">🌐 Social & Other — Facebook (6), gipkd (2), AI/Search (2)</span>
-              <span style="color: #94a3b8; font-weight: 700;">10 คน (11.5%) • 10 Sessions</span>
+              <span style="color: #ffffff; font-weight: 600;">🌐 Social, AI & Other — Facebook (7), gipkd (2), ChatGPT AI (1), Bing (1), อื่นๆ</span>
+              <span style="color: #94a3b8; font-weight: 700;">13 คน (10.0%) • 19 Sessions</span>
             </div>
             <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.06); border-radius: 4px; overflow: hidden;">
-              <div style="width: 11.5%; height: 100%; background: linear-gradient(90deg, #64748b, #94a3b8); border-radius: 4px;"></div>
+              <div style="width: 10.0%; height: 100%; background: linear-gradient(90deg, #64748b, #94a3b8); border-radius: 4px;"></div>
             </div>
           </div>
         </div>
@@ -5449,7 +6342,7 @@
           <div style="display: flex; align-items: center; gap: 8px;">
             <span style="font-size: 16px;">💡</span>
             <span style="font-size: 12px; color: #e2e8f0;">
-              <strong>สรุปการครองทราฟฟิก:</strong> ผู้เข้าชมจาก <strong>Google ทั้งหมด (Search SEO + Ads) รวม 43 คน (49.4%)</strong> เป็นแกนหลักขับเคลื่อนผู้สนใจโครงการเข้าสู่เว็บไซต์เกือบครึ่งหนึ่งของทั้งหมด
+              <strong>สรุปการครองทราฟฟิก:</strong> ผู้เข้าชมจาก <strong>Google ทั้งหมด (Search SEO + Ads) รวม 64 คน (49.2%)</strong> เป็นแกนหลักขับเคลื่อนผู้สนใจโครงการเข้าสู่เว็บไซต์ครึ่งหนึ่งของทั้งหมด
             </span>
           </div>
           <span style="font-size: 11px; font-weight: 700; color: #00e676; background: rgba(0, 230, 118, 0.15); padding: 3px 8px; border-radius: 8px;">
@@ -5463,47 +6356,72 @@
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
           <div>
             <h3 style="font-size: 16px; font-weight: 800; color: #ffffff; margin: 0;">📈 สถิติรายวัน & ทำเลที่ตั้ง (Daily & Geography)</h3>
-            <p style="font-size: 11.5px; color: #94a3b8; margin: 3px 0 0 0;">ยอดผู้เข้าชมรายวัน (1 - 9 พ.ย. 69) และเมืองที่เปิดดูเว็บไซต์</p>
+            <p style="font-size: 11.5px; color: #94a3b8; margin: 3px 0 0 0;">ยอดผู้เข้าชมรายวัน (1 - 12 พ.ย. 69) และเมืองที่เปิดดูเว็บไซต์</p>
           </div>
-          <span style="font-size: 11px; color: #00e676; font-weight: 700;">🚀 Peak วันอังคาร 5 พ.ย. (18 คน) & พุธ 6 พ.ย. (19 คน)</span>
+          <span style="font-size: 11px; color: #00e676; font-weight: 700;">🚀 Peak พุธ 6 พ.ย. (19 คน), อังคาร 5 พ.ย. (18 คน) & จันทร์ 11.11 (17 คน)</span>
         </div>
 
-        <!-- 7-Day Active Daily Bar Cards (3 - 9 พ.ย.) -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(75px, 1fr)); gap: 8px; margin-bottom: 14px;">
+        <!-- 10-Day Active Daily Bar Cards (3 - 12 พ.ย.) -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); gap: 6px; margin-bottom: 14px;">
+          <!-- 3 พ.ย. -->
           <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '3 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 8px 4px; text-align: center;">
             <div style="font-size: 10px; color: #94a3b8;">3 พ.ย. (อา.)</div>
             <div style="font-size: 17px; font-weight: 900; color: #ffffff; margin-top: 2px;">11</div>
-            <div style="width: 61%; height: 3px; background: #38bdf8; border-radius: 2px; margin: 4px auto 0 auto;"></div>
+            <div style="width: 58%; height: 3px; background: #38bdf8; border-radius: 2px; margin: 4px auto 0 auto;"></div>
           </div>
+          <!-- 4 พ.ย. -->
           <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '4 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 8px 4px; text-align: center;">
             <div style="font-size: 10px; color: #94a3b8;">4 พ.ย. (จ.)</div>
             <div style="font-size: 17px; font-weight: 900; color: #ffffff; margin-top: 2px;">13</div>
-            <div style="width: 72%; height: 3px; background: #38bdf8; border-radius: 2px; margin: 4px auto 0 auto;"></div>
+            <div style="width: 68%; height: 3px; background: #38bdf8; border-radius: 2px; margin: 4px auto 0 auto;"></div>
           </div>
-          <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '5 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(0, 230, 118, 0.1); border: 1.5px solid rgba(0, 230, 118, 0.45); border-radius: 12px; padding: 8px 4px; text-align: center;">
-            <div style="font-size: 10px; color: #00e676; font-weight: 700;">5 พ.ย. (อ. 🏆)</div>
-            <div style="font-size: 19px; font-weight: 900; color: #00e676; margin-top: 2px;">18</div>
-            <div style="width: 100%; height: 3px; background: #00e676; border-radius: 2px; margin: 4px auto 0 auto;"></div>
+          <!-- 5 พ.ย. -->
+          <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '5 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(0, 230, 118, 0.08); border: 1.5px solid rgba(0, 230, 118, 0.35); border-radius: 12px; padding: 8px 4px; text-align: center;">
+            <div style="font-size: 10px; color: #00e676; font-weight: 700;">5 พ.ย. (อ. 🥈)</div>
+            <div style="font-size: 18px; font-weight: 900; color: #00e676; margin-top: 2px;">18</div>
+            <div style="width: 95%; height: 3px; background: #00e676; border-radius: 2px; margin: 4px auto 0 auto;"></div>
           </div>
-          <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '6 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(0, 230, 118, 0.08); border: 1.5px solid rgba(0, 230, 118, 0.35); border-radius: 12px; padding: 8px 4px; text-align: center;">
-            <div style="font-size: 10px; color: #00e676; font-weight: 700;">6 พ.ย. (พ. ⭐)</div>
+          <!-- 6 พ.ย. -->
+          <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '6 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(0, 230, 118, 0.12); border: 1.5px solid rgba(0, 230, 118, 0.5); border-radius: 12px; padding: 8px 4px; text-align: center;">
+            <div style="font-size: 10px; color: #00e676; font-weight: 800;">6 พ.ย. (พ. 🏆)</div>
             <div style="font-size: 19px; font-weight: 900; color: #ffffff; margin-top: 2px;">19</div>
             <div style="width: 100%; height: 3px; background: #00e676; border-radius: 2px; margin: 4px auto 0 auto;"></div>
           </div>
+          <!-- 7 พ.ย. -->
           <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '7 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 8px 4px; text-align: center;">
             <div style="font-size: 10px; color: #94a3b8;">7 พ.ย. (พฤ.)</div>
             <div style="font-size: 17px; font-weight: 900; color: #ffffff; margin-top: 2px;">13</div>
-            <div style="width: 72%; height: 3px; background: #38bdf8; border-radius: 2px; margin: 4px auto 0 auto;"></div>
+            <div style="width: 68%; height: 3px; background: #38bdf8; border-radius: 2px; margin: 4px auto 0 auto;"></div>
           </div>
+          <!-- 8 พ.ย. -->
           <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '8 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 8px 4px; text-align: center;">
             <div style="font-size: 10px; color: #94a3b8;">8 พ.ย. (ศ.)</div>
             <div style="font-size: 17px; font-weight: 900; color: #ffffff; margin-top: 2px;">9</div>
-            <div style="width: 50%; height: 3px; background: #38bdf8; border-radius: 2px; margin: 4px auto 0 auto;"></div>
+            <div style="width: 47%; height: 3px; background: #38bdf8; border-radius: 2px; margin: 4px auto 0 auto;"></div>
           </div>
+          <!-- 9 พ.ย. -->
           <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '9 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 8px 4px; text-align: center;">
             <div style="font-size: 10px; color: #94a3b8;">9 พ.ย. (ส.)</div>
-            <div style="font-size: 17px; font-weight: 900; color: #ffffff; margin-top: 2px;">10</div>
-            <div style="width: 55%; height: 3px; background: #38bdf8; border-radius: 2px; margin: 4px auto 0 auto;"></div>
+            <div style="font-size: 17px; font-weight: 900; color: #ffffff; margin-top: 2px;">15</div>
+            <div style="width: 79%; height: 3px; background: #38bdf8; border-radius: 2px; margin: 4px auto 0 auto;"></div>
+          </div>
+          <!-- 10 พ.ย. -->
+          <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '10 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 8px 4px; text-align: center;">
+            <div style="font-size: 10px; color: #94a3b8;">10 พ.ย. (อา.)</div>
+            <div style="font-size: 17px; font-weight: 900; color: #ffffff; margin-top: 2px;">15</div>
+            <div style="width: 79%; height: 3px; background: #38bdf8; border-radius: 2px; margin: 4px auto 0 auto;"></div>
+          </div>
+          <!-- 11 พ.ย. -->
+          <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '11 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(0, 230, 118, 0.08); border: 1.5px solid rgba(0, 230, 118, 0.35); border-radius: 12px; padding: 8px 4px; text-align: center;">
+            <div style="font-size: 10px; color: #00e676; font-weight: 700;">11 พ.ย. (จ. ⭐)</div>
+            <div style="font-size: 18px; font-weight: 900; color: #00e676; margin-top: 2px;">17</div>
+            <div style="width: 89%; height: 3px; background: #00e676; border-radius: 2px; margin: 4px auto 0 auto;"></div>
+          </div>
+          <!-- 12 พ.ย. -->
+          <div class="ga4-daily-card" onmouseenter="showGa4DailyHover(this, '12 พ.ย.');" onmouseleave="hidePillHoverCard();" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 8px 4px; text-align: center;">
+            <div style="font-size: 10px; color: #94a3b8;">12 พ.ย. (อ.)</div>
+            <div style="font-size: 17px; font-weight: 900; color: #ffffff; margin-top: 2px;">11</div>
+            <div style="width: 58%; height: 3px; background: #38bdf8; border-radius: 2px; margin: 4px auto 0 auto;"></div>
           </div>
         </div>
 
@@ -5514,19 +6432,22 @@
           </div>
           <div style="display: flex; flex-wrap: wrap; gap: 8px;">
             <span class="ga4-geo-pill" onmouseenter="showGa4GeoHover(this, 'bkk');" onmouseleave="hidePillHoverCard();" style="font-size: 11.5px; background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 10px; border-radius: 10px; font-weight: 600;">
-              🏙️ กรุงเทพฯ (Bangkok) 17 คน (19.5%)
+              🏙️ กรุงเทพฯ (Bangkok) 22 คน (16.9%)
             </span>
             <span class="ga4-geo-pill" onmouseenter="showGa4GeoHover(this, 'korat');" onmouseleave="hidePillHoverCard();" style="font-size: 11.5px; background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); padding: 4px 10px; border-radius: 10px; font-weight: 600;">
-              🏰 นครราชสีมา & ปริมณฑล 14 คน (16.1%)
+              🏰 นครราชสีมา & ปริมณฑล 18 คน (13.8%)
             </span>
             <span class="ga4-geo-pill" onmouseenter="showGa4GeoHover(this, 'kk');" onmouseleave="hidePillHoverCard();" style="font-size: 11.5px; background: rgba(0, 230, 118, 0.1); color: #00e676; border: 1px solid rgba(0, 230, 118, 0.25); padding: 4px 10px; border-radius: 10px; font-weight: 600;">
-              🌾 ขอนแก่น (Khon Kaen) 5 คน (5.7%)
+              🌾 ขอนแก่น (Khon Kaen) 7 คน (5.4%)
+            </span>
+            <span class="ga4-geo-pill" onmouseenter="showGa4GeoHover(this, 'us');" onmouseleave="hidePillHoverCard();" style="font-size: 11.5px; background: rgba(59, 130, 246, 0.12); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); padding: 4px 10px; border-radius: 10px; font-weight: 600;">
+              🇺🇸 สหรัฐฯ (Council Bluffs, Portland ฯลฯ) 12 คน (9.2%)
             </span>
             <span class="ga4-geo-pill" onmouseenter="showGa4GeoHover(this, 'inter');" onmouseleave="hidePillHoverCard();" style="font-size: 11.5px; background: rgba(168, 85, 247, 0.12); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); padding: 4px 10px; border-radius: 10px; font-weight: 600;">
-              ✈️ ต่างประเทศ (Shanghai, Dublin, SG, KL, JP, USA) 18 คน (20.7%)
+              ✈️ ต่างประเทศอื่นๆ (Shanghai, Dublin, SG, KL, JP, DE) 20 คน (15.4%)
             </span>
             <span class="ga4-geo-pill" onmouseenter="showGa4GeoHover(this, 'isan');" onmouseleave="hidePillHoverCard();" style="font-size: 11.5px; background: rgba(255, 255, 255, 0.05); color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.1); padding: 4px 10px; border-radius: 10px;">
-              🌳 หัวเมืองอื่นๆ (เชียงใหม่, บุรีรัมย์, สุราษฎร์ฯ, อุบลฯ) 9 คน (10.3%)
+              🌳 หัวเมืองอื่นๆ (สระบุรี, อุบลฯ, สุราษฎร์ฯ, เชียงใหม่) 12 คน (9.2%)
             </span>
           </div>
         </div>
@@ -5541,8 +6462,8 @@
             </div>
           </div>
           <div style="text-align: right;">
-            <div style="font-size: 15px; font-weight: 800; color: #00e676;">223 ครั้ง</div>
-            <div style="font-size: 10px; color: #94a3b8;">635 เหตุการณ์</div>
+            <div style="font-size: 15px; font-weight: 800; color: #00e676;">340 ครั้ง</div>
+            <div style="font-size: 10px; color: #94a3b8;">972 เหตุการณ์</div>
           </div>
         </div>
       </div>
@@ -5556,21 +6477,20 @@
         </div>
         <div style="font-size: 12.5px; line-height: 1.6; color: #cbd5e1; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-top: 10px;">
           <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 12px;">
-            <div style="font-weight: 700; color: #00e676; margin-bottom: 4px;">1. อิมแพ็กต์จาก Google Search (SEO) และ Ads แข็งแกร่ง</div>
-            <div>สัดส่วน 49.4% ของผู้เข้าชมมาจาก Google รวม 43 คน โดยเป็น Organic Search สูงถึง 33 คน แสดงถึงความแข็งแกร่งของชื่อเสียงโครงการ City Link ที่คนค้นหาต่อเนื่อง ควรคงงบ Search Ads เพื่อรักษาทราฟฟิกคุณภาพสูงนี้ต่อเนื่อง</div>
+            <div style="font-weight: 700; color: #00e676; margin-bottom: 4px;">1. อิมแพ็กต์จาก Google Search (SEO) และ Ads แข็งแกร่งต่อเนื่อง</div>
+            <div>สัดส่วน 49.2% ของผู้เข้าชมมาจาก Google รวม 64 คน (Organic 50, Ads 14) มีเซสชันสูงถึง 73 ครั้ง เป็นช่องทางหลักที่นำพาลีดคุณภาพสูงและมีความตั้งใจค้นหา (High Intent) เข้าสู่เว็บไซต์อย่างสม่ำเสมอ แนะนำคงงบ Search Ads เพื่อรักษาทราฟฟิกนี้ต่อเนื่อง</div>
           </div>
           <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 12px;">
-            <div style="font-weight: 700; color: #38bdf8; margin-bottom: 4px;">2. กลุ่มผู้สนใจจากกรุงเทพฯ (19.5%) และต่างประเทศ (20.7%)</div>
-            <div>มีทราฟฟิกจาก กทม. 17 คน และต่างชาติรวม 18 คน (จีน, ยุโรป, ญี่ปุ่น) สะท้อนกลุ่มนักลงทุนและผู้ที่มองหาที่พักอาศัยในโคราช ควรทำคอนเทนต์เน้นผลตอบแทน Rental Yield และความสะดวกของสิ่งอำนวยความสะดวกในโครงการ</div>
+            <div style="font-weight: 700; color: #38bdf8; margin-bottom: 4px;">2. ผู้เข้าชมรวม 130 คน พร้อมทราฟฟิก AI Assistant (ChatGPT)</div>
+            <div>ผู้ใช้งานใหม่ 130 ราย และมี Returning Sessions ต่อเนื่อง พร้อมเริ่มมีทราฟฟิกส่งต่อจาก AI Assistant (chatgpt.com) สะท้อนว่าผู้บริโภคเริ่มใช้ Generative AI ในการค้นหาที่พักอาศัยโคราช การทำ SEO และสร้างบทความคุณภาพบนเว็บจึงได้ผลอย่างชัดเจน</div>
           </div>
           <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 12px;">
-            <div style="font-weight: 700; color: #fbbf24; margin-bottom: 4px;">3. Engagement สูงขึ้นเป็น 32.6 วินาที & Bounce Rate เหลือ 54.5%</div>
-            <div>คุณภาพของผู้เข้าชมดีขึ้นอย่างเห็นได้ชัด เปิดดูเฉลี่ย 2.56 หน้า/คน และ Bounce Rate ลดลงเหลือ 54.5% แนะนำเพิ่ม Sticky Floating LINE Button เพื่อให้ผู้เข้าชมที่อ่านข้อมูลนานสามารถกดทักเซลส์ได้ทันที</div>
+            <div style="font-weight: 700; color: #fbbf24; margin-bottom: 4px;">3. Engagement รักษาระดับสูง 33.2 วินาที & การดูเว็บ 340 ครั้ง</div>
+            <div>คุณภาพของผู้เข้าชมดีเยี่ยมอย่างต่อเนื่อง มีการเปิดอ่านเฉลี่ย 2.62 หน้า/คน และเกิดการโต้ตอบ 975 Events แนะนำต่อยอดด้วย Sticky Floating LINE Button เพื่อให้ผู้เข้าชมที่อ่านข้อมูลนานสามารถกดทักเซลส์นัดหมายชมห้องได้ทันที</div>
           </div>
         </div>
       </div>
     </div>
-
 
     <!-- SECTION 6: META ADS COMPETITOR INTELLIGENCE & MARKET SHARE STRATEGY  -->
     <!-- ===================================================================== -->
@@ -12572,60 +13492,60 @@ document.addEventListener('DOMContentLoaded', () => {
         title = "ผู้ใช้งานจริงบนเว็บไซต์ (Active Users)";
         icon = "👥";
         badge = "GA4 Real Visitors • 100% New";
-        mainVal = "87 คน";
+        mainVal = "130 คน";
         mainLabel = "ยอดผู้เข้าชมจริง www.citylinkcondo.com";
-        subDesc = "ผู้ใช้ใหม่ทั้งหมด 87 คน (100% New Visitors)";
+        subDesc = "ผู้ใช้ใหม่ทั้งหมด 130 คน (100% New Visitors)";
         themeColor = "#00e676";
         stats = [
-          { label: "ผู้ใช้ใหม่ (New Users)", val: "87 คน (100%)" },
-          { label: "ผู้ใช้ซ้ำ (Returning)", val: "6 เซสชันกลับมาดู" },
-          { label: "วัน Peak สูงสุด", val: "5 พ.ย. (18 คน 🏆)" },
-          { label: "ทำเลอันดับ 1", val: "กทม. 17 & โคราช 14" }
+          { label: "ผู้ใช้ใหม่ (New Users)", val: "130 คน (100%)" },
+          { label: "ผู้ใช้ซ้ำ (Returning)", val: "11 เซสชันกลับมาดู" },
+          { label: "วัน Peak สูงสุด", val: "6 พ.ย. (19) & 5 พ.ย. (18) 🏆" },
+          { label: "ทำเลอันดับ 1", val: "กทม. 22 & โคราช 18" }
         ];
-        insightNote = "ผู้เข้าชม 100% เป็นกลุ่มผู้ชมใหม่ที่สนใจโครงการ ตอบรับแคมเปญเปิดตัวได้ดีเยี่ยม โดยเฉพาะ 5-6 พ.ย. ทราฟฟิกพุ่งรวม 37 คน";
+        insightNote = "ผู้เข้าชม 100% เป็นกลุ่มผู้ชมใหม่ที่สนใจโครงการ มีผู้เข้าชมแตะ 130 ราย ตอบรับแคมเปญเปิดตัวได้ดีเยี่ยม โดยเฉพาะ 5-6 พ.ย. และ 11 พ.ย. ทราฟฟิกพุ่งสูงต่อเนื่อง";
       } else if (cardIdx === 2 || cardIdx === '2') {
         title = "จำนวนการดูหน้าเว็บ (Views & Events)";
         icon = "📄";
         badge = "Engagement Depth • หน้าหลักโครงการ";
-        mainVal = "223 ครั้ง";
+        mainVal = "340 ครั้ง";
         mainLabel = "จำนวนครั้งที่เปิดอ่านหน้าเว็บรวม (Pageviews)";
-        subDesc = "เกิดกิจกรรมปฏิสัมพันธ์บนหน้าเว็บ 637 Events";
+        subDesc = "เกิดกิจกรรมปฏิสัมพันธ์บนหน้าเว็บ 975 Events";
         themeColor = "#38bdf8";
         stats = [
-          { label: "หน้าหลัก City Link", val: "223 ครั้ง (100%)" },
-          { label: "กิจกรรมทั้งหมด", val: "637 กิจกรรม" },
-          { label: "อัตราดูเฉลี่ย", val: "2.56 หน้า / คน" },
-          { label: "ความถี่ต่อเซสชัน", val: "2.21 หน้า / เซสชัน" }
+          { label: "หน้าหลัก City Link", val: "340 ครั้ง (100%)" },
+          { label: "กิจกรรมทั้งหมด", val: "975 กิจกรรม" },
+          { label: "อัตราดูเฉลี่ย", val: "2.62 หน้า / คน" },
+          { label: "ความถี่ต่อเซสชัน", val: "2.10 หน้า / เซสชัน" }
         ];
-        insightNote = "ผู้ชมเปิดอ่านเฉลี่ย 2.56 หน้า/คน และเกิดการโต้ตอบ 637 ครั้ง บ่งบอกถึงการศึกษาข้อมูลราคาและแปลนห้องอย่างละเอียด";
+        insightNote = "ผู้ชมเปิดอ่านเฉลี่ย 2.62 หน้า/คน และเกิดการโต้ตอบ 975 ครั้ง บ่งบอกถึงการศึกษาข้อมูลราคา แบบแปลน และโปรโมชั่นอย่างละเอียด";
       } else if (cardIdx === 3 || cardIdx === '3') {
         title = "เวลาเฉลี่ยบนเว็บไซต์ & คุณภาพเซสชัน";
         icon = "⏱️";
         badge = "Session Quality • อัตราตีกลับเหลือ 54.5%";
-        mainVal = "32.6 วินาที";
+        mainVal = "33.2 วินาที";
         mainLabel = "ระยะเวลาเฉลี่ยที่ผู้ใช้งานมีปฏิสัมพันธ์บนหน้าเว็บ";
-        subDesc = "เวลาบนเว็บเพิ่มขึ้น +65.5% (จากเดิม 19.7 วินาที)";
+        subDesc = "เวลาบนเว็บ 33.2s เพิ่มขึ้นต่อเนื่อง (Engagement Rate 44.4%)";
         themeColor = "#fbbf24";
         stats = [
-          { label: "อัตราตีกลับ (Bounce)", val: "54.5% (คุมดีเยี่ยม 🏆)" },
-          { label: "Engagement Rate", val: "45.5% (มีส่วนร่วม)" },
-          { label: "เซสชันคุณภาพ", val: "46 เซสชันมาตรฐาน" },
+          { label: "อัตราตีกลับ (Bounce)", val: "55.6% (คุมดีเยี่ยม 🏆)" },
+          { label: "Engagement Rate", val: "44.4% (มีส่วนร่วม)" },
+          { label: "เซสชันคุณภาพ", val: "72 เซสชันมาตรฐาน" },
           { label: "แนะนำ CRO", val: "เพิ่ม Floating LINE OA" }
         ];
-        insightNote = "เวลาเฉลี่ย 32.6s เพิ่มเกือบเท่าตัว และ Bounce Rate ลดเหลือ 54.5% แนะนำเพิ่ม Sticky Floating LINE Button เร่งปิดลีดทันที";
+        insightNote = "เวลาเฉลี่ย 33.2 วินาที รักษาระดับสูงอย่างต่อเนื่อง และ Bounce Rate อยู่ในเกณฑ์ดี แนะนำเพิ่มปุ่ม Sticky Floating LINE Button เพื่อกระตุ้นให้ปิดการขายนัดหมายลีดทันที";
       } else if (cardIdx === 4 || cardIdx === '4') {
         title = "สัดส่วนทราฟฟิก Google Search & Ads";
         icon = "🔍";
-        badge = "Traffic Dominance #1 • 49.4% ของเว็บ";
-        mainVal = "43 คน (46 เซสชัน)";
+        badge = "Traffic Dominance #1 • 49.2% ของเว็บ";
+        mainVal = "64 คน (73 เซสชัน)";
         mainLabel = "ผู้เข้าชมจากช่องทาง Google ทั้งระบบ";
-        subDesc = "Organic Search 33 ราย + Google Ads 10 ราย";
+        subDesc = "Organic Search 50 ราย + Google Ads 14 ราย";
         themeColor = "#00e676";
         stats = [
-          { label: "Google Organic (SEO)", val: "33 คน (37.9%) • 35 Ses" },
-          { label: "Direct (พิมพ์ตรง)", val: "28 คน (32.2%) • 37 Ses" },
-          { label: "Google Ads (cpc)", val: "10 คน (11.5%) • 11 Ses" },
-          { label: "Referral & Social", val: "16 คน (18.4%) • 18 Ses" }
+          { label: "Google Organic (SEO)", val: "50 คน (38.5%) • 56 Ses" },
+          { label: "Direct (พิมพ์ตรง)", val: "45 คน (34.6%) • 60 Ses" },
+          { label: "Google Ads (cpc)", val: "14 คน (10.8%) • 17 Ses" },
+          { label: "Referral & Social", val: "21 คน (16.1%) • 29 Ses" }
         ];
         insightNote = "ช่องทาง Google รวมเป็นแกนหลักขับเคลื่อนผู้สนใจเข้าสู่เว็บไซต์เกือบครึ่งหนึ่ง ผู้ค้นหามีความตั้งใจซื้อ (High Intent) สูงที่สุด";
       }
@@ -12640,7 +13560,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
           <span style="font-size: 10px; color: #94a3b8; background: rgba(255,255,255,0.08); padding: 3px 8px; border-radius: 12px; font-weight: 600; white-space: nowrap;">
-            📅 1 - 9 พ.ย. 69
+            📅 1 - 12 พ.ย. 69
           </span>
         </div>
 
@@ -12711,7 +13631,7 @@ document.addEventListener('DOMContentLoaded', () => {
         info = {
           title: "วันที่มีผู้เข้าชมสูงสุด (Peak Day 🏆)",
           date: "วันอังคาร 5 พ.ย. 2569",
-          val: "18 คน (20.7%)",
+          val: "20 คน (15.4%)",
           sub: "สถิติ New High สูงสุดของแคมเปญ 🚀",
           note: "ทราฟฟิกพุ่งสูงสุดจาก Organic Search และ Ads ขับเคลื่อนความสนใจโครงการเต็มกำลัง"
         };
@@ -12785,7 +13705,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let info = {
         title: "ทำเลที่ตั้งผู้เข้าชม",
         location: "กรุงเทพมหานคร (Bangkok)",
-        val: "17 คน (19.5%)",
+        val: "22 คน (16.9%)",
         desc: "กลุ่มผู้มีกำลังซื้อสูงจากส่วนกลาง มองหาคอนโดพักผ่อน หรือเพื่อการลงทุนปล่อยเช่าในตัวเมืองโคราช"
       };
 
@@ -12793,28 +13713,28 @@ document.addEventListener('DOMContentLoaded', () => {
         info = {
           title: "ทำเลที่ตั้งผู้เข้าชม",
           location: "ขอนแก่น (Khon Kaen)",
-          val: "5 คน (5.7%)",
+          val: "7 คน (5.4%)",
           desc: "ศูนย์กลางเศรษฐกิจอีสานตอนบน ลูกค้ามองหาที่พักอาศัยเชื่อมโยงสองเมืองใหญ่บนถนนมิตรภาพ"
         };
       } else if (geoKey === 'korat') {
         info = {
           title: "ทำเลที่ตั้งผู้เข้าชม",
           location: "นครราชสีมา & ปริมณฑล (ในเมือง, สุรนารี, หมื่นไวย, นากลาง, บ้านใหม่)",
-          val: "14 คน (16.1%)",
+          val: "18 คน (13.8%)",
           desc: "Real Demand ภายในพื้นที่โคราช คนทำงาน บุคลากรทางการแพทย์ และผู้ที่อยู่อาศัยจริงใกล้สถานที่ทำงาน"
         };
       } else if (geoKey === 'isan') {
         info = {
           title: "ทำเลที่ตั้งผู้เข้าชม",
           location: "หัวเมืองอื่นๆ (เชียงใหม่, บุรีรัมย์, สุราษฎร์ฯ, อุบลฯ, สระบุรี)",
-          val: "9 คน (10.3%)",
+          val: "12 คน (9.2%)",
           desc: "กลุ่มผู้สนใจจากหลากหลายจังหวัดทั่วประเทศที่มีการเดินทางและทำธุรกิจเชื่อมโยงกับโคราช"
         };
       } else if (geoKey === 'inter') {
         info = {
           title: "ทำเลที่ตั้งผู้เข้าชม",
           location: "ต่างประเทศ (Shanghai, Dublin, Singapore, KL, Japan, USA)",
-          val: "18 คน (20.7%)",
+          val: "20 คน (15.4%)",
           desc: "ชาวต่างชาติและคนไทยในต่างแดน (จีน ยุโรป ญี่ปุ่น อเมริกา) สนใจลงทุนอสังหาริมทรัพย์ในประเทศไทย"
         };
       }
@@ -12897,8 +13817,8 @@ document.addEventListener('DOMContentLoaded', () => {
       let title = "รายงานวิเคราะห์ Google Analytics 4 (GA4)";
       let badge = "Website Traffic Intelligence";
       let icon = "📊";
-      let mainVal = "87 คน (223 ครั้ง)";
-      let mainLabel = "สถิติภาพรวม 1 - 9 พ.ย. 2569";
+      let mainVal = "130 คน (340 ครั้ง)";
+      let mainLabel = "สถิติภาพรวม 1 - 12 พ.ย. 2569";
       let statCards = [];
       let insightText = "";
       let themeColor = "#00e676";
@@ -12908,19 +13828,19 @@ document.addEventListener('DOMContentLoaded', () => {
         title = "สถิติผู้ใช้งานจริงบนเว็บไซต์ (Active Users)";
         badge = "GA4 Real-time & Engaged Users";
         icon = "👥";
-        mainVal = "87 คน";
+        mainVal = "130 คน";
         mainLabel = "ผู้เข้าชมเว็บไซต์ www.citylinkcondo.com (100% New Users)";
         themeColor = "#00e676";
         statCards = [
-          { label: "ผู้ใช้งานทั้งหมด", val: "87 คน", sub: "New Users 100%" },
-          { label: "จำนวนเซสชัน", val: "101 เซสชัน", sub: "เฉลี่ย 1.16 เซสชัน/คน" },
+          { label: "ผู้ใช้งานทั้งหมด", val: "130 คน", sub: "New Users 100%" },
+          { label: "จำนวนเซสชัน", val: "162 เซสชัน", sub: "เฉลี่ย 1.25 เซสชัน/คน" },
           { label: "วัน Peak สูงสุด", val: "5 พ.ย. (18 คน)", sub: "New High แคมเปญ" },
-          { label: "กลุ่มทำเลอันดับ 1", val: "กทม. 17 คน / โคราช 14 คน", sub: "รวมกันกว่า 35.6%" }
+          { label: "กลุ่มทำเลอันดับ 1", val: "กทม. 22 คน / โคราช 18 คน", sub: "รวมกันกว่า 30.8%" }
         ];
-        insightText = "ผู้เข้าชม 100% เป็นผู้ใช้ใหม่ 87 คน และมี Returning Users ทยอยกลับมาซ้ำอีก 6 ครั้ง สะท้อนว่าแคมเปญเริ่มเข้าถึงกลุ่มผู้ชมใหม่ๆ ได้ตามเป้าหมาย โดยเฉพาะช่วงกลางสัปดาห์ 5-6 พ.ย. ที่มีทราฟฟิกสูงเป็นพิเศษ";
+        insightText = "ผู้เข้าชม 100% เป็นผู้ใช้ใหม่ 130 คน และมี Returning Users ทยอยกลับมาซ้ำ สะท้อนว่าแคมเปญเริ่มเข้าถึงกลุ่มผู้ชมใหม่ๆ ได้ตามเป้าหมาย โดยเฉพาะช่วงกลางสัปดาห์ 5-6 พ.ย. และช่วงวันที่ 10-12 พ.ย. ที่มีทราฟฟิกสูงต่อเนื่อง";
         tableHtml = `
           <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px; margin-top: 12px;">
-            <div style="font-weight: 700; color: #fff; margin-bottom: 8px; font-size: 13px;">📅 ตารางสรุปผู้เข้าชมรายวัน (1 - 9 พ.ย. 2569)</div>
+            <div style="font-weight: 700; color: #fff; margin-bottom: 8px; font-size: 13px;">📅 ตารางสรุปผู้เข้าชมรายวัน (1 - 12 พ.ย. 2569)</div>
             <table style="width: 100%; border-collapse: collapse; font-size: 12px; color: #cbd5e1;">
               <thead>
                 <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; color: #94a3b8;">
@@ -12939,7 +13859,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(0, 230, 118, 0.05);"><td style="padding: 6px; font-weight: 700; color: #fff;">6 พ.ย. 69 (พ. ⭐)</td><td style="padding: 6px;">17</td><td style="padding: 6px; color: #38bdf8; font-weight: 700;">2</td><td style="padding: 6px; font-weight: 800; color: #fff;">19</td><td style="padding: 6px; color: #38bdf8;">รวมสูงสุด</td></tr>
                 <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px;">7 พ.ย. 69 (พฤ.)</td><td style="padding: 6px;">11</td><td style="padding: 6px; color: #38bdf8;">2</td><td style="padding: 6px;">13</td><td style="padding: 6px; color: #94a3b8;">ทราฟฟิกคงที่</td></tr>
                 <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px;">8 พ.ย. 69 (ศ.)</td><td style="padding: 6px;">8</td><td style="padding: 6px; color: #38bdf8;">1</td><td style="padding: 6px;">9</td><td style="padding: 6px; color: #94a3b8;">ปลายสัปดาห์</td></tr>
-                <tr><td style="padding: 6px;">9 พ.ย. 69 (ส.)</td><td style="padding: 6px;">9</td><td style="padding: 6px; color: #38bdf8;">1</td><td style="padding: 6px;">10</td><td style="padding: 6px; color: #38bdf8;">วันหยุดสุดสัปดาห์</td></tr>
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px;">9 พ.ย. 69 (ส.)</td><td style="padding: 6px;">13</td><td style="padding: 6px; color: #38bdf8;">2</td><td style="padding: 6px;">15</td><td style="padding: 6px; color: #38bdf8;">วันหยุดสุดสัปดาห์</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px;">10 พ.ย. 69 (อา.)</td><td style="padding: 6px;">14</td><td style="padding: 6px; color: #38bdf8;">1</td><td style="padding: 6px;">15</td><td style="padding: 6px; color: #38bdf8;">วันหยุดอาทิตย์</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(0, 230, 118, 0.08);"><td style="padding: 6px; font-weight: 700; color: #00e676;">11 พ.ย. 69 (จ. ⭐)</td><td style="padding: 6px; font-weight: 800; color: #00e676;">14</td><td style="padding: 6px; color: #38bdf8; font-weight: 700;">3</td><td style="padding: 6px; font-weight: 800; color: #00e676;">17</td><td style="padding: 6px; color: #00e676; font-weight: 700;">Peak 11.11 (กลับมาซ้ำ 3) 🚀</td></tr>
+                <tr><td style="padding: 6px;">12 พ.ย. 69 (อ.)</td><td style="padding: 6px;">11</td><td style="padding: 6px;">0</td><td style="padding: 6px;">11</td><td style="padding: 6px; color: #38bdf8;">วันล่าสุด</td></tr>
               </tbody>
             </table>
           </div>
@@ -12948,16 +13871,16 @@ document.addEventListener('DOMContentLoaded', () => {
         title = "สถิติการดูหน้าเว็บ & กิจกรรม (Pageviews & Events)";
         badge = "Content Engagement & Depth";
         icon = "📄";
-        mainVal = "223 ครั้ง";
+        mainVal = "340 ครั้ง";
         mainLabel = "ยอดการเปิดดูหน้าเว็บรวม (Pageviews) บน www.citylinkcondo.com";
         themeColor = "#38bdf8";
         statCards = [
-          { label: "จำนวนการดูหน้าเว็บ", val: "223 ครั้ง", sub: "City Link Landing Page" },
-          { label: "เฉลี่ยต่อผู้ใช้", val: "2.56 หน้า/คน", sub: "เปิดดูหน้าเว็บซ้ำ/เลื่อนอ่านลึก" },
-          { label: "กิจกรรมทั้งหมด", val: "637 ครั้ง", sub: "User Event Interactions" },
-          { label: "เฉลี่ยต่อเซสชัน", val: "2.21 หน้า/เซสชัน", sub: "ค่าความสนใจต่อการคลิกเข้ามา" }
+          { label: "จำนวนการดูหน้าเว็บ", val: "340 ครั้ง", sub: "City Link Landing Page" },
+          { label: "เฉลี่ยต่อผู้ใช้", val: "2.62 หน้า/คน", sub: "เปิดดูหน้าเว็บซ้ำ/เลื่อนอ่านลึก" },
+          { label: "กิจกรรมทั้งหมด", val: "975 ครั้ง", sub: "User Event Interactions" },
+          { label: "เฉลี่ยต่อเซสชัน", val: "2.10 หน้า/เซสชัน", sub: "ค่าความสนใจต่อการคลิกเข้ามา" }
         ];
-        insightText = "ผู้ใช้งานเปิดดูหน้าเว็บเฉลี่ย 2.56 หน้าต่อคน เพิ่มขึ้นจากเดิม และเกิดกิจกรรมโต้ตอบมากถึง 637 ครั้งบน Landing Page บ่งบอกว่าผู้ที่คลิกเข้ามาอ่านรายละเอียดข้อมูลยูนิตและสิ่งอำนวยความสะดวกอย่างจริงจัง";
+        insightText = "ผู้ใช้งานเปิดดูหน้าเว็บเฉลี่ย 2.62 หน้าต่อคน และเกิดกิจกรรมโต้ตอบมากถึง 975 ครั้งบน Landing Page บ่งบอกว่าผู้ที่คลิกเข้ามาอ่านรายละเอียดข้อมูลยูนิตและสิ่งอำนวยความสะดวกอย่างจริงจัง";
         tableHtml = `
           <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px; margin-top: 12px;">
             <div style="font-weight: 700; color: #fff; margin-bottom: 8px; font-size: 13px;">📑 รายละเอียดหน้าเว็บและกิจกรรม (Page & Events)</div>
@@ -12971,7 +13894,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </tr>
               </thead>
               <tbody>
-                <tr style="background: rgba(56, 189, 248, 0.05);"><td style="padding: 6px; font-weight: 700; color: #fff;">City Link Condo | Nakhon Ratchasima</td><td style="padding: 6px; font-weight: 800; color: #38bdf8;">223 ครั้ง</td><td style="padding: 6px;">635 ครั้ง</td><td style="padding: 6px; font-weight: 700; color: #00e676;">54.5%</td></tr>
+                <tr style="background: rgba(56, 189, 248, 0.05);"><td style="padding: 6px; font-weight: 700; color: #fff;">City Link Condo | Nakhon Ratchasima</td><td style="padding: 6px; font-weight: 800; color: #38bdf8;">340 ครั้ง</td><td style="padding: 6px;">975 ครั้ง</td><td style="padding: 6px; font-weight: 700; color: #00e676;">55.6%</td></tr>
                 <tr><td style="padding: 6px; color: #94a3b8;">City Link-appartement | Nakhon Ratchasima</td><td style="padding: 6px;">0 ครั้ง</td><td style="padding: 6px;">2 ครั้ง</td><td style="padding: 6px;">0%</td></tr>
               </tbody>
             </table>
@@ -12981,7 +13904,7 @@ document.addEventListener('DOMContentLoaded', () => {
         title = "เวลาเฉลี่ยบนเว็บไซต์ & คุณภาพเซสชัน (Engagement)";
         badge = "Session Quality & Retention";
         icon = "⏱️";
-        mainVal = "32.6 วินาที";
+        mainVal = "33.2 วินาที";
         mainLabel = "เวลาเฉลี่ยที่ผู้ใช้งานมีปฏิสัมพันธ์บนหน้าเว็บ";
         themeColor = "#fbbf24";
         statCards = [
@@ -13008,7 +13931,7 @@ document.addEventListener('DOMContentLoaded', () => {
         title = "ส่วนแบ่งทราฟฟิก Google Search & Ads";
         badge = "High Intent Acquisition";
         icon = "🔍";
-        mainVal = "43 คน (49.4%)";
+        mainVal = "64 คน (49.2%)";
         mainLabel = "ทราฟฟิกจากช่องทาง Google ทั้งระบบ (Organic + Ads)";
         themeColor = "#00e676";
         statCards = [
@@ -13031,11 +13954,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 </tr>
               </thead>
               <tbody>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(16, 185, 129, 0.05);"><td style="padding: 6px; font-weight: 700; color: #a7f3d0;">google / organic — SEO ค้นหาธรรมชาติ</td><td style="padding: 6px; font-weight: 800; color: #a7f3d0;">33</td><td style="padding: 6px;">35</td><td style="padding: 6px; font-weight: 700; color: #a7f3d0;">37.9%</td></tr>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px; font-weight: 800; color: #fff;">(direct) / (none) — พิมพ์ตรง / ลิงก์ Bookmark</td><td style="padding: 6px; font-weight: 800; color: #fff;">28</td><td style="padding: 6px;">37</td><td style="padding: 6px; color: #38bdf8;">32.2%</td></tr>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(0, 230, 118, 0.05);"><td style="padding: 6px; font-weight: 700; color: #00e676;">google / cpc — Google Search Ads</td><td style="padding: 6px; font-weight: 800; color: #00e676;">10</td><td style="padding: 6px;">11</td><td style="padding: 6px; font-weight: 700; color: #00e676;">11.5%</td></tr>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px; color: #fbbf24;">eaksahagroup.com / referral</td><td style="padding: 6px;">6</td><td style="padding: 6px;">8</td><td style="padding: 6px; color: #fbbf24;">6.9%</td></tr>
-                <tr><td style="padding: 6px; color: #94a3b8;">Social (FB) & Referrals อื่นๆ</td><td style="padding: 6px;">10</td><td style="padding: 6px;">10</td><td style="padding: 6px;">11.5%</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(16, 185, 129, 0.05);"><td style="padding: 6px; font-weight: 700; color: #a7f3d0;">google / organic — SEO ค้นหาธรรมชาติ</td><td style="padding: 6px; font-weight: 800; color: #a7f3d0;">50</td><td style="padding: 6px;">56</td><td style="padding: 6px; font-weight: 700; color: #a7f3d0;">38.5%</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px; font-weight: 800; color: #fff;">(direct) / (none) — พิมพ์ตรง / ลิงก์ Bookmark</td><td style="padding: 6px; font-weight: 800; color: #fff;">45</td><td style="padding: 6px;">60</td><td style="padding: 6px; color: #38bdf8;">34.6%</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(0, 230, 118, 0.05);"><td style="padding: 6px; font-weight: 700; color: #00e676;">google / cpc — Google Search Ads</td><td style="padding: 6px; font-weight: 800; color: #00e676;">14</td><td style="padding: 6px;">17</td><td style="padding: 6px; font-weight: 700; color: #00e676;">10.8%</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px; color: #fbbf24;">eaksahagroup.com / referral</td><td style="padding: 6px;">8</td><td style="padding: 6px;">10</td><td style="padding: 6px; color: #fbbf24;">6.2%</td></tr>
+                <tr><td style="padding: 6px; color: #94a3b8;">Social (FB, ChatGPT, etc.)</td><td style="padding: 6px;">13</td><td style="padding: 6px;">19</td><td style="padding: 6px;">10.0%</td></tr>
               </tbody>
             </table>
           </div>
@@ -13054,7 +13977,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
             </div>
             <span style="font-size: 11px; color: #94a3b8; background: rgba(255,255,255,0.08); padding: 4px 10px; border-radius: 20px; font-weight: 600;">
-              📅 1 - 9 พ.ย. 2569
+              📅 1 - 12 พ.ย. 2569
             </span>
           </div>
 
@@ -13102,7 +14025,50 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.classList.add('open');
     }
 
-</script>
+    
+
+    function setBottomTheme(theme) {
+      const panel = document.getElementById('bottomPanel');
+      const leadsSec = document.getElementById('sec-customer-leads');
+      const ga4Sec = document.getElementById('sec-ga4');
+      const tiktokSec = document.getElementById('tiktokShowcasePanel');
+      const elements = [document.body, panel, leadsSec, ga4Sec, tiktokSec].filter(Boolean);
+
+      elements.forEach(el => {
+        if (theme === 'light') {
+          el.setAttribute('data-bottom-theme', 'light');
+        } else {
+          el.setAttribute('data-bottom-theme', 'oled');
+        }
+      });
+
+      // Synchronize all theme toggle pill buttons across all sections
+      document.querySelectorAll('.theme-toggle-pill').forEach(btn => {
+        btn.classList.remove('active');
+        const isLight = btn.classList.contains('btn-theme-light') || btn.id === 'btnThemeLight';
+        const isOled = btn.classList.contains('btn-theme-oled') || btn.id === 'btnThemeOled';
+
+        if (theme === 'light' && isLight) {
+          btn.classList.add('active');
+        } else if (theme !== 'light' && isOled) {
+          btn.classList.add('active');
+        }
+      });
+
+      try { localStorage.setItem('citylink_bottom_theme', theme); } catch(e) {}
+    }
+    // Auto restore saved theme on page load
+    try {
+      const savedTheme = localStorage.getItem('citylink_bottom_theme');
+      if (savedTheme) {
+        setTimeout(() => setBottomTheme(savedTheme), 50);
+      } else {
+        setBottomTheme('oled');
+      }
+    } catch(e) {}
+
+
+  </script>
 
 </body>
 </html>

@@ -1884,7 +1884,7 @@
       color: #475569 !important;
     }
     [data-bottom-theme="light"] .ga4-bento-card {
-      background: #f8fafc !important;
+      background: #ffffff !important;
       border-color: #e2e8f0 !important;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
     }
@@ -2155,7 +2155,7 @@
     /* GA4 Bento Cards (Active Users, Views, Engagement, Google Traffic) */
     body[data-bottom-theme="light"] .ga4-bento-card,
     [data-bottom-theme="light"] .ga4-bento-card {
-      background: #f8fafc !important;
+      background: #ffffff !important;
       border: 1.5px solid #e2e8f0 !important;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
     }
@@ -2761,12 +2761,10 @@
           <span style="font-size: 13.5px; font-weight: 700; color: #ffffff; letter-spacing: -0.2px;">⚡ Live Analytics &amp; Channel Spotlight</span>
           <span style="font-size: 10.5px; background: rgba(0, 232, 135, 0.15); color: #00E887; border: 1px solid rgba(0, 232, 135, 0.35); padding: 2px 8px; border-radius: 99px; font-weight: 700;">Realtime Feed</span>
         </div>
-                <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(255, 255, 255, 0.06); padding: 4px 6px; border-radius: 99px; border: 1px solid rgba(255, 255, 255, 0.12);">
-          <span style="font-size: 11px; color: #cbd5e1; font-weight: 600; padding: 0 6px;">🎨 สีพื้นหลัง:</span>
-          <button id="btnThemeNavy" onclick="setBottomTheme('navy');" class="theme-toggle-pill btn-theme-navy active" title="พื้นหลังสีกรมท่า Slate ชัดลึก สบายตา">💎 High-Contrast Slate</button>
-          <button id="btnThemeLight" onclick="setBottomTheme('light');" class="theme-toggle-pill btn-theme-light" title="พื้นหลังสีขาวสว่าง สบายตา ตัวหนังสือดำคมชัด">☀️ สว่าง (Light)</button>
-          <button id="btnThemeOled" onclick="setBottomTheme('oled');" class="theme-toggle-pill btn-theme-oled" title="พื้นหลังสีดำเข้มสนิท OLED Dark">🌙 มืดสนิท (OLED)</button>
-        </div>
+                <div class="theme-switcher-group" style="display: inline-flex; gap: 4px; align-items: center; background: rgba(0, 0, 0, 0.4); padding: 4px 6px; border-radius: 99px; border: 1px solid rgba(255, 255, 255, 0.15);">
+  <button onclick="setBottomTheme('light');" class="theme-toggle-pill btn-theme-light" title="พื้นหลังสีขาวสว่าง สบายตา ตัวหนังสือดำคมชัด">☀️ สว่าง (Light)</button>
+  <button onclick="setBottomTheme('oled');" class="theme-toggle-pill btn-theme-oled active" title="พื้นหลังสีดำเข้มสนิท OLED Dark">🌙 มืดสนิท (OLED)</button>
+</div>
       </div>
       <div class="bottom-grid">
 
@@ -2906,12 +2904,10 @@
           <span style="font-size: 11.5px; background: rgba(0, 230, 118, 0.25); color: #6ee7b7; border: 1.5px solid rgba(0, 230, 118, 0.8); padding: 5px 12px; border-radius: 20px; font-weight: 900; box-shadow: 0 0 10px rgba(0, 230, 118, 0.3);">
             🏆 จองสำเร็จ 2 ห้อง
           </span>
-        <div class="theme-switcher-group" style="display: inline-flex; gap: 4px; align-items: center; background: rgba(0,0,0,0.3); padding: 4px 8px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12); margin-left: auto;">
-          <span style="font-size: 11px; color: #cbd5e1; font-weight: 600; padding: 0 4px;">🎨 ธีม:</span>
-          <button onclick="setBottomTheme('navy');" class="theme-toggle-pill btn-theme-navy active" title="พื้นหลังสีกรมท่า Slate ชัดลึก สบายตา">💎 Slate</button>
-          <button onclick="setBottomTheme('light');" class="theme-toggle-pill btn-theme-light" title="พื้นหลังสีขาวสว่าง สบายตา ตัวหนังสือดำคมชัด">☀️ สว่าง (Light)</button>
-          <button onclick="setBottomTheme('oled');" class="theme-toggle-pill btn-theme-oled" title="พื้นหลังสีดำเข้มสนิท OLED Dark">🌙 มืดสนิท (OLED)</button>
-        </div>
+        <div class="theme-switcher-group" style="display: inline-flex; gap: 4px; align-items: center; background: rgba(0, 0, 0, 0.4); padding: 4px 6px; border-radius: 99px; border: 1px solid rgba(255, 255, 255, 0.15);">
+  <button onclick="setBottomTheme('light');" class="theme-toggle-pill btn-theme-light" title="พื้นหลังสีขาวสว่าง สบายตา ตัวหนังสือดำคมชัด">☀️ สว่าง (Light)</button>
+  <button onclick="setBottomTheme('oled');" class="theme-toggle-pill btn-theme-oled active" title="พื้นหลังสีดำเข้มสนิท OLED Dark">🌙 มืดสนิท (OLED)</button>
+</div>
         </div>
       </div>
 
@@ -3268,12 +3264,10 @@
           <span style="font-size: 11.5px; color: #00e676; background: rgba(0, 230, 118, 0.08); border: 1px solid rgba(0, 230, 118, 0.25); padding: 5px 12px; border-radius: 20px; font-weight: 600;">
             📅 1 - 12 พ.ย. 2569 (12 วันล่าสุด)
           </span>
-          <div class="theme-switcher-group" style="display: inline-flex; gap: 4px; align-items: center; background: rgba(0,0,0,0.3); padding: 4px 8px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12);">
-            <span style="font-size: 11px; color: #cbd5e1; font-weight: 600; padding: 0 4px;">🎨 ธีม:</span>
-            <button onclick="setBottomTheme('navy');" class="theme-toggle-pill btn-theme-navy active" title="พื้นหลังสีกรมท่า Slate ชัดลึก สบายตา">💎 Slate</button>
-            <button onclick="setBottomTheme('light');" class="theme-toggle-pill btn-theme-light" title="พื้นหลังสีขาวสว่าง สบายตา ตัวหนังสือดำคมชัด">☀️ สว่าง (Light)</button>
-            <button onclick="setBottomTheme('oled');" class="theme-toggle-pill btn-theme-oled" title="พื้นหลังสีดำเข้มสนิท OLED Dark">🌙 มืดสนิท (OLED)</button>
-          </div>
+          <div class="theme-switcher-group" style="display: inline-flex; gap: 4px; align-items: center; background: rgba(0, 0, 0, 0.4); padding: 4px 6px; border-radius: 99px; border: 1px solid rgba(255, 255, 255, 0.15);">
+  <button onclick="setBottomTheme('light');" class="theme-toggle-pill btn-theme-light" title="พื้นหลังสีขาวสว่าง สบายตา ตัวหนังสือดำคมชัด">☀️ สว่าง (Light)</button>
+  <button onclick="setBottomTheme('oled');" class="theme-toggle-pill btn-theme-oled active" title="พื้นหลังสีดำเข้มสนิท OLED Dark">🌙 มืดสนิท (OLED)</button>
+</div>
         </div>
       </div>
 
@@ -4932,7 +4926,7 @@ function showPillHoverCard(el, pillIdx) {
       } else if (cardIdx === 3 || cardIdx === '3') {
         title = "เวลาเฉลี่ยบนเว็บไซต์ & คุณภาพเซสชัน";
         icon = "⏱️";
-        badge = "Session Quality • อัตราตีกลับ 55.6%";
+        badge = "Session Quality • อัตราตีกลับเหลือ 54.5%";
         mainVal = "33.2 วินาที";
         mainLabel = "ระยะเวลาเฉลี่ยที่ผู้ใช้งานมีปฏิสัมพันธ์บนหน้าเว็บ";
         subDesc = "เวลาบนเว็บ 33.2s เพิ่มขึ้นต่อเนื่อง (Engagement Rate 44.4%)";
@@ -4958,16 +4952,16 @@ function showPillHoverCard(el, pillIdx) {
           { label: "Google Ads (cpc)", val: "14 คน (10.8%) • 17 Ses" },
           { label: "Referral & Social", val: "21 คน (16.1%) • 29 Ses" }
         ];
-        insightNote = "ช่องทาง Google รวมเป็นแกนหลักขับเคลื่อนผู้สนใจเข้าสู่เว็บไซต์เกือบครึ่งหนึ่ง (49.2%) ผู้ค้นหามีความตั้งใจซื้อ (High Intent) สูงที่สุด";
+        insightNote = "ช่องทาง Google รวมเป็นแกนหลักขับเคลื่อนผู้สนใจเข้าสู่เว็บไซต์เกือบครึ่งหนึ่ง ผู้ค้นหามีความตั้งใจซื้อ (High Intent) สูงที่สุด";
       }
 
-      popup.innerHTML = 
+      popup.innerHTML = `
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px;">
           <div style="display: flex; align-items: center; gap: 8px;">
-            <span style="font-size: 20px;"> + icon + </span>
+            <span style="font-size: 20px;">` + icon + `</span>
             <div>
-              <div style="font-size: 13px; font-weight: 800; color: #ffffff; line-height: 1.2;"> + title + </div>
-              <div style="font-size: 10px; font-weight: 700; color:  + themeColor + ; letter-spacing: 0.3px;"> + badge + </div>
+              <div style="font-size: 13px; font-weight: 800; color: #ffffff; line-height: 1.2;">` + title + `</div>
+              <div style="font-size: 10px; font-weight: 700; color: ` + themeColor + `; letter-spacing: 0.3px;">` + badge + `</div>
             </div>
           </div>
           <span style="font-size: 10px; color: #94a3b8; background: rgba(255,255,255,0.08); padding: 3px 8px; border-radius: 12px; font-weight: 600; white-space: nowrap;">
@@ -4975,32 +4969,32 @@ function showPillHoverCard(el, pillIdx) {
           </span>
         </div>
 
-        <div style="text-align: center; background: linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)); border: 1.5px solid  + themeColor + 44; border-radius: 14px; padding: 12px 8px; margin-bottom: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.4);">
-          <div style="font-size: 11px; color: #94a3b8; font-weight: 500; margin-bottom: 3px;"> + mainLabel + </div>
-          <div style="font-size: 32px; font-weight: 900; color:  + themeColor + ; letter-spacing: -0.5px; line-height: 1.1; text-shadow: 0 4px 14px rgba(0,0,0,0.6);">
-             + mainVal + 
+        <div style="text-align: center; background: linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)); border: 1.5px solid ` + themeColor + `44; border-radius: 14px; padding: 12px 8px; margin-bottom: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.4);">
+          <div style="font-size: 11px; color: #94a3b8; font-weight: 500; margin-bottom: 3px;">` + mainLabel + `</div>
+          <div style="font-size: 32px; font-weight: 900; color: ` + themeColor + `; letter-spacing: -0.5px; line-height: 1.1; text-shadow: 0 4px 14px rgba(0,0,0,0.6);">
+            ` + mainVal + `
           </div>
-          <div style="font-size: 11px; color: #cbd5e1; margin-top: 4px; font-weight: 600;"> + subDesc + </div>
+          <div style="font-size: 11px; color: #cbd5e1; margin-top: 4px; font-weight: 600;">` + subDesc + `</div>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 8px;">
-           + stats.map(s => 
+          ` + stats.map(s => `
             <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 7px 9px;">
-              <div style="font-size: 10px; color: #94a3b8;"> + s.label + </div>
-              <div style="font-size: 12.5px; font-weight: 800; color: #ffffff; margin-top: 2px;"> + s.val + </div>
+              <div style="font-size: 10px; color: #94a3b8;">` + s.label + `</div>
+              <div style="font-size: 12.5px; font-weight: 800; color: #ffffff; margin-top: 2px;">` + s.val + `</div>
             </div>
-          ).join('') + 
+          `).join('') + `
         </div>
 
         <div style="background: rgba(0, 230, 118, 0.08); border: 1px solid rgba(0, 230, 118, 0.2); border-radius: 10px; padding: 8px 10px; font-size: 10.5px; line-height: 1.4; color: #e2e8f0; margin-bottom: 8px;">
-          💡  + insightNote + 
+          💡 ` + insightNote + `
         </div>
 
         <div style="display: flex; align-items: center; justify-content: space-between; font-size: 10px; color: #00e676; padding-top: 5px; border-top: 1px dashed rgba(255,255,255,0.1);">
           <span>✨ Google Analytics 4 Official Data</span>
           <span style="font-weight: 700;">👆 คลิกการ์ดเพื่อดูตารางเต็มจอ ↗</span>
         </div>
-      ;
+      `;
 
       positionHoverPopup(el, popup);
     }
@@ -5026,98 +5020,182 @@ function showPillHoverCard(el, pillIdx) {
         info = {
           title: "วันเปิดตัวแคมเปญโฆษณา",
           date: "วันอาทิตย์ 3 พ.ย. 2569",
-          val: "11 คน (8.5%)",
-          sub: "ผู้ใช้ใหม่ 11 ราย",
+          val: "11 คน (12.6%)",
+          sub: "วันแรกของการเริ่มต้นแคมเปญ",
           note: "ทราฟฟิกเข้ามาจาก Search และ Direct คอนเวอร์ชันเริ่มต้นตอบรับดีเยี่ยม"
         };
       } else if (dayStr === '4 พ.ย.') {
         info = {
           title: "ยอดผู้เข้าชมวันทำงาน",
           date: "วันจันทร์ 4 พ.ย. 2569",
-          val: "13 คน (10.0%)",
-          sub: "ผู้ใช้ใหม่ 13 ราย",
+          val: "13 คน (14.9%)",
+          sub: "ทราฟฟิกเติบโตต่อเนื่อง",
           note: "ผู้เข้าชมจาก Search SEO และ Search Ads มีปฏิสัมพันธ์สูง"
         };
       } else if (dayStr === '5 พ.ย.') {
         info = {
-          title: "วันพีคช่วงต้นเดือน 🥈",
+          title: "วันที่มีผู้เข้าชมสูงสุด (Peak Day 🏆)",
           date: "วันอังคาร 5 พ.ย. 2569",
-          val: "18 คน (13.8%)",
-          sub: "ผู้ใช้ใหม่ 18 ราย",
-          note: "ยอดเข้าชมพุ่งทะลุ 18 คน ผลจากแคมเปญทั้ง Search และ Social ดึงดูดลีดตรงเป้า"
+          val: "20 คน (15.4%)",
+          sub: "สถิติ New High สูงสุดของแคมเปญ 🚀",
+          note: "ทราฟฟิกพุ่งสูงสุดจาก Organic Search และ Ads ขับเคลื่อนความสนใจโครงการเต็มกำลัง"
         };
       } else if (dayStr === '6 พ.ย.') {
         info = {
-          title: "วัน Peak สูงสุดของเดือน 🏆",
+          title: "วันที่มีผู้เข้าชมรวมสูงสุด (New + Returning ⭐)",
           date: "วันพุธ 6 พ.ย. 2569",
-          val: "19 คน (14.6%)",
-          sub: "ผู้ใช้ใหม่ 17 + ซ้ำ 2 ราย",
-          note: "ทราฟฟิกสูงสุดอันดับ 1 ของเดือน เกิดการดูหน้าเว็บซ้ำและศึกษาราคาอย่างเข้มข้น"
+          val: "19 คน (17 New, 2 Returning)",
+          sub: "เกิดยอดผู้ใช้เดิมย้อนกลับมาดูซ้ำ (Retention)",
+          note: "ผู้ที่สนใจคอนโดเริ่มกลับมาดูข้อมูลห้องและราคาซ้ำอีกครั้ง"
         };
       } else if (dayStr === '7 พ.ย.') {
         info = {
           title: "ยอดผู้เข้าชมต่อเนื่อง",
           date: "วันพฤหัสบดี 7 พ.ย. 2569",
-          val: "13 คน (10.0%)",
-          sub: "ผู้ใช้ใหม่ 11 + ซ้ำ 2 ราย",
-          note: "ทราฟฟิกคงที่ต่อเนื่อง มีผู้ใช้กลับมาเปิดอ่านซ้ำ 2 เซสชัน"
+          val: "13 คน (11 New, 2 Returning)",
+          sub: "รักษาโมเมนตัมระดับสูง",
+          note: "ผู้เข้าชมศึกษาข้อมูลยูนิตและแบบแปลนห้องอย่างต่อเนื่อง"
         };
       } else if (dayStr === '8 พ.ย.') {
         info = {
           title: "ยอดผู้เข้าชมปลายสัปดาห์",
           date: "วันศุกร์ 8 พ.ย. 2569",
-          val: "9 คน (6.9%)",
-          sub: "ผู้ใช้ใหม่ 8 + ซ้ำ 1 ราย",
-          note: "ผู้เข้าชมกลุ่มคุณภาพ มีอัตราการอ่านข้อมูลโครงการเฉลี่ยสูง"
+          val: "9 คน (8 New, 1 Returning)",
+          sub: "ทราฟฟิกคงที่ต่อเนื่อง",
+          note: "มีผู้เข้าชมจากหัวเมืองต่างจังหวัดและ กทม."
         };
       } else if (dayStr === '9 พ.ย.') {
         info = {
           title: "ยอดผู้เข้าชมวันหยุดสุดสัปดาห์",
           date: "วันเสาร์ 9 พ.ย. 2569",
-          val: "15 คน (11.5%)",
-          sub: "ผู้ใช้ใหม่ 13 + ซ้ำ 2 ราย",
-          note: "ยอดพุ่งกลับขึ้นมาในวันหยุด ลีดค้นหาข้อมูลห้องและสอบถามโครงการ"
-        };
-      } else if (dayStr === '10 พ.ย.') {
-        info = {
-          title: "ยอดผู้เข้าชมวันอาทิตย์",
-          date: "วันอาทิตย์ 10 พ.ย. 2569",
-          val: "15 คน (11.5%)",
-          sub: "ผู้ใช้ใหม่ 14 + ซ้ำ 1 ราย",
-          note: "ทราฟฟิกรักษาระดับสูง 15 คน มีผู้สนใจจากทั้ง กทม. และโคราช"
-        };
-      } else if (dayStr === '11 พ.ย.') {
-        info = {
-          title: "วันพีคช่วงกลางเดือน 11.11 ⭐",
-          date: "วันจันทร์ 11 พ.ย. 2569",
-          val: "17 คน (13.1%)",
-          sub: "ผู้ใช้ใหม่ 14 + ซ้ำ 3 ราย",
-          note: "ยอดเข้าชมสูงสุดอันดับ 3 ของเดือน มีผู้ใช้เดิมกลับมาดูซ้ำถึง 3 ราย สนใจโปรโมชั่น 11.11"
-        };
-      } else if (dayStr === '12 พ.ย.') {
-        info = {
-          title: "ยอดผู้เข้าชมล่าสุด",
-          date: "วันอังคาร 12 พ.ย. 2569",
-          val: "11 คน (8.5%)",
-          sub: "ผู้ใช้ใหม่ 11 ราย",
-          note: "ทราฟฟิกล่าสุดวันทำงาน ผู้เข้าชมใหม่ 100% ศึกษาข้อมูลอย่างต่อเนื่อง"
+          val: "10 คน (9 New, 1 Returning)",
+          sub: "ทราฟฟิกวันหยุดพักผ่อน",
+          note: "ผู้เข้าชมใช้เวลาอ่านข้อมูลโครงการนานเป็นพิเศษในช่วงวันหยุด"
         };
       }
 
-      popup.innerHTML = 
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4px;">
-          <div style="font-size: 11px; font-weight: 700; color: #00e676;">📅  + info.date + </div>
-          <span style="font-size: 9.5px; color: #94a3b8; background: rgba(255,255,255,0.08); padding: 2px 6px; border-radius: 8px;">GA4 Daily</span>
+      popup.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 18px;">📈</span>
+            <div>
+              <div style="font-size: 13px; font-weight: 800; color: #ffffff;">` + info.title + `</div>
+              <div style="font-size: 10px; font-weight: 600; color: #00e676;">` + info.date + `</div>
+            </div>
+          </div>
         </div>
-        <div style="font-size: 12.5px; font-weight: 800; color: #ffffff; margin-bottom: 2px;"> + info.title + </div>
-        <div style="font-size: 24px; font-weight: 900; color: #38bdf8; margin: 4px 0 2px 0;"> + info.val + </div>
-        <div style="font-size: 11px; color: #a7f3d0; font-weight: 600; margin-bottom: 6px;"> + info.sub + </div>
-        <div style="font-size: 10.5px; color: #cbd5e1; line-height: 1.4; background: rgba(0,0,0,0.25); padding: 6px 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06);">
-          💡  + info.note + 
+
+        <div style="text-align: center; background: rgba(0, 230, 118, 0.08); border: 1px solid rgba(0, 230, 118, 0.2); border-radius: 12px; padding: 10px 8px; margin-bottom: 8px;">
+          <div style="font-size: 11px; color: #94a3b8;">` + info.sub + `</div>
+          <div style="font-size: 26px; font-weight: 900; color: #ffffff; margin-top: 2px;">` + info.val + `</div>
         </div>
-      ;
+
+        <div style="font-size: 11px; color: #cbd5e1; line-height: 1.4; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 8px;">
+          💡 <strong>บันทึก:</strong> ` + info.note + `
+        </div>
+      `;
 
       positionHoverPopup(el, popup);
+    }
+
+    function showGa4GeoHover(el, geoKey) {
+      let popup = document.getElementById('pillHoverPopup');
+      if (!popup) {
+        popup = document.createElement('div');
+        popup.id = 'pillHoverPopup';
+        popup.className = 'pill-hover-popup';
+        document.body.appendChild(popup);
+      }
+
+      let info = {
+        title: "ทำเลที่ตั้งผู้เข้าชม",
+        location: "กรุงเทพมหานคร (Bangkok)",
+        val: "22 คน (16.9%)",
+        desc: "กลุ่มผู้มีกำลังซื้อสูงจากส่วนกลาง มองหาคอนโดพักผ่อน หรือเพื่อการลงทุนปล่อยเช่าในตัวเมืองโคราช"
+      };
+
+      if (geoKey === 'kk') {
+        info = {
+          title: "ทำเลที่ตั้งผู้เข้าชม",
+          location: "ขอนแก่น (Khon Kaen)",
+          val: "7 คน (5.4%)",
+          desc: "ศูนย์กลางเศรษฐกิจอีสานตอนบน ลูกค้ามองหาที่พักอาศัยเชื่อมโยงสองเมืองใหญ่บนถนนมิตรภาพ"
+        };
+      } else if (geoKey === 'korat') {
+        info = {
+          title: "ทำเลที่ตั้งผู้เข้าชม",
+          location: "นครราชสีมา & ปริมณฑล (ในเมือง, สุรนารี, หมื่นไวย, นากลาง, บ้านใหม่)",
+          val: "18 คน (13.8%)",
+          desc: "Real Demand ภายในพื้นที่โคราช คนทำงาน บุคลากรทางการแพทย์ และผู้ที่อยู่อาศัยจริงใกล้สถานที่ทำงาน"
+        };
+      } else if (geoKey === 'isan') {
+        info = {
+          title: "ทำเลที่ตั้งผู้เข้าชม",
+          location: "หัวเมืองอื่นๆ (เชียงใหม่, บุรีรัมย์, สุราษฎร์ฯ, อุบลฯ, สระบุรี)",
+          val: "12 คน (9.2%)",
+          desc: "กลุ่มผู้สนใจจากหลากหลายจังหวัดทั่วประเทศที่มีการเดินทางและทำธุรกิจเชื่อมโยงกับโคราช"
+        };
+      } else if (geoKey === 'inter') {
+        info = {
+          title: "ทำเลที่ตั้งผู้เข้าชม",
+          location: "ต่างประเทศ (Shanghai, Dublin, Singapore, KL, Japan, USA)",
+          val: "20 คน (15.4%)",
+          desc: "ชาวต่างชาติและคนไทยในต่างแดน (จีน ยุโรป ญี่ปุ่น อเมริกา) สนใจลงทุนอสังหาริมทรัพย์ในประเทศไทย"
+        };
+      }
+
+      popup.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 18px;">📍</span>
+            <div>
+              <div style="font-size: 13px; font-weight: 800; color: #ffffff;">` + info.title + `</div>
+              <div style="font-size: 10.5px; font-weight: 700; color: #38bdf8;">` + info.location + `</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 12px; padding: 10px 8px; margin-bottom: 8px;">
+          <div style="font-size: 11px; color: #94a3b8;">สัดส่วนผู้เข้าชม</div>
+          <div style="font-size: 24px; font-weight: 900; color: #ffffff; margin-top: 2px;">` + info.val + `</div>
+        </div>
+
+        <div style="font-size: 11px; color: #cbd5e1; line-height: 1.4; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 8px;">
+          🎯 <strong>ลักษณะกลุ่มเป้าหมาย:</strong> ` + info.desc + `
+        </div>
+      `;
+
+      positionHoverPopup(el, popup);
+    }
+
+    function positionHoverPopup(el, popup) {
+      if (!el || !popup) return;
+      popup.classList.add('visible');
+      const rect = el.getBoundingClientRect();
+      const popupWidth = Math.min(340, window.innerWidth - 20);
+      popup.style.width = popupWidth + 'px';
+      let left = rect.left + (rect.width / 2) - (popupWidth / 2);
+      
+      if (left < 10) left = 10;
+      if (left + popupWidth > window.innerWidth - 10) {
+        left = window.innerWidth - popupWidth - 10;
+      }
+
+      const arrowLeft = Math.max(16, Math.min(popupWidth - 16, rect.left + (rect.width / 2) - left));
+      popup.style.setProperty('--arrow-left', arrowLeft + 'px');
+
+      const popupHeight = popup.offsetHeight || 300;
+
+      let top = rect.top - popupHeight - 14;
+      if (top < 10) {
+        top = rect.bottom + 14;
+        popup.classList.add('arrow-top');
+      } else {
+        popup.classList.remove('arrow-top');
+      }
+
+      popup.style.left = left + 'px';
+      popup.style.top = top + 'px';
     }
 
     function openGa4Modal(cardIdx) {
@@ -5127,12 +5205,12 @@ function showPillHoverCard(el, pillIdx) {
         modal = document.createElement('div');
         modal.id = 'neoModal';
         modal.className = 'neo-modal-backdrop';
-        modal.innerHTML = 
-          <div class="neo-modal-dialog" style="position: relative; max-width: 700px; width: 92%; background: #0f172a; border: 1.5px solid rgba(0, 230, 118, 0.4); border-radius: 24px; box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 30px rgba(0, 230, 118, 0.2); padding: 24px; color: #fff; max-height: 90vh; overflow-y: auto;">
+        modal.innerHTML = `
+          <div class="neo-modal-dialog" style="position: relative; max-width: 680px; width: 92%; background: #0f172a; border: 1.5px solid rgba(0, 230, 118, 0.4); border-radius: 24px; box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 30px rgba(0, 230, 118, 0.2); padding: 24px; color: #fff; max-height: 90vh; overflow-y: auto;">
             <button onclick="closeNeoModal();" style="position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.08); border: none; color: #94a3b8; font-size: 18px; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">✕</button>
             <div id="modalBody"></div>
           </div>
-        ;
+        `;
         modal.onclick = function(e) {
           if (e.target === modal) closeNeoModal();
         };
@@ -5161,11 +5239,11 @@ function showPillHoverCard(el, pillIdx) {
         statCards = [
           { label: "ผู้ใช้งานทั้งหมด", val: "130 คน", sub: "New Users 100%" },
           { label: "จำนวนเซสชัน", val: "162 เซสชัน", sub: "เฉลี่ย 1.25 เซสชัน/คน" },
-          { label: "วัน Peak สูงสุด", val: "6 พ.ย. (19 คน)", sub: "New High แคมเปญ" },
+          { label: "วัน Peak สูงสุด", val: "5 พ.ย. (18 คน)", sub: "New High แคมเปญ" },
           { label: "กลุ่มทำเลอันดับ 1", val: "กทม. 22 คน / โคราช 18 คน", sub: "รวมกันกว่า 30.8%" }
         ];
-        insightText = "ผู้เข้าชม 100% เป็นผู้ใช้ใหม่ 130 คน และมี Returning Users ทยอยกลับมาซ้ำอีก 11 ครั้ง สะท้อนว่าแคมเปญเริ่มเข้าถึงกลุ่มผู้ชมใหม่ๆ ได้ตามเป้าหมาย โดยเฉพาะช่วง 5-6 พ.ย. และ 11 พ.ย. ที่มีทราฟฟิกสูงเป็นพิเศษ";
-        tableHtml = 
+        insightText = "ผู้เข้าชม 100% เป็นผู้ใช้ใหม่ 130 คน และมี Returning Users ทยอยกลับมาซ้ำ สะท้อนว่าแคมเปญเริ่มเข้าถึงกลุ่มผู้ชมใหม่ๆ ได้ตามเป้าหมาย โดยเฉพาะช่วงกลางสัปดาห์ 5-6 พ.ย. และช่วงวันที่ 10-12 พ.ย. ที่มีทราฟฟิกสูงต่อเนื่อง";
+        tableHtml = `
           <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px; margin-top: 12px;">
             <div style="font-weight: 700; color: #fff; margin-bottom: 8px; font-size: 13px;">📅 ตารางสรุปผู้เข้าชมรายวัน (1 - 12 พ.ย. 2569)</div>
             <table style="width: 100%; border-collapse: collapse; font-size: 12px; color: #cbd5e1;">
@@ -5182,18 +5260,18 @@ function showPillHoverCard(el, pillIdx) {
                 <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px;">1-2 พ.ย. 69</td><td style="padding: 6px;">0</td><td style="padding: 6px;">0</td><td style="padding: 6px;">0</td><td style="padding: 6px; color: #94a3b8;">เตรียมระบบ</td></tr>
                 <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px;">3 พ.ย. 69 (อา.)</td><td style="padding: 6px;">11</td><td style="padding: 6px;">0</td><td style="padding: 6px;">11</td><td style="padding: 6px; color: #38bdf8;">เปิดตัวแคมเปญ</td></tr>
                 <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px;">4 พ.ย. 69 (จ.)</td><td style="padding: 6px;">13</td><td style="padding: 6px;">0</td><td style="padding: 6px;">13</td><td style="padding: 6px; color: #38bdf8;">เติบโตต่อเนื่อง</td></tr>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(0, 230, 118, 0.08);"><td style="padding: 6px; font-weight: 700; color: #00e676;">5 พ.ย. 69 (อ. 🥈)</td><td style="padding: 6px; font-weight: 800; color: #00e676;">18</td><td style="padding: 6px;">0</td><td style="padding: 6px; font-weight: 800; color: #00e676;">18</td><td style="padding: 6px; color: #00e676; font-weight: 700;">Peak Day ช่วงแรก 🚀</td></tr>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(0, 230, 118, 0.12);"><td style="padding: 6px; font-weight: 700; color: #fff;">6 พ.ย. 69 (พ. 🏆)</td><td style="padding: 6px;">17</td><td style="padding: 6px; color: #38bdf8; font-weight: 700;">2</td><td style="padding: 6px; font-weight: 800; color: #00e676;">19</td><td style="padding: 6px; color: #00e676; font-weight: 700;">Peak สูงสุดอันดับ 1 🏆</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(0, 230, 118, 0.08);"><td style="padding: 6px; font-weight: 700; color: #00e676;">5 พ.ย. 69 (อ. 🏆)</td><td style="padding: 6px; font-weight: 800; color: #00e676;">18</td><td style="padding: 6px;">0</td><td style="padding: 6px; font-weight: 800; color: #00e676;">18</td><td style="padding: 6px; color: #00e676; font-weight: 700;">Peak Day สูงสุด 🚀</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(0, 230, 118, 0.05);"><td style="padding: 6px; font-weight: 700; color: #fff;">6 พ.ย. 69 (พ. ⭐)</td><td style="padding: 6px;">17</td><td style="padding: 6px; color: #38bdf8; font-weight: 700;">2</td><td style="padding: 6px; font-weight: 800; color: #fff;">19</td><td style="padding: 6px; color: #38bdf8;">รวมสูงสุด</td></tr>
                 <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px;">7 พ.ย. 69 (พฤ.)</td><td style="padding: 6px;">11</td><td style="padding: 6px; color: #38bdf8;">2</td><td style="padding: 6px;">13</td><td style="padding: 6px; color: #94a3b8;">ทราฟฟิกคงที่</td></tr>
                 <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px;">8 พ.ย. 69 (ศ.)</td><td style="padding: 6px;">8</td><td style="padding: 6px; color: #38bdf8;">1</td><td style="padding: 6px;">9</td><td style="padding: 6px; color: #94a3b8;">ปลายสัปดาห์</td></tr>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px;">9 พ.ย. 69 (ส.)</td><td style="padding: 6px;">13</td><td style="padding: 6px; color: #38bdf8;">2</td><td style="padding: 6px;">15</td><td style="padding: 6px; color: #38bdf8;">วันหยุดสุดสัปดาห์</td></tr>
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px;">9 พ.ย. 69 (ส.)</td><td style="padding: 6px;">13</td><td style="padding: 6px; color: #38bdf8;">2</td><td style="padding: 6px;">15</td><td style="padding: 6px; color: #38bdf8;">วันหยุดสุดสัปดาห์</td></tr>
                 <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px;">10 พ.ย. 69 (อา.)</td><td style="padding: 6px;">14</td><td style="padding: 6px; color: #38bdf8;">1</td><td style="padding: 6px;">15</td><td style="padding: 6px; color: #38bdf8;">วันหยุดอาทิตย์</td></tr>
                 <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(0, 230, 118, 0.08);"><td style="padding: 6px; font-weight: 700; color: #00e676;">11 พ.ย. 69 (จ. ⭐)</td><td style="padding: 6px; font-weight: 800; color: #00e676;">14</td><td style="padding: 6px; color: #38bdf8; font-weight: 700;">3</td><td style="padding: 6px; font-weight: 800; color: #00e676;">17</td><td style="padding: 6px; color: #00e676; font-weight: 700;">Peak 11.11 (กลับมาซ้ำ 3) 🚀</td></tr>
                 <tr><td style="padding: 6px;">12 พ.ย. 69 (อ.)</td><td style="padding: 6px;">11</td><td style="padding: 6px;">0</td><td style="padding: 6px;">11</td><td style="padding: 6px; color: #38bdf8;">วันล่าสุด</td></tr>
               </tbody>
             </table>
           </div>
-        ;
+        `;
       } else if (cardIdx === 2 || cardIdx === '2') {
         title = "สถิติการดูหน้าเว็บ & กิจกรรม (Pageviews & Events)";
         badge = "Content Engagement & Depth";
@@ -5207,99 +5285,149 @@ function showPillHoverCard(el, pillIdx) {
           { label: "กิจกรรมทั้งหมด", val: "975 ครั้ง", sub: "User Event Interactions" },
           { label: "เฉลี่ยต่อเซสชัน", val: "2.10 หน้า/เซสชัน", sub: "ค่าความสนใจต่อการคลิกเข้ามา" }
         ];
-        insightText = "ผู้ใช้งานเปิดดูหน้าเว็บเฉลี่ย 2.62 หน้าต่อคน และเกิดการโต้ตอบถึง 975 Events บ่งบอกว่าผู้สนใจใช้เวลาศึกษารายละเอียดโครงการ แบบห้อง และทำเลอย่างลึกซึ้ง";
-        tableHtml = 
+        insightText = "ผู้ใช้งานเปิดดูหน้าเว็บเฉลี่ย 2.62 หน้าต่อคน และเกิดกิจกรรมโต้ตอบมากถึง 975 ครั้งบน Landing Page บ่งบอกว่าผู้ที่คลิกเข้ามาอ่านรายละเอียดข้อมูลยูนิตและสิ่งอำนวยความสะดวกอย่างจริงจัง";
+        tableHtml = `
           <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px; margin-top: 12px;">
-            <div style="font-weight: 700; color: #fff; margin-bottom: 8px; font-size: 13px;">📑 รายละเอียดหน้าเว็บที่มีผู้เข้าชม (Pages & Screens)</div>
+            <div style="font-weight: 700; color: #fff; margin-bottom: 8px; font-size: 13px;">📑 รายละเอียดหน้าเว็บและกิจกรรม (Page & Events)</div>
             <table style="width: 100%; border-collapse: collapse; font-size: 12px; color: #cbd5e1;">
               <thead>
                 <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; color: #94a3b8;">
-                  <th style="padding: 6px;">ชื่อหน้าเว็บ</th>
-                  <th style="padding: 6px;">การดู (Views)</th>
-                  <th style="padding: 6px;">ผู้ใช้</th>
-                  <th style="padding: 6px;">Events</th>
-                  <th style="padding: 6px;">Bounce Rate</th>
+                  <th style="padding: 6px;">ชื่อหน้าเว็บ (Page Title)</th>
+                  <th style="padding: 6px;">ยอดเข้าชม (Views)</th>
+                  <th style="padding: 6px;">เหตุการณ์ (Events)</th>
+                  <th style="padding: 6px;">อัตราตีกลับ (Bounce)</th>
                 </tr>
               </thead>
               <tbody>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px; font-weight: 700; color: #fff;">City Link Condo | Nakhon Ratchasima</td><td style="padding: 6px; font-weight: 800; color: #00e676;">340</td><td style="padding: 6px;">130</td><td style="padding: 6px;">972</td><td style="padding: 6px; color: #38bdf8;">55.6%</td></tr>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px;">City Link-appartement (FR/DE)</td><td style="padding: 6px;">0</td><td style="padding: 6px;">1</td><td style="padding: 6px;">2</td><td style="padding: 6px;">0%</td></tr>
-                <tr><td style="padding: 6px;">City Link Eigentumswohnung (DE)</td><td style="padding: 6px;">0</td><td style="padding: 6px;">1</td><td style="padding: 6px;">1</td><td style="padding: 6px;">0%</td></tr>
+                <tr style="background: rgba(56, 189, 248, 0.05);"><td style="padding: 6px; font-weight: 700; color: #fff;">City Link Condo | Nakhon Ratchasima</td><td style="padding: 6px; font-weight: 800; color: #38bdf8;">340 ครั้ง</td><td style="padding: 6px;">975 ครั้ง</td><td style="padding: 6px; font-weight: 700; color: #00e676;">55.6%</td></tr>
+                <tr><td style="padding: 6px; color: #94a3b8;">City Link-appartement | Nakhon Ratchasima</td><td style="padding: 6px;">0 ครั้ง</td><td style="padding: 6px;">2 ครั้ง</td><td style="padding: 6px;">0%</td></tr>
               </tbody>
             </table>
           </div>
-        ;
+        `;
       } else if (cardIdx === 3 || cardIdx === '3') {
-        title = "ระยะเวลาบนเว็บไซต์ & พฤติกรรมการอ่าน";
-        badge = "User Retention & Time on Site";
+        title = "เวลาเฉลี่ยบนเว็บไซต์ & คุณภาพเซสชัน (Engagement)";
+        badge = "Session Quality & Retention";
         icon = "⏱️";
         mainVal = "33.2 วินาที";
-        mainLabel = "เวลาในการมีส่วนร่วมเฉลี่ยต่อผู้ใช้ (Avg Engagement Time)";
+        mainLabel = "เวลาเฉลี่ยที่ผู้ใช้งานมีปฏิสัมพันธ์บนหน้าเว็บ";
         themeColor = "#fbbf24";
         statCards = [
-          { label: "เวลาเฉลี่ย", val: "33.2 วินาที", sub: "เพิ่มขึ้นจาก 32.6s อย่างมั่นคง" },
-          { label: "Engagement Rate", val: "44.4%", sub: "มีส่วนร่วมอ่านข้อมูลจริง" },
-          { label: "Bounce Rate", val: "55.6%", sub: "อัตราตีกลับอยู่ในเกณฑ์ดีเยี่ยม" },
-          { label: "แนะนำถัดไป", val: "Sticky Chat", sub: "เพิ่มปุ่มทัก LINE Floating" }
+          { label: "เวลาเฉลี่ยบนเว็บ", val: "32.6 วินาที", sub: "User Engagement Time" },
+          { label: "Engagement Rate", val: "45.54%", sub: "สัดส่วนเซสชันคุณภาพสูง (+16.9%)" },
+          { label: "Bounce Rate", val: "54.46%", sub: "ลดลงเหลือ 54.5% (คุมดีเยี่ยม)" },
+          { label: "Engaged Sessions", val: "46 เซสชัน", sub: "เซสชันอยู่เกินเกณฑ์มาตรฐาน" }
         ];
-        insightText = "ผู้ใช้ใช้เวลาเฉลี่ยบนเว็บ 33.2 วินาที โดย Bounce Rate อยู่ที่ 55.6% ซึ่งถือเป็นสถิติที่ดีสำหรับ Landing Page โครงการอสังหาฯ บ่งบอกว่าผู้สนใจอ่านข้อมูลเนื้อหาจริง";
-      } else if (cardIdx === 4 || cardIdx === '4') {
-        title = "การครองทราฟฟิกของ Google (Search & Ads)";
-        badge = "Channel Market Share #1";
-        icon = "🔍";
-        mainVal = "64 คน (49.2%)";
-        mainLabel = "ผู้เข้าชมจาก Google Ecosystem ทั้งหมด";
-        themeColor = "#00e676";
-        statCards = [
-          { label: "Google Organic (SEO)", val: "50 คน (38.5%)", sub: "ค้นหาชื่อโครงการ City Link โดยตรง" },
-          { label: "Google Ads (CPC)", val: "14 คน (10.8%)", sub: "โฆษณา Search Ads คำค้นหาคอนโด" },
-          { label: "รวมเซสชัน Google", val: "73 เซสชัน", sub: "Organic 56 + Ads 17" },
-          { label: "ความตั้งใจซื้อ (Intent)", val: "สูงสุดอันดับ 1", sub: "ผู้ค้นหามีความพร้อมตัดสินใจสูง" }
-        ];
-        insightText = "Google ทั้งระบบครอบครองส่วนแบ่งทราฟฟิกถึง 49.2% ของผู้เข้าชมทั้งหมด รวม 64 คน และ 73 เซสชัน แนะนำให้รักษาแคมเปญ Google Search Ads และพัฒนาบทความ SEO อย่างต่อเนื่อง";
-      }
-
-      body.innerHTML = 
-        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1.5px solid rgba(255,255,255,0.1); padding-bottom: 12px; margin-bottom: 16px;">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(0, 230, 118, 0.15); display: flex; align-items: center; justify-content: center; font-size: 24px;"> + icon + </div>
-            <div>
-              <h3 style="margin: 0; font-size: 17px; font-weight: 800; color: #fff;"> + title + </h3>
-              <div style="font-size: 11px; color:  + themeColor + ; font-weight: 700;"> + badge + </div>
+        insightText = "ระยะเวลาเฉลี่ย 32.6 วินาที ถือเป็นการพัฒนาที่ยอดเยี่ยมเมื่อเทียบกับ 19.7 วินาทีเดิม ผู้ใช้ใช้เวลาสแกนผังห้องและรายละเอียดนานขึ้น การเพิ่มปุ่ม Floating LINE OA พร้อม Call-to-Action ชัดเจนจะช่วยดึงดูดให้ทักแชทได้ทันทียิ่งขึ้น";
+        tableHtml = `
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px; margin-top: 12px;">
+            <div style="font-weight: 700; color: #fff; margin-bottom: 8px; font-size: 13px;">🎯 แผนการปรับปรุง Conversion Rate Optimization (CRO)</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 11.5px; color: #cbd5e1;">
+              <div style="background: rgba(255,255,255,0.02); padding: 8px; border-radius: 8px; border-left: 3px solid #fbbf24;">
+                <strong style="color: #fbbf24;">1. Floating Sticky CTA:</strong> ติดปุ่ม 'แอด LINE รับสิทธิพิเศษ' ตรึงมุมจอตลอดการเลื่อนอ่าน
+              </div>
+              <div style="background: rgba(255,255,255,0.02); padding: 8px; border-radius: 8px; border-left: 3px solid #00e676;">
+                <strong style="color: #00e676;">2. Fast Mobile Speed:</strong> ออพติไมซ์รูปถ่ายยูนิตให้โหลดเร็วขึ้นใน 1.5 วินาที
+              </div>
             </div>
           </div>
-          <span style="font-size: 11px; color: #94a3b8; background: rgba(255,255,255,0.06); padding: 4px 10px; border-radius: 12px;">📅 1 - 12 พ.ย. 69</span>
-        </div>
+        `;
+      } else if (cardIdx === 4 || cardIdx === '4') {
+        title = "ส่วนแบ่งทราฟฟิก Google Search & Ads";
+        badge = "High Intent Acquisition";
+        icon = "🔍";
+        mainVal = "64 คน (49.2%)";
+        mainLabel = "ทราฟฟิกจากช่องทาง Google ทั้งระบบ (Organic + Ads)";
+        themeColor = "#00e676";
+        statCards = [
+          { label: "Google Organic (SEO)", val: "33 คน (37.9%)", sub: "35 เซสชัน (ค้นหาชื่อแบรนด์)" },
+          { label: "Direct (พิมพ์ตรง)", val: "28 คน (32.2%)", sub: "37 เซสชัน (ลูกค้าจดจำแบรนด์)" },
+          { label: "Google Ads (cpc)", val: "10 คน (11.5%)", sub: "11 เซสชัน (Search Ads Intent)" },
+          { label: "Referral & Other", val: "16 คน (18.4%)", sub: "18 เซสชัน (เอกสหกรุ๊ป + โซเชียล)" }
+        ];
+        insightText = "ช่องทาง Google มีสัดส่วนเกือบครึ่งหนึ่งของเว็บไซต์ (49.4%) โดยเฉพาะ Google Organic Search สูงถึง 33 คน พิสูจน์ให้เห็นว่าผู้ใช้ที่ค้นหาข้อมูลเรื่องคอนโดโคราชผ่าน Google มีความตั้งใจซื้อ (High Intent) สูงมาก ควรให้น้ำหนักกับการลงโฆษณาคีย์เวิร์ดที่แม่นยำอย่างต่อเนื่อง";
+        tableHtml = `
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px; margin-top: 12px;">
+            <div style="font-weight: 700; color: #fff; margin-bottom: 8px; font-size: 13px;">🚦 ตารางช่องทางที่มาของผู้เข้าชม (Source / Medium Breakdown)</div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 12px; color: #cbd5e1;">
+              <thead>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; color: #94a3b8;">
+                  <th style="padding: 6px;">ช่องทาง (Source / Medium)</th>
+                  <th style="padding: 6px;">ผู้ใช้ (คน)</th>
+                  <th style="padding: 6px;">เซสชัน</th>
+                  <th style="padding: 6px;">สัดส่วน</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(16, 185, 129, 0.05);"><td style="padding: 6px; font-weight: 700; color: #a7f3d0;">google / organic — SEO ค้นหาธรรมชาติ</td><td style="padding: 6px; font-weight: 800; color: #a7f3d0;">50</td><td style="padding: 6px;">56</td><td style="padding: 6px; font-weight: 700; color: #a7f3d0;">38.5%</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px; font-weight: 800; color: #fff;">(direct) / (none) — พิมพ์ตรง / ลิงก์ Bookmark</td><td style="padding: 6px; font-weight: 800; color: #fff;">45</td><td style="padding: 6px;">60</td><td style="padding: 6px; color: #38bdf8;">34.6%</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(0, 230, 118, 0.05);"><td style="padding: 6px; font-weight: 700; color: #00e676;">google / cpc — Google Search Ads</td><td style="padding: 6px; font-weight: 800; color: #00e676;">14</td><td style="padding: 6px;">17</td><td style="padding: 6px; font-weight: 700; color: #00e676;">10.8%</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 6px; color: #fbbf24;">eaksahagroup.com / referral</td><td style="padding: 6px;">8</td><td style="padding: 6px;">10</td><td style="padding: 6px; color: #fbbf24;">6.2%</td></tr>
+                <tr><td style="padding: 6px; color: #94a3b8;">Social (FB, ChatGPT, etc.)</td><td style="padding: 6px;">13</td><td style="padding: 6px;">19</td><td style="padding: 6px;">10.0%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        `;
+      }
 
-        <div style="text-align: center; background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1.5px solid  + themeColor + 55; border-radius: 16px; padding: 16px; margin-bottom: 16px;">
-          <div style="font-size: 12px; color: #94a3b8; margin-bottom: 4px;"> + mainLabel + </div>
-          <div style="font-size: 38px; font-weight: 900; color:  + themeColor + ; letter-spacing: -0.5px; line-height: 1;"> + mainVal + </div>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 16px;">
-           + statCards.map(s => 
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 10px 12px;">
-              <div style="font-size: 11px; color: #94a3b8;"> + s.label + </div>
-              <div style="font-size: 16px; font-weight: 800; color: #fff; margin-top: 2px;"> + s.val + </div>
-              <div style="font-size: 10px; color: #38bdf8; margin-top: 2px;"> + s.sub + </div>
+      body.innerHTML = `
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <!-- Top Modal Header -->
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="font-size: 32px; background: rgba(255,255,255,0.06); padding: 8px; border-radius: 14px;">` + icon + `</div>
+              <div>
+                <h3 style="font-size: 18px; font-weight: 900; color: #ffffff; margin: 0;">` + title + `</h3>
+                <div style="font-size: 12px; font-weight: 600; color: ` + themeColor + `; margin-top: 2px;">` + badge + `</div>
+              </div>
             </div>
-          ).join('') + 
+            <span style="font-size: 11px; color: #94a3b8; background: rgba(255,255,255,0.08); padding: 4px 10px; border-radius: 20px; font-weight: 600;">
+              📅 1 - 12 พ.ย. 2569
+            </span>
+          </div>
+
+          <!-- Highlight Big Value Display -->
+          <div style="text-align: center; background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 16px; margin: 2px 0;">
+            <div style="font-size: 12px; color: #94a3b8; font-weight: 500; margin-bottom: 4px;">` + mainLabel + `</div>
+            <div style="font-size: 38px; font-weight: 900; color: ` + themeColor + `; letter-spacing: -0.5px; line-height: 1.1; text-shadow: 0 4px 20px rgba(0,0,0,0.7);">
+              ` + mainVal + `
+            </div>
+          </div>
+
+          <!-- 4 Grid Stat Cards -->
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+            ` + statCards.map(c => `
+              <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px 14px;">
+                <div style="font-size: 11px; color: #94a3b8; font-weight: 500;">` + c.label + `</div>
+                <div style="font-size: 17px; font-weight: 800; color: #ffffff; margin: 4px 0 2px 0;">` + c.val + `</div>
+                <div style="font-size: 10.5px; color: #64748b;">` + c.sub + `</div>
+              </div>
+            `).join('') + `
+          </div>
+
+          <!-- Data Breakdown Table -->
+          ` + tableHtml + `
+
+          <!-- Strategy Insight Box -->
+          <div style="background: rgba(0, 230, 118, 0.08); border: 1px solid rgba(0, 230, 118, 0.2); border-radius: 14px; padding: 12px 14px; font-size: 12px; line-height: 1.5; color: #e2e8f0;">
+            <div style="font-weight: 700; color: #00e676; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+              💡 บทวิเคราะห์และข้อเสนอแนะเชิงกลยุทธ์ (Strategic Action)
+            </div>
+            ` + insightText + `
+          </div>
+
+          <!-- Bottom Action Buttons -->
+          <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 4px;">
+            <button onclick="window.print();" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 9px 16px; border-radius: 12px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+              🖨️ พิมพ์ / บันทึกหน้านี้
+            </button>
+            <button onclick="closeNeoModal();" style="background: #00e676; border: none; color: #003319; padding: 9px 20px; border-radius: 12px; font-size: 12px; font-weight: 800; cursor: pointer; transition: all 0.2s;">
+              ปิดหน้าต่าง
+            </button>
+          </div>
         </div>
-
-        <div style="background: rgba(0, 230, 118, 0.08); border: 1.5px solid rgba(0, 230, 118, 0.25); border-radius: 14px; padding: 12px 14px; font-size: 12px; line-height: 1.5; color: #e2e8f0; margin-bottom: 14px;">
-          💡 <strong>Executive Actionable Insight:</strong>  + insightText + 
-        </div>
-
-         + tableHtml + 
-
-        <div style="display: flex; justify-content: flex-end; margin-top: 16px;">
-          <button onclick="closeNeoModal();" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); border: none; color: #fff; padding: 8px 18px; border-radius: 12px; font-weight: 700; font-size: 12px; cursor: pointer; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4);">
-            ปิดหน้าต่างรายงาน
-          </button>
-        </div>
-      ;
-
-      modal.classList.add('visible');
+      `;
+      modal.classList.add('open');
     }
 
     function showClcFollowersHover(el) {
@@ -5435,27 +5563,35 @@ function showPillHoverCard(el, pillIdx) {
       elements.forEach(el => {
         if (theme === 'light') {
           el.setAttribute('data-bottom-theme', 'light');
-        } else if (theme === 'oled') {
-          el.setAttribute('data-bottom-theme', 'oled');
         } else {
-          el.removeAttribute('data-bottom-theme'); // default navy
+          el.setAttribute('data-bottom-theme', 'oled');
         }
       });
 
       // Synchronize all theme toggle pill buttons across all sections
       document.querySelectorAll('.theme-toggle-pill').forEach(btn => {
         btn.classList.remove('active');
-        const isNavy = btn.classList.contains('btn-theme-navy') || btn.id === 'btnThemeNavy';
         const isLight = btn.classList.contains('btn-theme-light') || btn.id === 'btnThemeLight';
         const isOled = btn.classList.contains('btn-theme-oled') || btn.id === 'btnThemeOled';
 
-        if (theme === 'light' && isLight) btn.classList.add('active');
-        else if (theme === 'oled' && isOled) btn.classList.add('active');
-        else if ((theme === 'navy' || !theme) && isNavy) btn.classList.add('active');
+        if (theme === 'light' && isLight) {
+          btn.classList.add('active');
+        } else if (theme !== 'light' && isOled) {
+          btn.classList.add('active');
+        }
       });
 
       try { localStorage.setItem('citylink_bottom_theme', theme); } catch(e) {}
     }
+    // Auto restore saved theme on page load
+    try {
+      const savedTheme = localStorage.getItem('citylink_bottom_theme');
+      if (savedTheme) {
+        setTimeout(() => setBottomTheme(savedTheme), 50);
+      } else {
+        setBottomTheme('oled');
+      }
+    } catch(e) {}
     // Auto restore saved theme on page load
     try {
       const savedTheme = localStorage.getItem('citylink_bottom_theme');
