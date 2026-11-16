@@ -2838,7 +2838,7 @@
               <div class="accent-stats-row">
                 <div class="accent-stat-item">
                   <span class="accent-stat-lbl">Followers</span>
-                  <span class="accent-stat-val" id="spotlightClcFollowers">19,369</span>
+                  <span class="accent-stat-val" id="spotlightClcFollowers">19,363</span>
                 </div>
                 <div class="accent-stat-item" style="text-align: right;">
                   <span class="accent-stat-lbl">Period</span>
@@ -2856,7 +2856,7 @@
               <div class="accent-stats-row">
                 <div class="accent-stat-item">
                   <span class="accent-stat-lbl">Followers</span>
-                  <span class="accent-stat-val" id="spotlightMayfairFollowers">36,836</span>
+                  <span class="accent-stat-val" id="spotlightMayfairFollowers">36,911</span>
                 </div>
                 <div class="accent-stat-item" style="text-align: right;">
                   <span class="accent-stat-lbl">Reach</span>
@@ -3772,8 +3772,8 @@
   "all": {
     "name": "ทั้งปี 2569 (ม.ค. - พ.ย. YTD)",
     "short": "ทั้งปี 69",
-    "clcFollowers": "19,369",
-    "mayfairFollowers": "36,836",
+    "clcFollowers": "19,363",
+    "mayfairFollowers": "36,911",
     "spendTotal": "฿189,175.88",
     "spendFb": "฿154,128.34",
     "spendFbNum": 154128.34,
@@ -3876,8 +3876,8 @@
   "Q4": {
     "name": "ไตรมาส 4 (ต.ค. - พ.ย. 2569 ล่าสุด)",
     "short": "Q4 2569",
-    "clcFollowers": "19,369",
-    "mayfairFollowers": "36,836",
+    "clcFollowers": "19,363",
+    "mayfairFollowers": "36,911",
     "spendTotal": "฿22,149.37",
     "spendFb": "฿20,867.54",
     "spendFbNum": 20867.54,
@@ -4136,28 +4136,28 @@
   "พ.ย.": {
     "name": "พฤศจิกายน 2569 (พ.ย. ⭐ ล่าสุด)",
     "short": "พ.ย. 69 ⭐",
-    "clcFollowers": "19,369",
-    "mayfairFollowers": "36,836",
-    "spendTotal": "฿3,922.43",
-    "spendFb": "฿3,922.43",
-    "spendFbNum": 3922.43,
+    "clcFollowers": "19,363",
+    "mayfairFollowers": "36,911",
+    "spendTotal": "฿5,379.71",
+    "spendFb": "฿5,379.71",
+    "spendFbNum": 5379.71,
     "spendGoogle": "฿0.00",
     "budgetTotal": "฿26,000.00",
-    "budgetPct": "15.1",
+    "budgetPct": "20.7",
     "inquiries": "8",
     "qualityLeads": "8",
     "visits": "6",
     "closed": "2",
-    "costPerMsg": "490.30",
+    "costPerMsg": "768.53",
     "score": "875",
     "pts": "+15 pts",
-    "sub": "November Update • ยอดใช้จริง ฿3,922.43 (8 Qualified Leads • เข้าชม 6 ราย • จอง 2 ห้อง)",
+    "sub": "November Update • ยอดใช้จริง ฿5,379.71 (8 Qualified Leads • เข้าชม 6 ราย • จอง 2 ห้อง)",
     "needleRot": 68,
     "followers": "56.2",
     "tiktokViews": "48.5",
     "tiktokEr": "5.8",
     "mayfairReach": "9.1K คน",
-    "chartTooltip": "8 Leads • ฿3,922.43 (พ.ย. ล่าสุด • จอง 2 ห้อง)"
+    "chartTooltip": "8 Leads • ฿5,379.71 (พ.ย. ล่าสุด • จอง 2 ห้อง)"
   },
   "ต.ค.": {
     "name": "ตุลาคม 2569 (ต.ค.)",
@@ -4247,12 +4247,12 @@
       const heroTitleEl = document.getElementById('heroMainTitle');
       // Update Channel Spotlight Accent Cards
       const clcFollowersEl = document.getElementById('spotlightClcFollowers');
-      if (clcFollowersEl) clcFollowersEl.innerText = m.clcFollowers || "19,369";
+      if (clcFollowersEl) clcFollowersEl.innerText = m.clcFollowers || "19,363";
       const clcPeriodEl = document.getElementById('spotlightClcPeriod');
       if (clcPeriodEl) clcPeriodEl.innerText = m.short;
 
       const mayfairFollowersEl = document.getElementById('spotlightMayfairFollowers');
-      if (mayfairFollowersEl) mayfairFollowersEl.innerText = m.mayfairFollowers || "36,836";
+      if (mayfairFollowersEl) mayfairFollowersEl.innerText = m.mayfairFollowers || "36,911";
       const mayfairReachEl = document.getElementById('spotlightMayfairReach');
       if (mayfairReachEl) mayfairReachEl.innerText = m.mayfairReach || "9.1K";
       if (heroTitleEl) heroTitleEl.style.color = '#000000';
@@ -5469,7 +5469,7 @@ function showPillHoverCard(el, pillIdx) {
       }
 
       const m = MONTH_REGISTRY[currentSelectedMonth] || MONTH_REGISTRY['Q4'] || MONTH_REGISTRY['ต.ค.'];
-      const folVal = m.clcFollowers || "19,369";
+      const folVal = m.clcFollowers || "19,363";
 
       popup.innerHTML = `
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px;">
@@ -5530,7 +5530,7 @@ function showPillHoverCard(el, pillIdx) {
       }
 
       const m = MONTH_REGISTRY[currentSelectedMonth] || MONTH_REGISTRY['Q4'] || MONTH_REGISTRY['ต.ค.'];
-      const folVal = m.mayfairFollowers || "36,836";
+      const folVal = m.mayfairFollowers || "36,911";
 
       popup.innerHTML = `
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px;">
