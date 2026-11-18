@@ -8366,9 +8366,7 @@
       return { filteredFb, filteredGoogle };
     }
 
-    
-
-// ==========================================================================// ==========================================================================// ============================================================================
+    // ============================================================================
 // DYNAMIC CUSTOMER LEADS ENGINE (HOT / WARM / COOL LEADS & KEYWORDS)
 // Calibrated strictly with:
 // 1. Key words Hot.Warm.Cool.csv (Pinn Bsy: Hot, Eve Napat: Hot, Momay: Warm, etc.)
@@ -11179,15 +11177,7 @@ function renderCustomerLeads(monthKey) {
   }
 }
 
-
-}
-}
-
-}
-}
-
-
-function recalculateDashboard() {
+    function recalculateDashboard() {
       const { filteredFb, filteredGoogle } = getFilteredData();
 
       const totalFbSpent = filteredFb.reduce((s, i) => s + i.spent, 0);
@@ -17106,6 +17096,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
