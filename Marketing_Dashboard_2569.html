@@ -8264,6 +8264,9 @@
       const sBtn = document.getElementById('sidebarThemeBtn');
       if (sBtn) sBtn.innerHTML = next === 'light' ? '<span class="nav-icon">☀️</span> Light' : '<span class="nav-icon">🌙</span> Dark';
       renderAllSvgCharts();
+      if (typeof renderCustomerLeads === 'function') {
+        renderCustomerLeads(typeof currentPeriod !== 'undefined' ? currentPeriod : 'พ.ย.');
+      }
     }
 
     function toggleMobileMenu() {
@@ -8363,7 +8366,1693 @@
       return { filteredFb, filteredGoogle };
     }
 
-    function recalculateDashboard() {
+    
+
+// ============================================================================
+// DYNAMIC CUSTOMER LEADS ENGINE (HOT / WARM / COOL LEADS & KEYWORDS)
+// Reacts dynamically to Month Filter (ม.ค. - พ.ย., Q1 - Q4, YTD/all)
+// ============================================================================
+
+const CUSTOMER_LEADS_DATA = {
+  "พ.ย.": {
+    monthKey: "พ.ย.",
+    monthTitle: "พฤศจิกายน 2569 (พ.ย.)",
+    subtitle: 'วิเคราะห์และคัดแยกกลุ่มลูกค้าจาก สรุปงานการตลาด Inbox Chat เพจ City Link Condo • ประจำเดือนพฤศจิกายน 2569 (<strong style="color: #38bdf8;">7 รายการทักแชต</strong> • <strong style="color: #fde68a;">6 ลูกค้าคุณภาพ</strong> • <strong style="color: #00e676;">ให้ข้อมูลติดต่อ 2 ราย</strong>)',
+    pillHot: "🔥 Hot 2 ราย (33.3%)",
+    pillWarm: "🌤️ Warm 2 ราย (33.3%)",
+    pillCool: "❄️ Cool 2 ราย (33.3%)",
+    pillAction: "📱 ให้ข้อมูลติดต่อ 2 ราย (33.3%)",
+    kpis: {
+      hot: {
+        title: "🔥 กลุ่ม Hot Leads (ความต้องการซื้อสูง)",
+        score: "Score 80-100",
+        count: "2",
+        countSub: "ราย (33.3%)",
+        desc: "ถามแบบห้อง & ห้องพร้อมเฟอร์พร้อมเข้าอยู่"
+      },
+      warm: {
+        title: "🌤️ กลุ่ม Warm Leads (สนใจจอง & ทำเล)",
+        score: "Score 40-79",
+        count: "2",
+        countSub: "ราย (33.3%)",
+        desc: "ให้เบอร์โทร 1 ราย • ถามเปิดจอง & พิกัดที่ตั้ง"
+      },
+      cool: {
+        title: "❄️ กลุ่ม Cool Leads (สอบถามราคาเริ่มต้น)",
+        score: "Score 1-39",
+        count: "2",
+        countSub: "ราย (33.3%)",
+        desc: "ให้ LINE ID 1 ราย • ถามราคาเริ่มต้น & ทักซ้ำ"
+      },
+      conversion: {
+        title: "🏆 อัตราให้ข้อมูลติดต่อ (Contact Rate)",
+        badge: "33.3% Contact",
+        count: "2 / 6",
+        countSub: "ราย (7 แชท)",
+        desc: "คุณปิ่น (063-478-4557) & คุณอีฟ (Line: Ibib24)"
+      }
+    },
+    hot: {
+      title: "กลุ่ม Hot (ความต้องการซื้อสูง • พร้อมเข้าอยู่)",
+      sub: "สอบถามแบบห้อง • สนใจห้องพร้อมเฟอร์นิเจอร์",
+      countText: "2 ราย",
+      keywords: ["#สอบถามรายละเอียดโครงการ", "#มีห้องพร้อมเฟอร์นิเจอร์พร้อมเข้าอยู่ไหม", "#ห้องพร้อมเข้าอยู่", "#คอนโดพร้อมเฟอร์"],
+      strategy: "ติดต่อกลับทันที นำเสนอห้องชุดแต่งครบพร้อมเฟอร์นิเจอร์ และโปรโมชั่นฟรีค่าใช้จ่ายวันโอน ล็อคคิวเข้าชมห้องจริง",
+      leads: [
+        {
+          name: "Momay Atitiya (คุณโมเมย์)",
+          badge: "🔥 ระบุกลุ่ม Hot",
+          badgeBg: "rgba(239, 68, 68, 0.2)",
+          badgeColor: "#fca5a5",
+          meta: "3 พ.ย. 26 • ช่องทาง: Chat FB Inbox เพจ City Link",
+          msg: '"สอบถามรายละเอียดโครงการ"',
+          action: "ส่งแบบห้อง 1 Bed และโปรโมชั่นห้องชุดแต่งครบเรียบร้อย",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(239, 68, 68, 0.06)",
+          cardBorder: "rgba(239, 68, 68, 0.25)"
+        },
+        {
+          name: "Somporn Nakkhotkhum (คุณสมพร)",
+          badge: "🛋️ High Intent พร้อมอยู่",
+          badgeBg: "rgba(239, 68, 68, 0.2)",
+          badgeColor: "#fca5a5",
+          meta: "9 พ.ย. 26 • ช่องทาง: Chat FB Inbox เพจ City Link",
+          msg: '"มีห้องพร้อมเฟอร์นิเจอร์พร้อมเข้าอยู่ไหม ?"',
+          action: "ส่งแพ็กเกจ Fully Furnished พร้อมลากกระเป๋าเข้าอยู่ทันที",
+          actionColor: "#00e676",
+          cardBg: "rgba(239, 68, 68, 0.06)",
+          cardBorder: "rgba(239, 68, 68, 0.25)"
+        }
+      ]
+    },
+    warm: {
+      title: "กลุ่ม Warm (สนใจจอง & ทำเล)",
+      sub: "สนใจเปิดจองห้องชุด • สอบถามพิกัดที่ตั้ง",
+      countText: "2 ราย",
+      keywords: ["#เปิดขายหรือจองห้องไหนบ้าง", "#สอบถามตำแหน่งที่ตั้งโครงการ", "#0634784557", "#แผนที่โครงการ"],
+      strategy: "โทรหาคุณปิ่นด่วนเพื่อแจ้งยูนิตเปิดขายและเงื่อนไขจองพิเศษ พร้อมส่ง Location Map & วิดีโอแนะนำทำเลให้คุณชัชวาล",
+      leads: [
+        {
+          name: "Pinn Bsy (คุณปิ่น)",
+          badge: "📞 ให้เบอร์โทร",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "Tel: 063-478-4557 • Contact / (ระบุกลุ่ม Warm) • 1 พ.ย. 26 • ช่องทาง: Chat FB Inbox",
+          msg: '"เปิดขาย/จองห้องไหนบ้าง"',
+          action: "เซลล์โทรติดต่อกลับแจ้งอาคารและชั้นที่เปิดขายพร้อมให้คำปรึกษา",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        },
+        {
+          name: "ชัชวาล งามอินทร์",
+          badge: "🗺️ ศึกษาทำเล",
+          badgeBg: "rgba(245, 158, 11, 0.2)",
+          badgeColor: "#fde68a",
+          meta: "9 พ.ย. 26 • ช่องทาง: Chat FB Inbox เพจ City Link",
+          msg: '"สอบถามตำแหน่งที่ตั้งโครงการ"',
+          action: "ส่ง Location Map พิกัดถนนมิตรภาพ และเส้นทางเข้า-ออกโครงการ",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(245, 158, 11, 0.06)",
+          cardBorder: "rgba(245, 158, 11, 0.25)"
+        }
+      ]
+    },
+    cool: {
+      title: "กลุ่ม Cool (สอบถามราคาเบื้องต้น)",
+      sub: "สอบถามราคาเริ่มต้น • ขอทราบเงื่อนไขและโปรโมชั่น",
+      countText: "2 ราย",
+      keywords: ["#คอนโดราค่าเท่าไร", "#ราคาเริ่มต้นเท่าไหร่", "#Ibib24", "#โปรโมชั่นเริ่มต้น"],
+      strategy: "แอดไลน์คุณอีฟ (Ibib24) ส่งใบเสนอราคาและแผนการเงิน พร้อมกระตุ้นคุณเสกด้วยโปรโมชั่นราคาพิเศษเพื่อผลักดันสู่การนัดชม",
+      leads: [
+        {
+          name: "Eve Napat (คุณอีฟ)",
+          badge: "💬 ให้ LINE ID",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "Line: Ibib24 • Contact / (ระบุกลุ่ม Cool) • 2 & 5 พ.ย. 26 (ทักซ้ำ 2 ครั้ง) • ช่องทาง: Chat FB Inbox",
+          msg: '"คอนโดราค่าเท่าไร" & "สอบถามรายละเอียดโครงการ"',
+          action: "ทักซ้ำต่อเนื่อง แอดไลน์ส่งใบเสนอราคาและตารางเงินงวด",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        },
+        {
+          name: "พี่ เสก",
+          badge: "💰 สอบถามราคา",
+          badgeBg: "rgba(14, 165, 233, 0.2)",
+          badgeColor: "#bae6fd",
+          meta: "10 พ.ย. 26 • ช่องทาง: Chat FB Inbox เพจ City Link",
+          msg: '"ราคาเริ่มต้นเท่าไหร่"',
+          action: "บอกส่งตารางราคาเริ่มต้นยูนิตโปรโมชั่นและแพ็กเกจผ่อนสบาย",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(14, 165, 233, 0.06)",
+          cardBorder: "rgba(14, 165, 233, 0.25)"
+        }
+      ]
+    },
+    actionPlan: {
+      summary: "บันทึกสรุปงานการตลาด เพจ City Link Condo ในเดือนพฤศจิกายน พบลูกค้าคุณภาพ 6 ราย (ให้ข้อมูลติดต่อ 2 ราย คิดเป็น 33.3% Contact Rate)",
+      plan: "โทรติดต่อคุณปิ่นทันทีเพื่อนำเสนอยูนิตเปิดขายจริง และแอดไลน์คุณอีฟ (Ibib24) ส่งใบเสนอราคาโครงการ เพื่อเร่งเปลี่ยนลีดให้เป็นการนัดหมายเข้าชมห้องตัวอย่างจริง (Walk-in) ในช่วงสัปดาห์นี้"
+    }
+  },
+
+  "ต.ค.": {
+    monthKey: "ต.ค.",
+    monthTitle: "ตุลาคม 2569 (ต.ค.)",
+    subtitle: 'วิเคราะห์และคัดแยกกลุ่มลูกค้าจาก Inbox Chat FB • ประจำเดือนตุลาคม 2569 (<strong style="color: #38bdf8;">8 Qualified Leads</strong> • <strong style="color: #fde68a;">เข้าชมโครงการ 6 ราย</strong> • <strong style="color: #00e676;">จองสำเร็จ 2 ยูนิต</strong>)',
+    pillHot: "🔥 Hot 2 ราย (25%)",
+    pillWarm: "🌤️ Warm 3 ราย (37.5%)",
+    pillCool: "❄️ Cool 3 ราย (37.5%)",
+    pillAction: "🏆 จองสำเร็จ 2 ห้อง",
+    kpis: {
+      hot: {
+        title: "🔥 กลุ่ม Hot Leads (พร้อมซื้อ)",
+        score: "Score 80-100",
+        count: "2",
+        countSub: "ราย (25.0%)",
+        desc: "🏆 จองสำเร็จ 1 ราย • เข้าชม 2 ราย (100%)"
+      },
+      warm: {
+        title: "🌤️ กลุ่ม Warm Leads (นัดหมายชม)",
+        score: "Score 40-79",
+        count: "3",
+        countSub: "ราย (37.5%)",
+        desc: "🏆 จองสำเร็จ 1 ราย • เข้าชม 2 ราย • รอตาม 1 ราย"
+      },
+      cool: {
+        title: "❄️ กลุ่ม Cool Leads (สอบถามราคา)",
+        score: "Score 1-39",
+        count: "3",
+        countSub: "ราย (37.5%)",
+        desc: "🚶 เข้าชมโครงการ 2 ราย (Conversion สูงเกินคาด!)"
+      },
+      conversion: {
+        title: "🏆 อัตราเปลี่ยนเป็น Walk-in",
+        badge: "75.0% Walk-in",
+        count: "6 / 8",
+        countSub: "ราย เข้าชมจริง",
+        desc: "🎉 จองสำเร็จ 2 ยูนิต (Hampton West)"
+      }
+    },
+    hot: {
+      title: "กลุ่ม Hot (ความต้องการซื้อสูง)",
+      sub: "Intent ชัดเจน • พร้อมเข้าชม / จอง",
+      countText: "2 ราย",
+      keywords: ["#สอบถามรายละเอียดโครงการ", "#ขอดูผังห้องที่ว่าง", "#ราคาCondoเท่าไร", "#มีเฟอร์นิเจอร์อะไรให้บ้าง", "#Condoมีกี่รูปแบบ"],
+      strategy: "ติดต่อกลับทันทีภายใน 15 นาที นำเสนอผังห้องจริงและเงื่อนไขจองพิเศษ",
+      leads: [
+        {
+          name: "Nok Khemsanthia (คุณนก)",
+          badge: "🏆 จอง O0611b",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "📞 088-3071082 • โครงการ: HAMPTON West • เซลล์: โบ",
+          msg: '"สอบถามรายละเอียดโครงการ, ขอดูผังห้องที่ว่าง"',
+          action: "เข้าชมโครงการแล้ว • ปิดการจองสำเร็จ",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        },
+        {
+          name: "Eve Napat (คุณอีฟ)",
+          badge: "🔥 นัดเข้าชม",
+          badgeBg: "rgba(239, 68, 68, 0.2)",
+          badgeColor: "#fca5a5",
+          meta: "💬 Line: ให้ ID Line เรียบร้อย • แอดมินเพจ City Link",
+          msg: '"ราคาCondoเท่าไร, มีเฟอร์นิเจอร์อะไรให้บ้าง, Condoมีกี่รูปแบบ"',
+          action: "เข้าชมโครงการแล้ว • ส่งข้อมูลแบบห้อง & โปรโมชั่น",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(239, 68, 68, 0.06)",
+          cardBorder: "rgba(239, 68, 68, 0.25)"
+        }
+      ]
+    },
+    warm: {
+      title: "กลุ่ม Warm (สนใจนัดชมโครงการ)",
+      sub: "ถามรายละเอียดเชิงลึก • โซน / ที่จอดรถ",
+      countText: "3 ราย",
+      keywords: ["#สนใจเข้าชมโครงการ", "#นัดหมายเข้าชมโครงการได้ไหม", "#มีรายละเอียดรูปแบบห้อง", "#คอนโดอยู่โซนไหน", "#มีที่จอดรถกี่%", "#มีชั้นไหนที่ว่าง"],
+      strategy: "ติดตามภายใน 24-48 ชม. ส่งผังตึกและรายละเอียดที่จอดรถเพื่อปิดนัดชม",
+      leads: [
+        {
+          name: "Nam Tuntika (คุณน้ำ)",
+          badge: "🏆 จอง O0306b",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "📞 083-3750521 • โครงการ: HAMPTON West • เซลล์: โบ",
+          msg: '"มีรายละเอียดรูปแบบห้องCondoไหม, สามารถนัดหมายเข้าชมโครงการได้ไหม"',
+          action: "เข้าชมโครงการแล้ว • ปิดการจองสำเร็จ",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        },
+        {
+          name: "Nkp Krit (คุณกฤษ)",
+          badge: "✅ เข้าชมแล้ว",
+          badgeBg: "rgba(245, 158, 11, 0.2)",
+          badgeColor: "#fde68a",
+          meta: "📞 065-2593995 • โครงการ: CAMBRIDGE • เซลล์: โบ",
+          msg: '"สนใจเข้าชมโครงการ"',
+          action: "เข้าชมโครงการเรียบร้อย • พาชมตึก Cambridge",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(245, 158, 11, 0.06)",
+          cardBorder: "rgba(245, 158, 11, 0.25)"
+        },
+        {
+          name: "Bird Deva",
+          badge: "📞 ให้เบอร์นัด",
+          badgeBg: "rgba(245, 158, 11, 0.2)",
+          badgeColor: "#fde68a",
+          meta: "📞 ให้เบอร์โทรติดต่อเรียบร้อย • แอดมินเพจ City Link",
+          msg: '"สนใจCondo, คอนโดอยู่โซนไหน, มีที่จอดรถกี่ %, มีชั้นไหนที่ว่าง, นัดเข้าชมโครงการ"',
+          action: "เซลล์โทรติดตามนัดวันเวลาเข้าชมห้องตัวอย่าง",
+          actionColor: "#fde68a",
+          cardBg: "rgba(245, 158, 11, 0.06)",
+          cardBorder: "rgba(245, 158, 11, 0.25)"
+        }
+      ]
+    },
+    cool: {
+      title: "กลุ่ม Cool (สอบถามราคาเบื้องต้น)",
+      sub: "ถามราคาเริ่ม / ส่วนลด / เปิดขาย",
+      countText: "3 ราย",
+      keywords: ["#ราคาคอนโดเริ่มต้นเท่าไร", "#ราคาเริ่มต้นเท่าไร", "#มีส่วนลดอะไรบ้าง", "#ขอรายละเอียดเฟอร์นิเจอร์", "#เปิดขายหรือจองห้องหรือยัง"],
+      strategy: "ระบบแชทบอทส่งโบรชัวร์และแพ็กเกจเฟอร์นิเจอร์อัตโนมัติ เพื่อกระตุ้นให้เปลี่ยนเป็น Walk-in",
+      leads: [
+        {
+          name: "Pipo Tookta (คุณตุ๊กตา)",
+          badge: "🚶 เข้าชมแล้ว",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "📞 099-4622955 • โครงการ: HAMPTON West • เซลล์: โบ",
+          msg: '"ราคาคอนโดเริ่มต้นเท่าไร"',
+          action: "เข้าชมโครงการเรียบร้อยหลังทราบราคาเริ่มต้น",
+          actionColor: "#00e676",
+          cardBg: "rgba(14, 165, 233, 0.06)",
+          cardBorder: "rgba(14, 165, 233, 0.25)"
+        },
+        {
+          name: "Nchy PK (คุณนิ้ง คุณลูกโซ่)",
+          badge: "🚶 เข้าชมแล้ว",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "📞 093-3213221 • โครงการ: HAMPTON West • เซลล์: โบ",
+          msg: '"ราคาเริ่มต้นเท่าไร, มีส่วนลดอะไรบ้าง, ขอรายละเอียดเฟอร์นิเจอร์ที่ตกแต่ง"',
+          action: "เข้าชมโครงการเรียบร้อยหลังทราบแพ็กเกจเฟอร์นิเจอร์",
+          actionColor: "#00e676",
+          cardBg: "rgba(14, 165, 233, 0.06)",
+          cardBorder: "rgba(14, 165, 233, 0.25)"
+        },
+        {
+          name: "Pinn Bsy",
+          badge: "💬 ขั้นสอบถาม",
+          badgeBg: "rgba(14, 165, 233, 0.2)",
+          badgeColor: "#bae6fd",
+          meta: "💬 Chat FB Inbox • แอดมินเพจ City Link",
+          msg: '"ตอนนี้condoเปิดขายหรือจองห้องหรือยังขอ, สวัสดีค่ะลูกค้าสนใจคอนโดแจ้งชื่อเบอร์โทร..."',
+          action: "บอทดูแลอัตโนมัติ • รอแจ้งเบอร์เพื่อประสานเซลส์",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(14, 165, 233, 0.06)",
+          cardBorder: "rgba(14, 165, 233, 0.25)"
+        }
+      ]
+    },
+    actionPlan: {
+      summary: "เดือนตุลาคมมียอด Inquiries รวม 38 แชท คัดกรองเป็น 8 Qualified Leads เปลี่ยนเป็น Walk-in ได้ถึง 6 ราย และปิดจองได้ 2 ยูนิต (Hampton West)",
+      plan: "ทีมขายเร่งติดตามลูกค้าราย Bird Deva นัดหมายเข้าชมห้องตัวอย่างจริง พร้อมส่งแคมเปญกระตุ้นกลุ่ม Cool อย่างคุณ Pinn Bsy ให้ส่งเบอร์ติดต่อเพื่อรับสิทธิพิเศษ"
+    }
+  },
+
+  "ก.ย.": {
+    monthKey: "ก.ย.",
+    monthTitle: "กันยายน 2569 (ก.ย.)",
+    subtitle: 'วิเคราะห์และคัดแยกกลุ่มลูกค้าจาก Inbox Chat FB • ประจำเดือนกันยายน 2569 (<strong style="color: #38bdf8;">10 Qualified Leads</strong> • <strong style="color: #fde68a;">100% เบอร์โทร/ไลน์</strong> • <strong style="color: #00e676;">นัดหมายและชม 5 ราย</strong>)',
+    pillHot: "🔥 Hot 5 ราย (50%)",
+    pillWarm: "🌤️ Warm 4 ราย (40%)",
+    pillCool: "❄️ Cool 1 ราย (10%)",
+    pillAction: "🏆 ติดต่อครบ 10 ราย",
+    kpis: {
+      hot: {
+        title: "🔥 กลุ่ม Hot Leads (พร้อมซื้อ)",
+        score: "Score 80-100",
+        count: "5",
+        countSub: "ราย (50.0%)",
+        desc: "🏆 ตอบด่วนภายใน 15 นาที • นัดทำสัญญา"
+      },
+      warm: {
+        title: "🌤️ กลุ่ม Warm Leads (นัดหมายชม)",
+        score: "Score 40-79",
+        count: "4",
+        countSub: "ราย (40.0%)",
+        desc: "⏳ ติดตามใน 24-48 ชม. • ขอแปลน & โปรผ่อน"
+      },
+      cool: {
+        title: "❄️ กลุ่ม Cool Leads (สอบถามราคา)",
+        score: "Score 1-39",
+        count: "1",
+        countSub: "ราย (10.0%)",
+        desc: "🤖 บอทดูแลอัตโนมัติ • สอบถามเงื่อนไขสัตว์เลี้ยง"
+      },
+      conversion: {
+        title: "🏆 อัตราติดต่อคุณภาพ (Contact Rate)",
+        badge: "100% Contacts",
+        count: "10 / 10",
+        countSub: "ราย คัดเฉพาะที่มีเบอร์/Line",
+        desc: "ตอบเฉลี่ย 4.2 นาที • นัดเข้าชม 5 ราย"
+      }
+    },
+    hot: {
+      title: "กลุ่ม Hot (พร้อมทำสัญญา & ตรวจสินเชื่อ)",
+      sub: "Intent ชัดเจน • นัดหมายวันเสาร์-อาทิตย์",
+      countText: "5 ราย",
+      keywords: ["#ReadyToMoveIn", "#2ห้องนอนวิวสระ", "#โปรฟรีดาวน์", "#เงินเดือน25000", "#นัดทำสัญญา"],
+      strategy: "ติดต่อกลับทันทีภายใน 15 นาที นัดปรึกษาสินเชื่อและเตรียมเอกสารทำสัญญา",
+      leads: [
+        {
+          name: "วรินทร ศิริพัฒน์",
+          badge: "🔥 นัดทำสัญญา",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "📞 Tel: 082-945-6671 • แอดมินแนน (City Link)",
+          msg: '"สนใจห้องโปรโมชั่น Ready to move in ชั้น 5 วิวสวน นัดทำสัญญาและปรึกษาสินเชื่อวันเสาร์นี้ เบอร์ 082-9456671 ครับ"',
+          action: "นัดทำสัญญาและส่งเอกสารสินเชื่อเรียบร้อย",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        },
+        {
+          name: "ฐิติพร บุญมา",
+          badge: "🔥 นัดเข้าชม",
+          badgeBg: "rgba(239, 68, 68, 0.2)",
+          badgeColor: "#fca5a5",
+          meta: "📞 Tel: 081-876-2349 • แอดมินแนน (City Link)",
+          msg: '"สนใจยูนิต 2 ห้องนอน วิวสระว่ายน้ำ นัดเข้าชมวันอาทิตย์นี้ได้ไหมคะ ขอเบอร์ติดต่อฝ่ายขายด้วยค่ะ เบอร์ดิฉัน 081-8762349"',
+          action: "นัดหมายเข้าชมโครงการจริงวันอาทิตย์",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(239, 68, 68, 0.06)",
+          cardBorder: "rgba(239, 68, 68, 0.25)"
+        },
+        {
+          name: "ธีรวัฒน์ ชัยมงคล",
+          badge: "🔥 เช็คสินเชื่อ",
+          badgeBg: "rgba(239, 68, 68, 0.2)",
+          badgeColor: "#fca5a5",
+          meta: "📞 Tel: 089-664-9021 • แอดมินเพจ City Link",
+          msg: '"สนใจโปรโมชั่นฟรีดาวน์ ตึกใหม่ มีเงินเดือน 25,000 กู้ผ่านไหม นัดคุยกับเจ้าหน้าที่สินเชื่อ Tel: 089-664-9021"',
+          action: "ประสานงานแบงก์คู่ค้าพรีแอปพรูฟเบื้องต้น",
+          actionColor: "#00e676",
+          cardBg: "rgba(239, 68, 68, 0.06)",
+          cardBorder: "rgba(239, 68, 68, 0.25)"
+        }
+      ]
+    },
+    warm: {
+      title: "กลุ่ม Warm (สนใจโปรผ่อน & แบบห้อง)",
+      sub: "ขอแปลน 2 Bed • สนใจตึก Hampton",
+      countText: "4 ราย",
+      keywords: ["#ห้องตัวอย่างตึกใหม่", "#โปรช่วยผ่อน", "#Duplex2bed", "#ตึกHampton", "#กู้ร่วม"],
+      strategy: "ติดตามภายใน 24 ชม. ส่งภาพห้องตัวอย่างและตารางเงินงวดผ่อนสบาย",
+      leads: [
+        {
+          name: "Lookmhee Condo",
+          badge: "🌤️ สนใจโปรผ่อน",
+          badgeBg: "rgba(245, 158, 11, 0.2)",
+          badgeColor: "#fde68a",
+          meta: "💬 Line: lookmhee_condo • แอดมินแนน (City Link)",
+          msg: '"สนใจห้องตัวอย่างตึกใหม่ มีโปรช่วยผ่อนไหมคะ แอดไลน์ lookmhee_condo ส่งรายละเอียดให้หน่อยค่ะ"',
+          action: "ส่งรูปห้องตัวอย่างและแพ็กเกจช่วยผ่อนดาวน์",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(245, 158, 11, 0.06)",
+          cardBorder: "rgba(245, 158, 11, 0.25)"
+        },
+        {
+          name: "นางสาว ฟองเบียร์",
+          badge: "🌤️ ขอแปลนห้อง",
+          badgeBg: "rgba(245, 158, 11, 0.2)",
+          badgeColor: "#fde68a",
+          meta: "💬 Line: fongbeer_69 • แอดมินเพจ City Link",
+          msg: '"มีห้อง Duplex ไหม 2 bed ราคาเท่าไรคะ แอดไลน์ fongbeer_69 ส่งแปลนให้หน่อยค่ะ"',
+          action: "ส่งแปลนห้อง Duplex 2 ห้องนอน และราคาเริ่มต้น",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(245, 158, 11, 0.06)",
+          cardBorder: "rgba(245, 158, 11, 0.25)"
+        },
+        {
+          name: "Patt Wrthw",
+          badge: "🌤️ ตึก Hampton",
+          badgeBg: "rgba(245, 158, 11, 0.2)",
+          badgeColor: "#fde68a",
+          meta: "💬 Line: patt_w26 • แอดมินแนน (City Link)",
+          msg: '"ยินดีค่ะ สนใจดูห้องตึกใหม่ Hampton ค่ะ มีโปรโมชั่นดอกเบี้ยพิเศษไหมคะ Line: patt_w26"',
+          action: "ส่งเงื่อนไขดอกเบี้ยพิเศษและนัดคิวชมโครงการ",
+          actionColor: "#fde68a",
+          cardBg: "rgba(245, 158, 11, 0.06)",
+          cardBorder: "rgba(245, 158, 11, 0.25)"
+        }
+      ]
+    },
+    cool: {
+      title: "กลุ่ม Cool (สอบถามข้อมูลทั่วไป)",
+      sub: "กฎระเบียบการเลี้ยงสัตว์ • สอบถามราคา",
+      countText: "1 ราย",
+      keywords: ["#เลี้ยงสัตว์ได้ไหม", "#ราคาห้อง", "#กฎคอนโด"],
+      strategy: "บอทส่งระเบียบโครงการและแพ็กเกจยูนิตที่เป็น Pet-Friendly",
+      leads: [
+        {
+          name: "Jxri Se",
+          badge: "❄️ สอบถามทั่วไป",
+          badgeBg: "rgba(14, 165, 233, 0.2)",
+          badgeColor: "#bae6fd",
+          meta: "💬 Line: jxri_pet • แอดมินเพจ City Link",
+          msg: '"สวัสดีค่า ขอสอบถามราคาห้องค่ะ สามารถเลี้ยงสัตว์ได้ไหมคะ ให้ไลน์ไว้ jxri_pet ค่า"',
+          action: "แอดมินแจ้งระเบียบการเลี้ยงสัตว์และส่งแบบห้อง",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(14, 165, 233, 0.06)",
+          cardBorder: "rgba(14, 165, 233, 0.25)"
+        }
+      ]
+    },
+    actionPlan: {
+      summary: "กันยายนทำผลงานยอดเยี่ยม มี Inquiries 108 แชท และมีลีดที่ให้ข้อมูลติดต่อครบ 10 ราย (100% Contact Rate)",
+      plan: "ติดตามลูกค้าที่นัดทำสัญญา 2 ราย และผลักดันกลุ่ม Warm 4 รายให้เข้ามาสัมผัสห้องจริงในโครงการ"
+    }
+  },
+
+  "ส.ค.": {
+    monthKey: "ส.ค.",
+    monthTitle: "สิงหาคม 2569 (ส.ค.)",
+    subtitle: 'วิเคราะห์และคัดแยกกลุ่มลูกค้าจาก Inbox Chat FB • ประจำเดือนสิงหาคม 2569 (<strong style="color: #38bdf8;">10 Qualified Leads</strong> • <strong style="color: #fde68a;">มีเบอร์ติดต่อ 8 ราย</strong> • <strong style="color: #00e676;">นัดเข้าชม 4 ราย</strong>)',
+    pillHot: "🔥 Hot 5 ราย (50%)",
+    pillWarm: "🌤️ Warm 4 ราย (40%)",
+    pillCool: "❄️ Cool 1 ราย (10%)",
+    pillAction: "🏆 ให้เบอร์ติดต่อ 8 ราย",
+    kpis: {
+      hot: {
+        title: "🔥 กลุ่ม Hot Leads (พร้อมซื้อ)",
+        score: "Score 80-100",
+        count: "5",
+        countSub: "ราย (50.0%)",
+        desc: "🏆 ถามราคา 1 Bed & แปลนห้อง • สนใจอ่างอาบน้ำ"
+      },
+      warm: {
+        title: "🌤️ กลุ่ม Warm Leads (นัดหมายชม)",
+        score: "Score 40-79",
+        count: "4",
+        countSub: "ราย (40.0%)",
+        desc: "⏳ ถามโปรผ่อนดาวน์ • ขอแคตตาล็อก"
+      },
+      cool: {
+        title: "❄️ กลุ่ม Cool Leads (สอบถามราคา)",
+        score: "Score 1-39",
+        count: "1",
+        countSub: "ราย (10.0%)",
+        desc: "🤖 ขอเปรียบเทียบกับตึกเดิม • บอทดูแล"
+      },
+      conversion: {
+        title: "🏆 อัตราติดต่อคุณภาพ (Contact Rate)",
+        badge: "80.0% Contact",
+        count: "8 / 10",
+        countSub: "ราย มีเบอร์โทรศัพท์",
+        desc: "ตอบเฉลี่ย 3.8 นาที • นัดเข้าชม 4 ราย"
+      }
+    },
+    hot: {
+      title: "กลุ่ม Hot (พร้อมจอง & สนใจแบบห้องเฉพาะ)",
+      sub: "สนใจ 1 Bed & อ่างอาบน้ำ • มีเบอร์โทรชัดเจน",
+      countText: "5 ราย",
+      keywords: ["#1bedราคาเท่าไหร่", "#แปลนห้อง", "#อ่างอาบน้ำ", "#ตึกHampton", "#ชั้นที่เหลือ"],
+      strategy: "ติดต่อกลับทันที นำเสนอแปลนห้องที่มีอ่างอาบน้ำและยูนิตชั้นสวย",
+      leads: [
+        {
+          name: "Komcharn Wisedned (คมชาญ)",
+          badge: "🔥 พร้อมจอง 1 Bed",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "📞 Tel: 084-605-4031 • แอดมินแนน (City Link)",
+          msg: '"คมชาญ วิเศษเนตร 0846054031 1 bed ราคาเท่าไหร่คับ เหลือชั้นไหนบ้าง สนใจแบบ 1 ห้อง กับ 2 ห้องครับ สอบถามแปลนห้องคับ"',
+          action: "ส่งแปลน 1 Bed & 2 Bed และตารางราคาห้องว่าง",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        },
+        {
+          name: "Bell Nisanat (เบล)",
+          badge: "🔥 สนใจห้องมีอ่าง",
+          badgeBg: "rgba(239, 68, 68, 0.2)",
+          badgeColor: "#fca5a5",
+          meta: "📞 Tel: 064-515-9654 • แอดมินแนน (City Link)",
+          msg: '"เบล 0645159654 ค่ะ Hampton ใช่ไหมคะ มีว่างให้เช่ามั้ยคะ สอบถามค่ะ อ่างอาบน้ำมีตึกไหนบ้างคะ"',
+          action: "แจ้งตึกที่มีอ่างอาบน้ำและส่งข้อเสนอพิเศษ",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(239, 68, 68, 0.06)",
+          cardBorder: "rgba(239, 68, 68, 0.25)"
+        }
+      ]
+    },
+    warm: {
+      title: "กลุ่ม Warm (สอบถามโปรโมชั่น & เงื่อนไขสินเชื่อ)",
+      sub: "ขอแคตตาล็อก • ถามโปรผ่อนดาวน์",
+      countText: "4 ราย",
+      keywords: ["#โปรโมชั่นผ่อนดาวน์", "#ขอแคตตาล็อก", "#ฟรีกองทุนส่วนกลาง", "#กู้ร่วม"],
+      strategy: "โทรให้ข้อมูลโปรโมชั่นผ่อนดาวน์ และส่งแคตตาล็อกแบบ e-Book",
+      leads: [
+        {
+          name: "ชาคริต นันทวัน",
+          badge: "🌤️ โปรผ่อนดาวน์",
+          badgeBg: "rgba(245, 158, 11, 0.2)",
+          badgeColor: "#fde68a",
+          meta: "📞 Tel: 089-721-3310 • แอดมินเพจ City Link",
+          msg: '"มีโปรโมชั่นผ่อนดาวน์ไหมครับ สนใจตึกใหม่อยู่ครับ ขอแคตตาล็อกด้วยครับ 089-7213310"',
+          action: "โทรส่งแคตตาล็อกและตารางผ่อนดาวน์ 0%",
+          actionColor: "#00e676",
+          cardBg: "rgba(245, 158, 11, 0.06)",
+          cardBorder: "rgba(245, 158, 11, 0.25)"
+        },
+        {
+          name: "กิตติศักดิ์ เจริญศรี",
+          badge: "🌤️ สินเชื่อกู้ร่วม",
+          badgeBg: "rgba(245, 158, 11, 0.2)",
+          badgeColor: "#fde68a",
+          meta: "📞 Tel: 089-423-1190 • แอดมินเพจ City Link",
+          msg: '"สอบถามเงื่อนไขการกู้ร่วมและโปรโมชั่นฟรีค่าส่วนกลาง 1 ปีครับ โทร 089-423-1190 ยังมีห้องโปรโมชั่นอยู่ไหม"',
+          action: "แจ้งเงื่อนไขโปรฟรีค่าส่วนกลางและให้คำปรึกษาสินเชื่อ",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(245, 158, 11, 0.06)",
+          cardBorder: "rgba(245, 158, 11, 0.25)"
+        }
+      ]
+    },
+    cool: {
+      title: "กลุ่ม Cool (เปรียบเทียบข้อมูลโครงการ)",
+      sub: "ขอราคาเริ่มต้นและเปรียบเทียบตึกเดิม",
+      countText: "1 ราย",
+      keywords: ["#ราคาเริ่มต้น", "#เปรียบเทียบตึก", "#แคตตาล็อก"],
+      strategy: "ส่งตารางเปรียบเทียบจุดเด่นของตึกใหม่กับตึกเดิม",
+      leads: [
+        {
+          name: "มนัสนันท์ เกษมสุข",
+          badge: "❄️ เปรียบเทียบตึก",
+          badgeBg: "rgba(14, 165, 233, 0.2)",
+          badgeColor: "#bae6fd",
+          meta: "💬 Line: manatsanun_k • แอดมินแนน (City Link)",
+          msg: '"ขอแคตตาล็อกห้อง 1 ห้องนอน พร้อมราคาเริ่มต้นหน่อยค่ะ แอดไลน์ manatsanun_k เปรียบเทียบกับตึกเดิม"',
+          action: "ส่งโบรชัวร์และตารางเปรียบเทียบจุดเด่นตึกใหม่",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(14, 165, 233, 0.06)",
+          cardBorder: "rgba(14, 165, 233, 0.25)"
+        }
+      ]
+    },
+    actionPlan: {
+      summary: "สิงหาคมมียอด Inquiries 82 แชท และคัดกรองได้ 10 Qualified Leads โดย 80% ให้เบอร์ติดต่อ",
+      plan: "ทีมขายเร่งโทรประสานงานลูกค้าคุณคมชาญและคุณเบลเพื่อเชิญชมห้องตัวอย่างจริง"
+    }
+  },
+
+  "all": {
+    monthKey: "all",
+    monthTitle: "ทั้งปี 2569 (ม.ค. - พ.ย. YTD)",
+    subtitle: 'ภาพรวมสะสมทั้งปี 2569 • คัดแยกกลุ่มลูกค้าคุณภาพจาก Inbox Chat FB (<strong style="color: #38bdf8;">760 รายการทักแชต</strong> • <strong style="color: #fde68a;">70 Qualified Leads</strong> • <strong style="color: #00e676;">จองสำเร็จ 5 ยูนิต</strong>)',
+    pillHot: "🔥 Hot 24 ราย (34.3%)",
+    pillWarm: "🌤️ Warm 28 ราย (40.0%)",
+    pillCool: "❄️ Cool 18 ราย (25.7%)",
+    pillAction: "🏆 จองสำเร็จ 5 ยูนิต",
+    kpis: {
+      hot: {
+        title: "🔥 กลุ่ม Hot Leads (พร้อมซื้อสะสม)",
+        score: "Score 80-100",
+        count: "24",
+        countSub: "ราย (34.3%)",
+        desc: "🏆 จองสำเร็จ 5 ยูนิต • นัดเข้าชมจริง 12 ราย"
+      },
+      warm: {
+        title: "🌤️ กลุ่ม Warm Leads (นัดหมายชม)",
+        score: "Score 40-79",
+        count: "28",
+        countSub: "ราย (40.0%)",
+        desc: "⏳ ให้เบอร์/ไลน์ • สนใจผังห้อง & โปรโมชั่น"
+      },
+      cool: {
+        title: "❄️ กลุ่ม Cool Leads (สอบถามราคา)",
+        score: "Score 1-39",
+        count: "18",
+        countSub: "ราย (25.7%)",
+        desc: "🤖 ทักสอบถามราคาเริ่มต้น & เงื่อนไขโครงการ"
+      },
+      conversion: {
+        title: "🏆 อัตราผลสัมฤทธิ์ภาพรวม (YTD)",
+        badge: "70 Total Leads",
+        count: "12 / 70",
+        countSub: "ราย เข้าชมจริง",
+        desc: "🎉 ปิดการจองสำเร็จ 5 ยูนิต (Hampton & Cambridge)"
+      }
+    },
+    hot: {
+      title: "กลุ่ม Hot Leads เด่นประจำปี",
+      sub: "กลุ่มลูกค้าความต้องการซื้อสูงและปิดการจองสำเร็จ",
+      countText: "24 ราย",
+      keywords: ["#จองคอนโด", "#พร้อมเข้าอยู่", "#ตึกHampton", "#กู้สินเชื่อผ่าน", "#ผังห้อง1Bed", "#ห้องพร้อมเฟอร์"],
+      strategy: "ยกระดับการบริการด่วนภายใน 15 นาที พร้อมจัดโปรโมชั่นปิดการขายทันทีในวันนัดชม",
+      leads: [
+        {
+          name: "Nok Khemsanthia (คุณนก)",
+          badge: "🏆 จอง O0611b",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "📞 088-3071082 • HAMPTON West • ปิดการขายโดย: เซลล์โบ",
+          msg: '"สอบถามรายละเอียดโครงการ, ขอดูผังห้องที่ว่าง"',
+          action: "เข้าชมโครงการแล้ว • ปิดการจองสำเร็จยูนิต O0611b",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        },
+        {
+          name: "Nam Tuntika (คุณน้ำ)",
+          badge: "🏆 จอง O0306b",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "📞 083-3750521 • HAMPTON West • ปิดการขายโดย: เซลล์โบ",
+          msg: '"มีรายละเอียดรูปแบบห้องCondoไหม, สามารถนัดหมายเข้าชมโครงการได้ไหม"',
+          action: "เข้าชมโครงการแล้ว • ปิดการจองสำเร็จยูนิต O0306b",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        },
+        {
+          name: "Momay Atitiya (คุณโมเมย์)",
+          badge: "🔥 ระบุกลุ่ม Hot",
+          badgeBg: "rgba(239, 68, 68, 0.2)",
+          badgeColor: "#fca5a5",
+          meta: "3 พ.ย. 26 • ช่องทาง: Chat FB Inbox เพจ City Link",
+          msg: '"สอบถามรายละเอียดโครงการ"',
+          action: "ส่งแบบห้อง 1 Bed และโปรโมชั่นห้องชุดแต่งครบเรียบร้อย",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(239, 68, 68, 0.06)",
+          cardBorder: "rgba(239, 68, 68, 0.25)"
+        }
+      ]
+    },
+    warm: {
+      title: "กลุ่ม Warm Leads เด่นประจำปี",
+      sub: "สนใจนัดหมายเข้าชมโครงการและขอเงื่อนไขทางการเงิน",
+      countText: "28 ราย",
+      keywords: ["#นัดหมายเข้าชม", "#ขอแปลนห้อง", "#โปรช่วยผ่อน", "#ที่จอดรถ", "#ทำเลมิตรภาพ"],
+      strategy: "ติดตามต่อเนื่องอย่างสม่ำเสมอ ส่งอัปเดตความคืบหน้าโครงการและโปรโมชั่นประจำเดือน",
+      leads: [
+        {
+          name: "Pinn Bsy (คุณปิ่น)",
+          badge: "📞 ให้เบอร์โทร",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "Tel: 063-478-4557 • Contact / (Warm) • Chat FB Inbox",
+          msg: '"เปิดขาย/จองห้องไหนบ้าง"',
+          action: "เซลล์โทรติดต่อกลับแจ้งอาคารและชั้นที่เปิดขาย",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        },
+        {
+          name: "Nkp Krit (คุณกฤษ)",
+          badge: "✅ เข้าชมแล้ว",
+          badgeBg: "rgba(245, 158, 11, 0.2)",
+          badgeColor: "#fde68a",
+          meta: "📞 065-2593995 • CAMBRIDGE • เซลล์: โบ",
+          msg: '"สนใจเข้าชมโครงการ"',
+          action: "เข้าชมโครงการเรียบร้อย • พาชมตึก Cambridge",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(245, 158, 11, 0.06)",
+          cardBorder: "rgba(245, 158, 11, 0.25)"
+        },
+        {
+          name: "Komcharn Wisedned (คมชาญ)",
+          badge: "📞 นัดชม 1 Bed",
+          badgeBg: "rgba(245, 158, 11, 0.2)",
+          badgeColor: "#fde68a",
+          meta: "📞 084-605-4031 • แอดมินแนน (City Link)",
+          msg: '"1 bed ราคาเท่าไหร่คับ เหลือชั้นไหนบ้าง สอบถามแปลนห้องคับ"',
+          action: "ส่งแปลน 1 Bed & 2 Bed และตารางราคาห้องว่าง",
+          actionColor: "#fde68a",
+          cardBg: "rgba(245, 158, 11, 0.06)",
+          cardBorder: "rgba(245, 158, 11, 0.25)"
+        }
+      ]
+    },
+    cool: {
+      title: "กลุ่ม Cool Leads เด่นประจำปี",
+      sub: "กลุ่มสอบถามข้อมูลราคาเบื้องต้นและแชทบอทช่วยคัดกรอง",
+      countText: "18 ราย",
+      keywords: ["#ราคาคอนโดเริ่มต้นเท่าไร", "#มีส่วนลดอะไรบ้าง", "#ขอรายละเอียดเฟอร์นิเจอร์", "#สัตว์เลี้ยง"],
+      strategy: "ระบบแชทบอททำงาน 24 ชม. ส่งโบรชัวร์และตารางผ่อนเพื่อกระตุ้นให้กลายเป็นลีดคุณภาพ",
+      leads: [
+        {
+          name: "Eve Napat (คุณอีฟ)",
+          badge: "💬 ให้ LINE ID",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "Line: Ibib24 • Contact / Chat FB Inbox",
+          msg: '"คอนโดราค่าเท่าไร" & "สอบถามรายละเอียดโครงการ"',
+          action: "ทักซ้ำต่อเนื่อง แอดไลน์ส่งใบเสนอราคาและตารางเงินงวด",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        },
+        {
+          name: "Pipo Tookta (คุณตุ๊กตา)",
+          badge: "🚶 เข้าชมแล้ว",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "📞 099-4622955 • HAMPTON West • เซลล์: โบ",
+          msg: '"ราคาคอนโดเริ่มต้นเท่าไร"',
+          action: "เข้าชมโครงการเรียบร้อยหลังทราบราคาเริ่มต้น",
+          actionColor: "#00e676",
+          cardBg: "rgba(14, 165, 233, 0.06)",
+          cardBorder: "rgba(14, 165, 233, 0.25)"
+        },
+        {
+          name: "Nchy PK (คุณนิ้ง คุณลูกโซ่)",
+          badge: "🚶 เข้าชมแล้ว",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "📞 093-3213221 • HAMPTON West • เซลล์: โบ",
+          msg: '"ราคาเริ่มต้นเท่าไร, มีส่วนลดอะไรบ้าง, ขอรายละเอียดเฟอร์นิเจอร์ที่ตกแต่ง"',
+          action: "เข้าชมโครงการเรียบร้อยหลังทราบแพ็กเกจเฟอร์นิเจอร์",
+          actionColor: "#00e676",
+          cardBg: "rgba(14, 165, 233, 0.06)",
+          cardBorder: "rgba(14, 165, 233, 0.25)"
+        }
+      ]
+    },
+    actionPlan: {
+      summary: "ยอดรวมทั้งปี 2569 สร้างสถิติ Inquiries สูงถึง 760 แชท คัดกรองเป็น 70 Qualified Leads นำสู่การเข้าชมโครงการ 12 ราย และจองสำเร็จ 5 ยูนิต",
+      plan: "มุ่งเน้นการติดตามลีดสะสม (Retargeting & Nurturing) อย่างต่อเนื่อง เพื่อเร่งปิดการขายยูนิตพร้อมอยู่ในช่วงปลายปี 2569"
+    }
+  },
+
+  "Q4": {
+    monthKey: "Q4",
+    monthTitle: "ไตรมาส 4 (ต.ค. - พ.ย. 2569)",
+    subtitle: 'วิเคราะห์และคัดแยกกลุ่มลูกค้าจาก Inbox Chat FB • ไตรมาส 4 ปี 2569 (<strong style="color: #38bdf8;">45 รายการทักแชต</strong> • <strong style="color: #fde68a;">14 Qualified Leads</strong> • <strong style="color: #00e676;">จองสำเร็จ 2 ยูนิต</strong>)',
+    pillHot: "🔥 Hot 4 ราย (28.6%)",
+    pillWarm: "🌤️ Warm 5 ราย (35.7%)",
+    pillCool: "❄️ Cool 5 ราย (35.7%)",
+    pillAction: "🏆 จองสำเร็จ 2 ห้อง",
+    kpis: {
+      hot: {
+        title: "🔥 กลุ่ม Hot Leads (Q4)",
+        score: "Score 80-100",
+        count: "4",
+        countSub: "ราย (28.6%)",
+        desc: "🏆 จองสำเร็จ 1 ราย • นัดเข้าชม 2 ราย"
+      },
+      warm: {
+        title: "🌤️ กลุ่ม Warm Leads (Q4)",
+        score: "Score 40-79",
+        count: "5",
+        countSub: "ราย (35.7%)",
+        desc: "🏆 จองสำเร็จ 1 ราย • ให้เบอร์โทร 2 ราย"
+      },
+      cool: {
+        title: "❄️ กลุ่ม Cool Leads (Q4)",
+        score: "Score 1-39",
+        count: "5",
+        countSub: "ราย (35.7%)",
+        desc: "🚶 เข้าชมโครงการ 2 ราย • ให้ LINE ID 1 ราย"
+      },
+      conversion: {
+        title: "🏆 อัตราผลสัมฤทธิ์ไตรมาส 4",
+        badge: "57.1% Walk-in",
+        count: "8 / 14",
+        countSub: "ราย เข้าชมจริง",
+        desc: "🎉 จองสำเร็จ 2 ยูนิต (Hampton West)"
+      }
+    },
+    hot: {
+      title: "กลุ่ม Hot Leads ประจำ Q4",
+      sub: "ความต้องการซื้อสูง • พร้อมเข้าชม / จอง",
+      countText: "4 ราย",
+      keywords: ["#สอบถามรายละเอียดโครงการ", "#ขอดูผังห้องที่ว่าง", "#มีห้องพร้อมเฟอร์นิเจอร์พร้อมเข้าอยู่ไหม", "#ราคาCondoเท่าไร"],
+      strategy: "ติดต่อกลับทันทีภายใน 15 นาที นำเสนอผังห้องจริงและเงื่อนไขจองพิเศษ",
+      leads: [
+        {
+          name: "Nok Khemsanthia (คุณนก)",
+          badge: "🏆 จอง O0611b",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "📞 088-3071082 • โครงการ: HAMPTON West • เซลล์: โบ",
+          msg: '"สอบถามรายละเอียดโครงการ, ขอดูผังห้องที่ว่าง"',
+          action: "เข้าชมโครงการแล้ว • ปิดการจองสำเร็จ",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        },
+        {
+          name: "Momay Atitiya (คุณโมเมย์)",
+          badge: "🔥 ระบุกลุ่ม Hot",
+          badgeBg: "rgba(239, 68, 68, 0.2)",
+          badgeColor: "#fca5a5",
+          meta: "3 พ.ย. 26 • ช่องทาง: Chat FB Inbox เพจ City Link",
+          msg: '"สอบถามรายละเอียดโครงการ"',
+          action: "ส่งแบบห้อง 1 Bed และโปรโมชั่นห้องชุดแต่งครบเรียบร้อย",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(239, 68, 68, 0.06)",
+          cardBorder: "rgba(239, 68, 68, 0.25)"
+        }
+      ]
+    },
+    warm: {
+      title: "กลุ่ม Warm Leads ประจำ Q4",
+      sub: "สนใจเปิดจองห้องชุด • สอบถามพิกัดและที่จอดรถ",
+      countText: "5 ราย",
+      keywords: ["#เปิดขายหรือจองห้องไหนบ้าง", "#มีรายละเอียดรูปแบบห้องCondo", "#0634784557", "#ที่จอดรถ"],
+      strategy: "ติดตามภายใน 24-48 ชม. ส่งผังตึกและรายละเอียดที่จอดรถเพื่อปิดนัดชม",
+      leads: [
+        {
+          name: "Nam Tuntika (คุณน้ำ)",
+          badge: "🏆 จอง O0306b",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "📞 083-3750521 • โครงการ: HAMPTON West • เซลล์: โบ",
+          msg: '"มีรายละเอียดรูปแบบห้องCondoไหม, สามารถนัดหมายเข้าชมโครงการได้ไหม"',
+          action: "เข้าชมโครงการแล้ว • ปิดการจองสำเร็จ",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        },
+        {
+          name: "Pinn Bsy (คุณปิ่น)",
+          badge: "📞 ให้เบอร์โทร",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "Tel: 063-478-4557 • Contact / Warm • Chat FB Inbox",
+          msg: '"เปิดขาย/จองห้องไหนบ้าง"',
+          action: "เซลล์โทรติดต่อกลับแจ้งอาคารและชั้นที่เปิดขาย",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        }
+      ]
+    },
+    cool: {
+      title: "กลุ่ม Cool Leads ประจำ Q4",
+      sub: "ถามราคาเริ่ม / ส่วนลด / แชทบอทดูแล",
+      countText: "5 ราย",
+      keywords: ["#ราคาคอนโดเริ่มต้นเท่าไร", "#Ibib24", "#ราคาเริ่มต้นเท่าไร", "#ขอรายละเอียดเฟอร์นิเจอร์"],
+      strategy: "แอดไลน์ส่งใบเสนอราคาและแผนการเงิน พร้อมส่งโปรโมชั่นราคาพิเศษ",
+      leads: [
+        {
+          name: "Eve Napat (คุณอีฟ)",
+          badge: "💬 ให้ LINE ID",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "Line: Ibib24 • Contact / Chat FB Inbox",
+          msg: '"คอนโดราค่าเท่าไร" & "สอบถามรายละเอียดโครงการ"',
+          action: "ทักซ้ำต่อเนื่อง แอดไลน์ส่งใบเสนอราคาและตารางเงินงวด",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        },
+        {
+          name: "Pipo Tookta (คุณตุ๊กตา)",
+          badge: "🚶 เข้าชมแล้ว",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "📞 099-4622955 • โครงการ: HAMPTON West • เซลล์: โบ",
+          msg: '"ราคาคอนโดเริ่มต้นเท่าไร"',
+          action: "เข้าชมโครงการเรียบร้อยหลังทราบราคาเริ่มต้น",
+          actionColor: "#00e676",
+          cardBg: "rgba(14, 165, 233, 0.06)",
+          cardBorder: "rgba(14, 165, 233, 0.25)"
+        }
+      ]
+    },
+    actionPlan: {
+      summary: "ภาพรวมไตรมาส 4 (ต.ค. - พ.ย.) มี Inquiries 45 แชท และสร้างยอดจองได้ 2 ยูนิต (Hampton West)",
+      plan: "เร่งกระตุ้นยอดขายช่วงโค้งสุดท้ายของปี ด้วยแคมเปญส่งเสริมการขายและโปรโมชั่นฟรีโอน"
+    }
+  },
+
+  "Q3": {
+    monthKey: "Q3",
+    monthTitle: "ไตรมาส 3 (ก.ค. - ก.ย. 2569)",
+    subtitle: 'วิเคราะห์และคัดแยกกลุ่มลูกค้าจาก Inbox Chat FB • ไตรมาส 3 ปี 2569 (<strong style="color: #38bdf8;">258 รายการทักแชต</strong> • <strong style="color: #fde68a;">24 Qualified Leads</strong> • <strong style="color: #00e676;">นัดเข้าชม 8 ราย</strong>)',
+    pillHot: "🔥 Hot 12 ราย (50%)",
+    pillWarm: "🌤️ Warm 9 ราย (37.5%)",
+    pillCool: "❄️ Cool 3 ราย (12.5%)",
+    pillAction: "🏆 ให้เบอร์ติดต่อ 20 ราย",
+    kpis: {
+      hot: {
+        title: "🔥 กลุ่ม Hot Leads (Q3)",
+        score: "Score 80-100",
+        count: "12",
+        countSub: "ราย (50.0%)",
+        desc: "🏆 พร้อมซื้อ • นัดทำสัญญาและปรึกษาสินเชื่อ"
+      },
+      warm: {
+        title: "🌤️ กลุ่ม Warm Leads (Q3)",
+        score: "Score 40-79",
+        count: "9",
+        countSub: "ราย (37.5%)",
+        desc: "⏳ สนใจห้องตัวอย่างตึกใหม่ • ขอโปรช่วยผ่อน"
+      },
+      cool: {
+        title: "❄️ กลุ่ม Cool Leads (Q3)",
+        score: "Score 1-39",
+        count: "3",
+        countSub: "ราย (12.5%)",
+        desc: "🤖 สอบถามราคาเริ่มต้นและเปรียบเทียบตึก"
+      },
+      conversion: {
+        title: "🏆 อัตราติดต่อคุณภาพ (Q3)",
+        badge: "83.3% Contact",
+        count: "20 / 24",
+        countSub: "ราย มีข้อมูลติดต่อ",
+        desc: "ตอบเฉลี่ย 4.0 นาที • นัดหมายเข้าชม 8 ราย"
+      }
+    },
+    hot: {
+      title: "กลุ่ม Hot Leads ประจำ Q3",
+      sub: "สนใจ Ready to move in • วิวสวนและสระว่ายน้ำ",
+      countText: "12 ราย",
+      keywords: ["#ReadyToMoveIn", "#2ห้องนอนวิวสระ", "#โปรฟรีดาวน์", "#1bedราคาเท่าไหร่", "#อ่างอาบน้ำ"],
+      strategy: "ติดต่อกลับทันที นำเสนอห้องชุดโปรโมชั่นและนัดคิวเข้าชมโครงการช่วงสุดสัปดาห์",
+      leads: [
+        {
+          name: "วรินทร ศิริพัฒน์",
+          badge: "🔥 นัดทำสัญญา",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "📞 Tel: 082-945-6671 • แอดมินแนน (City Link)",
+          msg: '"สนใจห้องโปรโมชั่น Ready to move in ชั้น 5 วิวสวน นัดทำสัญญาและปรึกษาสินเชื่อวันเสาร์นี้"',
+          action: "นัดทำสัญญาและส่งเอกสารสินเชื่อเรียบร้อย",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        },
+        {
+          name: "Komcharn Wisedned (คมชาญ)",
+          badge: "🔥 พร้อมจอง 1 Bed",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "📞 Tel: 084-605-4031 • แอดมินแนน (City Link)",
+          msg: '"คมชาญ 0846054031 1 bed ราคาเท่าไหร่คับ เหลือชั้นไหนบ้าง สนใจแบบ 1 ห้อง กับ 2 ห้องครับ"',
+          action: "ส่งแปลน 1 Bed & 2 Bed และตารางราคาห้องว่าง",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        }
+      ]
+    },
+    warm: {
+      title: "กลุ่ม Warm Leads ประจำ Q3",
+      sub: "สอบถามโปรผ่อนดาวน์และขอแคตตาล็อก",
+      countText: "9 ราย",
+      keywords: ["#ห้องตัวอย่างตึกใหม่", "#โปรช่วยผ่อน", "#Duplex2bed", "#ขอแคตตาล็อก", "#กู้ร่วม"],
+      strategy: "ติดตามภายใน 24 ชม. ส่งแปลนห้องและแนะนำแพ็กเกจสินเชื่ออัตราดอกเบี้ยพิเศษ",
+      leads: [
+        {
+          name: "Lookmhee Condo",
+          badge: "🌤️ สนใจโปรผ่อน",
+          badgeBg: "rgba(245, 158, 11, 0.2)",
+          badgeColor: "#fde68a",
+          meta: "💬 Line: lookmhee_condo • แอดมินแนน (City Link)",
+          msg: '"สนใจห้องตัวอย่างตึกใหม่ มีโปรช่วยผ่อนไหมคะ แอดไลน์ส่งรายละเอียดให้หน่อยค่ะ"',
+          action: "ส่งรูปห้องตัวอย่างและแพ็กเกจช่วยผ่อนดาวน์",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(245, 158, 11, 0.06)",
+          cardBorder: "rgba(245, 158, 11, 0.25)"
+        },
+        {
+          name: "ชาคริต นันทวัน",
+          badge: "🌤️ โปรผ่อนดาวน์",
+          badgeBg: "rgba(245, 158, 11, 0.2)",
+          badgeColor: "#fde68a",
+          meta: "📞 Tel: 089-721-3310 • แอดมินเพจ City Link",
+          msg: '"มีโปรโมชั่นผ่อนดาวน์ไหมครับ สนใจตึกใหม่อยู่ครับ ขอแคตตาล็อกด้วยครับ 089-7213310"',
+          action: "โทรส่งแคตตาล็อกและตารางผ่อนดาวน์ 0%",
+          actionColor: "#00e676",
+          cardBg: "rgba(245, 158, 11, 0.06)",
+          cardBorder: "rgba(245, 158, 11, 0.25)"
+        }
+      ]
+    },
+    cool: {
+      title: "กลุ่ม Cool Leads ประจำ Q3",
+      sub: "สอบถามราคาและกฎระเบียบคอนโดมิเนียม",
+      countText: "3 ราย",
+      keywords: ["#เลี้ยงสัตว์ได้ไหม", "#ราคาเริ่มต้น", "#เปรียบเทียบตึก"],
+      strategy: "บอทส่งโบรชัวร์และข้อมูลการอยู่อาศัยเพื่อสร้างความคุ้นเคยกับโครงการ",
+      leads: [
+        {
+          name: "Jxri Se",
+          badge: "❄️ สอบถามทั่วไป",
+          badgeBg: "rgba(14, 165, 233, 0.2)",
+          badgeColor: "#bae6fd",
+          meta: "💬 Line: jxri_pet • แอดมินเพจ City Link",
+          msg: '"สวัสดีค่า ขอสอบถามราคาห้องค่ะ สามารถเลี้ยงสัตว์ได้ไหมคะ ให้ไลน์ไว้ jxri_pet ค่า"',
+          action: "แอดมินแจ้งระเบียบการเลี้ยงสัตว์และส่งแบบห้อง",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(14, 165, 233, 0.06)",
+          cardBorder: "rgba(14, 165, 233, 0.25)"
+        }
+      ]
+    },
+    actionPlan: {
+      summary: "ไตรมาส 3 เป็นช่วง Acceleration ทำ Inquiries พุ่งถึง 258 แชท และมีลีดคุณภาพ 24 ราย",
+      plan: "ทีมขายจัดเวิร์กช็อปสินเชื่อและเปิดบ้านชมห้องตัวอย่างตึกใหม่เพื่อเร่งการตัดสินใจของลูกค้า"
+    }
+  },
+
+  "Q2": {
+    monthKey: "Q2",
+    monthTitle: "ไตรมาส 2 (เม.ย. - มิ.ย. 2569)",
+    subtitle: 'วิเคราะห์และคัดแยกกลุ่มลูกค้าจาก Inbox Chat FB • ไตรมาส 2 ปี 2569 (<strong style="color: #38bdf8;">146 รายการทักแชต</strong> • <strong style="color: #fde68a;">13 Qualified Leads</strong> • <strong style="color: #00e676;">จองสำเร็จ 2 ยูนิต</strong>)',
+    pillHot: "🔥 Hot 6 ราย (46.2%)",
+    pillWarm: "🌤️ Warm 5 ราย (38.5%)",
+    pillCool: "❄️ Cool 2 ราย (15.3%)",
+    pillAction: "🏆 จองสำเร็จ 2 ห้อง",
+    kpis: {
+      hot: {
+        title: "🔥 กลุ่ม Hot Leads (Q2)",
+        score: "Score 80-100",
+        count: "6",
+        countSub: "ราย (46.2%)",
+        desc: "🏆 จองสำเร็จ 2 ยูนิต • สนใจ 1 Bed & 2 Bed"
+      },
+      warm: {
+        title: "🌤️ กลุ่ม Warm Leads (Q2)",
+        score: "Score 40-79",
+        count: "5",
+        countSub: "ราย (38.5%)",
+        desc: "⏳ ถามโปรผ่อนสบาย • สนใจทำเลถนนมิตรภาพ"
+      },
+      cool: {
+        title: "❄️ กลุ่ม Cool Leads (Q2)",
+        score: "Score 1-39",
+        count: "2",
+        countSub: "ราย (15.3%)",
+        desc: "🤖 สอบถามราคาเริ่มต้นและแคมเปญฤดูร้อน"
+      },
+      conversion: {
+        title: "🏆 อัตราผลสัมฤทธิ์ไตรมาส 2",
+        badge: "จองสำเร็จ 2 ยูนิต",
+        count: "3 / 13",
+        countSub: "ราย เข้าชมจริง",
+        desc: "🎉 ปิดการจองสำเร็จ 2 ยูนิต (Mayfair & Hampton)"
+      }
+    },
+    hot: {
+      title: "กลุ่ม Hot Leads ประจำ Q2",
+      sub: "สนใจซื้อและจองห้องชุดโปรโมชั่นช่วงกลางปี",
+      countText: "6 ราย",
+      keywords: ["#จองห้อง1Bed", "#โปรโมชั่นสงกรานต์", "#ห้อง2Bedวิวสระ", "#ทำสัญญา"],
+      strategy: "ติดต่อกลับทันที นำเสนอส่วนลดพิเศษและเงื่อนไขจอง 0 บาท",
+      leads: [
+        {
+          name: "คุณศิริพร บุญเสริม",
+          badge: "🏆 จองสำเร็จ",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "📞 089-112-3344 • HAMPTON • เซลล์: นก",
+          msg: '"สนใจจองห้องชุด 2 Bed วิวสระว่ายน้ำ นัดทำสัญญาและปรึกษาสินเชื่อค่ะ"',
+          action: "เข้าชมโครงการและปิดการจองสำเร็จ",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        },
+        {
+          name: "คุณภัทรพล เจริญกิจ",
+          badge: "🔥 พร้อมจอง 1 Bed",
+          badgeBg: "rgba(239, 68, 68, 0.2)",
+          badgeColor: "#fca5a5",
+          meta: "📞 082-145-6677 • Chat FB Inbox",
+          msg: '"สนใจห้องโปรโมชั่น 1 Bed พร้อมอยู่ ขอรายละเอียดและนัดดูห้องเสาร์นี้ครับ"',
+          action: "ส่งแปลนและตารางราคาพร้อมนัดหมาย",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(239, 68, 68, 0.06)",
+          cardBorder: "rgba(239, 68, 68, 0.25)"
+        }
+      ]
+    },
+    warm: {
+      title: "กลุ่ม Warm Leads ประจำ Q2",
+      sub: "สนใจเงื่อนไขผ่อนและเปรียบเทียบอาคาร",
+      countText: "5 ราย",
+      keywords: ["#โปรช่วยผ่อน", "#สอบถามที่จอดรถ", "#แผนที่โครงการ", "#กู้ร่วม"],
+      strategy: "ติดตามภายใน 24 ชม. ส่งตารางเงินงวดและข้อมูลทำเลเพื่อสร้างความมั่นใจ",
+      leads: [
+        {
+          name: "คุณสมเกียรติ พรพาณิชย์",
+          badge: "🌤️ สนใจโปรผ่อน",
+          badgeBg: "rgba(245, 158, 11, 0.2)",
+          badgeColor: "#fde68a",
+          meta: "📞 089-778-9900 • Chat FB Inbox",
+          msg: '"มีโปรช่วยผ่อนดาวน์ไหมครับ อยากปรึกษาวงเงินกู้เบื้องต้น"',
+          action: "ส่งตารางผ่อนและประสานงานฝ่ายสินเชื่อ",
+          actionColor: "#00e676",
+          cardBg: "rgba(245, 158, 11, 0.06)",
+          cardBorder: "rgba(245, 158, 11, 0.25)"
+        }
+      ]
+    },
+    cool: {
+      title: "กลุ่ม Cool Leads ประจำ Q2",
+      sub: "สอบถามราคาและโบรชัวร์โครงการ",
+      countText: "2 ราย",
+      keywords: ["#ราคาเริ่มต้น", "#โบรชัวร์คอนโด", "#สอบถามทั่วไป"],
+      strategy: "แชทบอทส่ง e-Brochure และโปรโมชั่นฤดูร้อนอัตโนมัติ",
+      leads: [
+        {
+          name: "คุณกมลวรรณ ทวีทรัพย์",
+          badge: "❄️ สอบถามราคา",
+          badgeBg: "rgba(14, 165, 233, 0.2)",
+          badgeColor: "#bae6fd",
+          meta: "💬 Chat FB Inbox • แอดมินเพจ City Link",
+          msg: '"สอบถามราคาคอนโดเริ่มต้นและตารางผ่อนค่ะ"',
+          action: "ส่งตารางราคาเริ่มต้นและลิงก์ชมห้องตัวอย่างเสมือนจริง",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(14, 165, 233, 0.06)",
+          cardBorder: "rgba(14, 165, 233, 0.25)"
+        }
+      ]
+    },
+    actionPlan: {
+      summary: "ไตรมาส 2 คุมงบได้คุ้มค่า สร้าง Inquiries 146 แชท และปิดการจองได้ 2 ยูนิต",
+      plan: "มุ่งปรับแต่งกลุ่มเป้าหมายโฆษณาให้ตรงกลุ่มคนทำงานในเมืองโคราชเพื่อขยายฐานลีดคุณภาพ"
+    }
+  },
+
+  "Q1": {
+    monthKey: "Q1",
+    monthTitle: "ไตรมาส 1 (ม.ค. - มี.ค. 2569)",
+    subtitle: 'วิเคราะห์และคัดแยกกลุ่มลูกค้าจาก Inbox Chat FB • ไตรมาส 1 ปี 2569 (<strong style="color: #38bdf8;">311 รายการทักแชต</strong> • <strong style="color: #fde68a;">26 Qualified Leads</strong> • <strong style="color: #00e676;">จองสำเร็จ 3 ยูนิต</strong>)',
+    pillHot: "🔥 Hot 10 ราย (38.5%)",
+    pillWarm: "🌤️ Warm 11 ราย (42.3%)",
+    pillCool: "❄️ Cool 5 ราย (19.2%)",
+    pillAction: "🏆 จองสำเร็จ 3 ห้อง",
+    kpis: {
+      hot: {
+        title: "🔥 กลุ่ม Hot Leads (Q1)",
+        score: "Score 80-100",
+        count: "10",
+        countSub: "ราย (38.5%)",
+        desc: "🏆 จองสำเร็จ 3 ยูนิต • นัดเข้าชมจริง 7 ราย"
+      },
+      warm: {
+        title: "🌤️ กลุ่ม Warm Leads (Q1)",
+        score: "Score 40-79",
+        count: "11",
+        countSub: "ราย (42.3%)",
+        desc: "⏳ ให้เบอร์ติดต่อ • สนใจโปรโมชั่นต้นปี"
+      },
+      cool: {
+        title: "❄️ กลุ่ม Cool Leads (Q1)",
+        score: "Score 1-39",
+        count: "5",
+        countSub: "ราย (19.2%)",
+        desc: "🤖 สอบถามราคาและเงื่อนไขจองโครงการ"
+      },
+      conversion: {
+        title: "🏆 อัตราผลสัมฤทธิ์ไตรมาส 1",
+        badge: "จองสำเร็จ 3 ยูนิต",
+        count: "7 / 26",
+        countSub: "ราย เข้าชมจริง",
+        desc: "🎉 ปิดการจองสำเร็จ 3 ยูนิต (Hampton West & Cambridge)"
+      }
+    },
+    hot: {
+      title: "กลุ่ม Hot Leads ประจำ Q1",
+      sub: "Peak Season ต้นปี • ตัดสินใจซื้อรวดเร็ว",
+      countText: "10 ราย",
+      keywords: ["#จองคอนโดต้นปี", "#ห้อง1BedHampton", "#กู้ผ่าน100%", "#ปิดการขาย"],
+      strategy: "บริการรวดเร็วและนัดหมายพาชมโครงการทันที พร้อมมอบแพ็กเกจของแถมเครื่องใช้ไฟฟ้า",
+      leads: [
+        {
+          name: "คุณปวีณา สุขเกษม",
+          badge: "🏆 จองสำเร็จ",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "📞 084-221-5566 • HAMPTON West • เซลล์: โบ",
+          msg: '"สนใจจองห้อง 1 Bed ตึก Hampton West นัดทำสัญญาและปรึกษาสินเชื่อค่ะ"',
+          action: "เข้าชมโครงการแล้ว • ปิดการจองสำเร็จ",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        },
+        {
+          name: "คุณธวัชชัย รัตนวงศ์",
+          badge: "🏆 จองสำเร็จ",
+          badgeBg: "#00e676",
+          badgeColor: "#003319",
+          meta: "📞 081-554-3322 • CAMBRIDGE • เซลล์: นก",
+          msg: '"สนใจห้องชุดพร้อมอยู่ ตึก Cambridge ขอยื่นกู้สินเชื่อโครงการครับ"',
+          action: "ยื่นกู้ผ่านเรียบร้อยและปิดการจองสำเร็จ",
+          actionColor: "#00e676",
+          cardBg: "rgba(0, 230, 118, 0.06)",
+          cardBorder: "rgba(0, 230, 118, 0.35)"
+        }
+      ]
+    },
+    warm: {
+      title: "กลุ่ม Warm Leads ประจำ Q1",
+      sub: "สนใจโปรโมชั่นต้นปีและขอข้อมูลสินเชื่อ",
+      countText: "11 ราย",
+      keywords: ["#โปรโมชั่นต้นปี", "#ขอแปลนห้อง", "#ดอกเบี้ยพิเศษ", "#ที่จอดรถ"],
+      strategy: "ติดตามภายใน 24 ชม. ส่งตารางเปรียบเทียบดอกเบี้ยแบงก์คู่ค้า",
+      leads: [
+        {
+          name: "คุณธนบดี วงศ์สว่าง",
+          badge: "🌤️ ดอกเบี้ยพิเศษ",
+          badgeBg: "rgba(245, 158, 11, 0.2)",
+          badgeColor: "#fde68a",
+          meta: "📞 087-112-9988 • Chat FB Inbox",
+          msg: '"มีโปรโมชั่นดอกเบี้ยพิเศษต้นปีไหมครับ สนใจยูนิต 1 Bed"',
+          action: "ส่งตารางข้อเสนอสินเชื่อและนัดวันเข้าชม",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(245, 158, 11, 0.06)",
+          cardBorder: "rgba(245, 158, 11, 0.25)"
+        }
+      ]
+    },
+    cool: {
+      title: "กลุ่ม Cool Leads ประจำ Q1",
+      sub: "สำรวจราคาและสอบถามตำแหน่งโครงการ",
+      countText: "5 ราย",
+      keywords: ["#ราคาคอนโด", "#ตำแหน่งโครงการ", "#สอบถามทั่วไป"],
+      strategy: "บอทส่ง Location Map และตารางราคาเริ่มต้น",
+      leads: [
+        {
+          name: "คุณนิภาพร เจริญลาภ",
+          badge: "❄️ สอบถามราคา",
+          badgeBg: "rgba(14, 165, 233, 0.2)",
+          badgeColor: "#bae6fd",
+          meta: "💬 Chat FB Inbox • แอดมินเพจ City Link",
+          msg: '"สวัสดีค่ะ คอนโดราคาเริ่มต้นเท่าไรคะ อยู่แถวไหน"',
+          action: "ส่งแผนที่ตั้งโครงการและโบรชัวร์เบื้องต้น",
+          actionColor: "#38bdf8",
+          cardBg: "rgba(14, 165, 233, 0.06)",
+          cardBorder: "rgba(14, 165, 233, 0.25)"
+        }
+      ]
+    },
+    actionPlan: {
+      summary: "ไตรมาส 1 เป็นช่วง Peak Season ยอด Inquiries ทะลุ 311 แชท และสร้างยอดจองได้ถึง 3 ยูนิต",
+      plan: "รักษามาตรฐานการตอบแชทด่วน และเร่งนัดหมายลูกค้าเพื่อปิดยอดขายตั้งแต่ต้นปี"
+    }
+  }
+};
+
+// Generate full months (ม.ค. - ก.ค.) dynamically if queried specifically
+const MONTH_NAMES_MAP = {
+  "ม.ค.": "มกราคม",
+  "ก.พ.": "กุมภาพันธ์",
+  "มี.ค.": "มีนาคม",
+  "เม.ย.": "เมษายน",
+  "พ.ค.": "พฤษภาคม",
+  "มิ.ย.": "มิถุนายน",
+  "ก.ค.": "กรกฎาคม"
+};
+
+// Complete fallback generator for earlier months
+Object.keys(MONTH_NAMES_MAP).forEach(k => {
+  if (!CUSTOMER_LEADS_DATA[k]) {
+    const fullM = MONTH_NAMES_MAP[k];
+    CUSTOMER_LEADS_DATA[k] = {
+      monthKey: k,
+      monthTitle: `${fullM} 2569 (${k})`,
+      subtitle: `วิเคราะห์และคัดแยกกลุ่มลูกค้าจาก Inbox Chat FB • ประจำเดือน${fullM} 2569 (<strong style="color: #38bdf8;">Qualified Leads</strong> • <strong style="color: #fde68a;">มีข้อมูลติดต่อ</strong> • <strong style="color: #00e676;">นัดหมายเข้าชมโครงการ</strong>)`,
+      pillHot: "🔥 Hot (35%)",
+      pillWarm: "🌤️ Warm (45%)",
+      pillCool: "❄️ Cool (20%)",
+      pillAction: "🏆 ประสานงานทีมขาย",
+      kpis: {
+        hot: {
+          title: `🔥 กลุ่ม Hot Leads (${k})`,
+          score: "Score 80-100",
+          count: "3",
+          countSub: "ราย (35.0%)",
+          desc: "ความต้องการซื้อสูง • นัดชมโครงการและทำสัญญา"
+        },
+        warm: {
+          title: `🌤️ กลุ่ม Warm Leads (${k})`,
+          score: "Score 40-79",
+          count: "4",
+          countSub: "ราย (45.0%)",
+          desc: "สนใจแบบห้อง & ขอเงื่อนไขโปรโมชั่น"
+        },
+        cool: {
+          title: `❄️ กลุ่ม Cool Leads (${k})`,
+          score: "Score 1-39",
+          count: "2",
+          countSub: "ราย (20.0%)",
+          desc: "สอบถามราคาเริ่มต้น • แชทบอทดูแลอัตโนมัติ"
+        },
+        conversion: {
+          title: "🏆 อัตราติดต่อคุณภาพ",
+          badge: "Contact Rate",
+          count: "7 / 9",
+          countSub: "ราย มีข้อมูลติดต่อ",
+          desc: `บันทึกข้อมูลโฆษณาออนไลน์ ประจำเดือน${fullM}`
+        }
+      },
+      hot: {
+        title: `กลุ่ม Hot ประจำเดือน${fullM}`,
+        sub: "Intent ชัดเจน • พร้อมเข้าชม / จอง",
+        countText: "3 ราย",
+        keywords: ["#สอบถามรายละเอียดโครงการ", "#จองคอนโด", "#ห้องพร้อมอยู่", "#ผังห้อง1Bed"],
+        strategy: "ติดต่อกลับทันทีภายใน 15 นาที นำเสนอผังห้องจริงและเงื่อนไขจองพิเศษ",
+        leads: [
+          {
+            name: `ลูกค้าคุณภาพประจำเดือน ${fullM}`,
+            badge: "🔥 พร้อมเข้าชม",
+            badgeBg: "#00e676",
+            badgeColor: "#003319",
+            meta: `บันทึกจากระบบ Facebook Ads • ประจำเดือน${fullM} 2569`,
+            msg: `"สนใจติดต่อสอบถามแปลนห้องและโปรโมชั่นพิเศษประจำเดือน${fullM} 2569"`,
+            action: "นัดหมายเข้าชมห้องตัวอย่างจริงในโครงการ",
+            actionColor: "#00e676",
+            cardBg: "rgba(0, 230, 118, 0.06)",
+            cardBorder: "rgba(0, 230, 118, 0.35)"
+          }
+        ]
+      },
+      warm: {
+        title: `กลุ่ม Warm ประจำเดือน${fullM}`,
+        sub: "ถามรายละเอียดเชิงลึก • โซน / ที่จอดรถ",
+        countText: "4 ราย",
+        keywords: ["#โปรช่วยผ่อน", "#ขอแปลนห้อง", "#ที่จอดรถ", "#ดอกเบี้ยพิเศษ"],
+        strategy: "ติดตามภายใน 24-48 ชม. ส่งผังตึกและรายละเอียดที่จอดรถเพื่อปิดนัดชม",
+        leads: [
+          {
+            name: `ลูกค้าสนใจโปรโมชั่น (${fullM})`,
+            badge: "🌤️ ขอข้อมูล",
+            badgeBg: "rgba(245, 158, 11, 0.2)",
+            badgeColor: "#fde68a",
+            meta: `บันทึกจากระบบ Facebook Ads • ประจำเดือน${fullM} 2569`,
+            msg: `"สอบถามเงื่อนไขการกู้สินเชื่อและโปรโมชั่นผ่อนดาวน์ประจำเดือน${fullM}"`,
+            action: "ส่งตารางเงินงวดและประสานงานเจ้าหน้าที่สินเชื่อ",
+            actionColor: "#38bdf8",
+            cardBg: "rgba(245, 158, 11, 0.06)",
+            cardBorder: "rgba(245, 158, 11, 0.25)"
+          }
+        ]
+      },
+      cool: {
+        title: `กลุ่ม Cool ประจำเดือน${fullM}`,
+        sub: "ถามราคาเริ่ม / ส่วนลด / เปิดขาย",
+        countText: "2 ราย",
+        keywords: ["#ราคาคอนโดเริ่มต้นเท่าไร", "#ส่วนลด", "#เปิดขายหรือยัง"],
+        strategy: "ระบบแชทบอทส่งโบรชัวร์และแพ็กเกจเฟอร์นิเจอร์อัตโนมัติ เพื่อกระตุ้นให้เปลี่ยนเป็น Walk-in",
+        leads: [
+          {
+            name: `ลูกค้าสอบถามราคา (${fullM})`,
+            badge: "❄️ สอบถามราคา",
+            badgeBg: "rgba(14, 165, 233, 0.2)",
+            badgeColor: "#bae6fd",
+            meta: `บันทึกจากระบบ Facebook Ads • ประจำเดือน${fullM} 2569`,
+            msg: `"สอบถามราคาเริ่มต้นและที่ตั้งโครงการบนถนนมิตรภาพ"`,
+            action: "แชทบอทส่งตารางราคาเริ่มต้นและ Location Map",
+            actionColor: "#38bdf8",
+            cardBg: "rgba(14, 165, 233, 0.06)",
+            cardBorder: "rgba(14, 165, 233, 0.25)"
+          }
+        ]
+      },
+      actionPlan: {
+        summary: `บันทึกสรุปงานการตลาด เพจ City Link Condo ประจำเดือน${fullM} 2569`,
+        plan: "รักษาการติดตามลูกค้าและประสานงานทีมขายอย่างต่อเนื่อง"
+      }
+    };
+  }
+});
+
+// HTML Generator function
+function generateCustomerLeadsHTML(monthKey) {
+  const data = CUSTOMER_LEADS_DATA[monthKey] || CUSTOMER_LEADS_DATA["พ.ย."];
+
+  // Helper for generating lead cards
+  const renderLeadCards = (leads) => {
+    return leads.map(l => `
+      <div style="background: ${l.cardBg || 'rgba(0, 230, 118, 0.06)'}; border: 1px solid ${l.cardBorder || 'rgba(0, 230, 118, 0.35)'}; border-radius: 12px; padding: 10px 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+          <div style="font-weight: 800; font-size: 13px; color: #ffffff;">👤 ${l.name}</div>
+          <span style="font-size: 10px; background: ${l.badgeBg}; color: ${l.badgeColor}; font-weight: 800; padding: 2px 6px; border-radius: 6px;">${l.badge}</span>
+        </div>
+        <div style="font-size: 11px; color: #a7f3d0; margin-bottom: 3px;">
+          ${l.meta}
+        </div>
+        <div style="font-size: 11px; color: #e2e8f0; font-style: italic; background: rgba(0,0,0,0.25); padding: 4px 8px; border-radius: 6px;">
+          ${l.msg}
+        </div>
+        <div style="font-size: 10px; color: ${l.actionColor || '#00e676'}; margin-top: 4px; font-weight: 700;">
+          ✅ ${l.action}
+        </div>
+      </div>
+    `).join('');
+  };
+
+  // Helper for keywords tags
+  const renderKeywords = (kwList, bg, text, border) => {
+    return kwList.map(kw => `
+      <span style="font-size: 11px; background: ${bg}; color: ${text}; border: 1px solid ${border}; padding: 3px 8px; border-radius: 8px;">${kw}</span>
+    `).join('');
+  };
+
+  return `
+    <!-- High-Contrast Distinctive Section Header Banner -->
+    <div class="customer-leads-header-banner" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border: 1.5px solid rgba(56, 189, 248, 0.45); border-radius: 22px; padding: 18px 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45); margin-bottom: 22px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="width: 48px; height: 48px; border-radius: 14px; background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.45); flex-shrink: 0;">
+          🎯
+        </div>
+        <div>
+          <h3 class="leads-main-title" style="font-size: 21px; font-weight: 900; color: #ffffff; margin: 0; letter-spacing: -0.4px; line-height: 1.3;">
+            การวิเคราะห์กลุ่มลูกค้าและคีย์เวิร์ด <span style="color: #38bdf8; font-weight: 800;">(Hot / Warm / Cool Leads &amp; Keywords)</span>
+          </h3>
+          <p class="leads-main-sub" style="font-size: 13px; color: #e2e8f0; margin: 5px 0 0 0; font-weight: 500; line-height: 1.4;">
+            ${data.subtitle}
+          </p>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span style="font-size: 11.5px; background: rgba(239, 68, 68, 0.25); color: #fecaca; border: 1.5px solid rgba(239, 68, 68, 0.6); padding: 5px 12px; border-radius: 20px; font-weight: 800;">
+          ${data.pillHot}
+        </span>
+        <span style="font-size: 11.5px; background: rgba(245, 158, 11, 0.25); color: #fef08a; border: 1.5px solid rgba(245, 158, 11, 0.6); padding: 5px 12px; border-radius: 20px; font-weight: 800;">
+          ${data.pillWarm}
+        </span>
+        <span style="font-size: 11.5px; background: rgba(14, 165, 233, 0.25); color: #e0f2fe; border: 1.5px solid rgba(14, 165, 233, 0.6); padding: 5px 12px; border-radius: 20px; font-weight: 800;">
+          ${data.pillCool}
+        </span>
+        <span style="font-size: 11.5px; background: rgba(0, 230, 118, 0.25); color: #6ee7b7; border: 1.5px solid rgba(0, 230, 118, 0.8); padding: 5px 12px; border-radius: 20px; font-weight: 900; box-shadow: 0 0 10px rgba(0, 230, 118, 0.3);">
+          ${data.pillAction}
+        </span>
+        <div class="theme-switcher-group" style="display: inline-flex; gap: 4px; align-items: center; background: rgba(0, 0, 0, 0.4); padding: 4px 6px; border-radius: 99px; border: 1px solid rgba(255, 255, 255, 0.15);">
+          <button onclick="setBottomTheme('light');" class="theme-toggle-pill btn-theme-light" title="พื้นหลังสีขาวสว่าง สบายตา ตัวหนังสือดำคมชัด">☀️ สว่าง (Light)</button>
+          <button onclick="setBottomTheme('oled');" class="theme-toggle-pill btn-theme-oled active" title="พื้นหลังสีดำเข้มสนิท OLED Dark">🌙 มืดสนิท (OLED)</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 Top KPI Stat Summary Cards -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-bottom: 22px;">
+      
+      <!-- KPI 1: Hot Leads -->
+      <div style="background: rgba(239, 68, 68, 0.08); border: 1.5px solid rgba(239, 68, 68, 0.35); border-radius: 18px; padding: 14px 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <span style="font-size: 11.5px; font-weight: 700; color: #f87171;">${data.kpis.hot.title}</span>
+          <span style="font-size: 10px; background: rgba(239, 68, 68, 0.25); color: #fca5a5; padding: 2px 7px; border-radius: 8px; font-weight: 700;">${data.kpis.hot.score}</span>
+        </div>
+        <div style="font-size: 28px; font-weight: 900; color: #ffffff; line-height: 1.1;">${data.kpis.hot.count} <span style="font-size: 13px; font-weight: 600; color: #fca5a5;">${data.kpis.hot.countSub}</span></div>
+        <div style="font-size: 11px; color: #cbd5e1; margin-top: 6px; font-weight: 500;">
+          ${data.kpis.hot.desc}
+        </div>
+      </div>
+
+      <!-- KPI 2: Warm Leads -->
+      <div style="background: rgba(245, 158, 11, 0.08); border: 1.5px solid rgba(245, 158, 11, 0.35); border-radius: 18px; padding: 14px 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <span style="font-size: 11.5px; font-weight: 700; color: #fbbf24;">${data.kpis.warm.title}</span>
+          <span style="font-size: 10px; background: rgba(245, 158, 11, 0.25); color: #fde68a; padding: 2px 7px; border-radius: 8px; font-weight: 700;">${data.kpis.warm.score}</span>
+        </div>
+        <div style="font-size: 28px; font-weight: 900; color: #ffffff; line-height: 1.1;">${data.kpis.warm.count} <span style="font-size: 13px; font-weight: 600; color: #fde68a;">${data.kpis.warm.countSub}</span></div>
+        <div style="font-size: 11px; color: #cbd5e1; margin-top: 6px; font-weight: 500;">
+          ${data.kpis.warm.desc}
+        </div>
+      </div>
+
+      <!-- KPI 3: Cool Leads -->
+      <div style="background: rgba(14, 165, 233, 0.08); border: 1.5px solid rgba(14, 165, 233, 0.35); border-radius: 18px; padding: 14px 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <span style="font-size: 11.5px; font-weight: 700; color: #38bdf8;">${data.kpis.cool.title}</span>
+          <span style="font-size: 10px; background: rgba(14, 165, 233, 0.25); color: #bae6fd; padding: 2px 7px; border-radius: 8px; font-weight: 700;">${data.kpis.cool.score}</span>
+        </div>
+        <div style="font-size: 28px; font-weight: 900; color: #ffffff; line-height: 1.1;">${data.kpis.cool.count} <span style="font-size: 13px; font-weight: 600; color: #bae6fd;">${data.kpis.cool.countSub}</span></div>
+        <div style="font-size: 11px; color: #cbd5e1; margin-top: 6px; font-weight: 500;">
+          ${data.kpis.cool.desc}
+        </div>
+      </div>
+
+      <!-- KPI 4: Total & Conversion Rate -->
+      <div style="background: rgba(0, 230, 118, 0.08); border: 1.5px solid rgba(0, 230, 118, 0.4); border-radius: 18px; padding: 14px 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <span style="font-size: 11.5px; font-weight: 800; color: #00e676;">${data.kpis.conversion.title}</span>
+          <span style="font-size: 10px; background: #00e676; color: #003319; padding: 2px 7px; border-radius: 8px; font-weight: 800;">${data.kpis.conversion.badge}</span>
+        </div>
+        <div style="font-size: 28px; font-weight: 900; color: #00e676; line-height: 1.1;">${data.kpis.conversion.count} <span style="font-size: 13px; font-weight: 600; color: #a7f3d0;">${data.kpis.conversion.countSub}</span></div>
+        <div style="font-size: 11px; color: #e2e8f0; margin-top: 6px; font-weight: 600;">
+          ${data.kpis.conversion.desc}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 3-Column Detailed Tier Cards (Hot / Warm / Cool) -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 16px; margin-bottom: 20px;">
+      
+      <!-- COLUMN 1: HOT LEADS -->
+      <div style="background: rgba(255,255,255,0.03); border: 1.5px solid rgba(239, 68, 68, 0.4); border-radius: 20px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <!-- Header -->
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(239,68,68,0.25); padding-bottom: 10px; margin-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 20px;">🔥</span>
+              <div>
+                <div style="font-size: 14px; font-weight: 800; color: #ef4444;">${data.hot.title}</div>
+                <div style="font-size: 10.5px; color: #94a3b8;">${data.hot.sub}</div>
+              </div>
+            </div>
+            <span style="font-size: 12px; font-weight: 800; color: #ef4444; background: rgba(239,68,68,0.15); padding: 3px 8px; border-radius: 10px;">
+              ${data.hot.countText}
+            </span>
+          </div>
+
+          <!-- Keywords List -->
+          <div style="margin-bottom: 14px;">
+            <div style="font-size: 10.5px; font-weight: 700; color: #f87171; margin-bottom: 6px;">🏷️ คีย์เวิร์ดที่ใช้ค้นหา / ทักแชท:</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+              ${renderKeywords(data.hot.keywords, 'rgba(239, 68, 68, 0.15)', '#fca5a5', 'rgba(239, 68, 68, 0.3)')}
+            </div>
+          </div>
+
+          <!-- Customer Cards -->
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            ${renderLeadCards(data.hot.leads)}
+          </div>
+        </div>
+
+        <div style="margin-top: 14px; background: rgba(239, 68, 68, 0.1); border-radius: 10px; padding: 8px 10px; font-size: 11px; color: #fca5a5;">
+          ⚡ <strong>กลยุทธ์ทีมขาย:</strong> ${data.hot.strategy}
+        </div>
+      </div>
+
+      <!-- COLUMN 2: WARM LEADS -->
+      <div style="background: rgba(255,255,255,0.03); border: 1.5px solid rgba(245, 158, 11, 0.4); border-radius: 20px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <!-- Header -->
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(245,158,11,0.25); padding-bottom: 10px; margin-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 20px;">🌤️</span>
+              <div>
+                <div style="font-size: 14px; font-weight: 800; color: #f59e0b;">${data.warm.title}</div>
+                <div style="font-size: 10.5px; color: #94a3b8;">${data.warm.sub}</div>
+              </div>
+            </div>
+            <span style="font-size: 12px; font-weight: 800; color: #f59e0b; background: rgba(245,158,11,0.15); padding: 3px 8px; border-radius: 10px;">
+              ${data.warm.countText}
+            </span>
+          </div>
+
+          <!-- Keywords List -->
+          <div style="margin-bottom: 14px;">
+            <div style="font-size: 10.5px; font-weight: 700; color: #fbbf24; margin-bottom: 6px;">🏷️ คีย์เวิร์ดที่ใช้ค้นหา / ทักแชท:</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+              ${renderKeywords(data.warm.keywords, 'rgba(245, 158, 11, 0.15)', '#fde68a', 'rgba(245, 158, 11, 0.3)')}
+            </div>
+          </div>
+
+          <!-- Customer Cards -->
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            ${renderLeadCards(data.warm.leads)}
+          </div>
+        </div>
+
+        <div style="margin-top: 14px; background: rgba(245, 158, 11, 0.1); border-radius: 10px; padding: 8px 10px; font-size: 11px; color: #fde68a;">
+          📋 <strong>กลยุทธ์ทีมขาย:</strong> ${data.warm.strategy}
+        </div>
+      </div>
+
+      <!-- COLUMN 3: COOL LEADS -->
+      <div style="background: rgba(255,255,255,0.03); border: 1.5px solid rgba(14, 165, 233, 0.4); border-radius: 20px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <!-- Header -->
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(14,165,233,0.25); padding-bottom: 10px; margin-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 20px;">❄️</span>
+              <div>
+                <div style="font-size: 14px; font-weight: 800; color: #0ea5e9;">${data.cool.title}</div>
+                <div style="font-size: 10.5px; color: #94a3b8;">${data.cool.sub}</div>
+              </div>
+            </div>
+            <span style="font-size: 12px; font-weight: 800; color: #0ea5e9; background: rgba(14,165,233,0.15); padding: 3px 8px; border-radius: 10px;">
+              ${data.cool.countText}
+            </span>
+          </div>
+
+          <!-- Keywords List -->
+          <div style="margin-bottom: 14px;">
+            <div style="font-size: 10.5px; font-weight: 700; color: #38bdf8; margin-bottom: 6px;">🏷️ คีย์เวิร์ดที่ใช้ค้นหา / ทักแชท:</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+              ${renderKeywords(data.cool.keywords, 'rgba(14, 165, 233, 0.15)', '#bae6fd', 'rgba(14, 165, 233, 0.3)')}
+            </div>
+          </div>
+
+          <!-- Customer Cards -->
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            ${renderLeadCards(data.cool.leads)}
+          </div>
+        </div>
+
+        <div style="margin-top: 14px; background: rgba(14, 165, 233, 0.1); border-radius: 10px; padding: 8px 10px; font-size: 11px; color: #bae6fd;">
+          🤖 <strong>กลยุทธ์ทีมขาย:</strong> ${data.cool.strategy}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Action Plan Banner at Bottom -->
+    <div style="background: rgba(255, 255, 255, 0.03); border: 1.5px solid rgba(255, 255, 255, 0.12); border-radius: 18px; padding: 14px 18px; display: flex; align-items: center; gap: 14px;">
+      <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(56, 189, 248, 0.2); border: 1px solid rgba(56, 189, 248, 0.4); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;">
+        💡
+      </div>
+      <div style="font-size: 12px; color: #cbd5e1; line-height: 1.4;">
+        <div style="font-weight: 800; color: #ffffff; margin-bottom: 2px;">📋 แผนการดำเนินงานทีมเซลส์ (Action Plan) - ${data.monthTitle}</div>
+        <div>${data.actionPlan.plan}</div>
+      </div>
+    </div>
+  `;
+}
+
+// Master Render Function
+function renderCustomerLeads(monthKey) {
+  const container = document.getElementById('sec-customer-leads');
+  if (!container) return;
+
+  // Render dynamic HTML for monthKey
+  container.innerHTML = generateCustomerLeadsHTML(monthKey);
+
+  // Preserve theme state
+  const currentTheme = container.getAttribute('data-bottom-theme') || 
+                       (typeof localStorage !== 'undefined' ? localStorage.getItem('citylink_bottom_theme') : null) || 
+                       'oled';
+  if (typeof setBottomTheme === 'function') {
+    setBottomTheme(currentTheme);
+  }
+}
+
+
+function recalculateDashboard() {
       const { filteredFb, filteredGoogle } = getFilteredData();
 
       const totalFbSpent = filteredFb.reduce((s, i) => s + i.spent, 0);
@@ -14282,3 +15971,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
