@@ -29,7 +29,7 @@
     font-family: "Noto Sans Thai", "Leelawadee UI", "Segoe UI", Tahoma, sans-serif;
     background: var(--bg); color: var(--ink); padding: 28px 0; min-height: 100vh;
   }
-  .stage { width: 1400px; margin: 0 auto; position: relative; }
+  .stage { width: 100%; max-width: 1400px; margin: 0 auto; position: relative; overflow: hidden; }
   .app { width: 1400px; display: grid; grid-template-columns: 230px 1fr; background: var(--shell); border-radius: 28px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.08); min-height: 820px; transform-origin: top left; }
   button, select, .fol-row, .bar { touch-action: manipulation; }
 
@@ -584,13 +584,13 @@ const DESIGN_W = 1400;
 function fitStage() {
   const stage = document.getElementById('stage'), app = document.getElementById('app');
   if (!stage || !app) return;
-  const vw = document.documentElement.clientWidth;
+  const vw = Math.min(window.innerWidth || 9999, document.documentElement.clientWidth || 9999);
   const pad = vw < 640 ? 6 : vw < 1100 ? 14 : 28;
   uiScale = Math.min(1, (vw - pad * 2) / DESIGN_W);
   document.body.style.padding = pad + 'px 0';
   app.style.transform = uiScale < 1 ? `scale(${uiScale})` : '';
-  stage.style.width = Math.round(DESIGN_W * uiScale) + 'px';
-  stage.style.height = Math.round(app.offsetHeight * uiScale) + 'px';
+  stage.style.width = Math.floor(DESIGN_W * uiScale) + 'px';
+  stage.style.height = Math.ceil(app.offsetHeight * uiScale) + 'px';
 }
 
 function render() {
