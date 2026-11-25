@@ -24,22 +24,11 @@
     --radius: 18px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  ::selection { background: var(--lime); color: var(--ink); }
   html, body { overflow-x: hidden; }
   body {
     font-family: "Noto Sans Thai", "Leelawadee UI", "Segoe UI", Tahoma, sans-serif;
     background: var(--bg); color: var(--ink); padding: 28px 0; min-height: 100vh;
   }
-  .kpi .val, .stat .v, .fp-big, td.r, .tier-row .num, .exec-metric b { font-variant-numeric: tabular-nums; }
-  .exec-hero { background: var(--panel); border-radius: var(--radius); padding: 18px 22px; display: grid; grid-template-columns: 1.55fr 1fr; gap: 20px; align-items: center; border: 1px solid var(--line); }
-  .exec-hero h2 { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.3; }
-  .exec-hero p { font-size: 13.5px; color: #464d55; line-height: 1.55; margin-top: 4px; max-width: 68ch; }
-  .exec-hero p b { color: var(--ink); }
-  .exec-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .exec-metric { background: #f6f8f8; border-radius: 12px; padding: 10px 12px; }
-  .exec-metric span { display: block; font-size: 11.5px; color: var(--muted); font-weight: 600; }
-  .exec-metric b { display: block; font-size: 17px; font-weight: 800; margin-top: 2px; color: var(--ink); }
-  .exec-metric small { display: block; font-size: 11px; color: var(--teal); font-weight: 700; margin-top: 2px; }
   .stage { width: 100%; max-width: 1400px; margin: 0 auto; position: relative; overflow: hidden; }
   .app { width: 1400px; display: grid; grid-template-columns: 230px 1fr; background: var(--shell); border-radius: 28px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.08); min-height: 820px; transform-origin: top left; }
   button, select, .fol-row, .bar { touch-action: manipulation; }
@@ -189,8 +178,6 @@
         <span class="scope-pill" id="scopePill">ทั้ง 2 เพจ</span>
       </div>
     </header>
-
-    <section class="exec-hero" id="execHero" aria-label="สรุปภาพรวมสำหรับผู้บริหาร"></section>
 
     <section class="grid-top">
       <div class="kpi k-lav">
@@ -606,41 +593,12 @@ function fitStage() {
   stage.style.height = Math.ceil(app.offsetHeight * uiScale) + 'px';
 }
 
-function renderExecHero() {
-  const spend = scopeVal('fbSpend') + scopeVal('ggSpend');
-  const budget = scopeVal('fbBudget') + scopeVal('ggBudget');
-  const usedPct = budget ? ((spend / budget) * 100).toFixed(1) : '0.0';
-  const msgs = scopeVal('msgs'), contacts = scopeVal('contacts'), visits = scopeVal('visits'), closed = scopeVal('closed');
-  const hot = scopeVal('hot'), warm = scopeVal('warm'), totalLeads = hot + warm + scopeVal('cool');
-  const infos = scopeKeys().map(k => ({ k, ...followerInfo(k) }));
-  const folNow = sum(infos.map(i => i.now)), folDiff = sum(infos.map(i => i.change));
-  const scopeLabel = state.scope === 'all' ? 'City Link Condo & Mayfair Market' : PAGES[state.scope].name;
-  const costPerMsg = msgs ? fmtB(spend / msgs) : '-';
-  const contactRate = msgs ? ((contacts / msgs) * 100).toFixed(1) + '%' : '-';
-  const hwPct = totalLeads ? (((hot + warm) / totalLeads) * 100).toFixed(0) + '%' : '-';
-
-  const summary = state.scope === 'mayfair'
-    ? `เพจ <b>${scopeLabel}</b> มีผู้ติดตามรวม <b>${fmtN(folNow)} คน</b> (${signed(folDiff)} คน${state.month === 'all' ? ' ทั้งปี' : ' ในเดือนนี้'}) • ตั้งงบ Facebook ไว้ ${fmtB(budget)}`
-    : `ภาพรวม <b>${scopeLabel}</b> ใช้งบจริง <b>${fmtB(spend)}</b> (${usedPct}% ของงบ ${fmtB(budget)}) • ทักเพจ <b>${fmtN(msgs)} ข้อความ</b> • เข้าชมโครงการ <b>${fmtN(visits)} ราย</b>${closed ? ` • ปิดการขาย <b>${fmtN(closed)} ยูนิต</b>` : ''} • ผู้ติดตามรวม <b>${fmtN(folNow)} คน</b> (${signed(folDiff)})`;
-
-  document.getElementById('execHero').innerHTML = `
-    <div>
-      <h2>สรุปผลลัพธ์สำหรับผู้บริหาร • ${periodLabel()}</h2>
-      <p>${summary}</p>
-    </div>
-    <div class="exec-metrics">
-      <div class="exec-metric"><span>ต้นทุน / ข้อความ</span><b>${costPerMsg}</b><small>FB + Google Ads</small></div>
-      <div class="exec-metric"><span>อัตราให้ข้อมูลติดต่อ</span><b>${contactRate}</b><small>${fmtN(contacts)} จาก ${fmtN(msgs)} ข้อความ</small></div>
-      <div class="exec-metric"><span>สัดส่วน Hot + Warm</span><b>${hwPct}</b><small>${fmtN(hot + warm)} จาก ${fmtN(totalLeads)} ราย</small></div>
-    </div>`;
-}
-
 function render() {
   const scopeName = { all: 'ทั้ง 2 เพจ', clc: 'City Link Condo', mayfair: 'Mayfair Market' }[state.scope];
   document.getElementById('title').textContent = state.scope === 'all' ? 'Dashboard ภาพรวม' : 'Dashboard • ' + scopeName;
   document.getElementById('scopePill').textContent = scopeName;
   document.getElementById('monthSel').value = String(state.month);
-  renderExecHero(); renderKpis(); renderChart(); renderTiers();
+  renderKpis(); renderChart(); renderTiers();
   fitStage();
 }
 
