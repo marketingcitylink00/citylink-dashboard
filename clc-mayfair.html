@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketing Dashboard • City Link Condo & Mayfair Market 2569</title>
+<style>
+  :root {
+    --bg: #e9ecec;
+    --shell: #f2f4f4;
+    --panel: #ffffff;
+    --side: #fafbfb;
+    --ink: #1c1f23;
+    --muted: #7a8088;
+    --line: #e6e9eb;
+    --lime: #d6f36a;
+    --lavender: #cfc4fb;
+    --blue: #b6cffc;
+    --mint: #a3e6bf;
+    --teal: #1f9d98;
+    --hot: #ef5b5b;
+    --warm: #f2a93b;
+    --cool: #4aa3e8;
+    --radius: 18px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { overflow-x: hidden; }
+  body {
+    font-family: "Noto Sans Thai", "Leelawadee UI", "Segoe UI", Tahoma, sans-serif;
+    background: var(--bg); color: var(--ink); padding: 28px 0; min-height: 100vh;
+  }
+  .stage { width: 1400px; margin: 0 auto; position: relative; }
+  .app { width: 1400px; display: grid; grid-template-columns: 230px 1fr; background: var(--shell); border-radius: 28px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.08); min-height: 820px; transform-origin: top left; }
+  button, select, .fol-row, .bar { touch-action: manipulation; }
+
+  /* Sidebar */
+  .side { background: var(--side); padding: 28px 18px; display: flex; flex-direction: column; gap: 28px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; padding: 0 8px; }
+  .brand-mark { width: 34px; height: 34px; border-radius: 10px; background: var(--ink); color: var(--lime); display: grid; place-items: center; font-size: 15px; font-weight: 900; }
+  .nav { display: flex; flex-direction: column; gap: 6px; }
+  .nav button { all: unset; cursor: pointer; display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-radius: 12px; font-size: 14px; font-weight: 600; color: #3a3f45; transition: background .15s; }
+  .nav button:hover { background: #eef1f1; }
+  .nav button.active { background: var(--lime); color: var(--ink); }
+  .nav button:focus-visible { outline: 2px solid var(--teal); }
+  .nav .ico { width: 20px; text-align: center; }
+  .side-foot { margin-top: auto; text-align: center; font-size: 12px; color: var(--muted); }
+  .side-foot .avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, var(--lavender), var(--mint)); margin: 0 auto 10px; display: grid; place-items: center; font-weight: 800; font-size: 18px; }
+  .side-foot strong { display: block; color: var(--ink); font-size: 14px; }
+
+  /* Main */
+  .main { padding: 28px 30px 36px; display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+  .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .topbar h1 { font-size: 26px; font-weight: 800; }
+  .topbar p { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .month-select { appearance: none; border: 1px solid var(--line); background: var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231c1f23' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat right 14px center; padding: 11px 40px 11px 16px; border-radius: 12px; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; min-width: 200px; }
+  .month-select:focus-visible { outline: 2px solid var(--teal); }
+  .sub-filter { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .inline-month { appearance: none; border: 1px solid transparent; background: #e4f5a9 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%231c1f23' stroke-width='1.6' fill='none'/%3E%3C/svg%3E") no-repeat right 10px center; color: var(--ink); font: inherit; font-size: 13px; font-weight: 700; padding: 4px 28px 4px 10px; border-radius: 8px; cursor: pointer; }
+  .inline-month:hover { border-color: #b9d84a; }
+  .inline-month:focus-visible { outline: 2px solid var(--teal); }
+  .scope-pill { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; font-size: 13px; font-weight: 700; }
+
+  .grid-top { display: grid; grid-template-columns: repeat(3, 1fr) 1.1fr; gap: 18px; }
+  .kpi { border-radius: var(--radius); padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; min-height: 128px; }
+  .kpi .lbl { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; }
+  .kpi .lbl span { width: 24px; height: 24px; border-radius: 50%; background: rgba(255,255,255,0.65); display: grid; place-items: center; font-size: 12px; }
+  .kpi .val { font-size: 28px; font-weight: 800; text-align: center; margin-top: 6px; letter-spacing: -0.5px; }
+  .kpi .sub { font-size: 12px; text-align: center; color: #3d434a; }
+  .delta { font-weight: 800; }
+  .delta.up { color: #13814a; } .delta.down { color: #c13a3a; } .delta.flat { color: var(--muted); }
+  .k-lav { background: var(--lavender); } .k-blue { background: var(--blue); } .k-mint { background: var(--mint); }
+  .k-teal { background: var(--teal); color: #fff; }
+  .k-teal .sub { color: #d9f5f3; text-align: left; }
+  .k-teal .val { text-align: left; }
+  .k-teal .fol-row { display: flex; justify-content: space-between; font-size: 12.5px; margin-top: 4px; }
+  .k-teal .fol-row b { font-size: 14px; }
+  .k-teal .fol-row { cursor: pointer; padding: 3px 8px; margin: 1px -8px; border-radius: 8px; transition: background .15s; }
+  .k-teal .fol-row:hover, .k-teal .fol-row:focus-visible, .k-teal .fol-row.pinned { background: rgba(255,255,255,0.18); outline: none; }
+  .k-teal .fol-row .more { opacity: .7; font-size: 11px; margin-left: 4px; }
+  #kSpendRows { margin-top: 8px; border-top: 1px dashed rgba(28,31,35,0.18); padding-top: 6px; }
+  .k-lav .fol-row { display: flex; justify-content: space-between; font-size: 12.5px; cursor: pointer; padding: 3px 8px; margin: 1px -8px; border-radius: 8px; transition: background .15s; }
+  .k-lav .fol-row b { font-size: 14px; }
+  .k-lav .fol-row:hover, .k-lav .fol-row:focus-visible, .k-lav .fol-row.pinned { background: rgba(255,255,255,0.5); outline: none; }
+  .k-lav .fol-row .more { opacity: .6; font-size: 11px; margin-left: 4px; }
+  .fol-pop { position: fixed; z-index: 50; width: 290px; background: var(--panel); color: var(--ink); border-radius: 16px; padding: 16px; box-shadow: 0 18px 40px rgba(0,0,0,0.18); border: 1px solid var(--line); opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity .15s ease-out, transform .15s ease-out; }
+  .fol-pop.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  .fol-pop .fp-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .fol-pop .fp-logo { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; font-weight: 900; font-size: 13px; }
+  .fol-pop .fp-head b { display: block; font-size: 14px; }
+  .fol-pop .fp-head small { color: var(--muted); font-size: 11.5px; }
+  .fol-pop .fp-big { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; }
+  .fol-pop .fp-chip { display: inline-block; margin: 4px 0 12px; padding: 4px 10px; border-radius: 8px; font-size: 12px; font-weight: 800; }
+  .fp-chip.up { background: #dcf5e6; color: #13814a; } .fp-chip.down { background: #fde3e3; color: #b42f2f; } .fp-chip.flat { background: #eef0f1; color: var(--muted); }
+  .fol-pop .fp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .fol-pop .fp-cell { background: #f6f8f8; border-radius: 10px; padding: 8px 10px; }
+  .fol-pop .fp-cell span { display: block; font-size: 11px; color: var(--muted); font-weight: 600; }
+  .fol-pop .fp-cell b { font-size: 13.5px; }
+  .fol-pop svg { width: 100%; height: 56px; margin-top: 10px; display: block; }
+  .fol-pop .fp-note { font-size: 10.5px; color: var(--muted); margin-top: 4px; }
+  .chip-lime { display: inline-block; background: var(--lime); color: var(--ink); border-radius: 8px; padding: 5px 10px; font-size: 11.5px; font-weight: 800; margin-top: auto; align-self: flex-start; }
+
+  .panel { background: var(--panel); border-radius: var(--radius); padding: 20px 22px; min-width: 0; }
+  .panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; gap: 10px; flex-wrap: wrap; }
+  .panel-head h2 { font-size: 18px; font-weight: 800; }
+  .panel-head small { color: var(--muted); font-size: 12px; display: block; font-weight: 500; margin-top: 2px; }
+  .legend { display: flex; gap: 14px; font-size: 12px; color: var(--muted); }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+
+  .grid-mid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 18px; }
+  .chart-wrap { position: relative; }
+  .chart-wrap svg { width: 100%; height: 240px; display: block; }
+  .bar { cursor: pointer; transition: opacity .15s; }
+  .tip { position: absolute; pointer-events: none; background: var(--ink); color: #fff; font-size: 12px; padding: 8px 10px; border-radius: 10px; white-space: nowrap; opacity: 0; transform: translate(-50%, -110%); transition: opacity .12s; line-height: 1.5; }
+
+  .tier { display: flex; flex-direction: column; gap: 14px; }
+  .tier-row { display: grid; grid-template-columns: 92px 1fr 66px; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; }
+  .tier-track { height: 12px; border-radius: 99px; background: #f0f2f3; overflow: hidden; }
+  .tier-fill { height: 100%; border-radius: 99px; transition: width .4s ease-out; }
+  .tier-row .num { text-align: right; font-size: 15px; }
+  .tier-row .num small { color: var(--muted); font-weight: 600; font-size: 11px; display: block; }
+  .tier-total { display: flex; justify-content: space-between; border-top: 1px dashed var(--line); padding-top: 12px; font-size: 13px; color: var(--muted); }
+  .tier-total b { color: var(--ink); }
+  .note { font-size: 11.5px; color: var(--muted); margin-top: 10px; }
+  .stat { background: #f6f8f8; border-radius: 14px; padding: 12px 14px; }
+  .stat .t { font-size: 12px; color: var(--muted); font-weight: 600; }
+  .stat .v { font-size: 19px; font-weight: 800; margin-top: 2px; }
+  .stat .s { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; color: var(--muted); font-weight: 600; padding: 10px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  td { padding: 11px 8px; border-bottom: 1px solid #f1f3f4; white-space: nowrap; }
+  td.r, th.r { text-align: right; }
+  tr.sel td { background: #f4fbdc; font-weight: 700; }
+  tbody tr { cursor: pointer; }
+  tbody tr:hover td { background: #f7f9f9; }
+  .table-scroll { overflow-x: auto; }
+
+  .grid-ga { display: grid; grid-template-columns: 1fr 1.4fr; gap: 18px; }
+  .ga-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .ga-badge { background: #e6f6f5; color: var(--teal); font-size: 11.5px; font-weight: 800; padding: 5px 10px; border-radius: 8px; }
+  .ch-bar { height: 8px; border-radius: 99px; background: var(--blue); }
+  .empty { color: var(--muted); font-weight: 600; }
+
+  .hidden { display: none !important; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  @media print { body { background: #fff; padding: 0 !important; } .side, .controls { display: none; } .stage { width: 100% !important; height: auto !important; } .app { width: 100% !important; transform: none !important; grid-template-columns: 1fr; box-shadow: none; } }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+<div class="app" id="app">
+  <aside class="side">
+    <div class="brand"><div class="brand-mark">CL</div>CLC Marketing</div>
+    <nav class="nav" id="nav">
+      <button data-scope="all" class="active"><span class="ico">▦</span>ภาพรวมทั้งหมด</button>
+      <button data-scope="clc"><span class="ico">🏢</span>City Link Condo</button>
+      <button data-scope="mayfair"><span class="ico">🎪</span>Mayfair Market</button>
+      <button data-jump="sec-ga"><span class="ico">📈</span>Google Analytics</button>
+    </nav>
+    <div class="side-foot">
+      <div class="avatar">MK</div>
+      <strong>ฝ่ายการตลาด</strong>
+      City Link Condo • Mayfair
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1 id="title">Dashboard ภาพรวม</h1>
+        <p class="sub-filter">ข้อมูลการตลาด •
+          <select id="monthSel" class="inline-month" aria-label="เลือกเดือนเพื่อดูข้อมูลย้อนหลัง" title="เลือกเดือนเพื่อดูข้อมูลย้อนหลัง"></select>
+        </p>
+      </div>
+      <div class="controls">
+        <span class="scope-pill" id="scopePill">ทั้ง 2 เพจ</span>
+      </div>
+    </header>
+
+    <section class="grid-top">
+      <div class="kpi k-lav">
+        <div class="lbl"><span>฿</span>งบโฆษณาใช้จริง (FB + Google)</div>
+        <div class="val" id="kSpend">-</div>
+        <div class="sub" id="kSpendSub">-</div>
+        <div id="kSpendRows"></div>
+      </div>
+      <div class="kpi k-blue">
+        <div class="lbl"><span>💬</span>ข้อความทักเพจ</div>
+        <div class="val" id="kMsg">-</div>
+        <div class="sub" id="kMsgSub">-</div>
+      </div>
+      <div class="kpi k-mint">
+        <div class="lbl"><span>🏠</span>การเข้าชมโครงการ</div>
+        <div class="val" id="kVisit">-</div>
+        <div class="sub" id="kVisitSub">-</div>
+      </div>
+      <div class="kpi k-teal">
+        <div class="lbl"><span>👥</span>ผู้ติดตามเพจ</div>
+        <div class="val" id="kFol">-</div>
+        <div id="kFolRows"></div>
+        <span class="chip-lime" id="kFolChip">-</span>
+      </div>
+    </section>
+
+    <section class="grid-mid">
+      <div class="panel">
+        <div class="panel-head">
+          <div><h2>งบโฆษณารายเดือน</h2><small>คลิกแท่งกราฟเพื่อเลือกเดือน</small></div>
+          <div class="legend"><span><i style="background:var(--lavender)"></i>Facebook Ads</span><span><i style="background:var(--mint)"></i>Google Ads</span></div>
+        </div>
+        <div class="chart-wrap" id="chartWrap"><svg id="chart" role="img" aria-label="กราฟงบโฆษณารายเดือน"></svg><div class="tip" id="tip"></div></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h2>Hot / Warm / Cool</h2><small id="tierSub">ระดับความสนใจลูกค้า</small></div></div>
+        <div class="tier" id="tier"></div>
+        <p class="note" id="tierNote"></p>
+      </div>
+    </section>
+
+    <section class="grid-ga" id="sec-ga">
+      <div class="panel">
+        <div class="panel-head"><div><h2>Google Analytics</h2><small>เว็บไซต์ City Link Condo (Klang Casa)</small></div><span class="ga-badge">26 ต.ค. – 22 พ.ย. 69</span></div>
+        <div class="ga-stats" id="gaStats"></div>
+        <p class="note">GA4 มีข้อมูลรอบล่าสุดรอบเดียว จึงแสดงค่าเดิมทุกเดือนที่เลือก • สถิติสูงสุดรายวัน 18 พ.ย. (27 คน)</p>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h2>ช่องทางที่เข้าเว็บไซต์</h2><small>Users / Sessions แยกตามแหล่งที่มา</small></div></div>
+        <div class="table-scroll"><table id="gaTable"></table></div>
+      </div>
+    </section>
+  </main>
+</div>
+</div>
+
+<div class="fol-pop" id="folPop" role="tooltip" aria-hidden="true"></div>
+
+<script>
+const MONTHS = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.'];
+const MONTH_FULL = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน'];
+
+// Source: ตารางข้อมูลการโฆษณาออนไลน์ ประจำปี 2569 Vol.2 + Hot/Warm/Cool from Inbox keyword classification
+const PAGES = {
+  clc: {
+    name: 'City Link Condo', short: 'City Link', logo: 'CL', logoBg: '#1c1f23', logoFg: '#d6f36a',
+    followerBase: 19421,
+    fbBudget: [41000, 41000, 41000, 30000, 30000, 30000, 30000, 30000, 30000, 20000, 20000],
+    fbSpend: [21458.08, 11896.36, 14961.03, 2562.87, 19055.16, 4514.95, 16320.13, 17068.90, 25423.32, 16945.11, 8801.86],
+    ggBudget: [6000, 6000, 6000, 6000, 6000, 6000, 6000, 6000, 6000, 6000, 0],
+    ggSpend: [5643.00, 3676.40, 3720.72, 1377.84, 5000.00, 1754.83, 3630.99, 4814.35, 4147.58, 1281.83, 0],
+    ggClicks: [10332, 9342, 5201, 0, 2306, 4223, 4754, 10094, 7496, 4849, 0],
+    msgs: [117, 83, 111, 12, 81, 53, 138, 81, 39, 38, 12],
+    contacts: [10, 12, 4, 4, 3, 6, 3, 11, 10, 5, 4],
+    visits: [3, 2, 2, 2, 0, 1, 1, 1, 0, 0, 2],
+    closed: [1, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0],
+    hot: [3, 4, 2, 1, 1, 2, 1, 5, 5, 4, 3],
+    warm: [5, 6, 1, 2, 1, 3, 1, 4, 4, 7, 6],
+    cool: [2, 2, 1, 1, 1, 1, 1, 1, 1, 32, 2],
+    followers: [19440, 19415, 19391, 19397, 19376, 19360, 19351, 19392, 19381, 19379, 19359]
+  },
+  mayfair: {
+    name: 'Mayfair Market', short: 'Mayfair', logo: 'MF', logoBg: '#cfc4fb', logoFg: '#1c1f23',
+    followerBase: 33927,
+    fbBudget: [0, 0, 0, 4000, 4000, 4000, 4000, 4000, 4000, 4000, 4000],
+    fbSpend: Array(11).fill(0),
+    ggBudget: Array(11).fill(0),
+    ggSpend: Array(11).fill(0),
+    ggClicks: Array(11).fill(0),
+    msgs: Array(11).fill(0),
+    contacts: Array(11).fill(0),
+    visits: Array(11).fill(0),
+    closed: Array(11).fill(0),
+    hot: Array(11).fill(0),
+    warm: Array(11).fill(0),
+    cool: Array(11).fill(0),
+    followers: [33927, 34328, 34353, 35324, 35712, 36001, 36017, 36228, 36422, 36592, 37808]
+  }
+};
+
+const GA4 = {
+  totalUsers: 319,
+  totalSessions: 415,
+  stats: [
+    { t: 'ผู้ใช้งาน (Active Users)', v: '319 คน', s: 'ผู้ใช้ใหม่ 319 คน' },
+    { t: 'เซสชัน (Sessions)', v: '415 ครั้ง', s: 'ผู้กลับมาใช้ซ้ำ 41 เซสชัน' },
+    { t: 'การดูหน้าเว็บ (Views)', v: '867 ครั้ง', s: 'กิจกรรม 2,430 ครั้ง' },
+    { t: 'เวลาใช้งานเฉลี่ย', v: '34.2 วินาที', s: 'Engagement 40.2% • Bounce 59.8%' }
+  ],
+  channels: [
+    ['Direct (เข้าตรง)', 145, 185], ['Google Organic (SEO)', 108, 129], ['Google Ads', 27, 42],
+    ['eaksahagroup.com', 12, 18], ['Facebook', 12, 14], ['ChatGPT (AI)', 2, 2], ['อื่นๆ', 15, 27]
+  ]
+};
+
+const state = { month: MONTHS.length - 1, scope: 'all' }; // month = index or 'all'
+
+const fmtB = n => '฿' + n.toLocaleString('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const fmtN = n => n.toLocaleString('th-TH');
+const sum = arr => arr.reduce((a, b) => a + b, 0);
+const scopeKeys = () => state.scope === 'all' ? ['clc', 'mayfair'] : [state.scope];
+
+// Value of a metric for one page in the selected period (month index or full year)
+function pageVal(key, metric, month = state.month) {
+  const arr = PAGES[key][metric];
+  return month === 'all' ? sum(arr) : arr[month];
+}
+const scopeVal = (metric, month = state.month) => sum(scopeKeys().map(k => pageVal(k, metric, month)));
+
+function followerInfo(key, month = state.month) {
+  const p = PAGES[key];
+  const idx = month === 'all' ? MONTHS.length - 1 : month;
+  const prev = month === 'all' ? p.followerBase : (idx === 0 ? p.followerBase : p.followers[idx - 1]);
+  return { now: p.followers[idx], change: p.followers[idx] - prev };
+}
+
+function deltaHtml(cur, prev, label = 'จากเดือนก่อน') {
+  if (state.month === 'all' || state.month === 0) return '';
+  if (cur === prev) return `<span class="delta flat">● เท่าเดิม</span> ${label}`;
+  const up = cur > prev;
+  const pct = prev ? ` (${up ? '+' : ''}${(((cur - prev) / prev) * 100).toFixed(1)}%)` : '';
+  return `<span class="delta ${up ? 'up' : 'down'}">${up ? '▲' : '▼'} ${fmtN(Math.abs(Math.round(cur - prev)))}${pct}</span> ${label}`;
+}
+const signed = n => (n > 0 ? '+' : '') + fmtN(n);
+const periodLabel = () => state.month === 'all' ? 'ทั้งปี 2569 (ม.ค. – พ.ย.)' : `${MONTH_FULL[state.month]} 2569`;
+
+function renderKpis() {
+  const prevM = typeof state.month === 'number' && state.month > 0 ? state.month - 1 : null;
+  const spend = scopeVal('fbSpend') + scopeVal('ggSpend');
+  const budget = scopeVal('fbBudget') + scopeVal('ggBudget');
+  document.getElementById('kSpend').textContent = fmtB(spend);
+  const prevSpend = prevM === null ? 0 : scopeVal('fbSpend', prevM) + scopeVal('ggSpend', prevM);
+  document.getElementById('kSpendSub').innerHTML =
+    `งบตั้ง ${fmtB(budget)} • ใช้ไป ${budget ? ((spend / budget) * 100).toFixed(1) : 0}%<br>${deltaHtml(spend, prevSpend)}`;
+  document.getElementById('kSpendRows').innerHTML = [['fb', 'Facebook Ads'], ['gg', 'Google Ads']].map(([ch, label]) =>
+    `<div class="fol-row" data-pop="ad" data-ch="${ch}" tabindex="0" title="ดูรายละเอียดงบ ${label}"><span>${label}<span class="more">ⓘ</span></span><b>${fmtB(scopeVal(ch + 'Spend'))}</b></div>`).join('');
+
+  const msgs = scopeVal('msgs'), contacts = scopeVal('contacts');
+  document.getElementById('kMsg').textContent = fmtN(msgs) + ' ข้อความ';
+  document.getElementById('kMsgSub').innerHTML =
+    `ให้ข้อมูลติดต่อ ${fmtN(contacts)} ราย (${msgs ? ((contacts / msgs) * 100).toFixed(0) : 0}%)<br>${deltaHtml(msgs, prevM === null ? 0 : scopeVal('msgs', prevM))}`;
+
+  const visits = scopeVal('visits');
+  document.getElementById('kVisit').textContent = fmtN(visits) + ' ราย';
+  document.getElementById('kVisitSub').innerHTML =
+    `ปิดการขาย ${fmtN(scopeVal('closed'))} ยูนิต<br>${deltaHtml(visits, prevM === null ? 0 : scopeVal('visits', prevM))}`;
+
+  const keys = scopeKeys();
+  const infos = keys.map(k => ({ k, ...followerInfo(k) }));
+  document.getElementById('kFol').textContent = fmtN(sum(infos.map(i => i.now))) + ' คน';
+  document.getElementById('kFolRows').innerHTML = infos.map(i =>
+    `<div class="fol-row" data-k="${i.k}" tabindex="0" title="ดูรายละเอียดผู้ติดตามเพจ ${PAGES[i.k].name}"><span>${PAGES[i.k].short}<span class="more">ⓘ</span></span><b>${fmtN(i.now)} <small>(${signed(i.change)})</small></b></div>`).join('');
+  bindFollowerPopup();
+  const totalChange = sum(infos.map(i => i.change));
+  document.getElementById('kFolChip').textContent =
+    `${state.month === 'all' ? 'เติบโตทั้งปี' : 'เปลี่ยนแปลงเดือนนี้'} ${signed(totalChange)} คน`;
+}
+
+// ---- Follower popup: per-page detail shown on hover / focus / click of each row in the teal card ----
+let pinnedFolRow = null;
+
+function followerPopupHtml(key) {
+  const p = PAGES[key];
+  const idx = state.month === 'all' ? MONTHS.length - 1 : state.month;
+  const f = followerInfo(key);
+  const prevMonthVal = idx === 0 ? p.followerBase : p.followers[idx - 1];
+  const ytd = p.followers[idx] - p.followerBase;
+  const totalNow = PAGES.clc.followers[idx] + PAGES.mayfair.followers[idx];
+  const cls = f.change > 0 ? 'up' : f.change < 0 ? 'down' : 'flat';
+  const pctOf = (d, base) => base ? `${d > 0 ? '+' : ''}${((d / base) * 100).toFixed(2)}%` : '0%';
+  const changeLabel = state.month === 'all' ? 'เติบโตทั้งปี' : `เปลี่ยนแปลงเดือน ${MONTHS[idx]}`;
+
+  // Sparkline of monthly followers, selected month highlighted
+  const vals = p.followers, W = 258, H = 56, pad = 6;
+  const lo = Math.min(...vals), hi = Math.max(...vals), span = hi - lo || 1;
+  const pt = (v, i) => [pad + (i * (W - pad * 2)) / (vals.length - 1), H - pad - ((v - lo) / span) * (H - pad * 2)];
+  const path = vals.map((v, i) => (i ? 'L' : 'M') + pt(v, i).map(n => n.toFixed(1)).join(' ')).join(' ');
+  const [sx, sy] = pt(vals[idx], idx);
+  const color = key === 'clc' ? '#1f9d98' : '#8b74f2';
+
+  return `
+    <div class="fp-head"><div class="fp-logo" style="background:${p.logoBg};color:${p.logoFg}">${p.logo}</div>
+      <div><b>เพจ ${p.name}</b><small>${periodLabel()}</small></div></div>
+    <div class="fp-big">${fmtN(f.now)} คน</div>
+    <span class="fp-chip ${cls}">${cls === 'up' ? '▲' : cls === 'down' ? '▼' : '●'} ${changeLabel} ${signed(f.change)} คน (${pctOf(f.change, f.now - f.change)})</span>
+    <div class="fp-grid">
+      <div class="fp-cell"><span>${state.month === 'all' ? 'ยอดต้นปี' : 'เดือนก่อนหน้า'}</span><b>${fmtN(state.month === 'all' ? p.followerBase : prevMonthVal)} คน</b></div>
+      <div class="fp-cell"><span>เติบโตสะสมปี 2569</span><b>${signed(ytd)} (${pctOf(ytd, p.followerBase)})</b></div>
+      <div class="fp-cell"><span>สัดส่วนของ 2 เพจ</span><b>${((p.followers[idx] / totalNow) * 100).toFixed(1)}%</b></div>
+      <div class="fp-cell"><span>สูงสุดในปี</span><b>${fmtN(hi)} คน</b></div>
+    </div>
+    <svg viewBox="0 0 ${W} ${H}" aria-hidden="true">
+      <path d="${path}" fill="none" stroke="${color}" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+      <circle cx="${sx}" cy="${sy}" r="4.5" fill="${color}" stroke="#fff" stroke-width="2"/>
+    </svg>
+    <div class="fp-note">แนวโน้มผู้ติดตาม ม.ค. – พ.ย. 2569 • จุด = เดือนที่เลือก</div>`;
+}
+
+// Ad budget popup: Facebook ('fb') or Google ('gg') spend detail for the current scope and month
+function adPopupHtml(ch) {
+  const isFb = ch === 'fb';
+  const spendKey = ch + 'Spend', budgetKey = ch + 'Budget';
+  const spend = scopeVal(spendKey), budget = scopeVal(budgetKey);
+  const used = budget ? (spend / budget) * 100 : 0;
+  const idx = state.month === 'all' ? MONTHS.length - 1 : state.month;
+  const keys = scopeKeys();
+
+  let chip;
+  if (state.month === 'all' || state.month === 0) {
+    chip = `<span class="fp-chip flat">● ${state.month === 'all' ? 'ยอดรวมทั้งปี 2569' : 'เดือนแรกของปี'}</span>`;
+  } else {
+    const prev = scopeVal(spendKey, state.month - 1), d = spend - prev;
+    const cls = d > 0 ? 'up' : d < 0 ? 'down' : 'flat';
+    const pct = prev ? ` (${d > 0 ? '+' : ''}${((d / prev) * 100).toFixed(1)}%)` : '';
+    chip = `<span class="fp-chip ${cls}">${cls === 'up' ? '▲' : cls === 'down' ? '▼' : '●'} ${d >= 0 ? '+' : '−'}${fmtB(Math.abs(d))}${pct} จากเดือนก่อน</span>`;
+  }
+
+  const pageRows = keys.map(k => {
+    const s = pageVal(k, spendKey), b = pageVal(k, budgetKey);
+    return `<div class="fp-cell"><span>${PAGES[k].name}</span><b>${fmtB(s)}</b><span>${b ? 'งบตั้ง ' + fmtB(b) : 'ไม่มีงบตั้ง'}</span></div>`;
+  }).join('');
+
+  const msgs = scopeVal('msgs'), clicks = scopeVal('ggClicks');
+  const efficiency = isFb
+    ? `<div class="fp-cell"><span>ต้นทุนต่อ 1 ข้อความ</span><b>${msgs ? fmtB(spend / msgs) : '-'}</b></div>`
+    : `<div class="fp-cell"><span>การโต้ตอบ / ต้นทุนต่อคลิก</span><b>${fmtN(clicks)} • ${clicks ? fmtB(spend / clicks) : '-'}</b></div>`;
+  const ytd = sum(keys.map(k => sum(PAGES[k][spendKey])));
+
+  // Sparkline of monthly spend for this channel (current scope)
+  const vals = MONTHS.map((_, i) => sum(keys.map(k => PAGES[k][spendKey][i])));
+  const W = 258, H = 56, pad = 6, hi = Math.max(1, ...vals), slot = (W - pad * 2) / vals.length;
+  const color = isFb ? '#8b74f2' : '#2fae6e';
+  const bars = vals.map((v, i) => {
+    const h = (v / hi) * (H - pad * 2), sel = state.month === 'all' || state.month === i;
+    return `<rect x="${(pad + slot * i + slot * 0.2).toFixed(1)}" y="${(H - pad - h).toFixed(1)}" width="${(slot * 0.6).toFixed(1)}" height="${h.toFixed(1)}" rx="2" fill="${color}" opacity="${sel ? 1 : 0.3}"/>`;
+  }).join('');
+
+  return `
+    <div class="fp-head"><div class="fp-logo" style="background:${isFb ? '#1877f2' : '#e6f4ea'};color:${isFb ? '#fff' : '#1e8e3e'}">${isFb ? 'FB' : 'G'}</div>
+      <div><b>งบโฆษณา ${isFb ? 'Facebook Ads' : 'Google Ads'}</b><small>${periodLabel()} • ${state.scope === 'all' ? 'ทั้ง 2 เพจ' : PAGES[state.scope].name}</small></div></div>
+    <div class="fp-big">${fmtB(spend)}</div>
+    ${chip}
+    <div class="fp-grid">
+      <div class="fp-cell"><span>งบที่ตั้งไว้</span><b>${budget ? fmtB(budget) : 'ไม่มีงบตั้ง'}</b></div>
+      <div class="fp-cell"><span>ใช้งบไปแล้ว</span><b>${used.toFixed(1)}%</b></div>
+      ${pageRows}
+      ${efficiency}
+      <div class="fp-cell"><span>ใช้จริงรวมทั้งปี</span><b>${fmtB(ytd)}</b></div>
+    </div>
+    <svg viewBox="0 0 ${W} ${H}" aria-hidden="true">${bars}</svg>
+    <div class="fp-note">งบใช้จริงรายเดือน ม.ค. – ${MONTHS[MONTHS.length - 1]} 2569 • แท่งเข้ม = เดือนที่เลือก</div>`;
+}
+
+function showFollowerPopup(row) {
+  const pop = document.getElementById('folPop');
+  pop.innerHTML = row.dataset.pop === 'ad' ? adPopupHtml(row.dataset.ch) : followerPopupHtml(row.dataset.k);
+  const r = row.getBoundingClientRect(), pw = Math.min(290, window.innerWidth - 24), gap = 12;
+  pop.style.width = pw + 'px';
+  const card = row.closest('.kpi').getBoundingClientRect();
+  pop.classList.add('show');
+  pop.setAttribute('aria-hidden', 'false');
+  const ph = pop.offsetHeight;
+  const top = Math.max(12, Math.min(window.innerHeight - ph - 12, r.top - 24));
+  // Open beside the card (left, else right) when space permits; center/clamp inside narrow mobile viewports
+  if (card.left - pw - gap >= 12) {
+    pop.style.left = (card.left - pw - gap) + 'px';
+    pop.style.top = top + 'px';
+  } else if (card.right + gap + pw <= window.innerWidth - 12) {
+    pop.style.left = (card.right + gap) + 'px';
+    pop.style.top = top + 'px';
+  } else {
+    pop.style.left = Math.max(12, Math.min(window.innerWidth - pw - 12, (window.innerWidth - pw) / 2)) + 'px';
+    pop.style.top = Math.max(12, Math.min(window.innerHeight - ph - 12, r.bottom + 10)) + 'px';
+  }
+}
+
+function hideFollowerPopup(force = false) {
+  if (pinnedFolRow && !force) return;
+  const pop = document.getElementById('folPop');
+  pop.classList.remove('show');
+  pop.setAttribute('aria-hidden', 'true');
+  if (force && pinnedFolRow) { pinnedFolRow.classList.remove('pinned'); pinnedFolRow = null; }
+}
+
+function bindFollowerPopup() {
+  pinnedFolRow = null;
+  hideFollowerPopup(true);
+  document.querySelectorAll('#kFolRows .fol-row, #kSpendRows .fol-row').forEach(row => {
+    row.addEventListener('mouseenter', () => { if (!pinnedFolRow) showFollowerPopup(row); });
+    row.addEventListener('mouseleave', () => hideFollowerPopup());
+    row.addEventListener('focus', () => { if (!pinnedFolRow) showFollowerPopup(row); });
+    row.addEventListener('blur', () => hideFollowerPopup());
+    row.addEventListener('click', e => {
+      e.stopPropagation();
+      if (pinnedFolRow === row) { hideFollowerPopup(true); return; }
+      if (pinnedFolRow) pinnedFolRow.classList.remove('pinned');
+      pinnedFolRow = row;
+      row.classList.add('pinned');
+      showFollowerPopup(row);
+    });
+    row.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); row.click(); } });
+  });
+}
+
+document.addEventListener('click', e => { if (!e.target.closest('#folPop')) hideFollowerPopup(true); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hideFollowerPopup(true); });
+window.addEventListener('scroll', () => hideFollowerPopup(true), { passive: true });
+
+function renderChart() {
+  const svg = document.getElementById('chart');
+  const W = 640, H = 240, padL = 46, padB = 28, padT = 10;
+  const keys = scopeKeys();
+  const fb = MONTHS.map((_, i) => sum(keys.map(k => PAGES[k].fbSpend[i])));
+  const gg = MONTHS.map((_, i) => sum(keys.map(k => PAGES[k].ggSpend[i])));
+  const max = Math.max(5000, ...fb, ...gg);
+  const top = Math.ceil(max / 5000) * 5000;
+  const plotH = H - padB - padT, slot = (W - padL) / MONTHS.length, bw = Math.min(14, slot / 3.2);
+  const y = v => padT + plotH - (v / top) * plotH;
+
+  let g = '';
+  for (let i = 0; i <= 4; i++) {
+    const v = (top / 4) * i, yy = y(v);
+    g += `<line x1="${padL}" x2="${W}" y1="${yy}" y2="${yy}" stroke="#e6e9eb" stroke-dasharray="4 4"/>`;
+    g += `<text x="${padL - 8}" y="${yy + 4}" font-size="11" fill="#7a8088" text-anchor="end">${v >= 1000 ? (v / 1000) + 'k' : v}</text>`;
+  }
+  MONTHS.forEach((m, i) => {
+    const cx = padL + slot * i + slot / 2;
+    const dim = state.month !== 'all' && state.month !== i ? 0.35 : 1;
+    const bar = (val, x, color, kind) =>
+      `<rect class="bar" data-i="${i}" data-kind="${kind}" x="${x}" y="${y(val)}" width="${bw}" height="${Math.max(0, padT + plotH - y(val))}" rx="4" fill="${color}" opacity="${dim}"/>`;
+    g += bar(fb[i], cx - bw - 2, '#bfb1fa', 'fb') + bar(gg[i], cx + 2, '#8fdcb0', 'gg');
+    g += `<text x="${cx}" y="${H - 8}" font-size="11.5" fill="${state.month === i ? '#1c1f23' : '#7a8088'}" font-weight="${state.month === i ? 800 : 500}" text-anchor="middle">${m}</text>`;
+  });
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  svg.innerHTML = g;
+
+  const tip = document.getElementById('tip'), wrap = document.getElementById('chartWrap');
+  svg.querySelectorAll('.bar').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      const i = +el.dataset.i;
+      tip.innerHTML = `<b>${MONTH_FULL[i]}</b><br>Facebook ${fmtB(fb[i])}<br>Google ${fmtB(gg[i])}`;
+      const r = el.getBoundingClientRect(), wr = wrap.getBoundingClientRect();
+      tip.style.left = ((r.left - wr.left + r.width / 2) / uiScale) + 'px';
+      tip.style.top = ((r.top - wr.top) / uiScale) + 'px';
+      tip.style.opacity = 1;
+    });
+    el.addEventListener('mouseleave', () => { tip.style.opacity = 0; });
+    el.addEventListener('click', () => setMonth(+el.dataset.i));
+  });
+}
+
+function renderTiers() {
+  const hot = scopeVal('hot'), warm = scopeVal('warm'), cool = scopeVal('cool');
+  const total = hot + warm + cool;
+  const pct = n => total ? ((n / total) * 100).toFixed(1) : '0.0';
+  const row = (label, n, color) => `
+    <div class="tier-row"><span>${label}</span>
+      <div class="tier-track"><div class="tier-fill" style="width:${pct(n)}%;background:${color}"></div></div>
+      <div class="num">${fmtN(n)} ราย<small>${pct(n)}%</small></div></div>`;
+  document.getElementById('tier').innerHTML =
+    row('🔥 Hot', hot, 'var(--hot)') + row('🌤️ Warm', warm, 'var(--warm)') + row('❄️ Cool', cool, 'var(--cool)') +
+    `<div class="tier-total"><span>รวมลูกค้าที่คัดกรองแล้ว</span><b>${fmtN(total)} ราย</b></div>`;
+  document.getElementById('tierSub').textContent = periodLabel();
+  document.getElementById('tierNote').textContent = state.scope === 'mayfair'
+    ? 'เพจ Mayfair Market ยังไม่มีแคมเปญทักแชท จึงยังไม่มีการคัดกรองลูกค้า'
+    : 'คัดแยกจากข้อความ Inbox เพจ City Link Condo ตาม Keywords Hot / Warm / Cool';
+}
+
+function renderGa() {
+  document.getElementById('gaStats').innerHTML = GA4.stats.map(s =>
+    `<div class="stat"><div class="t">${s.t}</div><div class="v">${s.v}</div><div class="s">${s.s}</div></div>`).join('');
+  const totalU = GA4.totalUsers; // GA4 de-duplicates users across channels, so channel sums slightly exceed it
+  const maxU = Math.max(...GA4.channels.map(c => c[1]));
+  document.getElementById('gaTable').innerHTML =
+    `<thead><tr><th>ช่องทาง</th><th style="width:38%"></th><th class="r">Users</th><th class="r">สัดส่วน</th><th class="r">Sessions</th></tr></thead><tbody>` +
+    GA4.channels.map(([n, u, s]) => `<tr style="cursor:default"><td>${n}</td><td><div class="ch-bar" style="width:${(u / maxU) * 100}%"></div></td>
+      <td class="r">${u}</td><td class="r">${((u / totalU) * 100).toFixed(1)}%</td><td class="r">${s}</td></tr>`).join('') +
+    `<tr style="cursor:default"><td><b>รวม</b></td><td></td><td class="r"><b>${totalU}</b></td><td class="r"><b>100%</b></td><td class="r"><b>${GA4.totalSessions}</b></td></tr></tbody>`;
+}
+
+// Proportional viewport scaling: keeps exact 1400px desktop layout & aspect ratio on every device
+let uiScale = 1;
+const DESIGN_W = 1400;
+function fitStage() {
+  const stage = document.getElementById('stage'), app = document.getElementById('app');
+  if (!stage || !app) return;
+  const vw = document.documentElement.clientWidth;
+  const pad = vw < 640 ? 6 : vw < 1100 ? 14 : 28;
+  uiScale = Math.min(1, (vw - pad * 2) / DESIGN_W);
+  document.body.style.padding = pad + 'px 0';
+  app.style.transform = uiScale < 1 ? `scale(${uiScale})` : '';
+  stage.style.width = Math.round(DESIGN_W * uiScale) + 'px';
+  stage.style.height = Math.round(app.offsetHeight * uiScale) + 'px';
+}
+
+function render() {
+  const scopeName = { all: 'ทั้ง 2 เพจ', clc: 'City Link Condo', mayfair: 'Mayfair Market' }[state.scope];
+  document.getElementById('title').textContent = state.scope === 'all' ? 'Dashboard ภาพรวม' : 'Dashboard • ' + scopeName;
+  document.getElementById('scopePill').textContent = scopeName;
+  document.getElementById('monthSel').value = String(state.month);
+  renderKpis(); renderChart(); renderTiers();
+  fitStage();
+}
+
+function setMonth(m) { state.month = m; render(); }
+
+function init() {
+  const sel = document.getElementById('monthSel');
+  sel.innerHTML = MONTHS.map((m, i) => `<option value="${i}">${MONTH_FULL[i]} 2569${i === MONTHS.length - 1 ? ' (ล่าสุด)' : ''}</option>`).reverse().join('') +
+    '<option value="all">ทั้งปี 2569 (ม.ค. – พ.ย.)</option>';
+  sel.addEventListener('change', () => setMonth(sel.value === 'all' ? 'all' : +sel.value));
+
+  document.querySelectorAll('#nav button').forEach(btn => btn.addEventListener('click', () => {
+    if (btn.dataset.jump) {
+      document.getElementById(btn.dataset.jump).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+    document.querySelectorAll('#nav button[data-scope]').forEach(b => b.classList.toggle('active', b === btn));
+    state.scope = btn.dataset.scope;
+    render();
+  }));
+  renderGa();
+  render();
+  window.addEventListener('resize', fitStage);
+  if (typeof ResizeObserver !== 'undefined') new ResizeObserver(fitStage).observe(document.getElementById('app'));
+}
+init();
+</script>
+</body>
+</html>
